@@ -176,7 +176,7 @@ const HeroSection = () => {
 
         <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 border-t border-white/20 pt-6 transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
           {[
-            { icon: '🌲', label: 'Hektar Dilindungi', value: '167,286+' },
+            { icon: '🌲', label: 'Hektar Dilindungi', value: '167.437,99+' },
             { icon: '🌱', label: 'Pohon Ditanam', value: '100,000+' },
             { icon: '👨‍👩‍👧‍👦', label: 'Keluarga Diberdayakan', value: '1,500+' },
             { icon: '🌿', label: 'Program Unggulan', value: '12' },

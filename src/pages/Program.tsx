@@ -188,7 +188,7 @@ export const programs = [
         'Edukasi masyarakat tentang bahaya kebakaran',
         'Koordinasi dengan aparat penegak hukum'
       ],
-      impact: 'Telah melindungi 167,286 hektar hutan dan mencegah 50+ kasus kebakaran',
+      impact: 'Telah melindungi 167.437,99 hektar hutan dan mencegah 50+ kasus kebakaran',
       color: 'red',
       category: 'Perlindungan'
     },
@@ -374,7 +374,7 @@ const Program: React.FC = () => {
               
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 {[
-                  { value: '167,286+', label: 'Hektar Dilindungi', color: 'emerald' },
+                  { value: '167.437,99+', label: 'Hektar Dilindungi', color: 'emerald' },
                   { value: '100,000+', label: 'Pohon Ditanam', color: 'green' },
                   { value: '1,500+', label: 'Keluarga Diberdayakan', color: 'teal' },
                   { value: '12', label: 'Program Unggulan', color: 'blue' }

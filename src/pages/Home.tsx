@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, TreePine, Leaf, Users, Target, Shield, Heart } from 'lucide-react';
+import { ArrowRight, ChevronRight, TreePine, Leaf, Users, Target, Shield } from 'lucide-react';
 import images from '../assets/images';
 import HeroSection from '../components/HeroSection';
 
