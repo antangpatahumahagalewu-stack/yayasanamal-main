@@ -106,6 +106,59 @@ const Kemitraan: React.FC = () => {
         </div>
       </section>
 
+      {/* Statistics Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Impact Kemitraan Kami
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Data aktual kerjasama Yayasan dengan Kelompok Perhutanan Sosial di Kalimantan Tengah
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <div className="card p-8 text-center bg-gradient-to-br from-blue-50 to-emerald-50">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Users className="h-10 w-10 text-emerald-600" />
+              </div>
+              <div className="text-5xl font-bold text-gray-900 mb-2">
+                4
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Kelompok PS Ber-PKS</h3>
+              <p className="text-gray-600">
+                Total Kelompok Perhutanan Sosial yang telah memiliki Perjanjian Kerjasama dengan Yayasan
+              </p>
+            </div>
+            
+            <div className="card p-8 text-center bg-gradient-to-br from-emerald-50 to-blue-50">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Leaf className="h-10 w-10 text-emerald-600" />
+              </div>
+              <div className="text-5xl font-bold text-gray-900 mb-2">
+                9,001.5
+                <span className="text-2xl"> ha</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Total Luasan Area</h3>
+              <p className="text-gray-600">
+                Total area kerjasama pengelolaan hutan berbasis masyarakat di Kalimantan Tengah
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-gray-500 text-sm">
+              Data diperbarui secara real-time dari database Supabase. Terakhir diperbarui: {new Date().toLocaleDateString('id-ID', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+              })}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Partner Types */}
       <section className="py-20">
         <div className="container-custom">

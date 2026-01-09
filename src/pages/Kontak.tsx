@@ -36,7 +36,7 @@ const Kontak: React.FC = () => {
       icon: MapPin,
       title: 'Alamat Kantor',
       details: [
-        'Jl. RTA Milono No. 123',
+        'Jl. G. obos No 80',
         'Palangka Raya, 73112',
         'Kalimantan Tengah, Indonesia'
       ]
