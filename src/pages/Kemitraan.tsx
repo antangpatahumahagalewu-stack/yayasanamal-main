@@ -1,81 +1,59 @@
 import React from 'react';
-import { Users, Handshake, Building, GraduationCap, Heart, ArrowRight } from 'lucide-react';
+import { Users, Handshake, ArrowRight, Leaf } from 'lucide-react';
 import images from '../assets/images';
 
 const Kemitraan: React.FC = () => {
   const partnerTypes = [
     {
-      icon: Building,
-      title: 'Korporasi & Perusahaan',
-      description: 'Kemitraan strategis dalam program CSR untuk dampak sosial berkelanjutan',
+      icon: Leaf,
+      title: 'Kerjasama Jasa Lingkungan',
+      description: 'Kemitraan dalam pengelolaan jasa lingkungan untuk kelestarian ekosistem hutan',
       benefits: [
-        'Program CSR terintegrasi dan terukur',
-        'Branding positif perusahaan',
-        'Pelaporan dampak yang transparan',
-        'Keterlibatan karyawan dalam program sosial'
-      ]
-    },
-    {
-      icon: GraduationCap,
-      title: 'Institusi Pendidikan',
-      description: 'Kolaborasi riset, pengembangan kurikulum, dan program beasiswa',
-      benefits: [
-        'Program magang dan penelitian lapangan',
-        'Pengembangan kurikulum sosial',
-        'Beasiswa untuk mahasiswa berprestasi',
-        'Publikasi penelitian bersama'
-      ]
-    },
-    {
-      icon: Heart,
-      title: 'Organisasi Non-Profit',
-      description: 'Sinergi program untuk memperluas jangkauan dan dampak positif',
-      benefits: [
-        'Berbagi sumber daya dan expertise',
-        'Program kolaboratif lintas sektor',
-        'Jaringan organisasi yang kuat',
-        'Optimalisasi biaya operasional'
+        'Pengelolaan sumber daya hutan berkelanjutan',
+        'Konservasi keanekaragaman hayati',
+        'Peningkatan kualitas air dan udara',
+        'Mitigasi perubahan iklim melalui penyerapan karbon'
       ]
     },
     {
       icon: Users,
-      title: 'Komunitas & Individu',
-      description: 'Partisipasi aktif masyarakat dalam program pembangunan sosial',
+      title: 'Pemberdayaan Masyarakat PS',
+      description: 'Program pemberdayaan ekonomi dan sosial masyarakat perhutanan sosial',
       benefits: [
-        'Platform volunteer dan relawan',
-        'Program pengembangan skill',
-        'Networking dengan sesama changemaker',
-        'Kontribusi sesuai kemampuan'
+        'Peningkatan pendapatan masyarakat melalui usaha produktif',
+        'Penguatan kelembagaan kelompok perhutanan sosial',
+        'Pelatihan keterampilan dan kapasitas pengelolaan',
+        'Akses pasar untuk produk hasil hutan bukan kayu'
       ]
     }
   ];
 
   const currentPartners = [
     {
-      name: 'PT. Pembangunan Jaya',
-      type: 'Korporasi',
-      description: 'Kemitraan dalam program pembangunan infrastruktur pendidikan',
+      name: 'Kelompok Perhutanan Sosial Desa Tumbang Anoi',
+      type: 'Kapuas',
+      description: 'Kerjasama jasa lingkungan dan pemberdayaan ekonomi masyarakat melalui pengelolaan hutan desa',
+      duration: '2 tahun',
+      image: images.partnership1
+    },
+    {
+      name: 'Kelompok Perhutanan Sosial Desa Batu Nyiwuh',
+      type: 'Gunung Mas',
+      description: 'Program konservasi keanekaragaman hayati dan pengembangan ekowisata berbasis masyarakat',
+      duration: '1.5 tahun',
+      image: images.partnership2
+    },
+    {
+      name: 'Kelompok Perhutanan Sosial Desa Petak Bahandang',
+      type: 'Katingan',
+      description: 'Pengelolaan hasil hutan bukan kayu dan pelatihan pengolahan produk lokal',
       duration: '3 tahun',
       image: images.partnership1
     },
     {
-      name: 'Universitas Indonesia',
-      type: 'Pendidikan',
-      description: 'Kolaborasi riset dampak sosial dan program community service',
-      duration: '2 tahun',
-      image: images.partnership2
-    },
-    {
-      name: 'Yayasan Harapan Bangsa',
-      type: 'Non-Profit',
-      description: 'Program bersama pemberdayaan ekonomi masyarakat pesisir',
-      duration: '1 tahun',
-      image: images.partnership1
-    },
-    {
-      name: 'Komunitas Volunteer Jakarta',
-      type: 'Komunitas',
-      description: 'Program volunteer untuk kegiatan sosial dan lingkungan',
+      name: 'Kelompok Perhutanan Sosial Desa Bangun Jaya',
+      type: 'Pulang Pisau',
+      description: 'Program restorasi ekosistem dan peningkatan kapasitas kelembagaan kelompok',
       duration: 'Ongoing',
       image: images.partnership2
     }
@@ -84,28 +62,28 @@ const Kemitraan: React.FC = () => {
   const steps = [
     {
       number: '01',
-      title: 'Konsultasi Awal',
-      description: 'Diskusi kebutuhan dan tujuan kemitraan yang ingin dicapai'
+      title: 'Identifikasi Kebutuhan',
+      description: 'Analisis kebutuhan dan potensi Kelompok Perhutanan Sosial melalui assessment lapangan'
     },
     {
       number: '02',
-      title: 'Penyusunan Proposal',
-      description: 'Pembuatan proposal program kemitraan yang detail dan terukur'
+      title: 'Perencanaan Program',
+      description: 'Penyusunan program kemitraan yang sesuai dengan kondisi lokal dan kebutuhan masyarakat'
     },
     {
       number: '03',
-      title: 'Penandatanganan MOU',
-      description: 'Formalisasi kemitraan melalui Memorandum of Understanding'
+      title: 'Penandatanganan Kesepakatan',
+      description: 'Formalisasi kemitraan melalui kesepakatan bersama yang saling menguntungkan'
     },
     {
       number: '04',
-      title: 'Implementasi Program',
-      description: 'Pelaksanaan program kemitraan dengan monitoring berkala'
+      title: 'Implementasi Lapangan',
+      description: 'Pelaksanaan program dengan pendampingan intensif dan partisipasi aktif masyarakat'
     },
     {
       number: '05',
-      title: 'Evaluasi & Laporan',
-      description: 'Penilaian dampak dan penyusunan laporan hasil kemitraan'
+      title: 'Monitoring & Evaluasi',
+      description: 'Pemantauan berkala dan evaluasi dampak program untuk perbaikan berkelanjutan'
     }
   ];
 
@@ -116,11 +94,13 @@ const Kemitraan: React.FC = () => {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Kemitraan Strategis
+              Kemitraan dengan Kelompok Perhutanan Sosial
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Bergabunglah bersama Yayasan AMAL dalam menciptakan dampak positif 
-              yang berkelanjutan melalui kemitraan yang saling menguntungkan.
+              Yayasan Antangpatahu Mahaga Lewu bermitra dengan Kelompok Perhutanan Sosial 
+              di Kalimantan Tengah. Wilayah kerjasama meliputi Kabupaten Kapuas, Gunung Mas, 
+              Katingan, dan Pulang Pisau dengan dua fokus utama: Kerjasama Jasa Lingkungan 
+              dan Pemberdayaan Masyarakat PS.
             </p>
           </div>
         </div>
@@ -131,10 +111,10 @@ const Kemitraan: React.FC = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Jenis Kemitraan
+              Fokus Kemitraan
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Berbagai bentuk kemitraan yang dapat disesuaikan dengan visi dan misi organisasi Anda
+              Dua fokus utama kemitraan kami dengan Kelompok Perhutanan Sosial di Kalimantan Tengah
             </p>
           </div>
           
@@ -170,10 +150,10 @@ const Kemitraan: React.FC = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Mitra Saat Ini
+              Kelompok Perhutanan Sosial Mitra
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Organisasi dan institusi yang telah bergabung dalam program kemitraan dengan Yayasan AMAL
+              Kelompok Perhutanan Sosial yang aktif bermitra dengan Yayasan Antangpatahu Mahaga Lewu di 4 kabupaten wilayah kerja
             </p>
           </div>
           
@@ -189,17 +169,68 @@ const Kemitraan: React.FC = () => {
                 </div>
                 <div className="p-6">
                   <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                    partner.type === 'Korporasi' ? 'bg-blue-100 text-blue-600' :
-                    partner.type === 'Pendidikan' ? 'bg-green-100 text-green-600' :
-                    partner.type === 'Non-Profit' ? 'bg-purple-100 text-purple-600' :
+                    partner.type === 'Kapuas' ? 'bg-blue-100 text-blue-600' :
+                    partner.type === 'Gunung Mas' ? 'bg-green-100 text-green-600' :
+                    partner.type === 'Katingan' ? 'bg-purple-100 text-purple-600' :
                     'bg-orange-100 text-orange-600'
                   }`}>
-                    {partner.type}
+                    Kab. {partner.type}
                   </span>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{partner.name}</h3>
                   <p className="text-gray-600 text-sm mb-3 leading-relaxed">{partner.description}</p>
                   <p className="text-emerald-600 font-medium text-sm">Durasi: {partner.duration}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wilayah Kerjasama */}
+      <section className="py-20">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Wilayah Kerjasama
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              4 kabupaten di Kalimantan Tengah menjadi fokus kemitraan dengan Kelompok Perhutanan Sosial
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                name: 'Kabupaten Kapuas',
+                description: 'Pusat kerjasama jasa lingkungan dengan fokus pengelolaan hutan desa berkelanjutan',
+                color: 'bg-blue-50',
+                textColor: 'text-blue-600'
+              },
+              {
+                name: 'Kabupaten Gunung Mas',
+                description: 'Program konservasi keanekaragaman hayati dan pengembangan ekowisata berbasis masyarakat',
+                color: 'bg-green-50',
+                textColor: 'text-green-600'
+              },
+              {
+                name: 'Kabupaten Katingan',
+                description: 'Pengelolaan hasil hutan bukan kayu dan pemberdayaan ekonomi masyarakat lokal',
+                color: 'bg-purple-50',
+                textColor: 'text-purple-600'
+              },
+              {
+                name: 'Kabupaten Pulang Pisau',
+                description: 'Restorasi ekosistem dan peningkatan kapasitas kelembagaan kelompok perhutanan sosial',
+                color: 'bg-orange-50',
+                textColor: 'text-orange-600'
+              }
+            ].map((region, index) => (
+              <div key={index} className="card p-8 text-center hover:shadow-xl transition-all">
+                <div className={`${region.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6`}>
+                  <div className={`${region.textColor} text-2xl font-bold`}>{index + 1}</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{region.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{region.description}</p>
               </div>
             ))}
           </div>
@@ -214,7 +245,7 @@ const Kemitraan: React.FC = () => {
               Proses Kemitraan
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Langkah-langkah mudah untuk memulai kemitraan strategis dengan Yayasan AMAL
+              Langkah-langkah strategis untuk membangun kemitraan dengan Kelompok Perhutanan Sosial
             </p>
           </div>
           
@@ -245,16 +276,16 @@ const Kemitraan: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Mengapa Bermitra dengan AMAL?
+                Manfaat Kemitraan dengan Kami
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-white/20 p-2 rounded-lg flex-shrink-0">
-                    <Handshake className="h-6 w-6" />
+                    <Leaf className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Transparansi Penuh</h3>
-                    <p className="opacity-90">Pelaporan yang jelas dan akuntabel untuk setiap program kemitraan</p>
+                    <h3 className="text-xl font-semibold mb-2">Kelestarian Lingkungan</h3>
+                    <p className="opacity-90">Program yang mendukung keberlanjutan ekosistem hutan dan jasa lingkungan</p>
                   </div>
                 </div>
                 
@@ -263,18 +294,18 @@ const Kemitraan: React.FC = () => {
                     <Users className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Tim Berpengalaman</h3>
-                    <p className="opacity-90">Didukung oleh profesional dengan 15+ tahun pengalaman</p>
+                    <h3 className="text-xl font-semibold mb-2">Pemberdayaan Masyarakat</h3>
+                    <p className="opacity-90">Peningkatan kapasitas dan ekonomi masyarakat perhutanan sosial secara berkelanjutan</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
                   <div className="bg-white/20 p-2 rounded-lg flex-shrink-0">
-                    <Heart className="h-6 w-6" />
+                    <Handshake className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Dampak Terukur</h3>
-                    <p className="opacity-90">Program dengan indikator keberhasilan yang jelas dan terukur</p>
+                    <h3 className="text-xl font-semibold mb-2">Kerjasama Berbasis Komunitas</h3>
+                    <p className="opacity-90">Pendekatan partisipatif yang melibatkan langsung masyarakat sebagai aktor utama</p>
                   </div>
                 </div>
               </div>
@@ -296,25 +327,25 @@ const Kemitraan: React.FC = () => {
         <div className="container-custom">
           <div className="card p-12 text-center bg-gradient-to-br from-emerald-50 to-blue-50">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Mari Bermitra dengan Kami
+              Bermitra untuk Kelestarian Hutan dan Pemberdayaan Masyarakat
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Hubungi tim kemitraan kami untuk mendiskusikan peluang kolaborasi 
-              yang sesuai dengan visi dan misi organisasi Anda.
+              Bergabunglah dengan Yayasan Antangpatahu Mahaga Lewu dalam membangun kemitraan strategis 
+              dengan Kelompok Perhutanan Sosial di Kalimantan Tengah untuk dampak lingkungan dan sosial yang berkelanjutan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="mailto:partnership@yayasanamal.org" 
                 className="btn-primary inline-flex items-center justify-center"
               >
-                Hubungi Tim Kemitraan
+                Ajukan Kemitraan Perhutanan Sosial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
               <a 
                 href="/kontak" 
                 className="btn-secondary inline-flex items-center justify-center"
               >
-                Info Lebih Lanjut
+                Pelajari Lebih Lanjut
               </a>
             </div>
           </div>
