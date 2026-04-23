@@ -124,7 +124,7 @@ const Kemitraan: React.FC = () => {
                 <Users className="h-10 w-10 text-emerald-600" />
               </div>
               <div className="text-5xl font-bold text-gray-900 mb-2">
-                82
+                91
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Kelompok PS Ber-PKS</h3>
               <p className="text-gray-600">
@@ -137,7 +137,7 @@ const Kemitraan: React.FC = () => {
                 <Leaf className="h-10 w-10 text-emerald-600" />
               </div>
               <div className="text-5xl font-bold text-gray-900 mb-2">
-              167.437,99
+              183.531,99
                 <span className="text-2xl"> ha</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Total Luasan Area</h3>
