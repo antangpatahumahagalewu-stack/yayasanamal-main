@@ -28,18 +28,18 @@ const TentangKami: React.FC = () => {
 
   const team = [
     {
-      name: 'Dr. Ahmad Surya',
+      name: 'Ir. Apep Yusup',
       position: 'Ketua Yayasan',
-      description: '15+ tahun pengalaman di bidang pembangunan sosial'
+      description: '25+ tahun pengalaman di bidang pembangunan sosial'
     },
     {
-      name: 'Siti Nurhaliza, M.Pd',
-      position: 'Direktur Program',
-      description: 'Spesialis pendidikan dan pemberdayaan masyarakat'
+      name: 'Bambang Ralianto, S.Hut',
+      position: 'Sekretaris Yayasan',
+      description: '25+ tahun pengalaman Forestry Expert'
     },
     {
-      name: 'Budi Santoso, S.E',
-      position: 'Direktur Keuangan',
+      name: 'Ryan',
+      position: 'Bendahara Yayasan',
       description: 'Ahli manajemen keuangan dan audit internal'
     }
   ];
