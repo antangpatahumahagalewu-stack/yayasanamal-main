@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-emerald-400" />
-                <p className="text-sm">info@yayasanamal.org</p>
+                <p className="text-sm">info@antang.org</p>
               </div>
             </div>
           </div>
