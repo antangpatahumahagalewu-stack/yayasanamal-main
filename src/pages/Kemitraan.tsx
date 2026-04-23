@@ -137,10 +137,9 @@ const Kemitraan: React.FC = () => {
                 <Leaf className="h-10 w-10 text-emerald-600" />
               </div>
               <div className="text-5xl font-bold text-gray-900 mb-2">
-              183.531,99
-                <span className="text-2xl"> ha</span>
+              183.531,99               
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Total Luasan Area</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Total Hektar Luasan Area</h3>
               <p className="text-gray-600">
                 Total area kerjasama pengelolaan hutan berbasis masyarakat di Kalimantan Tengah
               </p>
