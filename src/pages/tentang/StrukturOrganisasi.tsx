@@ -189,14 +189,11 @@ const StrukturOrganisasi: React.FC = () => {
             {/* Directors Level */}
             <div className="grid md:grid-cols-3 gap-4 mb-8">
               <div className="bg-orange-100 text-orange-800 px-4 py-3 rounded-lg text-center">
-                <h4 className="font-semibold">Direktur Program</h4>
+                <h4 className="font-semibold">Divisi Perencana Program, Implementasi & Monev</h4>
               </div>
               <div className="bg-purple-100 text-purple-800 px-4 py-3 rounded-lg text-center">
-                <h4 className="font-semibold">Direktur Keuangan</h4>
-              </div>
-              <div className="bg-green-100 text-green-800 px-4 py-3 rounded-lg text-center">
-                <h4 className="font-semibold">Direktur R&D</h4>
-              </div>
+                <h4 className="font-semibold">Divisi Adminisrasi & Keuangan</h4>
+              </div>              
             </div>
             
             {/* Departments Level */}
