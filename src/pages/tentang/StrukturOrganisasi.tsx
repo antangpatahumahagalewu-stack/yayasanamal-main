@@ -177,106 +177,109 @@ const StrukturOrganisasi: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-0 select-none">
+          <div className="flex flex-col items-center gap-0 select-none w-full">
 
             {/* ── Level 1 : Dewan Pembina ── */}
             <div className={`${nodeBase} bg-emerald-600 text-white w-64`}>
-              <span className="text-xs font-normal opacity-80 mb-0.5">Level 1</span>
+              <span className="text-xs font-normal opacity-75 mb-0.5">Level 1</span>
               Dewan Pembina
             </div>
-
             <div className="w-0.5 h-8 bg-gray-300" />
 
             {/* ── Level 2 : Ketua Yayasan ── */}
             <div className={`${nodeBase} bg-blue-600 text-white w-64`}>
-              <span className="text-xs font-normal opacity-80 mb-0.5">Level 2</span>
+              <span className="text-xs font-normal opacity-75 mb-0.5">Level 2</span>
               Ketua Yayasan
             </div>
+            <div className="w-0.5 h-8 bg-gray-300" />
 
-            {/* T-connector ke 3 node Level 3 */}
-            <div className="relative flex flex-col items-center w-full max-w-4xl">
-              <div className="w-0.5 h-8 bg-gray-300" />
-              <div className="relative w-full flex items-start justify-center">
-                {/* horizontal bar */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
-
-                <div className="w-full flex justify-between pt-0">
-
-                  {/* Kolom kiri: Sekretaris */}
-                  <div className="flex flex-col items-center w-44">
-                    <div className="w-0.5 h-8 bg-gray-300" />
-                    <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
-                      <span className="text-xs font-normal text-orange-500 mb-0.5">Administrasi</span>
-                      Sekretaris Yayasan
-                    </div>
+            {/* ── Level 3 : Sekretaris · Bendahara · Kepala Kantor ── */}
+            <div className="relative w-full max-w-3xl">
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
+              <div className="flex justify-between w-full">
+                <div className="flex flex-col items-center" style={{ width: '30%' }}>
+                  <div className="w-0.5 h-8 bg-gray-300" />
+                  <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
+                    <span className="text-xs font-normal text-orange-500 mb-0.5">Administrasi</span>
+                    Sekretaris Yayasan
                   </div>
-
-                  {/* Kolom tengah: Bendahara */}
-                  <div className="flex flex-col items-center w-44">
-                    <div className="w-0.5 h-8 bg-gray-300" />
-                    <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
-                      <span className="text-xs font-normal text-orange-500 mb-0.5">Keuangan</span>
-                      Bendahara
-                    </div>
-                  </div>
-
-                  {/* Kolom kanan: Kepala Kantor */}
-                  <div className="flex flex-col items-center w-44">
-                    <div className="w-0.5 h-8 bg-gray-300" />
-                    <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
-                      <span className="text-xs font-normal text-orange-500 mb-0.5">Operasional</span>
-                      Kepala Kantor Palangkaraya
-                    </div>
-
-                    {/* T-connector ke 2 Divisi di bawah Kepala Kantor */}
-                    <div className="w-0.5 h-8 bg-gray-300" />
-                    <div className="relative w-full flex items-start justify-center">
-                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
-                      <div className="w-full flex justify-between pt-0">
-
-                        {/* Divisi Perencana Program */}
-                        <div className="flex flex-col items-center w-20">
-                          <div className="w-0.5 h-8 bg-gray-300" />
-                          <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full text-xs`}>
-                            <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
-                            Perencana Program, Impl &amp; Monev
-                          </div>
-
-                          {/* T-connector ke 4 PIC */}
-                          <div className="w-0.5 h-6 bg-gray-300" />
-                          <div className="relative w-full flex items-start justify-center">
-                            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
-                            <div className="w-full flex justify-between pt-0">
-                              {['Katingan\nOcaY', 'Gn. Mas\nAmbrin', 'Kapuas\nAxel', 'Plg. Pisau\nArjuni'].map((pic, i) => {
-                                const [wilayah, head] = pic.split('\n');
-                                return (
-                                  <div key={i} className="flex flex-col items-center" style={{ width: '22%' }}>
-                                    <div className="w-0.5 h-5 bg-gray-300" />
-                                    <div className="bg-gray-100 border border-gray-200 text-center rounded-lg px-1 py-2 w-full">
-                                      <div className="text-xs font-semibold text-gray-800 leading-tight">{wilayah}</div>
-                                      <div className="text-xs text-gray-500 leading-tight">{head}</div>
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Divisi Admin & Keuangan */}
-                        <div className="flex flex-col items-center w-20">
-                          <div className="w-0.5 h-8 bg-gray-300" />
-                          <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full text-xs`}>
-                            <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
-                            Administrasi &amp; Keuangan
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
+                <div className="flex flex-col items-center" style={{ width: '30%' }}>
+                  <div className="w-0.5 h-8 bg-gray-300" />
+                  <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
+                    <span className="text-xs font-normal text-orange-500 mb-0.5">Keuangan</span>
+                    Bendahara
+                  </div>
+                </div>
+                <div className="flex flex-col items-center" style={{ width: '30%' }}>
+                  <div className="w-0.5 h-8 bg-gray-300" />
+                  <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
+                    <span className="text-xs font-normal text-orange-500 mb-0.5">Operasional</span>
+                    Kepala Kantor Palangkaraya
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* connector turun dari Kepala Kantor (kolom kanan ~83% dari kiri) */}
+            <div className="w-full max-w-3xl flex" style={{ justifyContent: 'flex-end', paddingRight: '5%' }}>
+              <div className="w-0.5 h-10 bg-gray-300" />
+            </div>
+
+            {/* ── Level 4 : 2 Divisi ── */}
+            <div className="relative w-full max-w-2xl">
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
+              <div className="flex justify-between w-full">
+
+                {/* Divisi Perencana Program */}
+                <div className="flex flex-col items-center" style={{ width: '47%' }}>
+                  <div className="w-0.5 h-8 bg-gray-300" />
+                  <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full`}>
+                    <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
+                    Perencana Program, Implementasi &amp; Monev
+                  </div>
+                  <div className="w-0.5 h-8 bg-gray-300" />
+
+                  {/* ── Level 5 : 4 PIC dalam 2×2 grid ── */}
+                  <div className="w-full space-y-3">
+                    {[
+                      [
+                        { wilayah: 'Katingan', head: 'OcaY', team: '5 anggota' },
+                        { wilayah: 'Gunung Mas', head: 'Ambrin, AMD', team: '6 anggota' },
+                      ],
+                      [
+                        { wilayah: 'Kapuas', head: 'Axel', team: '6 anggota' },
+                        { wilayah: 'Pulang Pisau', head: 'Arjuni, ST', team: '6 anggota' },
+                      ],
+                    ].map((row, ri) => (
+                      <div key={ri} className="relative w-full">
+                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
+                        <div className="flex justify-between w-full">
+                          {row.map((pic, ci) => (
+                            <div key={ci} className="flex flex-col items-center" style={{ width: '46%' }}>
+                              <div className="w-0.5 h-6 bg-gray-300" />
+                              <div className="bg-white border border-gray-200 rounded-xl text-center px-4 py-3 w-full shadow-sm">
+                                <div className="text-sm font-semibold text-gray-800">{pic.wilayah}</div>
+                                <div className="text-xs text-emerald-600 font-medium mt-0.5">{pic.head}</div>
+                                <div className="text-xs text-gray-400 mt-0.5">{pic.team}</div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divisi Admin & Keuangan */}
+                <div className="flex flex-col items-center" style={{ width: '47%' }}>
+                  <div className="w-0.5 h-8 bg-gray-300" />
+                  <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full`}>
+                    <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
+                    Administrasi &amp; Keuangan
+                  </div>
+                </div>
+
               </div>
             </div>
 
