@@ -4,60 +4,60 @@ import { Users, Crown, Shield, Briefcase, Heart, Award } from 'lucide-react';
 const StrukturOrganisasi: React.FC = () => {
   const boardMembers = [
     {
-      name: 'Prof. Dr. Bambang Sutrisno',
+      name: 'Miko Duwiter, S.Hut, M.Si',
       position: 'Ketua Dewan Pembina',
-      background: 'Mantan Rektor Universitas Indonesia, Ahli Pembangunan Sosial',
-      experience: '25+ tahun',
+      background: 'Forestry Expert, Ahli Perhutanan Sosial',
+      experience: '20+ tahun',
       icon: Crown
     },
     {
-      name: 'Dr. Sari Indrawati',
-      position: 'Wakil Ketua Dewan Pembina',
-      background: 'Mantan Direktur Jenderal Kementerian Sosial RI',
+      name: 'Joko Listianto, S.Hut',
+      position: 'Anggota Dewan Pembina',
+      background: 'Forestry Expert, Ahli Perhutanan Sosial',
       experience: '20+ tahun',
       icon: Shield
     },
     {
-      name: 'H. Muhammad Yusuf',
+      name: 'Herodes Djaya Prawira Atmaja, S.Hut',
       position: 'Anggota Dewan Pembina',
-      background: 'Tokoh Masyarakat dan Filantropis',
-      experience: '30+ tahun',
+      background: 'Forestry Expert, Ahli Perhutanan Sosial',
+      experience: '20+ tahun',
       icon: Heart
     }
   ];
 
   const executiveTeam = [
     {
-      name: 'Dr. Ahmad Surya',
+      name: 'Ir. Apep Yusup',
       position: 'Ketua Yayasan',
       department: 'Kepemimpinan Strategis',
-      background: 'Ph.D Pembangunan Sosial, Universitas Harvard',
+      background: 'Kandidat Lulusan Terbaik IPB',
       responsibilities: [
         'Kepemimpinan strategis organisasi',
         'Hubungan eksternal dan kemitraan',
         'Pengembangan visi dan misi',
         'Representasi organisasi'
       ],
-      experience: '15+ tahun'
+      experience: '30+ tahun'
     },
     {
-      name: 'Siti Nurhaliza, M.Pd',
-      position: 'Direktur Program',
-      department: 'Program & Operasional',
-      background: 'Master Pendidikan, spesialisasi Community Development',
-      responsibilities: [
-        'Perencanaan dan implementasi program',
-        'Monitoring dan evaluasi',
-        'Koordinasi tim lapangan',
-        'Pengembangan metodologi program'
+      name: 'Bambang Ralianto, S.Hut',
+      position: 'Sekretaris Yayasan',
+      department: 'Administrasi Yayasan',
+      background: 'Forestry Expert, spesialisasi Community Development',
+      responsibilities: [        
+        'Manajemen keuangan organisasi',
+        'Pelaporan keuangan dan audit',
+        'Sistem administrasi',
+        'Compliance dan legal'
       ],
-      experience: '12+ tahun'
+      experience: '30+ tahun'
     },
     {
-      name: 'Budi Santoso, S.E, CPA',
-      position: 'Direktur Keuangan',
-      department: 'Keuangan & Administrasi',
-      background: 'Sarjana Ekonomi, Certified Public Accountant',
+      name: 'Ryan',
+      position: 'Bendahara',
+      department: 'Keuangan',
+      background: 'Sarjana Ekonomi',
       responsibilities: [
         'Manajemen keuangan organisasi',
         'Pelaporan keuangan dan audit',
@@ -67,62 +67,55 @@ const StrukturOrganisasi: React.FC = () => {
       experience: '10+ tahun'
     },
     {
-      name: 'Dr. Rina Kartika',
-      position: 'Direktur Riset & Pengembangan',
-      department: 'Riset & Inovasi',
-      background: 'Ph.D Sosiologi, spesialisasi Social Impact Assessment',
+      name: 'Miko Duwiter, S.Hut, M.Si',
+      position: 'Kepala Kantor Yayasan Palangkaraya',
+      department: 'Lead Operation office',
+      background: 'Forestry Expert, spesialisasi Social Impact Assessment',
       responsibilities: [
-        'Riset dan analisis sosial',
-        'Pengembangan program inovatif',
-        'Evaluasi dampak program',
-        'Publikasi dan dokumentasi'
+        'Operasional Activity'       
       ],
-      experience: '8+ tahun'
+      experience: '20+ tahun'
+    },
+      {
+      name: 'Boby H. Mihing',
+      position: 'Head Perencana Program, Implementasi, & Monev',
+      department: 'Perencana Program, Implementasi, & Monev',
+      background: 'IT',
+      responsibilities: [
+        'Karbon Project Data manager'       
+      ],
+      experience: '15+ tahun'
     }
   ];
 
   const departments = [
     {
-      name: 'Program Pendidikan',
-      head: 'Drs. Agus Wijaya, M.Pd',
-      team: 8,
-      focus: 'Beasiswa, pembangunan sekolah, pelatihan guru',
-      achievements: '500+ beasiswa, 25 sekolah dibangun'
-    },
-    {
-      name: 'Program Lingkungan',
-      head: 'Dr. Maya Sari, M.Si',
-      team: 6,
-      focus: 'Konservasi, penanaman pohon, edukasi lingkungan',
-      achievements: '50,000+ pohon ditanam, 10 spesies dilestarikan'
-    },
-    {
-      name: 'Program Ekonomi',
-      head: 'Ir. Joko Susilo, M.M',
-      team: 7,
-      focus: 'Pemberdayaan UMKM, pelatihan keterampilan',
-      achievements: '2,000+ UMKM diberdayakan, 85% tingkat keberhasilan'
-    },
-    {
-      name: 'Kemitraan & Fundraising',
-      head: 'Lisa Permata, S.Sos',
+      name: 'PIC wilayah katingan',
+      head: 'OcaY',
       team: 5,
-      focus: 'Kemitraan strategis, penggalangan dana',
-      achievements: '50+ mitra aktif, Rp 15M dana terkumpul/tahun'
+      focus: 'Perencana Project Karbon Wilayah Katingan',
+      achievements: '¬'
     },
     {
-      name: 'Komunikasi & Media',
-      head: 'Andi Rahman, S.I.Kom',
-      team: 4,
-      focus: 'Publikasi, media relations, digital marketing',
-      achievements: '100K+ followers, 500+ liputan media'
-    },
-    {
-      name: 'Operasional & Logistik',
-      head: 'Hendra Kusuma, S.T',
+      name: 'PIC wilayah Gunung Mas',
+      head: 'Ambrin, AMD',
       team: 6,
-      focus: 'Operasional harian, logistik program',
-      achievements: '99% efisiensi operasional, 15 provinsi jangkauan'
+      focus: 'Perencana Project Karbon Wilayah Gunung Mas',
+      achievements: '¬'
+    },
+     {
+      name: 'PIC wilayah Kapuas',
+      head: 'Axel',
+      team: 6,
+      focus: 'Perencana Project Karbon Wilayah Kapuas',
+      achievements: '¬'
+    },
+     {
+      name: 'PIC wilayah Pulang Pisau',
+      head: 'Arjuni, ST',
+      team: 6,
+      focus: 'Perencana Project Karbon Wilayah Pulang Pisau',
+      achievements: '¬'
     }
   ];
 
