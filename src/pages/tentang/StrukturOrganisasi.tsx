@@ -31,7 +31,7 @@ const StrukturOrganisasi: React.FC = () => {
       name: 'Ir. Apep Yusup',
       position: 'Ketua Yayasan',
       department: 'Kepemimpinan Strategis',
-      background: 'Kandidat Lulusan Terbaik IPB Fakultas Kehutanan, Ahli perencana kehutanan', 
+      background: 'Kandidat Lulusan Terbaik IPB Fakultas Kehutanan, Ahli perencana kehutanan',
       responsibilities: [
         'Kepemimpinan strategis organisasi',
         'Hubungan eksternal dan kemitraan',
@@ -45,7 +45,7 @@ const StrukturOrganisasi: React.FC = () => {
       position: 'Sekretaris Yayasan',
       department: 'Administrasi Yayasan',
       background: 'Forestry Expert, spesialisasi Community Development',
-      responsibilities: [        
+      responsibilities: [
         'Manajemen keuangan organisasi',
         'Pelaporan keuangan dan audit',
         'Sistem administrasi',
@@ -72,17 +72,17 @@ const StrukturOrganisasi: React.FC = () => {
       department: 'Lead Operation office',
       background: 'Forestry Expert, spesialisasi Social Impact Assessment',
       responsibilities: [
-        'Operasional Activity'       
+        'Operasional Activity'
       ],
       experience: '20+ tahun'
     },
-      {
+    {
       name: 'Boby H. Mihing',
       position: 'Head Perencana Program, Implementasi, & Monev',
       department: 'Perencana Program, Implementasi, & Monev',
       background: 'IT',
       responsibilities: [
-        'Karbon Project Data manager', 'Developer Aplikasi Internal', 'R&D', 'Internal Analis',       
+        'Karbon Project Data manager', 'Developer Aplikasi Internal', 'R&D', 'Internal Analis',
       ],
       experience: '15+ tahun'
     }
@@ -103,14 +103,14 @@ const StrukturOrganisasi: React.FC = () => {
       focus: 'Perencana Project Karbon Wilayah Gunung Mas',
       achievements: '¬'
     },
-     {
+    {
       name: 'PIC wilayah Kapuas',
       head: 'Axel',
       team: 6,
       focus: 'Perencana Project Karbon Wilayah Kapuas',
       achievements: '¬'
     },
-     {
+    {
       name: 'PIC wilayah Pulang Pisau',
       head: 'Arjuni, ST',
       team: 6,
@@ -142,6 +142,10 @@ const StrukturOrganisasi: React.FC = () => {
     }
   ];
 
+  /* ─── ORG CHART NODE STYLES ─── */
+  const nodeBase =
+    'flex flex-col items-center justify-center text-center px-4 py-3 rounded-xl font-medium text-sm leading-tight shadow-sm';
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -152,14 +156,16 @@ const StrukturOrganisasi: React.FC = () => {
               Struktur Organisasi
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Tim profesional dan berpengalaman yang memimpin Yayasan AMAL dalam 
+              Tim profesional dan berpengalaman yang memimpin Yayasan AMAL dalam
               menciptakan dampak positif berkelanjutan di seluruh Indonesia.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Organizational Chart Overview */}
+      {/* ════════════════════════════════════════════
+          BAGAN ORGANISASI — improved layout
+      ════════════════════════════════════════════ */}
       <section className="py-20">
         <div className="container-custom">
           <div className="text-center mb-16">
@@ -170,40 +176,110 @@ const StrukturOrganisasi: React.FC = () => {
               Struktur kepemimpinan yang solid dengan pembagian tanggung jawab yang jelas
             </p>
           </div>
-          
-          <div className="max-w-4xl mx-auto">
-            {/* Dewan Pembina */}
-            <div className="text-center mb-8">
-              <div className="bg-emerald-600 text-white px-6 py-3 rounded-lg inline-block mb-4">
-                <h3 className="font-bold text-lg">Dewan Pembina</h3>
-              </div>
+
+          <div className="flex flex-col items-center gap-0 select-none">
+
+            {/* ── Level 1 : Dewan Pembina ── */}
+            <div className={`${nodeBase} bg-emerald-600 text-white w-64`}>
+              <span className="text-xs font-normal opacity-80 mb-0.5">Level 1</span>
+              Dewan Pembina
             </div>
-            
-            {/* Executive Level */}
-            <div className="text-center mb-8">
-              <div className="bg-blue-600 text-white px-6 py-3 rounded-lg inline-block mb-4">
-                <h3 className="font-bold text-lg">Ketua Yayasan</h3>
-              </div>
+
+            <div className="w-0.5 h-8 bg-gray-300" />
+
+            {/* ── Level 2 : Ketua Yayasan ── */}
+            <div className={`${nodeBase} bg-blue-600 text-white w-64`}>
+              <span className="text-xs font-normal opacity-80 mb-0.5">Level 2</span>
+              Ketua Yayasan
             </div>
-            
-            {/* Directors Level */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-orange-100 text-orange-800 px-4 py-3 rounded-lg text-center">
-                <h4 className="font-semibold">Divisi Perencana Program, Implementasi & Monev</h4>
-              </div>
-              <div className="bg-purple-100 text-purple-800 px-4 py-3 rounded-lg text-center">
-                <h4 className="font-semibold">Divisi Adminisrasi & Keuangan</h4>
-              </div>              
-            </div>
-            
-            {/* Departments Level */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {departments.map((dept, index) => (
-                <div key={index} className="bg-gray-100 text-gray-700 px-3 py-2 rounded text-center text-sm">
-                  {dept.name}
+
+            {/* T-connector ke 3 node Level 3 */}
+            <div className="relative flex flex-col items-center w-full max-w-4xl">
+              <div className="w-0.5 h-8 bg-gray-300" />
+              <div className="relative w-full flex items-start justify-center">
+                {/* horizontal bar */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
+
+                <div className="w-full flex justify-between pt-0">
+
+                  {/* Kolom kiri: Sekretaris */}
+                  <div className="flex flex-col items-center w-44">
+                    <div className="w-0.5 h-8 bg-gray-300" />
+                    <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
+                      <span className="text-xs font-normal text-orange-500 mb-0.5">Administrasi</span>
+                      Sekretaris Yayasan
+                    </div>
+                  </div>
+
+                  {/* Kolom tengah: Bendahara */}
+                  <div className="flex flex-col items-center w-44">
+                    <div className="w-0.5 h-8 bg-gray-300" />
+                    <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
+                      <span className="text-xs font-normal text-orange-500 mb-0.5">Keuangan</span>
+                      Bendahara
+                    </div>
+                  </div>
+
+                  {/* Kolom kanan: Kepala Kantor */}
+                  <div className="flex flex-col items-center w-44">
+                    <div className="w-0.5 h-8 bg-gray-300" />
+                    <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
+                      <span className="text-xs font-normal text-orange-500 mb-0.5">Operasional</span>
+                      Kepala Kantor Palangkaraya
+                    </div>
+
+                    {/* T-connector ke 2 Divisi di bawah Kepala Kantor */}
+                    <div className="w-0.5 h-8 bg-gray-300" />
+                    <div className="relative w-full flex items-start justify-center">
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
+                      <div className="w-full flex justify-between pt-0">
+
+                        {/* Divisi Perencana Program */}
+                        <div className="flex flex-col items-center w-20">
+                          <div className="w-0.5 h-8 bg-gray-300" />
+                          <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full text-xs`}>
+                            <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
+                            Perencana Program, Impl &amp; Monev
+                          </div>
+
+                          {/* T-connector ke 4 PIC */}
+                          <div className="w-0.5 h-6 bg-gray-300" />
+                          <div className="relative w-full flex items-start justify-center">
+                            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
+                            <div className="w-full flex justify-between pt-0">
+                              {['Katingan\nOcaY', 'Gn. Mas\nAmbrin', 'Kapuas\nAxel', 'Plg. Pisau\nArjuni'].map((pic, i) => {
+                                const [wilayah, head] = pic.split('\n');
+                                return (
+                                  <div key={i} className="flex flex-col items-center" style={{ width: '22%' }}>
+                                    <div className="w-0.5 h-5 bg-gray-300" />
+                                    <div className="bg-gray-100 border border-gray-200 text-center rounded-lg px-1 py-2 w-full">
+                                      <div className="text-xs font-semibold text-gray-800 leading-tight">{wilayah}</div>
+                                      <div className="text-xs text-gray-500 leading-tight">{head}</div>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divisi Admin & Keuangan */}
+                        <div className="flex flex-col items-center w-20">
+                          <div className="w-0.5 h-8 bg-gray-300" />
+                          <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full text-xs`}>
+                            <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
+                            Administrasi &amp; Keuangan
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-              ))}
+              </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -219,7 +295,7 @@ const StrukturOrganisasi: React.FC = () => {
               Tokoh-tokoh senior yang memberikan arahan strategis dan pengawasan organisasi
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {boardMembers.map((member, index) => (
               <div key={index} className="card p-8 text-center group hover:shadow-xl transition-shadow">
@@ -249,7 +325,7 @@ const StrukturOrganisasi: React.FC = () => {
               Pemimpin operasional yang menjalankan program dan strategi organisasi
             </p>
           </div>
-          
+
           <div className="space-y-8">
             {executiveTeam.map((member, index) => (
               <div key={index} className="card p-8">
@@ -265,12 +341,12 @@ const StrukturOrganisasi: React.FC = () => {
                       {member.experience}
                     </div>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-3">Latar Belakang:</h4>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.background}</p>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-3">Tanggung Jawab:</h4>
                     <ul className="space-y-2">
@@ -300,7 +376,7 @@ const StrukturOrganisasi: React.FC = () => {
               Unit-unit kerja yang menjalankan program operasional sehari-hari
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {departments.map((dept, index) => (
               <div key={index} className="card p-6 group hover:shadow-lg transition-shadow">
@@ -336,7 +412,7 @@ const StrukturOrganisasi: React.FC = () => {
               Para ahli dan akademisi yang memberikan masukan strategis dan teknis
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advisoryBoard.map((advisor, index) => (
               <div key={index} className="card p-6 text-center group hover:shadow-lg transition-shadow">
@@ -359,18 +435,18 @@ const StrukturOrganisasi: React.FC = () => {
             Bergabung dengan Tim Kami
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Kami selalu mencari talenta terbaik yang memiliki passion untuk 
+            Kami selalu mencari talenta terbaik yang memiliki passion untuk
             menciptakan perubahan positif di Indonesia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/kontak" 
+            <a
+              href="/kontak"
               className="bg-white text-emerald-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Kirim Lamaran
             </a>
-            <a 
-              href="/publikasi/dokumen" 
+            <a
+              href="/publikasi/dokumen"
               className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Lihat Lowongan
