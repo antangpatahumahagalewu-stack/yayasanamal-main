@@ -176,9 +176,9 @@ const HeroSection = () => {
 
         <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 border-t border-white/20 pt-6 transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
           {[
-            { icon: '🌲', label: 'Hektar Dilindungi', value: '167.437,99+' },
+            { icon: '🌲', label: 'Hektar Dilindungi', value: '183.531,99+' },
             { icon: '🌱', label: 'Pohon Ditanam', value: '100,000+' },
-            { icon: '👨‍👩‍👧‍👦', label: 'Keluarga Diberdayakan', value: '1,500+' },
+            { icon: '👨‍👩‍👧‍👦', label: 'Kelompok Perhutanan Sosial', value: '91+' },
             { icon: '🌿', label: 'Program Unggulan', value: '12' },
           ].map((item, i) => (
             <div key={i} className="text-center group hover:scale-110 transition-transform duration-300">
