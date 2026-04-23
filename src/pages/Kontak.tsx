@@ -54,9 +54,9 @@ const Kontak: React.FC = () => {
       icon: Mail,
       title: 'Email',
       details: [
-        'info@yayasanamal.org',
-        'program@yayasanamal.org',
-        'partnership@yayasanamal.org'
+        'info@antang.org',
+        'program@antang.org',
+        'partnership@antang.org'
       ]
     },
     {
@@ -73,22 +73,22 @@ const Kontak: React.FC = () => {
   const departments = [
     {
       name: 'Tim Program',
-      email: 'program@yayasanamal.org',
+      email: 'program@antang.org',
       description: 'Informasi program pendidikan, lingkungan, dan pemberdayaan'
     },
     {
       name: 'Tim Kemitraan',
-      email: 'partnership@yayasanamal.org',
+      email: 'partnership@antang.org',
       description: 'Kerjasama strategis dan program CSR'
     },
     {
       name: 'Tim Donasi',
-      email: 'donasi@yayasanamal.org',
+      email: 'donasi@antang.org',
       description: 'Informasi donasi dan dukungan finansial'
     },
     {
       name: 'Media & Komunikasi',
-      email: 'media@yayasanamal.org',
+      email: 'media@antang.org',
       description: 'Liputan media dan permintaan wawancara'
     }
   ];
