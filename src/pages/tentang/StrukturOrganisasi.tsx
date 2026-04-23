@@ -31,7 +31,7 @@ const StrukturOrganisasi: React.FC = () => {
       name: 'Ir. Apep Yusup',
       position: 'Ketua Yayasan',
       department: 'Kepemimpinan Strategis',
-      background: 'Kandidat Lulusan Terbaik IPB Fakultas Kehutanan','Ahli perencana kehutanan' 
+      background: 'Kandidat Lulusan Terbaik IPB Fakultas Kehutanan','Ahli perencana kehutanan', 
       responsibilities: [
         'Kepemimpinan strategis organisasi',
         'Hubungan eksternal dan kemitraan',
