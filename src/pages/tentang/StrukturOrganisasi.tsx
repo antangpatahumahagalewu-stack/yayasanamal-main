@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Crown, Shield, Briefcase, Heart, Award } from 'lucide-react';
+import { ChevronRight, MapPin, Crown, Shield, Heart, Award } from 'lucide-react';
 
 const StrukturOrganisasi: React.FC = () => {
   const boardMembers = [
@@ -8,21 +8,24 @@ const StrukturOrganisasi: React.FC = () => {
       position: 'Ketua Dewan Pembina',
       background: 'Forestry Expert, Ahli Perhutanan Sosial',
       experience: '20+ tahun',
-      icon: Crown
+      icon: Crown,
+      initials: 'MD'
     },
     {
       name: 'Joko Listianto, S.Hut',
       position: 'Anggota Dewan Pembina',
       background: 'Forestry Expert, Ahli Perhutanan Sosial',
       experience: '20+ tahun',
-      icon: Shield
+      icon: Shield,
+      initials: 'JL'
     },
     {
       name: 'Herodes Djaya Prawira Atmaja, S.Hut',
       position: 'Anggota Dewan Pembina',
       background: 'Forestry Expert, Ahli Perhutanan Sosial',
       experience: '20+ tahun',
-      icon: Heart
+      icon: Heart,
+      initials: 'HD'
     }
   ];
 
@@ -32,236 +35,199 @@ const StrukturOrganisasi: React.FC = () => {
       position: 'Ketua Yayasan',
       department: 'Kepemimpinan Strategis',
       background: 'Kandidat Lulusan Terbaik IPB Fakultas Kehutanan, Ahli perencana kehutanan',
-      responsibilities: [
-        'Kepemimpinan strategis organisasi',
-        'Hubungan eksternal dan kemitraan',
-        'Pengembangan visi dan misi',
-        'Representasi organisasi'
-      ],
-      experience: '30+ tahun'
+      responsibilities: ['Kepemimpinan strategis organisasi', 'Hubungan eksternal dan kemitraan', 'Pengembangan visi dan misi', 'Representasi organisasi'],
+      experience: '30+ tahun',
+      initials: 'AY',
+      color: 'from-emerald-500 to-emerald-700',
+      accent: 'bg-emerald-600'
     },
     {
       name: 'Bambang Ralianto, S.Hut',
       position: 'Sekretaris Yayasan',
       department: 'Administrasi Yayasan',
       background: 'Forestry Expert, spesialisasi Community Development',
-      responsibilities: [
-        'Manajemen keuangan organisasi',
-        'Pelaporan keuangan dan audit',
-        'Sistem administrasi',
-        'Compliance dan legal'
-      ],
-      experience: '30+ tahun'
+      responsibilities: ['Manajemen keuangan organisasi', 'Pelaporan keuangan dan audit', 'Sistem administrasi', 'Compliance dan legal'],
+      experience: '30+ tahun',
+      initials: 'BR',
+      color: 'from-blue-500 to-blue-700',
+      accent: 'bg-blue-600'
     },
     {
       name: 'Riyan Kurniawan',
       position: 'Bendahara',
       department: 'Keuangan',
       background: 'Sarjana Ekonomi',
-      responsibilities: [
-        'Manajemen keuangan organisasi',
-        'Pelaporan keuangan dan audit',
-        'Sistem administrasi',
-        'Compliance dan legal'
-      ],
-      experience: '10+ tahun'
+      responsibilities: ['Manajemen keuangan organisasi', 'Pelaporan keuangan dan audit', 'Sistem administrasi', 'Compliance dan legal'],
+      experience: '10+ tahun',
+      initials: 'RK',
+      color: 'from-teal-500 to-teal-700',
+      accent: 'bg-teal-600'
     },
     {
       name: 'Miko Duwiter, S.Hut, M.Si',
       position: 'Kepala Kantor Yayasan Palangkaraya',
-      department: 'Lead Operation office',
+      department: 'Lead Operation Office',
       background: 'Forestry Expert, spesialisasi Social Impact Assessment',
-      responsibilities: [
-        'Operasional Activity'
-      ],
-      experience: '20+ tahun'
+      responsibilities: ['Operasional Activity'],
+      experience: '20+ tahun',
+      initials: 'MD',
+      color: 'from-orange-500 to-orange-700',
+      accent: 'bg-orange-600'
     },
     {
       name: 'Boby H. Mihing',
       position: 'Head Perencana Program, Implementasi, & Monev',
       department: 'Perencana Program, Implementasi, & Monev',
       background: 'IT',
-      responsibilities: [
-        'Karbon Project Data manager', 'Developer Aplikasi Internal', 'R&D', 'Internal Analis',
-      ],
-      experience: '15+ tahun'
+      responsibilities: ['Karbon Project Data Manager', 'Developer Aplikasi Internal', 'R&D', 'Internal Analis'],
+      experience: '15+ tahun',
+      initials: 'BM',
+      color: 'from-purple-500 to-purple-700',
+      accent: 'bg-purple-600'
     }
   ];
 
   const departments = [
-    {
-      name: 'PIC wilayah katingan',
-      head: 'OcaY',
-      team: 5,
-      focus: 'Perencana Project Karbon Wilayah Katingan',
-      achievements: '¬'
-    },
-    {
-      name: 'PIC wilayah Gunung Mas',
-      head: 'Ambrin, AMD',
-      team: 6,
-      focus: 'Perencana Project Karbon Wilayah Gunung Mas',
-      achievements: '¬'
-    },
-    {
-      name: 'PIC wilayah Kapuas',
-      head: 'Axel',
-      team: 6,
-      focus: 'Perencana Project Karbon Wilayah Kapuas',
-      achievements: '¬'
-    },
-    {
-      name: 'PIC wilayah Pulang Pisau',
-      head: 'Arjuni, ST',
-      team: 6,
-      focus: 'Perencana Project Karbon Wilayah Pulang Pisau',
-      achievements: '¬'
-    }
+    { name: 'PIC Wilayah Katingan', head: 'OcaY', team: 5, focus: 'Perencana Project Karbon Wilayah Katingan', achievements: '¬' },
+    { name: 'PIC Wilayah Gunung Mas', head: 'Ambrin, AMD', team: 6, focus: 'Perencana Project Karbon Wilayah Gunung Mas', achievements: '¬' },
+    { name: 'PIC Wilayah Kapuas', head: 'Axel', team: 6, focus: 'Perencana Project Karbon Wilayah Kapuas', achievements: '¬' },
+    { name: 'PIC Wilayah Pulang Pisau', head: 'Arjuni, ST', team: 6, focus: 'Perencana Project Karbon Wilayah Pulang Pisau', achievements: '¬' }
   ];
 
   const advisoryBoard = [
-    {
-      name: 'Prof. Dr. Ani Soetjipto',
-      expertise: 'Gender & Development',
-      affiliation: 'Universitas Indonesia'
-    },
-    {
-      name: 'Dr. Ir. Hadi Susilo',
-      expertise: 'Environmental Science',
-      affiliation: 'IPB University'
-    },
-    {
-      name: 'Drs. Rudi Hartono, M.A',
-      expertise: 'Community Development',
-      affiliation: 'Praktisi Pembangunan'
-    },
-    {
-      name: 'Dr. Fitri Amalia',
-      expertise: 'Social Entrepreneurship',
-      affiliation: 'Universitas Gadjah Mada'
-    }
+    { name: 'Prof. Dr. Ani Soetjipto', expertise: 'Gender & Development', affiliation: 'Universitas Indonesia', initials: 'AS' },
+    { name: 'Dr. Ir. Hadi Susilo', expertise: 'Environmental Science', affiliation: 'IPB University', initials: 'HS' },
+    { name: 'Drs. Rudi Hartono, M.A', expertise: 'Community Development', affiliation: 'Praktisi Pembangunan', initials: 'RH' },
+    { name: 'Dr. Fitri Amalia', expertise: 'Social Entrepreneurship', affiliation: 'Universitas Gadjah Mada', initials: 'FA' }
   ];
 
-  /* ─── ORG CHART NODE STYLES ─── */
-  const nodeBase =
-    'flex flex-col items-center justify-center text-center px-4 py-3 rounded-xl font-medium text-sm leading-tight shadow-sm';
+  const picList = [
+    { wilayah: 'Katingan', head: 'OcaY', team: '5 anggota' },
+    { wilayah: 'Gunung Mas', head: 'Ambrin, AMD', team: '6 anggota' },
+    { wilayah: 'Kapuas', head: 'Axel', team: '6 anggota' },
+    { wilayah: 'Pulang Pisau', head: 'Arjuni, ST', team: '6 anggota' },
+  ];
+
+  const node = (extra = '') =>
+    `flex flex-col items-center justify-center text-center px-5 py-4 rounded-2xl font-semibold text-sm leading-snug shadow-sm border transition-all duration-200 hover:shadow-md ${extra}`;
+
+  const SectionLabel = ({ text }: { text: string }) => (
+    <div className="flex items-center justify-center gap-3 mb-4">
+      <div className="h-px w-16 bg-emerald-300" />
+      <span className="text-xs font-bold tracking-[0.2em] text-emerald-600 uppercase">{text}</span>
+      <div className="h-px w-16 bg-emerald-300" />
+    </div>
+  );
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
-        <div className="container-custom">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Struktur Organisasi
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Tim profesional dan berpengalaman yang memimpin Yayasan AMAL dalam
-              menciptakan dampak positif berkelanjutan di seluruh Indonesia.
-            </p>
+    <div className="pt-20 bg-white">
+
+      {/* ══ HERO ══ */}
+      <section className="relative overflow-hidden py-28 bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-500">
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-white/5" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-teal-400/10" />
+        <div className="absolute top-12 left-8 w-40 h-40 rounded-full bg-emerald-400/10" />
+
+        <div className="container-custom relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-xs font-bold tracking-[0.2em] uppercase px-5 py-2.5 rounded-full mb-10">
+            <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+            Yayasan AMAL
           </div>
+          <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 leading-[1.05] tracking-tight">
+            Struktur<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-teal-200">
+              Organisasi
+            </span>
+          </h1>
+          <p className="text-lg text-emerald-100/80 max-w-2xl mx-auto leading-relaxed">
+            Tim profesional dan berpengalaman yang memimpin Yayasan AMAL dalam
+            menciptakan dampak positif berkelanjutan di seluruh Indonesia.
+          </p>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          BAGAN ORGANISASI — improved layout
-      ════════════════════════════════════════════ */}
-      <section className="py-20">
+      {/* ══ BAGAN ORGANISASI ══ */}
+      <section className="py-24 bg-slate-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Bagan Organisasi
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <SectionLabel text="Hierarki Organisasi" />
+            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Bagan Organisasi</h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
               Struktur kepemimpinan yang solid dengan pembagian tanggung jawab yang jelas
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-0 select-none w-full">
+          <div className="flex flex-col items-center select-none">
 
-            {/* ── Level 1 : Dewan Pembina ── */}
-            <div className={`${nodeBase} bg-emerald-600 text-white w-64`}>
-              <span className="text-xs font-normal opacity-75 mb-0.5">Level 1</span>
+            {/* L1 */}
+            <div className={node('bg-emerald-700 text-white border-emerald-600 w-72')}>
+              <span className="text-[10px] font-bold opacity-60 tracking-[0.2em] uppercase mb-1">Level 1</span>
               Dewan Pembina
             </div>
-            <div className="w-0.5 h-8 bg-gray-300" />
+            <div className="w-px h-10 bg-gray-300" />
 
-            {/* ── Level 2 : Ketua Yayasan ── */}
-            <div className={`${nodeBase} bg-blue-600 text-white w-64`}>
-              <span className="text-xs font-normal opacity-75 mb-0.5">Level 2</span>
+            {/* L2 */}
+            <div className={node('bg-blue-700 text-white border-blue-600 w-72')}>
+              <span className="text-[10px] font-bold opacity-60 tracking-[0.2em] uppercase mb-1">Level 2</span>
               Ketua Yayasan
             </div>
-            <div className="w-0.5 h-8 bg-gray-300" />
+            <div className="w-px h-10 bg-gray-300" />
 
-            {/* ── Level 3 : Sekretaris · Bendahara · Kepala Kantor ── */}
+            {/* L3 */}
             <div className="relative w-full max-w-3xl">
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
-              <div className="flex justify-between w-full">
-                <div className="flex flex-col items-center" style={{ width: '30%' }}>
-                  <div className="w-0.5 h-8 bg-gray-300" />
-                  <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
-                    <span className="text-xs font-normal text-orange-500 mb-0.5">Administrasi</span>
-                    Sekretaris Yayasan
+              <div className="absolute top-0 left-[16%] right-[16%] h-px bg-gray-300" />
+              <div className="flex justify-between">
+                {[
+                  { label: 'Sekretaris Yayasan', sub: 'Administrasi' },
+                  { label: 'Bendahara', sub: 'Keuangan' },
+                  { label: 'Kepala Kantor Palangkaraya', sub: 'Operasional' },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center" style={{ width: '30%' }}>
+                    <div className="w-px h-10 bg-gray-300" />
+                    <div className={node('bg-white border-orange-200 text-orange-900 w-full hover:border-orange-400')}>
+                      <span className="text-[10px] font-bold text-orange-400 tracking-widest uppercase mb-1">{item.sub}</span>
+                      {item.label}
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col items-center" style={{ width: '30%' }}>
-                  <div className="w-0.5 h-8 bg-gray-300" />
-                  <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
-                    <span className="text-xs font-normal text-orange-500 mb-0.5">Keuangan</span>
-                    Bendahara
-                  </div>
-                </div>
-                <div className="flex flex-col items-center" style={{ width: '30%' }}>
-                  <div className="w-0.5 h-8 bg-gray-300" />
-                  <div className={`${nodeBase} bg-orange-100 text-orange-800 border border-orange-200 w-full`}>
-                    <span className="text-xs font-normal text-orange-500 mb-0.5">Operasional</span>
-                    Kepala Kantor Palangkaraya
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* connector turun dari Kepala Kantor (kolom kanan ~83% dari kiri) */}
-            <div className="w-full max-w-3xl flex" style={{ justifyContent: 'flex-end', paddingRight: '5%' }}>
-              <div className="w-0.5 h-10 bg-gray-300" />
+            {/* stem dari Kepala Kantor */}
+            <div className="w-full max-w-3xl flex justify-end pr-[5%]">
+              <div className="w-px h-10 bg-gray-300" />
             </div>
 
-            {/* ── Level 4 : 2 Divisi ── */}
+            {/* L4: 2 Divisi */}
             <div className="relative w-full max-w-2xl">
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
-              <div className="flex justify-between w-full">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gray-300" />
+              <div className="flex justify-between">
 
-                {/* Divisi Perencana Program */}
+                {/* Divisi Perencana */}
                 <div className="flex flex-col items-center" style={{ width: '47%' }}>
-                  <div className="w-0.5 h-8 bg-gray-300" />
-                  <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full`}>
-                    <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
+                  <div className="w-px h-10 bg-gray-300" />
+                  <div className={node('bg-white border-purple-200 text-purple-900 w-full hover:border-purple-400')}>
+                    <span className="text-[10px] font-bold text-purple-400 tracking-widest uppercase mb-1">Divisi</span>
                     Perencana Program, Implementasi &amp; Monev
                   </div>
-                  <div className="w-0.5 h-8 bg-gray-300" />
+                  <div className="w-px h-10 bg-gray-300" />
 
-                  {/* ── Level 5 : 4 PIC dalam 2×2 grid ── */}
-                  <div className="w-full space-y-3">
-                    {[
-                      [
-                        { wilayah: 'Katingan', head: 'OcaY', team: '5 anggota' },
-                        { wilayah: 'Gunung Mas', head: 'Ambrin, AMD', team: '6 anggota' },
-                      ],
-                      [
-                        { wilayah: 'Kapuas', head: 'Axel', team: '6 anggota' },
-                        { wilayah: 'Pulang Pisau', head: 'Arjuni, ST', team: '6 anggota' },
-                      ],
-                    ].map((row, ri) => (
+                  {/* L5: PIC 2×2 */}
+                  <div className="w-full space-y-4">
+                    {[[0, 1], [2, 3]].map((pair, ri) => (
                       <div key={ri} className="relative w-full">
-                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300" />
-                        <div className="flex justify-between w-full">
-                          {row.map((pic, ci) => (
-                            <div key={ci} className="flex flex-col items-center" style={{ width: '46%' }}>
-                              <div className="w-0.5 h-6 bg-gray-300" />
-                              <div className="bg-white border border-gray-200 rounded-xl text-center px-4 py-3 w-full shadow-sm">
-                                <div className="text-sm font-semibold text-gray-800">{pic.wilayah}</div>
-                                <div className="text-xs text-emerald-600 font-medium mt-0.5">{pic.head}</div>
-                                <div className="text-xs text-gray-400 mt-0.5">{pic.team}</div>
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gray-300" />
+                        <div className="flex justify-between">
+                          {pair.map((idx) => (
+                            <div key={idx} className="flex flex-col items-center" style={{ width: '46%' }}>
+                              <div className="w-px h-8 bg-gray-300" />
+                              <div className="w-full bg-white border border-gray-200 rounded-2xl px-4 py-4 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all duration-200 cursor-default">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <MapPin className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                                  <span className="text-sm font-black text-gray-800">{picList[idx].wilayah}</span>
+                                </div>
+                                <p className="text-xs text-emerald-600 font-bold">{picList[idx].head}</p>
+                                <p className="text-xs text-gray-400 mt-0.5">{picList[idx].team}</p>
                               </div>
                             </div>
                           ))}
@@ -271,44 +237,51 @@ const StrukturOrganisasi: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Divisi Admin & Keuangan */}
+                {/* Divisi Admin */}
                 <div className="flex flex-col items-center" style={{ width: '47%' }}>
-                  <div className="w-0.5 h-8 bg-gray-300" />
-                  <div className={`${nodeBase} bg-purple-100 text-purple-800 border border-purple-200 w-full`}>
-                    <span className="text-xs font-normal text-purple-500 mb-0.5">Divisi</span>
+                  <div className="w-px h-10 bg-gray-300" />
+                  <div className={node('bg-white border-purple-200 text-purple-900 w-full hover:border-purple-400')}>
+                    <span className="text-[10px] font-bold text-purple-400 tracking-widest uppercase mb-1">Divisi</span>
                     Administrasi &amp; Keuangan
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Dewan Pembina */}
-      <section className="py-20 bg-gray-50">
+      {/* ══ DEWAN PEMBINA ══ */}
+      <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Dewan Pembina
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <SectionLabel text="Pengawasan Strategis" />
+            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Dewan Pembina</h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
               Tokoh-tokoh senior yang memberikan arahan strategis dan pengawasan organisasi
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {boardMembers.map((member, index) => (
-              <div key={index} className="card p-8 text-center group hover:shadow-xl transition-shadow">
-                <div className="bg-emerald-100 group-hover:bg-emerald-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors">
-                  <member.icon className="h-10 w-10 text-emerald-600 group-hover:text-white transition-colors" />
+              <div key={index} className="group relative bg-white rounded-3xl border border-gray-100 p-8 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                {/* hover accent */}
+                <div className="absolute inset-x-8 top-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="relative mx-auto mb-6 w-20 h-20">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-100">
+                    <span className="text-white font-black text-2xl">{member.initials}</span>
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white border-2 border-emerald-100 rounded-xl flex items-center justify-center shadow-sm">
+                    <member.icon className="w-4 h-4 text-emerald-600" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-emerald-600 font-medium mb-4">{member.position}</p>
-                <p className="text-gray-600 text-sm mb-3 leading-relaxed">{member.background}</p>
-                <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium inline-block">
+
+                <h3 className="text-lg font-black text-gray-900 mb-1 leading-snug">{member.name}</h3>
+                <p className="text-emerald-600 font-bold text-sm mb-4">{member.position}</p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-5">{member.background}</p>
+                <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-xs font-bold border border-emerald-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   {member.experience} pengalaman
                 </div>
               </div>
@@ -317,49 +290,61 @@ const StrukturOrganisasi: React.FC = () => {
         </div>
       </section>
 
-      {/* Executive Team */}
-      <section className="py-20">
+      {/* ══ TIM EKSEKUTIF ══ */}
+      <section className="py-24 bg-slate-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Tim Eksekutif
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <SectionLabel text="Kepemimpinan Operasional" />
+            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Tim Eksekutif</h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
               Pemimpin operasional yang menjalankan program dan strategi organisasi
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-5">
             {executiveTeam.map((member, index) => (
-              <div key={index} className="card p-8">
-                <div className="grid lg:grid-cols-3 gap-8 items-start">
-                  <div className="text-center lg:text-left">
-                    <div className="w-24 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full mx-auto lg:mx-0 mb-4 flex items-center justify-center">
-                      <Users className="h-12 w-12 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                    <p className="text-emerald-600 font-medium mb-2">{member.position}</p>
-                    <p className="text-gray-500 text-sm mb-3">{member.department}</p>
-                    <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium inline-block">
-                      {member.experience}
-                    </div>
-                  </div>
+              <div key={index} className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="flex">
+                  {/* left accent bar */}
+                  <div className={`w-1.5 bg-gradient-to-b ${member.color} flex-shrink-0`} />
+                  <div className="flex-1 p-7">
+                    <div className="grid lg:grid-cols-3 gap-8 items-start">
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Latar Belakang:</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.background}</p>
-                  </div>
+                      {/* Identity */}
+                      <div className="flex items-start gap-4">
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${member.color} flex items-center justify-center shadow-md flex-shrink-0`}>
+                          <span className="text-white font-black text-lg">{member.initials}</span>
+                        </div>
+                        <div>
+                          <h3 className="text-base font-black text-gray-900 leading-snug">{member.name}</h3>
+                          <p className="text-emerald-600 font-bold text-xs mt-1">{member.position}</p>
+                          <p className="text-gray-400 text-xs">{member.department}</p>
+                          <span className="mt-2 inline-block bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-bold">
+                            {member.experience}
+                          </span>
+                        </div>
+                      </div>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Tanggung Jawab:</h4>
-                    <ul className="space-y-2">
-                      {member.responsibilities.map((resp, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-sm text-gray-600">{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      {/* Background */}
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Latar Belakang</p>
+                        <p className="text-gray-600 text-sm leading-relaxed">{member.background}</p>
+                      </div>
+
+                      {/* Responsibilities */}
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Tanggung Jawab</p>
+                        <ul className="space-y-1.5">
+                          {member.responsibilities.map((resp, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <ChevronRight className="w-3.5 h-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-gray-600">{resp}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
               </div>
@@ -368,35 +353,40 @@ const StrukturOrganisasi: React.FC = () => {
         </div>
       </section>
 
-      {/* Departments */}
-      <section className="py-20 bg-gray-50">
+      {/* ══ DEPARTEMEN ══ */}
+      <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Departemen & Tim
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <SectionLabel text="Unit Wilayah" />
+            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Departemen &amp; Tim</h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
               Unit-unit kerja yang menjalankan program operasional sehari-hari
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {departments.map((dept, index) => (
-              <div key={index} className="card p-6 group hover:shadow-lg transition-shadow">
-                <div className="bg-emerald-100 group-hover:bg-emerald-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors">
-                  <Briefcase className="h-6 w-6 text-emerald-600 group-hover:text-white transition-colors" />
+              <div key={index} className="group relative bg-white rounded-3xl border border-gray-100 p-7 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                {/* bg number */}
+                <div className="absolute -bottom-2 -right-1 text-8xl font-black text-gray-50 leading-none select-none pointer-events-none">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{dept.name}</h3>
-                <p className="text-emerald-600 font-medium text-sm mb-3">{dept.head}</p>
-                <p className="text-gray-600 text-sm mb-3 leading-relaxed">{dept.focus}</p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded">
-                    {dept.team} anggota tim
-                  </span>
-                </div>
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-xs text-gray-500 font-medium mb-1">Pencapaian:</p>
-                  <p className="text-xs text-gray-600">{dept.achievements}</p>
+
+                <div className="relative">
+                  <div className="w-12 h-12 bg-emerald-50 group-hover:bg-emerald-600 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 shadow-sm">
+                    <MapPin className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-black text-gray-900 mb-1 leading-snug">{dept.name}</h3>
+                  <p className="text-emerald-600 font-bold text-sm mb-3">{dept.head}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{dept.focus}</p>
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex -space-x-1.5">
+                      {Array.from({ length: Math.min(dept.team, 5) }).map((_, i) => (
+                        <div key={i} className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-300 to-teal-400 border-2 border-white shadow-sm" />
+                      ))}
+                    </div>
+                    <span className="text-xs text-gray-500 font-bold">{dept.team} anggota</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -404,59 +394,68 @@ const StrukturOrganisasi: React.FC = () => {
         </div>
       </section>
 
-      {/* Advisory Board */}
-      <section className="py-20">
+      {/* ══ DEWAN PENASIHAT ══ */}
+      <section className="py-24 bg-slate-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Dewan Penasihat
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <SectionLabel text="Masukan Ahli" />
+            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Dewan Penasihat</h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
               Para ahli dan akademisi yang memberikan masukan strategis dan teknis
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advisoryBoard.map((advisor, index) => (
-              <div key={index} className="card p-6 text-center group hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 group-hover:bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
-                  <Award className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors" />
+              <div key={index} className="group bg-white rounded-3xl border border-gray-100 p-7 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-700 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-blue-100 group-hover:shadow-blue-200 transition-shadow">
+                  <span className="text-white font-black text-xl">{advisor.initials}</span>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{advisor.name}</h3>
-                <p className="text-blue-600 font-medium text-sm mb-2">{advisor.expertise}</p>
-                <p className="text-gray-600 text-xs">{advisor.affiliation}</p>
+                <h3 className="text-base font-black text-gray-900 mb-1 leading-snug">{advisor.name}</h3>
+                <p className="text-blue-600 font-bold text-xs mb-2">{advisor.expertise}</p>
+                <p className="text-gray-400 text-xs">{advisor.affiliation}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Join Team CTA */}
-      <section className="py-20 bg-emerald-600 text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Bergabung dengan Tim Kami
+      {/* ══ CTA ══ */}
+      <section className="py-28 bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-500 relative overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-teal-300/10" />
+
+        <div className="container-custom text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-bold tracking-[0.2em] uppercase px-5 py-2.5 rounded-full mb-8">
+            Bergabung Bersama Kami
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-5 leading-tight">
+            Jadilah Bagian dari<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-teal-200">
+              Perubahan Positif
+            </span>
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          <p className="text-emerald-100/80 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
             Kami selalu mencari talenta terbaik yang memiliki passion untuk
             menciptakan perubahan positif di Indonesia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/kontak"
-              className="bg-white text-emerald-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="bg-white text-emerald-700 hover:bg-emerald-50 font-black py-4 px-12 rounded-2xl transition-all duration-200 shadow-2xl shadow-black/20 hover:shadow-black/30"
             >
               Kirim Lamaran
             </a>
             <a
               href="/publikasi/dokumen"
-              className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 font-black py-4 px-12 rounded-2xl transition-all duration-200"
             >
               Lihat Lowongan
             </a>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
