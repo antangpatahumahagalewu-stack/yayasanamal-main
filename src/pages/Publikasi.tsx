@@ -1,5 +1,6 @@
 import React from 'react';
 import { Download, Calendar, FileText, BarChart3, BookOpen } from 'lucide-react';
+import CarbonParticles from '../components/CarbonParticles';
 
 const Publikasi: React.FC = () => {
   const publications = [
@@ -104,7 +105,7 @@ const Publikasi: React.FC = () => {
 
   const getTypeColor = (type: string) => {
     const colors = {
-      'Laporan Tahunan': 'bg-emerald-100 text-emerald-600',
+      'Laporan Tahunan': 'bg-emerald-900/50 text-forest-light',
       'Laporan Keuangan': 'bg-blue-100 text-blue-600',
       'Laporan Program': 'bg-purple-100 text-purple-600',
       'Panduan': 'bg-orange-100 text-orange-600',
@@ -112,19 +113,21 @@ const Publikasi: React.FC = () => {
       'Studi Kasus': 'bg-cyan-100 text-cyan-600',
       'Penelitian': 'bg-indigo-100 text-indigo-600'
     };
-    return colors[type as keyof typeof colors] || 'bg-gray-100 text-gray-600';
+    return colors[type as keyof typeof colors] || 'bg-white/10 text-gray-300';
   };
 
   return (
-    <div className="pt-20">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
+      <section className="pt-32 pb-16">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Publikasi & Dokumen
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-gray-400 leading-relaxed">
               Akses laporan, panduan, dan dokumen penting Yayasan AMAL untuk 
               transparansi dan berbagi pengetahuan dengan publik.
             </p>
@@ -136,10 +139,10 @@ const Publikasi: React.FC = () => {
       <section className="py-20">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-4">
               Publikasi Unggulan
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-400">
               Dokumen penting dan laporan terbaru dari Yayasan AMAL
             </p>
           </div>
@@ -148,30 +151,30 @@ const Publikasi: React.FC = () => {
             {featuredPublications.map((publication) => (
               <div key={publication.id} className="card p-8 group hover:shadow-xl transition-shadow">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-emerald-100 p-3 rounded-lg group-hover:bg-emerald-600 transition-colors">
-                    <publication.icon className="h-8 w-8 text-emerald-600 group-hover:text-white transition-colors" />
+                  <div className="bg-emerald-900/50 p-3 rounded-lg group-hover:bg-emerald-600 transition-colors">
+                    <publication.icon className="h-8 w-8 text-forest-light group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-3">
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(publication.type)}`}>
                         {publication.type}
                       </span>
-                      <span className="text-sm text-gray-500 flex items-center">
+                      <span className="text-sm text-white/50 flex items-center">
                         <Calendar className="h-4 w-4 mr-1" />
                         {publication.date}
                       </span>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-forest-light mb-3 group-hover:text-forest-light transition-colors">
                       {publication.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-gray-400 mb-4 leading-relaxed">
                       {publication.description}
                     </p>
                     
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                      <div className="flex items-center space-x-4 text-sm text-white/50">
                         <span>{publication.pages} halaman</span>
                         <span>{publication.size}</span>
                       </div>
@@ -200,7 +203,7 @@ const Publikasi: React.FC = () => {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                   selectedCategory === category
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-white text-gray-600 hover:bg-emerald-100 hover:text-emerald-600 shadow-sm'
+                    : 'bg-white text-gray-400 hover:bg-emerald-900/50 hover:text-forest-light shadow-sm'
                 }`}
               >
                 {category}
@@ -211,13 +214,13 @@ const Publikasi: React.FC = () => {
       </section>
 
       {/* All Publications */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container-custom">
           <div className="mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Semua Publikasi
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-400">
               Koleksi lengkap dokumen dan laporan Yayasan AMAL
             </p>
           </div>
@@ -227,23 +230,23 @@ const Publikasi: React.FC = () => {
               <div key={publication.id} className="card group hover:shadow-lg transition-all">
                 <div className="p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="bg-gray-100 p-2 rounded-lg group-hover:bg-emerald-100 transition-colors">
-                      <publication.icon className="h-6 w-6 text-gray-600 group-hover:text-emerald-600 transition-colors" />
+                    <div className="bg-gray-100 p-2 rounded-lg group-hover:bg-emerald-900/50 transition-colors">
+                      <publication.icon className="h-6 w-6 text-gray-400 group-hover:text-forest-light transition-colors" />
                     </div>
                     <span className={`px-2 py-1 rounded text-xs font-medium ${getTypeColor(publication.type)}`}>
                       {publication.type}
                     </span>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                  <h3 className="text-lg font-bold text-forest-light mb-2 group-hover:text-forest-light transition-colors">
                     {publication.title}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3">
                     {publication.description}
                   </p>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                  <div className="flex items-center justify-between text-sm text-white/50 mb-4">
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-4 w-4" />
                       <span>{publication.date}</span>
@@ -265,7 +268,7 @@ const Publikasi: React.FC = () => {
           
           {filteredPublications.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-600">Tidak ada publikasi dalam kategori ini.</p>
+              <p className="text-xl text-gray-400">Tidak ada publikasi dalam kategori ini.</p>
             </div>
           )}
         </div>
@@ -285,16 +288,17 @@ const Publikasi: React.FC = () => {
             <input
               type="email"
               placeholder="Masukkan email Anda"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+              className="flex-1 px-4 py-3 rounded-lg text-forest-light focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button className="bg-white text-emerald-600 hover:bg-gray-100 font-medium px-6 py-3 rounded-lg transition-colors duration-200">
+            <button className="bg-white/10 backdrop-blur-sm border border-white/10 text-white hover:bg-white/20 font-medium px-6 py-3 rounded-lg transition-colors duration-200">
               Subscribe
             </button>
           </div>
         </div>
-      </section>
-    </div>
-  );
-};
-
-export default Publikasi;
+       </section>
+     </div>
+    </>
+   );
+ };
+ 
+ export default Publikasi;

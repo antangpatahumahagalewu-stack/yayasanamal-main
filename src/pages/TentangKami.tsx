@@ -1,6 +1,10 @@
 import React from 'react';
-import { Users, Target, Eye, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Heart, Users, Leaf, Award, ArrowRight } from 'lucide-react';
 import images from '../assets/images';
+import CarbonParticles from '../components/CarbonParticles';
+
+
 
 const TentangKami: React.FC = () => {
   const values = [
@@ -44,13 +48,15 @@ const TentangKami: React.FC = () => {
     }
   ];
 
-  return (
-    <div className="pt-20">
+   return (
+     <>
+       <CarbonParticles />
+       <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
+      <section className="py-20">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-forest-light mb-6">
               Tentang Yayasan AMAL
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
@@ -67,7 +73,7 @@ const TentangKami: React.FC = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-6">
                 Cerita Kami
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -136,7 +142,7 @@ const TentangKami: React.FC = () => {
       <section className="py-20">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-4">
               Nilai-Nilai Kami
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -150,7 +156,7 @@ const TentangKami: React.FC = () => {
                 <div className="bg-emerald-100 group-hover:bg-emerald-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                   <value.icon className="h-10 w-10 text-emerald-600 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                <h3 className="text-xl font-bold text-forest-light mb-3">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
@@ -162,7 +168,7 @@ const TentangKami: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-4">
               Tim Kepemimpinan
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -176,7 +182,7 @@ const TentangKami: React.FC = () => {
                 <div className="w-24 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Users className="h-12 w-12 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <h3 className="text-xl font-bold text-forest-light mb-2">{member.name}</h3>
                 <p className="text-emerald-600 font-medium mb-3">{member.position}</p>
                 <p className="text-gray-600 text-sm">{member.description}</p>
               </div>
@@ -216,9 +222,10 @@ const TentangKami: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
-  );
-};
-
-export default TentangKami;
+       </section>
+     </div>
+    </>
+   );
+ };
+ 
+ export default TentangKami;

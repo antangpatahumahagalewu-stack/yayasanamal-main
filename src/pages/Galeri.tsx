@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 import images from '../assets/images';
+import CarbonParticles from '../components/CarbonParticles';
 
 const Galeri: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<any>(null);
@@ -110,15 +111,17 @@ const Galeri: React.FC = () => {
   };
 
   return (
-    <div className="pt-20">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
+      <section className="pt-32 pb-16">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Galeri Dokumentasi
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-gray-400 leading-relaxed">
               Dokumentasi kegiatan dan program Yayasan AMAL dalam membangun 
               masa depan berkelanjutan bersama masyarakat Indonesia.
             </p>
@@ -127,7 +130,7 @@ const Galeri: React.FC = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 bg-white sticky top-16 lg:top-20 z-10 border-b">
+      <section className="py-12 sticky top-16 lg:top-20 z-10 border-b">
         <div className="container-custom">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
@@ -137,7 +140,7 @@ const Galeri: React.FC = () => {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                   selectedCategory === category
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-emerald-100 hover:text-emerald-600'
+                    : 'bg-white/10 text-gray-300 hover:bg-emerald-900/50 hover:text-forest-light'
                 }`}
               >
                 {category}
@@ -168,7 +171,7 @@ const Galeri: React.FC = () => {
                   
                   {/* Zoom Icon */}
                   <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ZoomIn className="h-4 w-4 text-gray-700" />
+                    <ZoomIn className="h-4 w-4 text-gray-300" />
                   </div>
                   
                   {/* Category Badge */}
@@ -182,7 +185,7 @@ const Galeri: React.FC = () => {
                       image.category === 'Teknologi' ? 'bg-cyan-100 text-cyan-600' :
                       image.category === 'Pembangunan' ? 'bg-yellow-100 text-yellow-600' :
                       image.category === 'Kegiatan' ? 'bg-pink-100 text-pink-600' :
-                      'bg-gray-100 text-gray-600'
+                      'bg-white/10 text-gray-300'
                     }`}>
                       {image.category}
                     </span>
@@ -200,7 +203,7 @@ const Galeri: React.FC = () => {
           
           {filteredImages.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-600">Tidak ada gambar dalam kategori ini.</p>
+              <p className="text-xl text-gray-400">Tidak ada gambar dalam kategori ini.</p>
             </div>
           )}
         </div>
@@ -246,6 +249,7 @@ const Galeri: React.FC = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -1,9 +1,11 @@
 // App.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
+import useGoogleAnalytics from './hooks/useGoogleAnalytics';
 import Home from './pages/Home';
 import TentangKami from './pages/TentangKami';
 import Program from './pages/Program';
@@ -11,6 +13,9 @@ import Berita from './pages/Berita';
 import Galeri from './pages/Galeri';
 import Publikasi from './pages/Publikasi';
 import Kemitraan from './pages/Kemitraan';
+import Karbon from './pages/Karbon';
+import Hhbk from './pages/Hhbk';
+import ApiEsg from './pages/ApiEsg';
 import Donasi from './pages/Donasi';
 import Kontak from './pages/Kontak';
 import FAQ from './pages/FAQ';
@@ -25,14 +30,17 @@ import VisiMisi from './pages/tentang/VisiMisi';
 import StrukturOrganisasi from './pages/tentang/StrukturOrganisasi';
 import LegalitasPengakuan from './pages/tentang/LegalitasPengakuan';
 
-function App() {
+// Inner component that uses Router hooks
+function AppContent() {
+  useSmoothScroll();
+  useGoogleAnalytics();
+  
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen bg-white">
-        {/* ScrollToTop component - placed inside Router but outside Routes */}
-        <ScrollToTop />
-        
-        <Header />
+    <div className="flex flex-col min-h-screen">
+      {/* ScrollToTop component - placed inside Router but outside Routes */}
+      <ScrollToTop />
+      
+      <Navbar />
         
         <main className="flex-grow">
           <Routes>
@@ -49,6 +57,8 @@ function App() {
             <Route path="/tentang" element={<ProfilYayasan />} />
             
             <Route path="/program" element={<Program />} />
+            <Route path="/program/karbon" element={<Karbon />} />
+            <Route path="/program/hhbk" element={<Hhbk />} />
             
             {/* Publikasi submenu routes */}
             <Route path="/publikasi/dokumen" element={<Publikasi />} />
@@ -65,6 +75,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             
             <Route path="/kemitraan" element={<Kemitraan />} />
+            <Route path="/api-esg" element={<ApiEsg />} />
             <Route path="/donasi" element={<Donasi />} />
             <Route path="/kontak" element={<Kontak />} />
           </Routes>
@@ -72,7 +83,21 @@ function App() {
         
         {/* Footer ditampilkan di semua halaman */}
         <Footer />
-      </div>
+    </div>
+  );
+}
+
+function App() {
+  // Service worker disabled for now - can be re-enabled with proper PWA setup
+  // useEffect(() => {
+  //   if ('serviceWorker' in navigator) {
+  //     navigator.serviceWorker.register('/sw.js').catch(() => {});
+  //   }
+  // }, []);
+  
+  return (
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <AppContent />
     </Router>
   );
 }

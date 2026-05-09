@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Search, HelpCircle, BookOpen, Users, Heart } from 'lucide-react';
+import CarbonParticles from '../components/CarbonParticles';
 
 const FAQ: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -100,15 +101,17 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="pt-20">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
+      <section className="pt-32 pb-16">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-gray-400 leading-relaxed">
               Temukan jawaban atas pertanyaan yang sering diajukan tentang 
               program, donasi, dan kemitraan dengan Yayasan AMAL.
             </p>
@@ -117,7 +120,7 @@ const FAQ: React.FC = () => {
       </section>
 
       {/* Search and Filter */}
-      <section className="py-12 bg-white sticky top-16 lg:top-20 z-10 border-b">
+      <section className="py-12 sticky top-16 lg:top-20 z-10 border-b">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             {/* Search Bar */}
@@ -141,7 +144,7 @@ const FAQ: React.FC = () => {
                   className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                     selectedCategory === category.name
                       ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-emerald-100 hover:text-emerald-600'
+                      : 'bg-white/10 text-gray-300 hover:bg-emerald-900/50 hover:text-forest-light'
                   }`}
                 >
                   <category.icon className="h-4 w-4 mr-2" />
@@ -163,7 +166,7 @@ const FAQ: React.FC = () => {
                   <div key={faq.id} className="card overflow-hidden">
                     <button
                       onClick={() => toggleFAQ(faq.id)}
-                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
                     >
                       <div className="flex-1 pr-4">
                         <div className="flex items-center space-x-3 mb-1">
@@ -175,21 +178,21 @@ const FAQ: React.FC = () => {
                             {faq.category}
                           </span>
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-lg font-semibold text-forest-light">
                           {faq.question}
                         </h3>
                       </div>
                       <ChevronDown 
-                        className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                        className={`h-5 w-5 text-white/50 transition-transform duration-200 ${
                           openFAQ === faq.id ? 'transform rotate-180' : ''
                         }`} 
                       />
                     </button>
                     
                     {openFAQ === faq.id && (
-                      <div className="px-6 pb-6 border-t border-gray-100">
+                      <div className="px-6 pb-6 border-t border-white/10">
                         <div className="pt-4">
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-gray-400 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
@@ -200,13 +203,13 @@ const FAQ: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-20">
-                <div className="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-white/10 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Search className="h-12 w-12 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-forest-light mb-2">
                   Tidak ada hasil ditemukan
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-400 mb-6">
                   Coba gunakan kata kunci lain atau pilih kategori yang berbeda.
                 </p>
                 <button
@@ -237,21 +240,22 @@ const FAQ: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/kontak" 
-              className="bg-white text-emerald-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="bg-white/10 backdrop-blur-sm border border-white/10 text-white hover:bg-white/20 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Hubungi Kami
             </a>
             <a 
               href="mailto:info@yayasanamal.org" 
-              className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="border-2 border-white text-white hover:bg-white hover:text-forest-light font-medium py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Email Langsung
             </a>
           </div>
         </div>
-      </section>
-    </div>
-  );
-};
-
-export default FAQ;
+       </section>
+     </div>
+    </>
+   );
+ };
+ 
+ export default FAQ;

@@ -129,7 +129,7 @@ const Header: React.FC = () => {
                 />
               )}
               <div className="flex-1">
-                <div className="text-base font-semibold leading-none text-gray-900 mb-2 transition-colors duration-200 group-hover:text-emerald-700">
+                <div className="text-base font-semibold leading-none text-forest-light mb-2 transition-colors duration-200 group-hover:text-emerald-700">
                   {title}
                   <div className="h-0.5 bg-emerald-500 w-0 group-hover:w-full transition-all duration-300 ease-out mt-1"></div>
                 </div>
@@ -160,7 +160,7 @@ const Header: React.FC = () => {
   };
 
   const getLogoTextColor = () => {
-    return isAtHero ? 'text-white' : 'text-gray-900';
+    return isAtHero ? 'text-white' : 'text-forest-light';
   };
 
   const getHoverClasses = () => {
@@ -210,7 +210,7 @@ const Header: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className={`text-xl sm:text-2xl lg:text-3xl font-black leading-tight transition-all duration-200 ${getLogoTextColor()}`}>
-                  AMAL
+                  YAMAL
                 </span>
                 <span className={`text-sm sm:text-base block leading-tight transition-all duration-200 font-medium ${isAtHero ? 'text-white/80' : 'text-gray-600'}`}>
                   Yayasan AntangPatahu Mahaga Lewu
@@ -394,7 +394,7 @@ const Header: React.FC = () => {
 
                 {/* Mobile Tentang Submenu */}
                 <div className="space-y-2">
-                  <div className="px-4 py-3 text-lg font-bold text-gray-900">Tentang</div>
+                  <div className="px-4 py-3 text-lg font-bold text-forest-light">Tentang</div>
                   {tentangSubmenu.map((item) => (
                     <Link
                       key={item.path}
@@ -421,7 +421,7 @@ const Header: React.FC = () => {
 
                 {/* Mobile Publikasi Submenu */}
                 <div className="space-y-2">
-                  <div className="px-4 py-3 text-lg font-bold text-gray-900">Publikasi</div>
+                  <div className="px-4 py-3 text-lg font-bold text-forest-light">Publikasi</div>
                   {publikasiSubmenu.map((item) => (
                     <Link
                       key={item.path}

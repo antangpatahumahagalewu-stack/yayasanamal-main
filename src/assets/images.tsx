@@ -8,7 +8,7 @@ export const images = {
   
   // About Images  
   teamPhoto: {
-    src: "https://i.ibb.co/7JbVgpdB/foto1jpg.jpg",
+    src: "/galeri/bestwestern.jpeg",
     alt: "Tim Yayasan AMAL bersama masyarakat dalam kegiatan pemberdayaan"
   },
   

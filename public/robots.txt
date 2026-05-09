@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yayasanamal.org/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all other pages
+Allow: /
+Allow: /tentang/
+Allow: /program
+Allow: /publikasi/
+Allow: /kemitraan
+Allow: /donasi
+Allow: /kontak

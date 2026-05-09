@@ -1,5 +1,6 @@
 import React from 'react';
-import { Shield, Award, FileText, CheckCircle, Calendar, Building } from 'lucide-react';
+import { Shield, Award, FileText, CheckCircle, Calendar, Building, Zap } from 'lucide-react';
+import CarbonParticles from '../../components/CarbonParticles';
 
 const LegalitasPengakuan: React.FC = () => {
   const legalDocuments = [
@@ -161,15 +162,27 @@ const LegalitasPengakuan: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
-        <div className="container-custom">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
+      {/* Hero Section - Enhanced */}
+      <section className="relative pt-32 pb-16">
+        
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Legalitas & Pengakuan
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+              Kredibilitas & Kepercayaan
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
+              Legalitas &<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-emerald-300">
+                Pengakuan
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            
+            <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed animate-fade-in-up font-body">
               Dokumentasi lengkap legalitas, sertifikasi, dan pengakuan yang diperoleh 
               Yayasan AMAL sebagai bukti komitmen terhadap standar tertinggi dalam 
               pengelolaan organisasi dan program.
@@ -178,38 +191,43 @@ const LegalitasPengakuan: React.FC = () => {
         </div>
       </section>
 
-      {/* Legal Documents */}
-      <section className="py-20">
+      {/* Legal Documents - Enhanced */}
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Dokumen Legal
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">Dokumen Legal</span>
+              <div className="section-label-line" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
+              Dasar Hukum
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
               Dokumen resmi yang menjadi dasar hukum operasional Yayasan AMAL
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {legalDocuments.map((doc, index) => (
-              <div key={index} className="card p-6 group hover:shadow-lg transition-shadow">
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-emerald-100 group-hover:bg-emerald-600 p-3 rounded-lg transition-colors">
-                    <FileText className="h-6 w-6 text-emerald-600 group-hover:text-white transition-colors" />
+                  <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <FileText className="h-8 w-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-bold text-gray-900">{doc.type}</h3>
-                      <span className="bg-green-100 text-green-600 px-2 py-1 rounded text-xs font-medium">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-xl font-black text-forest-light">{doc.type}</h3>
+                      <span className="bg-emerald-900/50 text-emerald-300 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200 animate-pulse">
                         {doc.status}
                       </span>
                     </div>
-                    <p className="text-emerald-600 font-medium mb-2">{doc.number}</p>
-                    <div className="space-y-1 text-sm text-gray-600 mb-3">
-                      <p><span className="font-medium">Penerbit:</span> {doc.issuer}</p>
-                      <p><span className="font-medium">Tanggal:</span> {doc.date}</p>
+                    <p className="text-forest-light font-bold text-sm mb-3">{doc.number}</p>
+                    <div className="space-y-1 text-sm text-gray-400 mb-4">
+                      <p><span className="font-bold">Penerbit:</span> {doc.issuer}</p>
+                      <p><span className="font-bold">Tanggal:</span> {doc.date}</p>
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{doc.description}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed font-body">{doc.description}</p>
                   </div>
                 </div>
               </div>
@@ -218,67 +236,77 @@ const LegalitasPengakuan: React.FC = () => {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-20 bg-gray-50">
+      {/* Certifications - Enhanced */}
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Sertifikasi & Akreditasi
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">Sertifikasi</span>
+              <div className="section-label-line" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
+              Sertifikasi
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
               Sertifikat dan akreditasi yang menunjukkan komitmen terhadap standar kualitas internasional
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
-              <div key={index} className="card p-6 text-center group hover:shadow-xl transition-shadow">
-                <div className="bg-blue-100 group-hover:bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
-                  <cert.icon className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors" />
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-700 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <cert.icon className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{cert.title}</h3>
-                <p className="text-blue-600 font-medium text-sm mb-2">{cert.issuer}</p>
-                <div className="flex justify-center space-x-2 text-xs text-gray-500 mb-3">
+                <h3 className="text-lg font-black text-forest-light mb-3">{cert.title}</h3>
+                <p className="text-blue-600 font-bold text-sm mb-3">{cert.issuer}</p>
+                <div className="flex justify-center space-x-2 text-xs text-white/50 mb-4 font-bold">
                   <span>{cert.year}</span>
                   <span>-</span>
                   <span>{cert.validity}</span>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{cert.description}</p>
+                <p className="text-gray-400 text-sm leading-relaxed font-body">{cert.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Awards */}
-      <section className="py-20">
+      {/* Awards - Enhanced */}
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Penghargaan & Prestasi
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">Penghargaan</span>
+              <div className="section-label-line" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
+              Penghargaan
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
               Pengakuan atas kontribusi dan prestasi Yayasan AMAL dalam pembangunan sosial
             </p>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-4">
             {awards.map((award, index) => (
-              <div key={index} className="card p-6">
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start space-x-6">
-                  <div className="bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg font-bold">{award.year}</span>
+                  <div className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-2xl font-black">{award.year}</span>
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-bold text-gray-900">{award.title}</h3>
-                      <div className="bg-emerald-100 p-2 rounded-lg">
-                        <Award className="h-5 w-5 text-emerald-600" />
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-2xl font-black text-forest-light">{award.title}</h3>
+                      <div className="bg-emerald-900/50 p-3 rounded-xl shadow-sm">
+                        <Award className="h-6 w-6 text-forest-light" />
                       </div>
                     </div>
-                    <p className="text-emerald-600 font-medium mb-2">{award.category}</p>
-                    <p className="text-gray-500 text-sm mb-3">{award.issuer}</p>
-                    <p className="text-gray-600 leading-relaxed">{award.description}</p>
+                    <p className="text-forest-light font-bold mb-2">{award.category}</p>
+                    <p className="text-white/50 text-sm mb-3 font-bold">{award.issuer}</p>
+                    <p className="text-gray-400 leading-relaxed font-body">{award.description}</p>
                   </div>
                 </div>
               </div>
@@ -287,34 +315,39 @@ const LegalitasPengakuan: React.FC = () => {
         </div>
       </section>
 
-      {/* Memberships */}
-      <section className="py-20 bg-gray-50">
+      {/* Memberships - Enhanced */}
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Keanggotaan Organisasi
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">Keanggotaan</span>
+              <div className="section-label-line" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
+              Jejak Dampak
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
               Jaringan dan afiliasi dengan organisasi nasional dan internasional
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {memberships.map((membership, index) => (
-              <div key={index} className="card p-6 group hover:shadow-lg transition-shadow">
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-100 group-hover:bg-purple-600 p-3 rounded-lg transition-colors">
-                    <Building className="h-6 w-6 text-purple-600 group-hover:text-white transition-colors" />
+                  <div className="bg-gradient-to-br from-purple-500 to-purple-700 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Building className="h-8 w-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{membership.organization}</h3>
-                    <div className="flex items-center space-x-4 mb-3">
-                      <span className="bg-purple-100 text-purple-600 px-2 py-1 rounded text-sm font-medium">
+                    <h3 className="text-xl font-black text-forest-light mb-3">{membership.organization}</h3>
+                    <div className="flex items-center space-x-4 mb-4">
+                      <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-bold border border-purple-200">
                         {membership.role}
                       </span>
-                      <span className="text-gray-500 text-sm">Sejak {membership.since}</span>
+                      <span className="text-white/50 text-sm font-bold">Sejak {membership.since}</span>
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{membership.description}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed font-body">{membership.description}</p>
                   </div>
                 </div>
               </div>
@@ -323,55 +356,70 @@ const LegalitasPengakuan: React.FC = () => {
         </div>
       </section>
 
-      {/* Compliance */}
-      <section className="py-20">
+      {/* Compliance - Enhanced */}
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Kepatuhan Regulasi
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">Kepatuhan</span>
+              <div className="section-label-line" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
+              Keanggotaan Organisasi
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
               Status kepatuhan terhadap berbagai regulasi dan standar yang berlaku
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {compliance.map((item, index) => (
-              <div key={index} className="card p-6 text-center">
-                <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-6 w-6 text-green-600" />
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.area}</h3>
-                <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium mb-3 inline-block">
+                <h3 className="text-lg font-black text-forest-light mb-4">{item.area}</h3>
+                <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block border border-green-200 animate-pulse">
                   {item.status}
                 </span>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.details}</p>
+                <p className="text-gray-400 text-sm leading-relaxed font-body">{item.details}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact for Verification */}
-      <section className="py-20 bg-emerald-600 text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+      {/* Contact for Verification - Enhanced */}
+      <section className="py-28 bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-600 text-white relative overflow-hidden">
+        {/* Background shapes */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5 animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-teal-300/10 animate-spin-slow" />
+        
+        <div className="container-custom text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
+            <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
             Verifikasi Dokumen
+          </div>
+          
+          <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
+            Transparansi Penuh
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          <p className="text-xl text-emerald-50/90 mb-12 max-w-2xl mx-auto leading-relaxed font-body">
             Untuk verifikasi keaslian dokumen atau informasi lebih lanjut tentang 
             legalitas Yayasan AMAL, silakan hubungi tim kami.
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/kontak" 
-              className="bg-white text-emerald-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="bg-white text-emerald-300 hover:bg-emerald-900/40 font-black py-4 px-12 rounded-2xl transition-all duration-300 shadow-2xl hover:shadow-emerald-500/25 hover:scale-105"
             >
               Hubungi Tim Legal
             </a>
             <a 
               href="/publikasi/dokumen" 
-              className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-emerald-300 font-black py-4 px-12 rounded-2xl transition-all duration-300 hover:scale-105"
             >
               Download Dokumen
             </a>
@@ -379,6 +427,7 @@ const LegalitasPengakuan: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

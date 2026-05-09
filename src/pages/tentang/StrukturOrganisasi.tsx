@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight, MapPin, Crown, Shield, Heart, Award } from 'lucide-react';
+import CarbonParticles from '../../components/CarbonParticles';
 
 const StrukturOrganisasi: React.FC = () => {
   const boardMembers = [
@@ -114,19 +115,18 @@ const StrukturOrganisasi: React.FC = () => {
   const SectionLabel = ({ text }: { text: string }) => (
     <div className="flex items-center justify-center gap-3 mb-4">
       <div className="h-px w-16 bg-emerald-300" />
-      <span className="text-xs font-bold tracking-[0.2em] text-emerald-600 uppercase">{text}</span>
+      <span className="text-xs font-bold tracking-[0.2em] text-forest-light uppercase">{text}</span>
       <div className="h-px w-16 bg-emerald-300" />
     </div>
   );
 
   return (
-    <div className="pt-20 bg-white">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
 
       {/* ══ HERO ══ */}
-      <section className="relative overflow-hidden py-28 bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-500">
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-white/5" />
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-teal-400/10" />
-        <div className="absolute top-12 left-8 w-40 h-40 rounded-full bg-emerald-400/10" />
+      <section className="relative pt-32 pb-16">
 
         <div className="container-custom relative z-10 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-xs font-bold tracking-[0.2em] uppercase px-5 py-2.5 rounded-full mb-10">
@@ -147,12 +147,12 @@ const StrukturOrganisasi: React.FC = () => {
       </section>
 
       {/* ══ BAGAN ORGANISASI ══ */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <SectionLabel text="Hierarki Organisasi" />
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Bagan Organisasi</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Bagan Organisasi</h2>
+            <p className="text-white/50 max-w-xl mx-auto text-sm">
               Struktur kepemimpinan yang solid dengan pembagian tanggung jawab yang jelas
             </p>
           </div>
@@ -224,9 +224,9 @@ const StrukturOrganisasi: React.FC = () => {
                               <div className="w-full bg-white border border-gray-200 rounded-2xl px-4 py-4 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all duration-200 cursor-default">
                                 <div className="flex items-center gap-2 mb-1">
                                   <MapPin className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
-                                  <span className="text-sm font-black text-gray-800">{picList[idx].wilayah}</span>
+                                  <span className="text-sm font-black text-forest-light">{picList[idx].wilayah}</span>
                                 </div>
-                                <p className="text-xs text-emerald-600 font-bold">{picList[idx].head}</p>
+                                <p className="text-xs text-forest-light font-bold">{picList[idx].head}</p>
                                 <p className="text-xs text-gray-400 mt-0.5">{picList[idx].team}</p>
                               </div>
                             </div>
@@ -252,19 +252,19 @@ const StrukturOrganisasi: React.FC = () => {
       </section>
 
       {/* ══ DEWAN PEMBINA ══ */}
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <SectionLabel text="Pengawasan Strategis" />
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Dewan Pembina</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Dewan Pembina</h2>
+            <p className="text-white/50 max-w-xl mx-auto text-sm">
               Tokoh-tokoh senior yang memberikan arahan strategis dan pengawasan organisasi
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {boardMembers.map((member, index) => (
-              <div key={index} className="group relative bg-white rounded-3xl border border-gray-100 p-8 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <div key={index} className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                 {/* hover accent */}
                 <div className="absolute inset-x-8 top-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -273,15 +273,15 @@ const StrukturOrganisasi: React.FC = () => {
                     <span className="text-white font-black text-2xl">{member.initials}</span>
                   </div>
                   <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white border-2 border-emerald-100 rounded-xl flex items-center justify-center shadow-sm">
-                    <member.icon className="w-4 h-4 text-emerald-600" />
+                    <member.icon className="w-4 h-4 text-forest-light" />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-black text-gray-900 mb-1 leading-snug">{member.name}</h3>
-                <p className="text-emerald-600 font-bold text-sm mb-4">{member.position}</p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-5">{member.background}</p>
-                <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-xs font-bold border border-emerald-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <h3 className="text-lg font-black text-forest-light mb-1 leading-snug">{member.name}</h3>
+                <p className="text-forest-light font-bold text-sm mb-4">{member.position}</p>
+                <p className="text-white/50 text-sm leading-relaxed mb-5">{member.background}</p>
+                <div className="inline-flex items-center gap-2 bg-emerald-900/40 text-emerald-300 px-4 py-2 rounded-full text-xs font-bold border border-emerald-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-900/400" />
                   {member.experience} pengalaman
                 </div>
               </div>
@@ -291,19 +291,19 @@ const StrukturOrganisasi: React.FC = () => {
       </section>
 
       {/* ══ TIM EKSEKUTIF ══ */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <SectionLabel text="Kepemimpinan Operasional" />
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Tim Eksekutif</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Tim Eksekutif</h2>
+            <p className="text-white/50 max-w-xl mx-auto text-sm">
               Pemimpin operasional yang menjalankan program dan strategi organisasi
             </p>
           </div>
 
           <div className="space-y-5">
             {executiveTeam.map((member, index) => (
-              <div key={index} className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="flex">
                   {/* left accent bar */}
                   <div className={`w-1.5 bg-gradient-to-b ${member.color} flex-shrink-0`} />
@@ -316,10 +316,10 @@ const StrukturOrganisasi: React.FC = () => {
                           <span className="text-white font-black text-lg">{member.initials}</span>
                         </div>
                         <div>
-                          <h3 className="text-base font-black text-gray-900 leading-snug">{member.name}</h3>
-                          <p className="text-emerald-600 font-bold text-xs mt-1">{member.position}</p>
+                          <h3 className="text-base font-black text-forest-light leading-snug">{member.name}</h3>
+                          <p className="text-forest-light font-bold text-xs mt-1">{member.position}</p>
                           <p className="text-gray-400 text-xs">{member.department}</p>
-                          <span className="mt-2 inline-block bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-bold">
+                          <span className="mt-2 inline-block bg-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-bold">
                             {member.experience}
                           </span>
                         </div>
@@ -328,7 +328,7 @@ const StrukturOrganisasi: React.FC = () => {
                       {/* Background */}
                       <div>
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Latar Belakang</p>
-                        <p className="text-gray-600 text-sm leading-relaxed">{member.background}</p>
+                        <p className="text-gray-400 text-sm leading-relaxed">{member.background}</p>
                       </div>
 
                       {/* Responsibilities */}
@@ -338,7 +338,7 @@ const StrukturOrganisasi: React.FC = () => {
                           {member.responsibilities.map((resp, idx) => (
                             <li key={idx} className="flex items-start gap-2">
                               <ChevronRight className="w-3.5 h-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-sm text-gray-600">{resp}</span>
+                              <span className="text-sm text-gray-400">{resp}</span>
                             </li>
                           ))}
                         </ul>
@@ -354,38 +354,38 @@ const StrukturOrganisasi: React.FC = () => {
       </section>
 
       {/* ══ DEPARTEMEN ══ */}
-      <section className="py-24 bg-white">
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <SectionLabel text="Unit Wilayah" />
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Departemen &amp; Tim</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Departemen &amp; Tim</h2>
+            <p className="text-white/50 max-w-xl mx-auto text-sm">
               Unit-unit kerja yang menjalankan program operasional sehari-hari
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {departments.map((dept, index) => (
-              <div key={index} className="group relative bg-white rounded-3xl border border-gray-100 p-7 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+              <div key={index} className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
                 {/* bg number */}
                 <div className="absolute -bottom-2 -right-1 text-8xl font-black text-gray-50 leading-none select-none pointer-events-none">
                   {String(index + 1).padStart(2, '0')}
                 </div>
 
                 <div className="relative">
-                  <div className="w-12 h-12 bg-emerald-50 group-hover:bg-emerald-600 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 shadow-sm">
-                    <MapPin className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                  <div className="w-12 h-12 bg-emerald-900/40 group-hover:bg-emerald-600 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 shadow-sm">
+                    <MapPin className="w-5 h-5 text-forest-light group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-base font-black text-gray-900 mb-1 leading-snug">{dept.name}</h3>
-                  <p className="text-emerald-600 font-bold text-sm mb-3">{dept.head}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{dept.focus}</p>
+                  <h3 className="text-base font-black text-forest-light mb-1 leading-snug">{dept.name}</h3>
+                  <p className="text-forest-light font-bold text-sm mb-3">{dept.head}</p>
+                  <p className="text-white/50 text-sm leading-relaxed mb-5">{dept.focus}</p>
                   <div className="flex items-center gap-2.5">
                     <div className="flex -space-x-1.5">
                       {Array.from({ length: Math.min(dept.team, 5) }).map((_, i) => (
                         <div key={i} className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-300 to-teal-400 border-2 border-white shadow-sm" />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500 font-bold">{dept.team} anggota</span>
+                    <span className="text-xs text-white/50 font-bold">{dept.team} anggota</span>
                   </div>
                 </div>
               </div>
@@ -395,23 +395,23 @@ const StrukturOrganisasi: React.FC = () => {
       </section>
 
       {/* ══ DEWAN PENASIHAT ══ */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <SectionLabel text="Masukan Ahli" />
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-3">Dewan Penasihat</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Dewan Penasihat</h2>
+            <p className="text-white/50 max-w-xl mx-auto text-sm">
               Para ahli dan akademisi yang memberikan masukan strategis dan teknis
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advisoryBoard.map((advisor, index) => (
-              <div key={index} className="group bg-white rounded-3xl border border-gray-100 p-7 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-700 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-blue-100 group-hover:shadow-blue-200 transition-shadow">
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-700 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-blue-900/20 group-hover:shadow-blue-900/30 transition-shadow">
                   <span className="text-white font-black text-xl">{advisor.initials}</span>
                 </div>
-                <h3 className="text-base font-black text-gray-900 mb-1 leading-snug">{advisor.name}</h3>
+                <h3 className="text-base font-black text-forest-light mb-1 leading-snug">{advisor.name}</h3>
                 <p className="text-blue-600 font-bold text-xs mb-2">{advisor.expertise}</p>
                 <p className="text-gray-400 text-xs">{advisor.affiliation}</p>
               </div>
@@ -442,7 +442,7 @@ const StrukturOrganisasi: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/kontak"
-              className="bg-white text-emerald-700 hover:bg-emerald-50 font-black py-4 px-12 rounded-2xl transition-all duration-200 shadow-2xl shadow-black/20 hover:shadow-black/30"
+              className="bg-white text-emerald-300 hover:bg-emerald-900/40 font-black py-4 px-12 rounded-2xl transition-all duration-200 shadow-2xl shadow-black/20 hover:shadow-black/30"
             >
               Kirim Lamaran
             </a>
@@ -455,8 +455,8 @@ const StrukturOrganisasi: React.FC = () => {
           </div>
         </div>
       </section>
-
     </div>
+    </>
   );
 };
 

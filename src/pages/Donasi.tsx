@@ -1,36 +1,10 @@
-import React, { useState } from 'react';
-import { Heart, Shield, Users, Award, CreditCard, Smartphone, Building2, Check } from 'lucide-react';
+import React from 'react';
+import { Heart, Shield, Users, Award, Check, Building2 } from 'lucide-react';
+import DonationForm from '../components/DonationForm';
+import CarbonParticles from '../components/CarbonParticles';
+
 
 const Donasi: React.FC = () => {
-  const [selectedAmount, setSelectedAmount] = useState('');
-  const [customAmount, setCustomAmount] = useState('');
-  const [donationType, setDonationType] = useState('sekali');
-  const [selectedProgram, setSelectedProgram] = useState('umum');
-
-  const predefinedAmounts = [
-    { value: '50000', label: 'Rp 50.000' },
-    { value: '100000', label: 'Rp 100.000' },
-    { value: '250000', label: 'Rp 250.000' },
-    { value: '500000', label: 'Rp 500.000' },
-    { value: '1000000', label: 'Rp 1.000.000' },
-    { value: 'custom', label: 'Jumlah Lain' }
-  ];
-
-  const programs = [
-    { value: 'umum', label: 'Dana Umum (Fleksibel)', description: 'Untuk kebutuhan program yang paling mendesak' },
-    { value: 'pendidikan', label: 'Program Pendidikan', description: 'Beasiswa dan pembangunan fasilitas pendidikan' },
-    { value: 'lingkungan', label: 'Program Lingkungan', description: 'Penanaman pohon dan konservasi alam' },
-    { value: 'ekonomi', label: 'Pemberdayaan Ekonomi', description: 'Pelatihan dan bantuan modal UMKM' },
-    { value: 'kesehatan', label: 'Program Kesehatan', description: 'Layanan kesehatan masyarakat' },
-    { value: 'darurat', label: 'Dana Darurat', description: 'Bantuan bencana dan keadaan mendesak' }
-  ];
-
-  const paymentMethods = [
-    { id: 'bank', icon: Building2, name: 'Transfer Bank', description: 'BCA, BNI, BRI, Mandiri' },
-    { id: 'ewallet', icon: Smartphone, name: 'E-Wallet', description: 'GoPay, OVO, Dana, LinkAja' },
-    { id: 'card', icon: CreditCard, name: 'Kartu Kredit/Debit', description: 'Visa, Mastercard' }
-  ];
-
   const impactExamples = [
     { amount: 'Rp 50.000', impact: 'Menyediakan buku pelajaran untuk 1 anak selama 1 bulan' },
     { amount: 'Rp 100.000', impact: 'Membiayai makan siang 20 anak di program pendidikan' },
@@ -63,230 +37,120 @@ const Donasi: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
-        <div className="container-custom">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
+      {/* Hero Section - Enhanced */}
+      <section className="relative pt-32 pb-16">
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Berdonasi untuk Masa Depan
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+              Berdonasi
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
+              Berdonasi untuk<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-emerald-300">
+                Masa Depan
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+            
+            <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed mb-12 animate-fade-in-up font-body">
               Setiap kontribusi Anda, sekecil apapun, akan memberikan dampak besar 
               bagi ribuan penerima manfaat di seluruh Indonesia.
             </p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold text-emerald-600">10,000+</h3>
-                <p className="text-sm text-gray-600">Penerima Manfaat</p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold text-blue-600">500+</h3>
-                <p className="text-sm text-gray-600">Beasiswa Diberikan</p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold text-green-600">50,000+</h3>
-                <p className="text-sm text-gray-600">Pohon Ditanam</p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold text-orange-600">100+</h3>
-                <p className="text-sm text-gray-600">Program Selesai</p>
-              </div>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { value: '10,000+', label: 'Penerima Manfaat', color: 'from-emerald-500 to-teal-600' },
+                { value: '500+', label: 'Beasiswa Diberikan', color: 'from-blue-500 to-blue-700' },
+                { value: '50,000+', label: 'Pohon Ditanam', color: 'from-green-500 to-emerald-600' },
+                { value: '100+', label: 'Program Selesai', color: 'from-orange-500 to-orange-700' }
+              ].map((stat, idx) => (
+                <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all duration-300">
+                  <h3 className={`text-3xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
+                    {stat.value}
+                  </h3>
+                  <p className="text-sm text-emerald-50 font-body">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Donation Form */}
-      <section className="py-20">
-        <div className="container-custom">
+      {/* Donation Form & Info - Enhanced */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Form */}
             <div className="lg:col-span-2">
-              <div className="card p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-lg">
+                <h2 className="text-3xl lg:text-4xl font-black text-white mb-8">
                   Form Donasi
                 </h2>
-                
-                {/* Donation Type */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Jenis Donasi</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <button
-                      onClick={() => setDonationType('sekali')}
-                      className={`p-4 rounded-lg border-2 transition-all ${
-                        donationType === 'sekali' 
-                          ? 'border-emerald-500 bg-emerald-50 text-emerald-700' 
-                          : 'border-gray-200 hover:border-emerald-300'
-                      }`}
-                    >
-                      <h4 className="font-semibold">Donasi Sekali</h4>
-                      <p className="text-sm text-gray-600">Kontribusi satu kali</p>
-                    </button>
-                    <button
-                      onClick={() => setDonationType('rutin')}
-                      className={`p-4 rounded-lg border-2 transition-all ${
-                        donationType === 'rutin' 
-                          ? 'border-emerald-500 bg-emerald-50 text-emerald-700' 
-                          : 'border-gray-200 hover:border-emerald-300'
-                      }`}
-                    >
-                      <h4 className="font-semibold">Donasi Rutin</h4>
-                      <p className="text-sm text-gray-600">Bulanan/berkala</p>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Program Selection */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Pilih Program</h3>
-                  <div className="space-y-3">
-                    {programs.map((program) => (
-                      <label key={program.value} className="flex items-start space-x-3 cursor-pointer">
-                        <input
-                          type="radio"
-                          name="program"
-                          value={program.value}
-                          checked={selectedProgram === program.value}
-                          onChange={(e) => setSelectedProgram(e.target.value)}
-                          className="mt-1 w-4 h-4 text-emerald-600 focus:ring-emerald-500"
-                        />
-                        <div className="flex-1">
-                          <h4 className="font-medium text-gray-900">{program.label}</h4>
-                          <p className="text-sm text-gray-600">{program.description}</p>
-                        </div>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Amount Selection */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Jumlah Donasi</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-                    {predefinedAmounts.map((amount) => (
-                      <button
-                        key={amount.value}
-                        onClick={() => {
-                          setSelectedAmount(amount.value);
-                          if (amount.value !== 'custom') setCustomAmount('');
-                        }}
-                        className={`p-3 rounded-lg border-2 text-center transition-all ${
-                          selectedAmount === amount.value
-                            ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
-                            : 'border-gray-200 hover:border-emerald-300'
-                        }`}
-                      >
-                        {amount.label}
-                      </button>
-                    ))}
-                  </div>
-                  
-                  {selectedAmount === 'custom' && (
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Jumlah Donasi (Rp)
-                      </label>
-                      <input
-                        type="number"
-                        value={customAmount}
-                        onChange={(e) => setCustomAmount(e.target.value)}
-                        placeholder="Masukkan jumlah"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                      />
-                    </div>
-                  )}
-                </div>
-
-                {/* Payment Methods */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Metode Pembayaran</h3>
-                  <div className="space-y-3">
-                    {paymentMethods.map((method) => (
-                      <div key={method.id} className="border border-gray-200 rounded-lg p-4 hover:border-emerald-300 transition-colors">
-                        <div className="flex items-center space-x-3">
-                          <method.icon className="h-6 w-6 text-gray-600" />
-                          <div>
-                            <h4 className="font-medium text-gray-900">{method.name}</h4>
-                            <p className="text-sm text-gray-600">{method.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Donate Button */}
-                <button className="w-full btn-primary text-lg py-4">
-                  <Heart className="h-5 w-5 mr-2" />
-                  Donasi Sekarang
-                </button>
-                
-                <p className="text-sm text-gray-500 text-center mt-4">
-                  Donasi Anda aman dan terenkripsi. Akan menerima tanda terima donasi untuk keperluan pajak.
-                </p>
+                <DonationForm />
               </div>
             </div>
 
-            {/* Impact & Info */}
-            <div className="space-y-8">
-              {/* Impact Examples */}
-              <div className="card p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="space-y-6">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-lg">
+                <h3 className="text-xl font-black text-white mb-6">
                   Dampak Donasi Anda
                 </h3>
                 <div className="space-y-4">
                   {impactExamples.map((example, index) => (
-                    <div key={index} className="border-l-4 border-emerald-500 pl-4">
-                      <h4 className="font-semibold text-emerald-600">{example.amount}</h4>
-                      <p className="text-sm text-gray-600">{example.impact}</p>
+                    <div key={index} className="flex items-start space-x-4 group">
+                      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-white font-bold text-sm">{index + 1}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-forest-light">{example.amount}</h4>
+                        <p className="text-sm text-gray-400 font-body">{example.impact}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Why Donate */}
-              <div className="card p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-lg">
+                <h3 className="text-xl font-black text-white mb-6">
                   Mengapa Berdonasi ke AMAL?
                 </h3>
                 <div className="space-y-4">
                   {whyDonate.map((reason, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="bg-emerald-100 p-2 rounded-lg flex-shrink-0">
-                        <reason.icon className="h-4 w-4 text-emerald-600" />
+                    <div key={index} className="flex items-start space-x-3 group">
+                      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-2 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <reason.icon className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 text-sm">{reason.title}</h4>
-                        <p className="text-xs text-gray-600">{reason.description}</p>
+                        <h4 className="font-bold text-white text-sm">{reason.title}</h4>
+                        <p className="text-xs text-gray-400 font-body">{reason.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="card p-6 bg-gradient-to-br from-emerald-50 to-blue-50">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <div className="bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-600 p-8 rounded-3xl text-white">
+                <h3 className="text-lg font-black mb-6">
                   Kepercayaan & Keamanan
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span className="text-sm text-gray-700">Lembaga resmi berizin</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span className="text-sm text-gray-700">Laporan keuangan auditan</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span className="text-sm text-gray-700">Pembayaran aman & terenkripsi</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span className="text-sm text-gray-700">Tax deductible donation</span>
-                  </div>
+                  {[
+                    'Lembaga resmi berizin',
+                    'Laporan keuangan auditan',
+                    'Pembayaran aman & terenkripsi',
+                    'Tax deductible donation'
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center space-x-3">
+                      <div className="bg-white/20 p-1.5 rounded-lg">
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                      <span className="text-sm font-body">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -294,67 +158,51 @@ const Donasi: React.FC = () => {
         </div>
       </section>
 
-      {/* Other Ways to Help */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+      {/* Other Ways to Help - Enhanced */}
+      <section className="py-24 bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-600 text-white relative overflow-hidden">
+        {/* Background shapes */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5 animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-teal-300/10 animate-spin-slow" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+              Cara Lain Membantu
+            </div>
+            
+            <h2 className="text-4xl lg:text-5xl font-black mb-6">
               Cara Lain Membantu
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-emerald-50/90 max-w-2xl mx-auto leading-relaxed font-body">
               Selain donasi uang, ada berbagai cara lain untuk berkontribusi
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="card p-6 text-center group hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
-                <Users className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Users, title: 'Volunteer', desc: 'Sumbangkan waktu dan keahlian Anda', color: 'from-blue-500 to-blue-700' },
+              { icon: Building2, title: 'Donasi Barang', desc: 'Sumbangkan barang yang dibutuhkan', color: 'from-green-500 to-emerald-600' },
+              { icon: Heart, title: 'Kemitraan', desc: 'Bermitra dalam program CSR', color: 'from-purple-500 to-purple-700' },
+              { icon: Award, title: 'Sebarkan', desc: 'Bagikan informasi ke jaringan Anda', color: 'from-orange-500 to-orange-700' }
+            ].map((item, idx) => (
+              <div key={idx} className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
+                <div className={`bg-gradient-to-br ${item.color} w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-lg font-black text-white mb-3">{item.title}</h3>
+                <p className="text-emerald-50 text-sm mb-6 font-body">{item.desc}</p>
+                <button className="bg-white text-emerald-300 hover:bg-emerald-900/40 font-bold py-3 px-6 rounded-xl transition-all duration-300 w-full">
+                  Pelajari Lebih Lanjut
+                </button>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Volunteer</h3>
-              <p className="text-gray-600 text-sm mb-4">Sumbangkan waktu dan keahlian Anda</p>
-              <button className="text-blue-600 font-medium text-sm hover:text-blue-700">
-                Daftar Volunteer
-              </button>
-            </div>
-            
-            <div className="card p-6 text-center group hover:shadow-xl transition-shadow">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-600 transition-colors">
-                <Building2 className="h-8 w-8 text-green-600 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Donasi Barang</h3>
-              <p className="text-gray-600 text-sm mb-4">Sumbangkan barang yang dibutuhkan</p>
-              <button className="text-green-600 font-medium text-sm hover:text-green-700">
-                Info Donasi Barang
-              </button>
-            </div>
-            
-            <div className="card p-6 text-center group hover:shadow-xl transition-shadow">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-600 transition-colors">
-                <Heart className="h-8 w-8 text-purple-600 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Kemitraan</h3>
-              <p className="text-gray-600 text-sm mb-4">Bermitra dalam program CSR</p>
-              <button className="text-purple-600 font-medium text-sm hover:text-purple-700">
-                Jadi Mitra
-              </button>
-            </div>
-            
-            <div className="card p-6 text-center group hover:shadow-xl transition-shadow">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-colors">
-                <Award className="h-8 w-8 text-orange-600 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Sebarkan</h3>
-              <p className="text-gray-600 text-sm mb-4">Bagikan informasi ke jaringan Anda</p>
-              <button className="text-orange-600 font-medium text-sm hover:text-orange-700">
-                Share Program
-              </button>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
-    </div>
-  );
-};
-
-export default Donasi;
+       </section>
+     </div>
+    </>
+   );
+ };
+ 
+ export default Donasi;

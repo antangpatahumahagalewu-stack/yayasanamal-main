@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import images from '../assets/images';
+import CarbonParticles from '../components/CarbonParticles';
+
 
 // ✅ DATA: Berita lainnya
 export const news = [
@@ -81,12 +83,14 @@ const Berita: React.FC = () => {
     : news.filter(item => item.category === selectedCategory);
 
   return (
-    <div className="pt-20">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
+      <section className="pt-32 pb-16">
         <div className="container-custom text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Berita & Update</h1>
-          <p className="text-xl text-gray-600 leading-relaxed">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Berita & Update</h1>
+          <p className="text-xl text-gray-400 leading-relaxed">
             Ikuti perkembangan terbaru program dan kegiatan Yayasan AMAL dalam membangun Indonesia yang berkelanjutan.
           </p>
         </div>
@@ -109,7 +113,7 @@ const Berita: React.FC = () => {
               </div>
             </div>
             <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+              <div className="flex items-center space-x-4 text-sm text-white/50 mb-4">
                 <div className="flex items-center space-x-1">
                   <Calendar className="h-4 w-4" />
                   <span>{featuredNews.date}</span>
@@ -123,15 +127,15 @@ const Berita: React.FC = () => {
                 </span>
               </div>
 
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-4">
                 {featuredNews.title}
               </h2>
 
-              <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              <p className="text-lg text-gray-400 mb-4 leading-relaxed">
                 {featuredNews.excerpt}
               </p>
 
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 {featuredNews.content}
               </p>
 
@@ -158,7 +162,7 @@ const Berita: React.FC = () => {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                   selectedCategory === category
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-emerald-100 hover:text-emerald-600'
+                    : 'bg-white/10 text-gray-300 hover:bg-emerald-900/50 hover:text-forest-light'
                 }`}
               >
                 {category}
@@ -194,7 +198,7 @@ const Berita: React.FC = () => {
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
+                  <div className="flex items-center space-x-4 text-sm text-white/50 mb-3">
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-4 w-4" />
                       <span>{article.date}</span>
@@ -205,17 +209,17 @@ const Berita: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                  <h3 className="text-xl font-bold text-forest-light mb-3 group-hover:text-forest-light transition-colors">
                     {article.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-400 mb-4 leading-relaxed">
                     {article.excerpt}
                   </p>
 
                   <Link 
                     to={`/publikasi/berita/${article.id}`}
-                    className="text-emerald-600 font-medium inline-flex items-center hover:text-emerald-700 transition-colors"
+                    className="text-forest-light font-medium inline-flex items-center hover:text-emerald-300 transition-colors"
                   >
                     Baca Selengkapnya
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -240,15 +244,16 @@ const Berita: React.FC = () => {
             <input
               type="email"
               placeholder="Masukkan email Anda"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+              className="flex-1 px-4 py-3 rounded-lg text-forest-light focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button className="bg-white text-emerald-600 hover:bg-gray-100 font-medium px-6 py-3 rounded-lg transition-colors duration-200">
+            <button className="bg-white/10 backdrop-blur-sm border border-white/10 text-white hover:bg-white/20 font-medium px-6 py-3 rounded-lg transition-colors duration-200">
               Subscribe
             </button>
           </div>
         </div>
       </section>
     </div>
+    </>
   );
 };
 

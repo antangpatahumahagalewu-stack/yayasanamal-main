@@ -15,10 +15,20 @@ export default {
           700: '#047857',
           800: '#065f46',
           900: '#064e3b',
-        }
+        },
+        'forest-deep':  '#0D2318',
+        'forest-dark':  '#1A3D27',
+        'forest-mid':   '#2D6A4F',
+        'forest-green': '#52B788',
+        'forest-light': '#95D5B2',
+        'peat':         '#3D2B1F',
+        'gold':         '#E8C547',
+        'cream':        '#FAF7F0',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
+        body: ['Poppins', 'sans-serif'],
       },
       spacing: {
         '18': '4.5rem',

@@ -1,185 +1,162 @@
 import React from 'react';
-import { Calendar, MapPin, Users, Award } from 'lucide-react';
+import { Calendar, MapPin, Leaf, Handshake, Zap } from 'lucide-react';
 import images from '../../assets/images';
+import CarbonParticles from '../../components/CarbonParticles';
+
 
 const SejarahLatarBelakang: React.FC = () => {
   const timeline = [
     {
-      year: '2009',
+      year: '2025',
       title: 'Pendirian Yayasan',
-      description: 'Yayasan AMAL didirikan oleh sekelompok aktivis sosial dengan visi membangun Indonesia yang berkelanjutan. Dimulai dengan program beasiswa untuk 10 anak di Jakarta.',
-      milestone: 'Akta Notaris No. 15/2009'
+      description: 'Yayasan AMAL resmi didirikan sebagai mitra strategis Perhutanan Sosial di Kalimantan Tengah. Penandatanganan Perjanjian Kerjasama (PKS) awal dengan 91 Kelompok Perhutanan Sosial di 4 kabupaten.',
+      milestone: 'Akta Pendirian 2025'
     },
     {
-      year: '2011',
-      title: 'Ekspansi Program',
-      description: 'Perluasan program ke bidang lingkungan dengan penanaman 1,000 pohon pertama di Kalimantan. Mulai bermitra dengan komunitas lokal.',
-      milestone: '3 provinsi jangkauan'
+      year: '2025',
+      title: 'Kick-off Project Karbon',
+      description: 'Memulai perencanaan Project Karbon dari hutan mineral dan hutan gambut yang dikelola masyarakat Perhutanan Sosial. Pemetaan area potensial penyerapan karbon di 4 kabupaten.',
+      milestone: '183.531,99 ha Area Kerja'
     },
     {
-      year: '2013',
-      title: 'Sertifikasi Nasional',
-      description: 'Memperoleh sertifikasi dari Kementerian Sosial RI sebagai lembaga sosial terpercaya. Launching program pemberdayaan ekonomi.',
-      milestone: 'Sertifikat Kemsos RI'
+      year: '2026',
+      title: 'Pengembangan Usaha HHBK',
+      description: 'Meluncurkan program pendampingan usaha Hasil Hutan Bukan Kayu (HHBK) untuk kelompok Perhutanan Sosial — mencakup pengembangan produk, kemasan, dan akses pasar nasional.',
+      milestone: '12 Program HHBK Unggulan'
     },
     {
-      year: '2015',
-      title: 'Penghargaan Pertama',
-      description: 'Meraih penghargaan "Outstanding Social Impact" dari Indonesia Development Forum untuk program pendidikan berkelanjutan.',
-      milestone: '1,000+ penerima manfaat'
-    },
-    {
-      year: '2017',
-      title: 'Kemitraan Internasional',
-      description: 'Menjalin kemitraan dengan UNDP untuk program konservasi lingkungan. Membangun sekolah ke-10 di Papua.',
-      milestone: 'Kemitraan UNDP'
-    },
-    {
-      year: '2019',
-      title: 'Dekade Pertama',
-      description: 'Merayakan 10 tahun dengan pencapaian 5,000+ penerima manfaat dan 167.437,99+ pohon ditanam. Launching program kesehatan masyarakat.',
-      milestone: '10 tahun berkarya'
-    },
-    {
-      year: '2021',
-      title: 'Adaptasi Digital',
-      description: 'Transformasi digital program selama pandemi. Meluncurkan platform pembelajaran online dan sistem donasi digital.',
-      milestone: 'Platform digital'
-    },
-    {
-      year: '2023',
-      title: 'Ekspansi Nasional',
-      description: 'Mencapai jangkauan 15 provinsi dengan 100+ program selesai. Memperoleh akreditasi A dari Lembaga Akreditasi Nasional.',
-      milestone: 'Akreditasi A'
-    },
-    {
-      year: '2024',
-      title: 'Inovasi Berkelanjutan',
-      description: 'Meluncurkan program inovasi teknologi hijau dan smart village. Mencapai 10,000+ penerima manfaat kumulatif.',
-      milestone: '10,000+ penerima manfaat'
-    }
-  ];
-
-  const founders = [
-    {
-      name: 'Dr. Ahmad Surya',
-      role: 'Pendiri & Ketua Yayasan',
-      background: 'Aktivis sosial dengan pengalaman 20+ tahun di bidang pembangunan masyarakat',
-      contribution: 'Merumuskan visi dan misi yayasan, memimpin program pendidikan'
-    },
-    {
-      name: 'Prof. Siti Nurhaliza',
-      role: 'Co-Founder',
-      background: 'Akademisi dan peneliti lingkungan dari Universitas Indonesia',
-      contribution: 'Merancang program konservasi dan edukasi lingkungan'
-    },
-    {
-      name: 'Budi Santoso, S.E',
-      role: 'Co-Founder',
-      background: 'Praktisi keuangan dengan spesialisasi manajemen organisasi nirlaba',
-      contribution: 'Membangun sistem keuangan transparan dan akuntabel'
+      year: '2026',
+      title: 'Peluncuran API Licence',
+      description: 'Menyediakan API Licence untuk mitra strategis korporasi dalam mengakses data ESG, carbon accounting, dan traceability produk HHBK dari wilayah kerja.',
+      milestone: 'API ESG Platform'
     }
   ];
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
-        <div className="container-custom">
+    <>
+      <CarbonParticles />
+      <div className="pt-20">
+      <section className="relative pt-32 pb-16">
+        
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Sejarah & Latar Belakang
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+              Perjalanan Kami
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
+              Sejarah &<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-emerald-300">
+                Latar Belakang
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Perjalanan panjang Yayasan AMAL dalam membangun Indonesia yang berkelanjutan, 
-              dari visi sederhana hingga menjadi organisasi nirlaba terdepan dengan dampak nasional.
+            
+            <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed animate-fade-in-up font-body">
+              Lahir dari kebutuhan mendesak masyarakat Perhutanan Sosial di Kalimantan Tengah — 
+              Yayasan AMAL hadir sebagai mitra strategis yang menjembatani project karbon, usaha HHBK, dan inovasi digital.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Origin Story */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Awal Mula Perjalanan
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="section-label">
+                <div className="section-label-line" />
+                <span className="section-label-text">Latar Belakang</span>
+                <div className="section-label-line" />
+              </div>
+              
+              <h2 className="text-3xl lg:text-4xl font-black text-white mb-8">
+                Mengapa Yayasan AMAL Berdiri
               </h2>
+              
               <div className="space-y-6">
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Yayasan AMAL lahir dari keprihatinan mendalam terhadap kesenjangan sosial 
-                  dan kerusakan lingkungan di Indonesia. Pada tahun 2009, sekelompok aktivis 
-                  sosial yang terdiri dari akademisi, praktisi pembangunan, dan tokoh masyarakat 
-                  berkumpul dengan satu visi: menciptakan perubahan positif yang berkelanjutan.
+                <p className="text-lg text-gray-300 leading-relaxed font-body">
+                  Di Kalimantan Tengah, 91 Kelompok Perhutanan Sosial mengelola lebih dari 183.531 hektar 
+                  kawasan hutan — mencakup hutan mineral dan hutan gambut yang kaya akan potensi. Namun, 
+                  masyarakat membutuhkan mitra strategis untuk mengakses pasar karbon, mengembangkan usaha 
+                  Hasil Hutan Bukan Kayu (HHBK), dan memasarkan produk mereka.
                 </p>
                 
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Nama "AntangPatahu Mahaga Lewu" dipilih dengan penuh makna. Dalam bahasa Dayak, 
-                  frasa ini berarti "Bersama Membangun Negeri" - sebuah filosofi yang menekankan 
-                  pentingnya kolaborasi dan gotong royong dalam mencapai kemajuan bersama.
+                <p className="text-lg text-gray-300 leading-relaxed font-body">
+                  Berawal dari kepedulian sekelompok profesional kehutanan dan aktivis lingkungan, 
+                  Yayasan AntangPatahu Mahaga Lewu (AMAL) resmi berdiri pada tahun 2025. Nama yayasan 
+                  diambil dari bahasa Dayak Ngaju yang bermakna "Burung Elang Keramat dan Perkasa yang 
+                  Menjaga Tanah Dayak Kalimantan Tengah" — mencerminkan filosofi "Mengatang Utus Mahaga 
+                  Panatau Lewu" (mengangkat harkat dengan menjaga kekayaan sumber daya alam).
                 </p>
                 
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Berawal dari program beasiswa sederhana untuk 10 anak di Jakarta, kini Yayasan AMAL 
-                  telah berkembang menjadi organisasi dengan jangkauan nasional, melayani ribuan 
-                  penerima manfaat di 15 provinsi Indonesia.
+                <p className="text-lg text-gray-300 leading-relaxed font-body">
+                  Yayasan AMAL berperan sebagai penghubung antara masyarakat Perhutanan Sosial dengan 
+                  peluang ekonomi hijau — Project Karbon yang menghasilkan karbon kredit terverifikasi, 
+                  pengembangan usaha HHBK dari hutan ke pasar, dan penyediaan data transparan melalui 
+                  API Licence untuk kebutuhan ESG mitra strategis.
                 </p>
               </div>
             </div>
             
-            <div className="relative">
+            <div className="order-1 lg:order-2 relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
               <img
                 src={images.teamPhoto.src}
-                alt="Tim pendiri Yayasan AMAL"
-                className="rounded-2xl shadow-xl w-full"
+                alt="Tim Yayasan AMAL"
+                className="relative rounded-3xl shadow-2xl w-full object-cover h-96 lg:h-full"
               />
-              <div className="absolute -bottom-6 -left-6 bg-emerald-600 text-white p-6 rounded-xl shadow-lg">
-                <p className="text-2xl font-bold">15+</p>
-                <p className="text-sm">Tahun Berkarya</p>
+              <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-emerald-600 to-teal-600 text-white p-8 rounded-2xl shadow-2xl">
+                <div className="flex items-center gap-3 mb-2">
+                  <Zap className="h-6 w-6 text-yellow-300" />
+                  <p className="text-3xl font-black">2025</p>
+                </div>
+                <p className="text-sm font-body">Tahun Berdiri</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Perjalanan Waktu
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">Perjalanan Waktu</span>
+              <div className="section-label-line" />
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
+              Tonggak Penting
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Tonggak-tonggak penting dalam sejarah Yayasan AMAL dari tahun ke tahun
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
+              Tonggak-tonggak penting dalam perjalanan Yayasan AMAL sejak berdiri
             </p>
           </div>
           
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-emerald-200"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-emerald-300 via-emerald-500 to-teal-500" />
             
             <div className="space-y-12">
               {timeline.map((item, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                    <div className="card p-6">
-                      <div className="flex items-center space-x-2 mb-3">
-                        <Calendar className="h-5 w-5 text-emerald-600" />
-                        <span className="text-2xl font-bold text-emerald-600">{item.year}</span>
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                      <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
+                        <Calendar className="h-5 w-5 text-forest-light flex-shrink-0" />
+                        <span className="text-3xl font-black text-forest-light">{item.year}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                      <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium inline-block">
+                      <h3 className="text-xl font-black text-white mb-3">{item.title}</h3>
+                      <p className="text-gray-400 mb-4 leading-relaxed font-body">{item.description}</p>
+                      <div className="bg-emerald-900/40 text-emerald-300 px-4 py-2 rounded-full text-sm font-bold inline-block border border-emerald-200">
                         {item.milestone}
                       </div>
                     </div>
                   </div>
                   
-                  {/* Timeline dot */}
-                  <div className="relative z-10 w-4 h-4 bg-emerald-600 rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="relative z-10 w-6 h-6 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full border-4 border-white shadow-lg animate-pulse" />
                   
-                  <div className="w-1/2"></div>
+                  <div className="w-1/2" />
                 </div>
               ))}
             </div>
@@ -187,85 +164,52 @@ const SejarahLatarBelakang: React.FC = () => {
         </div>
       </section>
 
-      {/* Founders */}
-      <section className="py-20">
-        <div className="container-custom">
+      <section className="py-24 bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-600 text-white relative overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5 animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-teal-300/10 animate-spin-slow" />
+        
+        <div className="container-custom relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Para Pendiri
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Tokoh-tokoh visioner yang merintis dan membangun fondasi Yayasan AMAL
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {founders.map((founder, index) => (
-              <div key={index} className="card p-8 text-center group hover:shadow-xl transition-shadow">
-                <div className="w-24 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <Users className="h-12 w-12 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{founder.name}</h3>
-                <p className="text-emerald-600 font-medium mb-4">{founder.role}</p>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{founder.background}</p>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="text-gray-700 text-sm font-medium">Kontribusi:</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{founder.contribution}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Philosophy */}
-      <section className="py-20 bg-emerald-600 text-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+              Filosofi Kami
+            </div>
+            
+            <h2 className="text-4xl lg:text-5xl font-black mb-6">
               Filosofi "AntangPatahu Mahaga Lewu"
             </h2>
-            <p className="text-xl opacity-90 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-emerald-50/90 max-w-3xl mx-auto leading-relaxed font-body">
               Makna mendalam di balik nama yayasan yang menjadi landasan setiap langkah perubahan
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold">A</span>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              { word: 'AntangPatahu', meaning: 'Burung Elang Keramat', desc: 'Melambangkan kekuatan, visi, dan ketajaman dalam menjaga kelestarian alam dan budaya Dayak' },
+              { word: 'Mahaga', meaning: 'Menjaga', desc: 'Komitmen teguh untuk menjaga dan melestarikan kekayaan sumber daya alam tanah Dayak' },
+              { word: 'Lewu', meaning: 'Tanah / Negeri', desc: 'Tanah Dayak Kalimantan Tengah — rumah bagi hutan, gambut, dan masyarakat adat yang kami dampingi' }
+            ].map((item, idx) => (
+              <div key={idx} className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-300 group-hover:text-emerald-100 transition-all duration-300 shadow-lg">
+                  <span className="text-2xl font-black">{item.word.charAt(0)}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">{item.word}</h3>
+                <p className="text-gold text-sm font-semibold mb-3">"{item.meaning}"</p>
+                <p className="text-sm text-emerald-50/80 font-body">{item.desc}</p>
               </div>
-              <h3 className="text-lg font-semibold mb-2">AntangPatahu</h3>
-              <p className="text-sm opacity-90">"Bersama-sama" - Kekuatan kolaborasi dalam mencapai tujuan</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold">M</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Mahaga</h3>
-              <p className="text-sm opacity-90">"Membangun" - Proses konstruktif menciptakan perubahan</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold">A</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Lewu</h3>
-              <p className="text-sm opacity-90">"Negeri" - Tanah air Indonesia yang kita cintai</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold">L</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Legacy</h3>
-              <p className="text-sm opacity-90">Warisan berkelanjutan untuk generasi mendatang</p>
-            </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12 max-w-2xl mx-auto">
+            <p className="text-emerald-50/80 italic font-body text-lg leading-relaxed">
+              "Mengatang Utus Mahaga Panatau Lewu" — mengangkat harkat dan martabat 
+              dengan menjaga kekayaan sumber daya alam Tanah Dayak.
+            </p>
           </div>
         </div>
       </section>
     </div>
+    </>
   );
 };
 
