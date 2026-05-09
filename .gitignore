@@ -102,3 +102,4 @@ workbox-*.js
 *.crt
 credentials.json
 service-account.json
+/%APPDATA%/

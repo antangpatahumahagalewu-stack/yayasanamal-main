@@ -164,7 +164,6 @@ const Navbar: React.FC = () => {
 
             <Link to="/kemitraan" className={linkClasses('/kemitraan')}>Kemitraan</Link>
             <Link to="/api-esg" className={linkClasses('/api-esg')}>API & ESG</Link>
-            <Link to="/donasi" className={linkClasses('/donasi')}>Donasi</Link>
             <Link to="/kontak" className={linkClasses('/kontak')}>Kontak</Link>
           </div>
 
@@ -260,9 +259,6 @@ const Navbar: React.FC = () => {
               </Link>
               <Link to="/api-esg" className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === '/api-esg' ? 'text-gold bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
                 API & ESG
-              </Link>
-              <Link to="/donasi" className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === '/donasi' ? 'text-gold bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
-                Donasi
               </Link>
               <Link to="/kontak" className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === '/kontak' ? 'text-gold bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
                 Kontak
