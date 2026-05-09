@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, MapPin, Crown, Shield, Heart, Award } from 'lucide-react';
+import { ChevronRight, MapPin, Crown, Shield, Heart } from 'lucide-react';
 import CarbonParticles from '../../components/CarbonParticles';
 
 const StrukturOrganisasi: React.FC = () => {

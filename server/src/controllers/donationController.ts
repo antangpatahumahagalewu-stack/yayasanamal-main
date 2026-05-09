@@ -3,8 +3,6 @@ import { body, validationResult } from 'express-validator';
 import { db } from '../config/database';
 import { sendDonationConfirmation } from '../utils/email';
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios';
-
 export const donationValidation = [
   body('name').trim().notEmpty().withMessage('Nama harus diisi'),
   body('email').isEmail().withMessage('Email tidak valid'),

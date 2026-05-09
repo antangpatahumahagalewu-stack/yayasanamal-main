@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Scissors, Zap, Flower2, Droplets, Palmtree, TrendingUp, ArrowRight, Fish, Leaf, ShoppingBag, Users, Package } from 'lucide-react';
-import images from '../assets/images';
+import { Scissors, Zap, Flower2, Droplets, Palmtree, ArrowRight, Fish, ShoppingBag, Users, Package } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 
 const Hhbk: React.FC = () => {

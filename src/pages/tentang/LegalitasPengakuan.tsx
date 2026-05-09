@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Award, FileText, CheckCircle, Calendar, Building, Zap } from 'lucide-react';
+import { Shield, Award, FileText, CheckCircle, Building } from 'lucide-react';
 import CarbonParticles from '../../components/CarbonParticles';
 
 const LegalitasPengakuan: React.FC = () => {

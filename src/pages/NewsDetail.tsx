@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { news } from './Berita';
+import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter } from 'lucide-react';
+import { news } from '../data/news';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
 
@@ -161,7 +161,7 @@ Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi we
             {/* Article Body */}
             <div className="prose prose-lg max-w-none mb-12">
               {currentArticle.content ? (
-                currentArticle.content.split('\n\n').map((paragraph: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined, index: React.Key | null | undefined) => (
+                currentArticle.content.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="text-gray-300 leading-relaxed mb-6">
                     {paragraph}
                   </p>

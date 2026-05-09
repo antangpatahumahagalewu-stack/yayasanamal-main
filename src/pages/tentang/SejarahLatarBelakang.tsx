@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, Leaf, Handshake, Zap } from 'lucide-react';
+import { Calendar, Zap } from 'lucide-react';
 import images from '../../assets/images';
 import CarbonParticles from '../../components/CarbonParticles';
 

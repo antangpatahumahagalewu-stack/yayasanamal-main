@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, Target, Heart, Users, Globe, Award, ArrowRight, Leaf, Shield, TrendingUp, Cloud } from 'lucide-react';
+import { Eye, Target, Heart, Users, Globe, Leaf, Shield, TrendingUp } from 'lucide-react';
 import CarbonParticles from '../../components/CarbonParticles';
 
 

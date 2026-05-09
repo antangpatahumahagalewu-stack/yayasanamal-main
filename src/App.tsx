@@ -1,5 +1,5 @@
 // App.tsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -7,7 +7,6 @@ import ScrollToTop from './components/ScrollToTop';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import useGoogleAnalytics from './hooks/useGoogleAnalytics';
 import Home from './pages/Home';
-import TentangKami from './pages/TentangKami';
 import Program from './pages/Program';
 import Berita from './pages/Berita';
 import Galeri from './pages/Galeri';

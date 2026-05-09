@@ -33,7 +33,7 @@ export const useSmoothScroll = () => {
   return lenis;
 };
 
-export const scrollTo = (target: string | number, options?: any) => {
+export const scrollTo = (target: string | number, options?: Record<string, unknown>) => {
   if (lenis) {
     lenis.scrollTo(target, options);
   }

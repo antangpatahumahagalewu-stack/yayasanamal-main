@@ -119,7 +119,7 @@ export const getGallery = async (req: Request, res: Response) => {
     const { category, limit = 20, offset = 0 } = req.query;
     
     let query = `SELECT * FROM gallery WHERE 1=1`;
-    const params: any[] = [];
+    const params: unknown[] = [];
     
     if (category) {
       query += ` AND category = $${params.length + 1}`;
@@ -149,7 +149,7 @@ export const getFAQs = async (req: Request, res: Response) => {
     const { category } = req.query;
     
     let query = `SELECT * FROM faqs WHERE 1=1`;
-    const params: any[] = [];
+    const params: unknown[] = [];
     
     if (category) {
       query += ` AND category = $${params.length + 1}`;

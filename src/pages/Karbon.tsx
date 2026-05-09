@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Leaf, TreePine, Cloud, MapPin, Users, ArrowRight, TrendingUp, Shield, Droplets,
-  Handshake, Globe, ShieldCheck, Activity, FileCheck, Scale, AlertTriangle,
-  Target, Clock, DollarSign, Percent, Bird, Flame, Waves, Building2, BookOpen,
+  Handshake, Globe, Activity, FileCheck, Scale, AlertTriangle,
+  Target, Clock, DollarSign, Bird, Flame, Waves, Building2, BookOpen,
   Camera, LineChart, Ruler, Satellite, Zap, Heart, Landmark, BarChart3
 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';

@@ -12,7 +12,7 @@ export const validateRequest = (req: Request, res: Response, next: NextFunction)
   next();
 };
 
-export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+export const errorHandler = (err: Error & { statusCode?: number }, req: Request, res: Response) => {
   console.error('Error:', err);
   
   const statusCode = err.statusCode || 500;

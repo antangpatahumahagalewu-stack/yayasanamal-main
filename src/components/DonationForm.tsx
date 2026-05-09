@@ -49,7 +49,7 @@ const DonationForm: React.FC = () => {
       const response = await donationAPI.create(formData);
       setTransactionId(response.data.transactionId);
       setIsSuccess(true);
-    } catch (err) {
+    } catch {
       setError('Gagal membuat donasi. Silakan coba lagi.');
     } finally {
       setIsSubmitting(false);

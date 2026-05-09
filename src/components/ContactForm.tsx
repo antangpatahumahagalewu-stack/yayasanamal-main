@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 import { contactAPI } from '../services/api';
 
 interface FormData {
@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
         subject: '',
         message: '',
       });
-    } catch (err) {
+    } catch {
       setError('Gagal mengirim pesan. Silakan coba lagi.');
     } finally {
       setIsSubmitting(false);

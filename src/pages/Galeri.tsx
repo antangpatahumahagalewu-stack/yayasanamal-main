@@ -3,8 +3,17 @@ import { X, ZoomIn } from 'lucide-react';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
 
+interface GalleryImage {
+  id: number;
+  src: string;
+  alt: string;
+  category: string;
+  title: string;
+  description: string;
+}
+
 const Galeri: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<any>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   const galleryImages = [
     {
@@ -100,7 +109,7 @@ const Galeri: React.FC = () => {
     ? galleryImages 
     : galleryImages.filter(img => img.category === selectedCategory);
 
-  const openModal = (image: any) => {
+  const openModal = (image: GalleryImage) => {
     setSelectedImage(image);
     document.body.style.overflow = 'hidden';
   };

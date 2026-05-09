@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Users, TreePine, Leaf, Shield, ArrowRight } from 'lucide-react';
+import { Heart, Users, TreePine, Leaf, Shield } from 'lucide-react';
 import images from '../../assets/images';
 import CarbonParticles from '../../components/CarbonParticles';
 

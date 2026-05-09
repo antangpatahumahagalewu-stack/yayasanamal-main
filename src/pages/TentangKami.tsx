@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Heart, Users, Leaf, Award, ArrowRight } from 'lucide-react';
+import { Users, Award } from 'lucide-react';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
 

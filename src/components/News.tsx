@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
-import { news as allNews } from '../pages/Berita';
+import { news as allNews } from '../data/news';
 
 const News: React.FC = () => {
   const news = allNews.slice(0, 3);
