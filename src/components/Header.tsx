@@ -52,12 +52,6 @@ const Header: React.FC = () => {
 
   const publikasiSubmenu = [
     { 
-      path: '/publikasi/dokumen', 
-      label: 'Dokumen & Laporan',
-      image: 'https://images.pexels.com/photos/6647028/pexels-photo-6647028.jpeg?auto=compress&cs=tinysrgb&w=300',
-      description: 'Laporan tahunan, keuangan, dan dokumen resmi yayasan'
-    },
-    { 
       path: '/publikasi/berita', 
       label: 'Berita',
       image: 'https://images.pexels.com/photos/5697260/pexels-photo-5697260.jpeg?auto=compress&cs=tinysrgb&w=300',
@@ -327,20 +321,6 @@ const Header: React.FC = () => {
                     </Link>
                   </NavigationMenuItem>
 
-                  {/* Donasi */}
-                  <NavigationMenuItem>
-                    <Link
-                      to="/donasi"
-                      className={cn(
-                        "group inline-flex h-12 w-max items-center justify-center rounded-lg px-5 py-3 text-base font-semibold transition-all duration-200 focus:outline-none",
-                        getHoverClasses(),
-                        getActiveClasses(location.pathname === '/donasi')
-                      )}
-                    >
-                      Donasi
-                    </Link>
-                  </NavigationMenuItem>
-
                   {/* Kontak */}
                   <NavigationMenuItem>
                     <Link
@@ -444,18 +424,6 @@ const Header: React.FC = () => {
                   }`}
                 >
                   Kemitraan
-                </Link>
-
-                <Link
-                  to="/donasi"
-                  onClick={closeMenu}
-                  className={`block px-4 py-3 rounded-lg text-lg font-semibold transition-all duration-200 relative ${
-                    location.pathname === '/donasi'
-                      ? 'text-emerald-600 bg-emerald-50 after:absolute after:left-0 after:top-0 after:h-full after:w-1 after:bg-emerald-500'
-                      : 'text-gray-700 hover:text-emerald-600 hover:bg-emerald-50'
-                  }`}
-                >
-                  Donasi
                 </Link>
 
                 <Link

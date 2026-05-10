@@ -15,7 +15,6 @@ import Kemitraan from './pages/Kemitraan';
 import Karbon from './pages/Karbon';
 import Hhbk from './pages/Hhbk';
 import ApiEsg from './pages/ApiEsg';
-import Donasi from './pages/Donasi';
 import Kontak from './pages/Kontak';
 import FAQ from './pages/FAQ';
 
@@ -28,6 +27,8 @@ import SejarahLatarBelakang from './pages/tentang/SejarahLatarBelakang';
 import VisiMisi from './pages/tentang/VisiMisi';
 import StrukturOrganisasi from './pages/tentang/StrukturOrganisasi';
 import LegalitasPengakuan from './pages/tentang/LegalitasPengakuan';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 
 // Inner component that uses Router hooks
 function AppContent() {
@@ -60,7 +61,6 @@ function AppContent() {
             <Route path="/program/hhbk" element={<Hhbk />} />
             
             {/* Publikasi submenu routes */}
-            <Route path="/publikasi/dokumen" element={<Publikasi />} />
             <Route path="/publikasi/berita" element={<Berita />} />
             <Route path="/publikasi/berita/:id" element={<NewsDetail />} />
             <Route path="/publikasi/galeri" element={<Galeri />} />
@@ -75,8 +75,9 @@ function AppContent() {
             
             <Route path="/kemitraan" element={<Kemitraan />} />
             <Route path="/api-esg" element={<ApiEsg />} />
-            <Route path="/donasi" element={<Donasi />} />
             <Route path="/kontak" element={<Kontak />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsConditions />} />
           </Routes>
         </main>
         

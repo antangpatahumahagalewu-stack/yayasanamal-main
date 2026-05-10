@@ -1,74 +1,77 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Shield, Award, FileText, CheckCircle, Building } from 'lucide-react';
 import CarbonParticles from '../../components/CarbonParticles';
 
 const LegalitasPengakuan: React.FC = () => {
+  const { t } = useTranslation();
+
   const legalDocuments = [
     {
-      type: 'Akta Pendirian',
+      type: t('about.legalitas.docAkta.type'),
       number: 'No. 15 Tahun 2009',
       issuer: 'Notaris Hj. Siti Aminah, S.H',
       date: '15 Maret 2009',
-      status: 'Aktif',
-      description: 'Akta pendirian yayasan yang disahkan oleh notaris dan telah didaftarkan di Kementerian Hukum dan HAM RI'
+      status: t('about.legalitas.statusActive'),
+      description: t('about.legalitas.docAkta.description')
     },
     {
-      type: 'SK Kemenkumham',
+      type: t('about.legalitas.docKemenkumham.type'),
       number: 'AHU-0001234.AH.01.04.Tahun 2009',
       issuer: 'Kementerian Hukum dan HAM RI',
       date: '25 Maret 2009',
-      status: 'Aktif',
-      description: 'Surat Keputusan pengesahan badan hukum yayasan dari Menteri Hukum dan Hak Asasi Manusia'
+      status: t('about.legalitas.statusActive'),
+      description: t('about.legalitas.docKemenkumham.description')
     },
     {
-      type: 'NPWP',
+      type: t('about.legalitas.docNPWP.type'),
       number: '02.123.456.7-123.000',
       issuer: 'Direktorat Jenderal Pajak',
       date: '1 April 2009',
-      status: 'Aktif',
-      description: 'Nomor Pokok Wajib Pajak untuk keperluan administrasi perpajakan organisasi'
+      status: t('about.legalitas.statusActive'),
+      description: t('about.legalitas.docNPWP.description')
     },
     {
-      type: 'Izin Operasional',
+      type: t('about.legalitas.docIzin.type'),
       number: 'No. 456/DINSOS/2009',
       issuer: 'Dinas Sosial DKI Jakarta',
       date: '15 April 2009',
-      status: 'Aktif',
-      description: 'Izin operasional sebagai lembaga sosial yang bergerak di bidang kesejahteraan masyarakat'
+      status: t('about.legalitas.statusActive'),
+      description: t('about.legalitas.docIzin.description')
     }
   ];
 
   const certifications = [
     {
-      title: 'Sertifikat ISO 9001:2015',
+      title: t('about.legalitas.certISO.title'),
       issuer: 'TÜV Rheinland',
       year: '2022',
       validity: '2025',
-      description: 'Sistem manajemen mutu untuk memastikan konsistensi dan peningkatan berkelanjutan',
+      description: t('about.legalitas.certISO.description'),
       icon: Award
     },
     {
-      title: 'Akreditasi A',
+      title: t('about.legalitas.certAkreditasi.title'),
       issuer: 'Lembaga Akreditasi Nasional',
       year: '2023',
       validity: '2026',
-      description: 'Pengakuan tertinggi untuk standar kualitas program dan manajemen organisasi',
+      description: t('about.legalitas.certAkreditasi.description'),
       icon: Shield
     },
     {
-      title: 'Sertifikat Transparansi',
+      title: t('about.legalitas.certTransparansi.title'),
       issuer: 'Indonesia Transparency Society',
       year: '2023',
       validity: '2024',
-      description: 'Pengakuan atas komitmen transparansi dan akuntabilitas dalam pengelolaan organisasi',
+      description: t('about.legalitas.certTransparansi.description'),
       icon: CheckCircle
     },
     {
-      title: 'Green Organization Certificate',
+      title: t('about.legalitas.certGreen.title'),
       issuer: 'Ministry of Environment',
       year: '2022',
       validity: '2025',
-      description: 'Sertifikat organisasi ramah lingkungan untuk komitmen terhadap keberlanjutan',
+      description: t('about.legalitas.certGreen.description'),
       icon: Building
     }
   ];
@@ -76,88 +79,88 @@ const LegalitasPengakuan: React.FC = () => {
   const awards = [
     {
       year: '2023',
-      title: 'Indonesia Sustainability Award',
+      title: t('about.legalitas.awardSustainability.title'),
       category: 'Best NGO for Environmental Impact',
       issuer: 'Indonesia Sustainability Forum',
-      description: 'Penghargaan untuk kontribusi terbaik dalam program konservasi lingkungan'
+      description: t('about.legalitas.awardSustainability.description')
     },
     {
       year: '2022',
-      title: 'CSR Award',
+      title: t('about.legalitas.awardCSR.title'),
       category: 'Outstanding Partnership Program',
       issuer: 'Indonesia CSR Awards',
-      description: 'Pengakuan atas program kemitraan strategis dengan sektor swasta'
+      description: t('about.legalitas.awardCSR.description')
     },
     {
       year: '2021',
-      title: 'Education Excellence Award',
+      title: t('about.legalitas.awardEducation.title'),
       category: 'Best Educational Program',
       issuer: 'Ministry of Education',
-      description: 'Penghargaan untuk inovasi program pendidikan di daerah terpencil'
+      description: t('about.legalitas.awardEducation.description')
     },
     {
       year: '2020',
-      title: 'Social Impact Award',
+      title: t('about.legalitas.awardSocialImpact.title'),
       category: 'Community Empowerment',
       issuer: 'Indonesia Development Forum',
-      description: 'Pengakuan atas dampak positif program pemberdayaan masyarakat'
+      description: t('about.legalitas.awardSocialImpact.description')
     },
     {
       year: '2019',
-      title: 'Transparency Award',
+      title: t('about.legalitas.awardTransparency.title'),
       category: 'Most Transparent NGO',
       issuer: 'Transparency International Indonesia',
-      description: 'Penghargaan untuk komitmen transparansi dan akuntabilitas tertinggi'
+      description: t('about.legalitas.awardTransparency.description')
     }
   ];
 
   const memberships = [
     {
-      organization: 'Forum LSM Indonesia',
-      role: 'Anggota Aktif',
+      organization: t('about.legalitas.membershipForumLSM.organization'),
+      role: t('about.legalitas.membershipForumLSM.role'),
       since: '2010',
-      description: 'Jaringan nasional organisasi masyarakat sipil Indonesia'
+      description: t('about.legalitas.membershipForumLSM.description')
     },
     {
-      organization: 'UNDP Partnership Network',
-      role: 'Strategic Partner',
+      organization: t('about.legalitas.membershipUNDP.organization'),
+      role: t('about.legalitas.membershipUNDP.role'),
       since: '2017',
-      description: 'Kemitraan dengan United Nations Development Programme'
+      description: t('about.legalitas.membershipUNDP.description')
     },
     {
-      organization: 'Indonesia Philanthropy Association',
-      role: 'Board Member',
+      organization: t('about.legalitas.membershipPhilanthropy.organization'),
+      role: t('about.legalitas.membershipPhilanthropy.role'),
       since: '2019',
-      description: 'Asosiasi filantropi Indonesia untuk pengembangan sektor sosial'
+      description: t('about.legalitas.membershipPhilanthropy.description')
     },
     {
-      organization: 'ASEAN CSO Network',
-      role: 'Country Representative',
+      organization: t('about.legalitas.membershipASEAN.organization'),
+      role: t('about.legalitas.membershipASEAN.role'),
       since: '2021',
-      description: 'Jaringan organisasi masyarakat sipil Asia Tenggara'
+      description: t('about.legalitas.membershipASEAN.description')
     }
   ];
 
   const compliance = [
     {
-      area: 'Pelaporan Keuangan',
+      area: t('about.legalitas.complianceFinance.area'),
       status: 'Compliant',
-      details: 'Audit eksternal tahunan oleh KAP terakreditasi, laporan keuangan dipublikasikan'
+      details: t('about.legalitas.complianceFinance.details')
     },
     {
-      area: 'Perpajakan',
+      area: t('about.legalitas.complianceTax.area'),
       status: 'Compliant',
-      details: 'Pelaporan SPT tahunan tepat waktu, status PKP aktif'
+      details: t('about.legalitas.complianceTax.details')
     },
     {
-      area: 'Ketenagakerjaan',
+      area: t('about.legalitas.complianceLabor.area'),
       status: 'Compliant',
-      details: 'Sesuai UU Ketenagakerjaan, BPJS Kesehatan dan Ketenagakerjaan aktif'
+      details: t('about.legalitas.complianceLabor.details')
     },
     {
-      area: 'Lingkungan',
+      area: t('about.legalitas.complianceEnv.area'),
       status: 'Compliant',
-      details: 'Sertifikat AMDAL untuk program lingkungan, ISO 14001 Environmental Management'
+      details: t('about.legalitas.complianceEnv.details')
     }
   ];
 
@@ -172,20 +175,18 @@ const LegalitasPengakuan: React.FC = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              Kredibilitas & Kepercayaan
+              {t('about.legalitas.badge')}
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
-              Legalitas &<br />
+              {t('about.legalitas.title')}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-emerald-300">
-                Pengakuan
+                {t('about.legalitas.titleHighlight')}
               </span>
             </h1>
             
             <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed animate-fade-in-up font-body">
-              Dokumentasi lengkap legalitas, sertifikasi, dan pengakuan yang diperoleh 
-              Yayasan AMAL sebagai bukti komitmen terhadap standar tertinggi dalam 
-              pengelolaan organisasi dan program.
+              {t('about.legalitas.heroDescription')}
             </p>
           </div>
         </div>
@@ -197,14 +198,14 @@ const LegalitasPengakuan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Dokumen Legal</span>
+              <span className="section-label-text">{t('about.legalitas.sectionDokumenLegal')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
-              Dasar Hukum
+              {t('about.legalitas.headingDasarHukum')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Dokumen resmi yang menjadi dasar hukum operasional Yayasan AMAL
+              {t('about.legalitas.subheadingDasarHukum')}
             </p>
           </div>
           
@@ -224,8 +225,8 @@ const LegalitasPengakuan: React.FC = () => {
                     </div>
                     <p className="text-forest-light font-bold text-sm mb-3">{doc.number}</p>
                     <div className="space-y-1 text-sm text-gray-400 mb-4">
-                      <p><span className="font-bold">Penerbit:</span> {doc.issuer}</p>
-                      <p><span className="font-bold">Tanggal:</span> {doc.date}</p>
+                      <p><span className="font-bold">{t('about.legalitas.labelPenerbit')}:</span> {doc.issuer}</p>
+                      <p><span className="font-bold">{t('about.legalitas.labelTanggal')}:</span> {doc.date}</p>
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed font-body">{doc.description}</p>
                   </div>
@@ -242,14 +243,14 @@ const LegalitasPengakuan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Sertifikasi</span>
+              <span className="section-label-text">{t('about.legalitas.sectionSertifikasi')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
-              Sertifikasi
+              {t('about.legalitas.headingSertifikasi')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Sertifikat dan akreditasi yang menunjukkan komitmen terhadap standar kualitas internasional
+              {t('about.legalitas.subheadingSertifikasi')}
             </p>
           </div>
           
@@ -279,14 +280,14 @@ const LegalitasPengakuan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Penghargaan</span>
+              <span className="section-label-text">{t('about.legalitas.sectionPenghargaan')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
-              Penghargaan
+              {t('about.legalitas.headingPenghargaan')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Pengakuan atas kontribusi dan prestasi Yayasan AMAL dalam pembangunan sosial
+              {t('about.legalitas.subheadingPenghargaan')}
             </p>
           </div>
           
@@ -321,14 +322,14 @@ const LegalitasPengakuan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Keanggotaan</span>
+              <span className="section-label-text">{t('about.legalitas.sectionKeanggotaan')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
-              Jejak Dampak
+              {t('about.legalitas.headingJejakDampak')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Jaringan dan afiliasi dengan organisasi nasional dan internasional
+              {t('about.legalitas.subheadingJejakDampak')}
             </p>
           </div>
           
@@ -345,7 +346,7 @@ const LegalitasPengakuan: React.FC = () => {
                       <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-bold border border-purple-200">
                         {membership.role}
                       </span>
-                      <span className="text-white/50 text-sm font-bold">Sejak {membership.since}</span>
+                      <span className="text-white/50 text-sm font-bold">{t('about.legalitas.since')} {membership.since}</span>
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed font-body">{membership.description}</p>
                   </div>
@@ -362,14 +363,14 @@ const LegalitasPengakuan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Kepatuhan</span>
+              <span className="section-label-text">{t('about.legalitas.sectionKepatuhan')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-4">
-              Keanggotaan Organisasi
+              {t('about.legalitas.headingKepatuhan')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Status kepatuhan terhadap berbagai regulasi dan standar yang berlaku
+              {t('about.legalitas.subheadingKepatuhan')}
             </p>
           </div>
           
@@ -399,15 +400,14 @@ const LegalitasPengakuan: React.FC = () => {
         <div className="container-custom text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-            Verifikasi Dokumen
+            {t('about.legalitas.ctaBadge')}
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
-            Transparansi Penuh
+            {t('about.legalitas.ctaHeading')}
           </h2>
           <p className="text-xl text-emerald-50/90 mb-12 max-w-2xl mx-auto leading-relaxed font-body">
-            Untuk verifikasi keaslian dokumen atau informasi lebih lanjut tentang 
-            legalitas Yayasan AMAL, silakan hubungi tim kami.
+            {t('about.legalitas.ctaDescription')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -415,13 +415,13 @@ const LegalitasPengakuan: React.FC = () => {
               href="/kontak" 
               className="bg-white text-emerald-300 hover:bg-emerald-900/40 font-black py-4 px-12 rounded-2xl transition-all duration-300 shadow-2xl hover:shadow-emerald-500/25 hover:scale-105"
             >
-              Hubungi Tim Legal
+              {t('about.legalitas.ctaHubungiLegal')}
             </a>
             <a 
-              href="/publikasi/dokumen" 
+              href="/publikasi/berita" 
               className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-emerald-300 font-black py-4 px-12 rounded-2xl transition-all duration-300 hover:scale-105"
             >
-              Download Dokumen
+              {t('about.legalitas.ctaDownload')}
             </a>
           </div>
         </div>

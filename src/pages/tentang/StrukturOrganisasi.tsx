@@ -1,30 +1,33 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronRight, MapPin, Crown, Shield, Heart } from 'lucide-react';
 import CarbonParticles from '../../components/CarbonParticles';
 
 const StrukturOrganisasi: React.FC = () => {
+  const { t } = useTranslation();
+
   const boardMembers = [
     {
       name: 'Miko Duwiter, S.Hut, M.Si',
-      position: 'Ketua Dewan Pembina',
-      background: 'Forestry Expert, Ahli Perhutanan Sosial',
-      experience: '20+ tahun',
+      position: t('about.struktur.boardChairman'),
+      background: t('about.struktur.boardBgForestry'),
+      experience: '20+',
       icon: Crown,
       initials: 'MD'
     },
     {
       name: 'Joko Listianto, S.Hut',
-      position: 'Anggota Dewan Pembina',
-      background: 'Forestry Expert, Ahli Perhutanan Sosial',
-      experience: '20+ tahun',
+      position: t('about.struktur.boardMember'),
+      background: t('about.struktur.boardBgForestry'),
+      experience: '20+',
       icon: Shield,
       initials: 'JL'
     },
     {
       name: 'Herodes Djaya Prawira Atmaja, S.Hut',
-      position: 'Anggota Dewan Pembina',
-      background: 'Forestry Expert, Ahli Perhutanan Sosial',
-      experience: '20+ tahun',
+      position: t('about.struktur.boardMember'),
+      background: t('about.struktur.boardBgForestry'),
+      experience: '20+',
       icon: Heart,
       initials: 'HD'
     }
@@ -33,55 +36,77 @@ const StrukturOrganisasi: React.FC = () => {
   const executiveTeam = [
     {
       name: 'Ir. Apep Yusup',
-      position: 'Ketua Yayasan',
-      department: 'Kepemimpinan Strategis',
-      background: 'Kandidat Lulusan Terbaik IPB Fakultas Kehutanan, Ahli perencana kehutanan',
-      responsibilities: ['Kepemimpinan strategis organisasi', 'Hubungan eksternal dan kemitraan', 'Pengembangan visi dan misi', 'Representasi organisasi'],
-      experience: '30+ tahun',
+      position: t('about.struktur.execChairman'),
+      department: t('about.struktur.execDeptStrategic'),
+      background: t('about.struktur.execBgApep'),
+      responsibilities: [
+        t('about.struktur.execRespStrategic'),
+        t('about.struktur.execRespExternal'),
+        t('about.struktur.execRespVision'),
+        t('about.struktur.execRespRepresentation')
+      ],
+      experience: '30+',
       initials: 'AY',
       color: 'from-emerald-500 to-emerald-700',
       accent: 'bg-emerald-600'
     },
     {
       name: 'Bambang Ralianto, S.Hut',
-      position: 'Sekretaris Yayasan',
-      department: 'Administrasi Yayasan',
-      background: 'Forestry Expert, spesialisasi Community Development',
-      responsibilities: ['Manajemen keuangan organisasi', 'Pelaporan keuangan dan audit', 'Sistem administrasi', 'Compliance dan legal'],
-      experience: '30+ tahun',
+      position: t('about.struktur.execSecretary'),
+      department: t('about.struktur.execDeptAdmin'),
+      background: t('about.struktur.execBgBambang'),
+      responsibilities: [
+        t('about.struktur.execRespFinanceMgt'),
+        t('about.struktur.execRespFinanceReport'),
+        t('about.struktur.execRespAdminSystem'),
+        t('about.struktur.execRespCompliance')
+      ],
+      experience: '30+',
       initials: 'BR',
       color: 'from-blue-500 to-blue-700',
       accent: 'bg-blue-600'
     },
     {
       name: 'Riyan Kurniawan',
-      position: 'Bendahara',
-      department: 'Keuangan',
-      background: 'Sarjana Ekonomi',
-      responsibilities: ['Manajemen keuangan organisasi', 'Pelaporan keuangan dan audit', 'Sistem administrasi', 'Compliance dan legal'],
-      experience: '10+ tahun',
+      position: t('about.struktur.execTreasurer'),
+      department: t('about.struktur.execDeptFinance'),
+      background: t('about.struktur.execBgRiyan'),
+      responsibilities: [
+        t('about.struktur.execRespFinanceMgt'),
+        t('about.struktur.execRespFinanceReport'),
+        t('about.struktur.execRespAdminSystem'),
+        t('about.struktur.execRespCompliance')
+      ],
+      experience: '10+',
       initials: 'RK',
       color: 'from-teal-500 to-teal-700',
       accent: 'bg-teal-600'
     },
     {
       name: 'Miko Duwiter, S.Hut, M.Si',
-      position: 'Kepala Kantor Yayasan Palangkaraya',
-      department: 'Lead Operation Office',
-      background: 'Forestry Expert, spesialisasi Social Impact Assessment',
-      responsibilities: ['Operasional Activity'],
-      experience: '20+ tahun',
+      position: t('about.struktur.execKepalaKantor'),
+      department: t('about.struktur.execDeptLeadOp'),
+      background: t('about.struktur.execBgMiko'),
+      responsibilities: [
+        t('about.struktur.execRespOperational')
+      ],
+      experience: '20+',
       initials: 'MD',
       color: 'from-orange-500 to-orange-700',
       accent: 'bg-orange-600'
     },
     {
       name: 'Boby H. Mihing',
-      position: 'Head Perencana Program, Implementasi, & Monev',
-      department: 'Perencana Program, Implementasi, & Monev',
-      background: 'IT',
-      responsibilities: ['Karbon Project Data Manager', 'Developer Aplikasi Internal', 'R&D', 'Internal Analis'],
-      experience: '15+ tahun',
+      position: t('about.struktur.execHeadPlanner'),
+      department: t('about.struktur.execDeptPlanner'),
+      background: t('about.struktur.execBgBoby'),
+      responsibilities: [
+        t('about.struktur.execRespCarbonData'),
+        t('about.struktur.execRespAppDev'),
+        t('about.struktur.execRespRnD'),
+        t('about.struktur.execRespInternalAnalis')
+      ],
+      experience: '15+',
       initials: 'BM',
       color: 'from-purple-500 to-purple-700',
       accent: 'bg-purple-600'
@@ -89,24 +114,24 @@ const StrukturOrganisasi: React.FC = () => {
   ];
 
   const departments = [
-    { name: 'PIC Wilayah Katingan', head: 'OcaY', team: 5, focus: 'Perencana Project Karbon Wilayah Katingan', achievements: '¬' },
-    { name: 'PIC Wilayah Gunung Mas', head: 'Ambrin, AMD', team: 6, focus: 'Perencana Project Karbon Wilayah Gunung Mas', achievements: '¬' },
-    { name: 'PIC Wilayah Kapuas', head: 'Axel', team: 6, focus: 'Perencana Project Karbon Wilayah Kapuas', achievements: '¬' },
-    { name: 'PIC Wilayah Pulang Pisau', head: 'Arjuni, ST', team: 6, focus: 'Perencana Project Karbon Wilayah Pulang Pisau', achievements: '¬' }
+    { name: t('about.struktur.deptKatingan'), head: 'OcaY', team: 5, focus: t('about.struktur.deptFocusKatingan'), achievements: '\u00ac' },
+    { name: t('about.struktur.deptGunungMas'), head: 'Ambrin, AMD', team: 6, focus: t('about.struktur.deptFocusGunungMas'), achievements: '\u00ac' },
+    { name: t('about.struktur.deptKapuas'), head: 'Axel', team: 6, focus: t('about.struktur.deptFocusKapuas'), achievements: '\u00ac' },
+    { name: t('about.struktur.deptPulangPisau'), head: 'Arjuni, ST', team: 6, focus: t('about.struktur.deptFocusPulangPisau'), achievements: '\u00ac' }
   ];
 
   const advisoryBoard = [
-    { name: 'Prof. Dr. Ani Soetjipto', expertise: 'Gender & Development', affiliation: 'Universitas Indonesia', initials: 'AS' },
-    { name: 'Dr. Ir. Hadi Susilo', expertise: 'Environmental Science', affiliation: 'IPB University', initials: 'HS' },
-    { name: 'Drs. Rudi Hartono, M.A', expertise: 'Community Development', affiliation: 'Praktisi Pembangunan', initials: 'RH' },
-    { name: 'Dr. Fitri Amalia', expertise: 'Social Entrepreneurship', affiliation: 'Universitas Gadjah Mada', initials: 'FA' }
+    { name: 'Prof. Dr. Ani Soetjipto', expertise: 'Gender & Development', affiliation: t('about.struktur.advisoryAffiliationUI'), initials: 'AS' },
+    { name: 'Dr. Ir. Hadi Susilo', expertise: 'Environmental Science', affiliation: t('about.struktur.advisoryAffiliationIPB'), initials: 'HS' },
+    { name: 'Drs. Rudi Hartono, M.A', expertise: 'Community Development', affiliation: t('about.struktur.advisoryAffiliationPractitioner'), initials: 'RH' },
+    { name: 'Dr. Fitri Amalia', expertise: 'Social Entrepreneurship', affiliation: t('about.struktur.advisoryAffiliationUGM'), initials: 'FA' }
   ];
 
   const picList = [
-    { wilayah: 'Katingan', head: 'OcaY', team: '5 anggota' },
-    { wilayah: 'Gunung Mas', head: 'Ambrin, AMD', team: '6 anggota' },
-    { wilayah: 'Kapuas', head: 'Axel', team: '6 anggota' },
-    { wilayah: 'Pulang Pisau', head: 'Arjuni, ST', team: '6 anggota' },
+    { wilayah: 'Katingan', head: 'OcaY', team: t('about.struktur.teamMemberCount', { count: 5 }) },
+    { wilayah: 'Gunung Mas', head: 'Ambrin, AMD', team: t('about.struktur.teamMemberCount', { count: 6 }) },
+    { wilayah: 'Kapuas', head: 'Axel', team: t('about.struktur.teamMemberCount', { count: 6 }) },
+    { wilayah: 'Pulang Pisau', head: 'Arjuni, ST', team: t('about.struktur.teamMemberCount', { count: 6 }) },
   ];
 
   const node = (extra = '') =>
@@ -131,17 +156,16 @@ const StrukturOrganisasi: React.FC = () => {
         <div className="container-custom relative z-10 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-xs font-bold tracking-[0.2em] uppercase px-5 py-2.5 rounded-full mb-10">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-            Yayasan AMAL
+            {t('about.struktur.badge')}
           </div>
           <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 leading-[1.05] tracking-tight">
-            Struktur<br />
+            {t('about.struktur.title')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-teal-200">
-              Organisasi
+              {t('about.struktur.titleHighlight')}
             </span>
           </h1>
           <p className="text-lg text-emerald-100/80 max-w-2xl mx-auto leading-relaxed">
-            Tim profesional dan berpengalaman yang memimpin Yayasan AMAL dalam
-            menciptakan dampak positif berkelanjutan di seluruh Indonesia.
+            {t('about.struktur.heroDescription')}
           </p>
         </div>
       </section>
@@ -150,10 +174,10 @@ const StrukturOrganisasi: React.FC = () => {
       <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <SectionLabel text="Hierarki Organisasi" />
-            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Bagan Organisasi</h2>
+            <SectionLabel text={t('about.struktur.sectionHierarki')} />
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">{t('about.struktur.headingBagan')}</h2>
             <p className="text-white/50 max-w-xl mx-auto text-sm">
-              Struktur kepemimpinan yang solid dengan pembagian tanggung jawab yang jelas
+              {t('about.struktur.subheadingBagan')}
             </p>
           </div>
 
@@ -161,15 +185,15 @@ const StrukturOrganisasi: React.FC = () => {
 
             {/* L1 */}
             <div className={node('bg-emerald-700 text-white border-emerald-600 w-72')}>
-              <span className="text-[10px] font-bold opacity-60 tracking-[0.2em] uppercase mb-1">Level 1</span>
-              Dewan Pembina
+              <span className="text-[10px] font-bold opacity-60 tracking-[0.2em] uppercase mb-1">{t('about.struktur.chartLevel1')}</span>
+              {t('about.struktur.chartDewanPembina')}
             </div>
             <div className="w-px h-10 bg-gray-300" />
 
             {/* L2 */}
             <div className={node('bg-blue-700 text-white border-blue-600 w-72')}>
-              <span className="text-[10px] font-bold opacity-60 tracking-[0.2em] uppercase mb-1">Level 2</span>
-              Ketua Yayasan
+              <span className="text-[10px] font-bold opacity-60 tracking-[0.2em] uppercase mb-1">{t('about.struktur.chartLevel2')}</span>
+              {t('about.struktur.chartKetuaYayasan')}
             </div>
             <div className="w-px h-10 bg-gray-300" />
 
@@ -178,9 +202,9 @@ const StrukturOrganisasi: React.FC = () => {
               <div className="absolute top-0 left-[16%] right-[16%] h-px bg-gray-300" />
               <div className="flex justify-between">
                 {[
-                  { label: 'Sekretaris Yayasan', sub: 'Administrasi' },
-                  { label: 'Bendahara', sub: 'Keuangan' },
-                  { label: 'Kepala Kantor Palangkaraya', sub: 'Operasional' },
+                  { label: t('about.struktur.chartSekretaris'), sub: t('about.struktur.chartSubAdmin') },
+                  { label: t('about.struktur.chartBendahara'), sub: t('about.struktur.chartSubKeuangan') },
+                  { label: t('about.struktur.chartKepalaKantor'), sub: t('about.struktur.chartSubOperasional') },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col items-center" style={{ width: '30%' }}>
                     <div className="w-px h-10 bg-gray-300" />
@@ -207,8 +231,8 @@ const StrukturOrganisasi: React.FC = () => {
                 <div className="flex flex-col items-center" style={{ width: '47%' }}>
                   <div className="w-px h-10 bg-gray-300" />
                   <div className={node('bg-white border-purple-200 text-purple-900 w-full hover:border-purple-400')}>
-                    <span className="text-[10px] font-bold text-purple-400 tracking-widest uppercase mb-1">Divisi</span>
-                    Perencana Program, Implementasi &amp; Monev
+                    <span className="text-[10px] font-bold text-purple-400 tracking-widest uppercase mb-1">{t('about.struktur.chartDivisi')}</span>
+                    {t('about.struktur.chartDivisiPerencana')}
                   </div>
                   <div className="w-px h-10 bg-gray-300" />
 
@@ -241,8 +265,8 @@ const StrukturOrganisasi: React.FC = () => {
                 <div className="flex flex-col items-center" style={{ width: '47%' }}>
                   <div className="w-px h-10 bg-gray-300" />
                   <div className={node('bg-white border-purple-200 text-purple-900 w-full hover:border-purple-400')}>
-                    <span className="text-[10px] font-bold text-purple-400 tracking-widest uppercase mb-1">Divisi</span>
-                    Administrasi &amp; Keuangan
+                    <span className="text-[10px] font-bold text-purple-400 tracking-widest uppercase mb-1">{t('about.struktur.chartDivisi')}</span>
+                    {t('about.struktur.chartDivisiAdmin')}
                   </div>
                 </div>
               </div>
@@ -255,10 +279,10 @@ const StrukturOrganisasi: React.FC = () => {
       <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <SectionLabel text="Pengawasan Strategis" />
-            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Dewan Pembina</h2>
+            <SectionLabel text={t('about.struktur.sectionPengawasan')} />
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">{t('about.struktur.headingDewanPembina')}</h2>
             <p className="text-white/50 max-w-xl mx-auto text-sm">
-              Tokoh-tokoh senior yang memberikan arahan strategis dan pengawasan organisasi
+              {t('about.struktur.subheadingDewanPembina')}
             </p>
           </div>
 
@@ -282,7 +306,7 @@ const StrukturOrganisasi: React.FC = () => {
                 <p className="text-white/50 text-sm leading-relaxed mb-5">{member.background}</p>
                 <div className="inline-flex items-center gap-2 bg-emerald-900/40 text-emerald-300 px-4 py-2 rounded-full text-xs font-bold border border-emerald-100">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-900/400" />
-                  {member.experience} pengalaman
+                  {member.experience} {t('about.struktur.boardExperience')}
                 </div>
               </div>
             ))}
@@ -294,10 +318,10 @@ const StrukturOrganisasi: React.FC = () => {
       <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <SectionLabel text="Kepemimpinan Operasional" />
-            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Tim Eksekutif</h2>
+            <SectionLabel text={t('about.struktur.sectionKepemimpinan')} />
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">{t('about.struktur.headingTimEksekutif')}</h2>
             <p className="text-white/50 max-w-xl mx-auto text-sm">
-              Pemimpin operasional yang menjalankan program dan strategi organisasi
+              {t('about.struktur.subheadingTimEksekutif')}
             </p>
           </div>
 
@@ -327,13 +351,13 @@ const StrukturOrganisasi: React.FC = () => {
 
                       {/* Background */}
                       <div>
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Latar Belakang</p>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">{t('about.struktur.execLabelBackground')}</p>
                         <p className="text-gray-400 text-sm leading-relaxed">{member.background}</p>
                       </div>
 
                       {/* Responsibilities */}
                       <div>
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Tanggung Jawab</p>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">{t('about.struktur.execLabelResponsibility')}</p>
                         <ul className="space-y-1.5">
                           {member.responsibilities.map((resp, idx) => (
                             <li key={idx} className="flex items-start gap-2">
@@ -357,10 +381,10 @@ const StrukturOrganisasi: React.FC = () => {
       <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <SectionLabel text="Unit Wilayah" />
-            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Departemen &amp; Tim</h2>
+            <SectionLabel text={t('about.struktur.sectionUnitWilayah')} />
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">{t('about.struktur.headingDepartemen')}</h2>
             <p className="text-white/50 max-w-xl mx-auto text-sm">
-              Unit-unit kerja yang menjalankan program operasional sehari-hari
+              {t('about.struktur.subheadingDepartemen')}
             </p>
           </div>
 
@@ -385,7 +409,7 @@ const StrukturOrganisasi: React.FC = () => {
                         <div key={i} className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-300 to-teal-400 border-2 border-white shadow-sm" />
                       ))}
                     </div>
-                    <span className="text-xs text-white/50 font-bold">{dept.team} anggota</span>
+                    <span className="text-xs text-white/50 font-bold">{dept.team} {t('about.struktur.deptAnggota')}</span>
                   </div>
                 </div>
               </div>
@@ -398,10 +422,10 @@ const StrukturOrganisasi: React.FC = () => {
       <section className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <SectionLabel text="Masukan Ahli" />
-            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">Dewan Penasihat</h2>
+            <SectionLabel text={t('about.struktur.sectionMasukanAhli')} />
+            <h2 className="text-3xl lg:text-4xl font-black text-forest-light mb-3">{t('about.struktur.headingDewanPenasihat')}</h2>
             <p className="text-white/50 max-w-xl mx-auto text-sm">
-              Para ahli dan akademisi yang memberikan masukan strategis dan teknis
+              {t('about.struktur.subheadingDewanPenasihat')}
             </p>
           </div>
 
@@ -427,30 +451,29 @@ const StrukturOrganisasi: React.FC = () => {
 
         <div className="container-custom text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-bold tracking-[0.2em] uppercase px-5 py-2.5 rounded-full mb-8">
-            Bergabung Bersama Kami
+            {t('about.struktur.ctaBadge')}
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-5 leading-tight">
-            Jadilah Bagian dari<br />
+            {t('about.struktur.ctaHeading')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-teal-200">
-              Perubahan Positif
+              {t('about.struktur.ctaHeadingHighlight')}
             </span>
           </h2>
           <p className="text-emerald-100/80 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-            Kami selalu mencari talenta terbaik yang memiliki passion untuk
-            menciptakan perubahan positif di Indonesia.
+            {t('about.struktur.ctaDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/kontak"
               className="bg-white text-emerald-300 hover:bg-emerald-900/40 font-black py-4 px-12 rounded-2xl transition-all duration-200 shadow-2xl shadow-black/20 hover:shadow-black/30"
             >
-              Kirim Lamaran
+              {t('about.struktur.ctaKirimLamaran')}
             </a>
             <a
-              href="/publikasi/dokumen"
+              href="/publikasi/berita"
               className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 font-black py-4 px-12 rounded-2xl transition-all duration-200"
             >
-              Lihat Lowongan
+              {t('about.struktur.ctaLihatLowongan')}
             </a>
           </div>
         </div>

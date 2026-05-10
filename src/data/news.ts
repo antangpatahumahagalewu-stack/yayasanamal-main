@@ -1,58 +1,56 @@
+import { TFunction } from 'i18next';
 import images from '../assets/images';
 
-export const news = [
+export const getNews = (t: TFunction) => [
   {
     id: 2,
-    title: 'Penanaman 1000 Pohon di Kalimantan Timur',
-    excerpt: 'Kegiatan konservasi hutan dilaksanakan bersama masyarakat lokal dan volunteer dari berbagai daerah untuk menjaga kelestarian alam Kalimantan.',
-    image: images.newsImage2,
-    date: '10 Januari 2025',
-    author: 'Program Lingkungan',
-    category: 'Lingkungan'
+    title: t('news.article2Title'),
+    excerpt: t('news.article2Excerpt'),
+    image: images.artikel2Img2,
+    date: t('news.article2Date'),
+    author: t('news.article2Author'),
+    category: 'Internasional',
+    content: t('news.article2Content'),
+    bodyImages: [
+      {
+        index: 8,
+        src: images.artikel2Img1.src,
+        alt: images.artikel2Img1.alt
+      }
+    ]
   },
   {
     id: 3,
-    title: 'Workshop Keterampilan Digital untuk Ibu-ibu PKK',
-    excerpt: 'Pelatihan komputer dan digital marketing untuk ibu-ibu PKK dalam rangka pemberdayaan ekonomi keluarga dan pengembangan UMKM.',
-    image: images.newsImage3,
-    date: '5 Januari 2025',
-    author: 'Program Ekonomi',
-    category: 'Pemberdayaan'
+    title: t('news.article3Title'),
+    excerpt: t('news.article3Excerpt'),
+    image: images.artikel3Img1,
+    date: t('news.article3Date'),
+    author: t('news.article3Author'),
+    category: 'Kolaborasi',
+    content: t('news.article3Content'),
+    bodyImages: [
+      {
+        index: 16,
+        src: images.artikel3Img2.src,
+        alt: images.artikel3Img2.alt
+      }
+    ]
   },
   {
-    id: 4,
-    title: 'Bantuan Korban Banjir di Jawa Barat',
-    excerpt: 'Tim tanggap darurat AMAL memberikan bantuan logistik dan medis kepada 500 keluarga korban banjir di Kabupaten Bandung.',
-    image: images.gallery3,
-    date: '28 Desember 2024',
-    author: 'Tim Tanggap Darurat',
-    category: 'Kemanusiaan'
-  },
-  {
-    id: 5,
-    title: 'Inaugurasi Sekolah Baru di Papua',
-    excerpt: 'Peresmian sekolah dasar ke-25 yang dibangun Yayasan AMAL di daerah terpencil Papua untuk meningkatkan akses pendidikan anak-anak.',
-    image: images.educationProgram,
-    date: '20 Desember 2024',
-    author: 'Program Pendidikan',
-    category: 'Pendidikan'
-  },
-  {
-    id: 6,
-    title: 'Festival Budaya Nusantara 2024',
-    excerpt: 'Perayaan keberagaman budaya Indonesia dengan menampilkan 50 kesenian tradisional dari berbagai daerah dalam satu acara spektakuler.',
-    image: images.gallery5,
-    date: '15 Desember 2024',
-    author: 'Program Budaya',
-    category: 'Budaya'
-  },
-  {
-    id: 7,
-    title: 'Pelatihan Pertanian Organik di Jawa Tengah',
-    excerpt: 'Program pemberdayaan petani dengan teknik pertanian organik modern untuk meningkatkan produktivitas dan kesejahteraan.',
-    image: images.communityProgram,
-    date: '10 Desember 2024',
-    author: 'Program Ekonomi',
-    category: 'Pemberdayaan'
+    id: 8,
+    title: t('news.article8Title'),
+    excerpt: t('news.article8Excerpt'),
+    image: images.pksPenandatangan1,
+    date: t('news.article8Date'),
+    author: t('news.article8Author'),
+    category: 'Kemitraan',
+    content: t('news.article8Content'),
+    bodyImages: [
+      {
+        index: 7,
+        src: images.pksPenandatangan2.src,
+        alt: images.pksPenandatangan2.alt
+      }
+    ]
   }
 ];

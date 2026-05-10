@@ -1,68 +1,60 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter } from 'lucide-react';
-import { news } from '../data/news';
+import { useTranslation } from 'react-i18next';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import { Calendar, User, ArrowLeft, Share2, Facebook, Twitter, Mail } from 'lucide-react';
+import { getNews } from '../data/news';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
 
 
 
 const NewsDetail: React.FC = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   
-  // Find the news article by ID
+  const news = getNews(t);
   const article = news.find(item => item.id === parseInt(id || '0'));
   
-  // Handle featured news (ID 1)
-  const featuredNews = {
-    id: 1,
-    title: 'Launching Program Beasiswa AMAL 2025',
-    excerpt: 'Yayasan AMAL dengan bangga mengumumkan pembukaan program beasiswa terbesar dalam sejarah yayasan untuk 200 siswa berprestasi dari keluarga kurang mampu di seluruh Indonesia.',
-    content: `Program beasiswa ini mencakup bantuan biaya pendidikan penuh, buku, seragam, dan bimbingan akademik selama masa studi. Pendaftaran dibuka mulai 1 Februari hingga 31 Maret 2025.
-
-Dengan komitmen untuk mencerdaskan bangsa, Yayasan AMAL telah menyiapkan dana sebesar Rp 5 miliar untuk program beasiswa tahun ini. Program ini merupakan yang terbesar dalam sejarah yayasan sejak didirikan pada tahun 2009.
-
-"Kami percaya bahwa pendidikan adalah kunci untuk memutus rantai kemiskinan dan menciptakan generasi yang lebih baik," ujar Dr. Ahmad Surya, Ketua Yayasan AMAL. "Program beasiswa ini tidak hanya memberikan bantuan finansial, tetapi juga mentoring dan pengembangan karakter."
-
-Beasiswa ini terbuka untuk siswa SMA/SMK dan mahasiswa S1 dari seluruh Indonesia dengan kriteria:
-- Memiliki prestasi akademik yang baik (minimal rata-rata 8.0)
-- Berasal dari keluarga kurang mampu (dibuktikan dengan surat keterangan tidak mampu)
-- Aktif dalam kegiatan sosial atau organisasi
-- Memiliki motivasi tinggi untuk berkontribusi bagi masyarakat
-
-Selain bantuan biaya pendidikan, penerima beasiswa juga akan mendapatkan:
-- Bimbingan akademik dari tutor berpengalaman
-- Pelatihan soft skills dan leadership
-- Program magang di perusahaan mitra
-- Jaringan alumni yang kuat
-- Kesempatan mengikuti program pertukaran pelajar
-
-Pendaftaran dapat dilakukan secara online melalui website resmi Yayasan AMAL mulai 1 Februari 2025. Proses seleksi akan dilakukan dalam tiga tahap: seleksi administrasi, tes tertulis, dan wawancara.
-
-"Kami berharap program ini dapat menjangkau lebih banyak anak Indonesia yang berprestasi namun terkendala biaya," tambah Siti Nurhaliza, Direktur Program Yayasan AMAL.
-
-Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi website www.yayasanamal.org atau menghubungi hotline 0800-1234-5678.`,
-    image: images.newsImage1,
-    date: '15 Januari 2025',
-    author: 'Tim Redaksi AMAL',
-    category: 'Pendidikan'
+  const categoryLabelMap: Record<string, string> = {
+    'Kemitraan': t('newsDetail.categoryPartnership'),
+    'Lingkungan': t('newsDetail.categoryEnvironment'),
+    'Kolaborasi': t('newsDetail.categoryCollaboration'),
+    'Kelembagaan': t('newsDetail.categoryInstitutional'),
+    'Internasional': t('newsDetail.categoryInternational'),
   };
 
-  // Get the current article (either from news array or featured news)
+  const getCategoryLabel = (cat: string) => categoryLabelMap[cat] || cat;
+
+  const featuredNews = {
+    id: 1,
+    title: t('newsDetail.featuredTitle'),
+    excerpt: t('newsDetail.featuredExcerpt'),
+    content: t('newsDetail.featuredContent'),
+    image: images.pksPenandatangan1,
+    date: t('newsDetail.featuredDate'),
+    author: t('newsDetail.featuredAuthor'),
+    category: 'Kemitraan',
+    bodyImages: [
+      {
+        index: 7,
+        src: images.pksPenandatangan2.src,
+        alt: images.pksPenandatangan2.alt
+      }
+    ]
+  };
+
   const currentArticle = id === '1' ? featuredNews : article;
 
-  // If article not found, redirect to news page
   if (!currentArticle) {
     return <Navigate to="/publikasi/berita" replace />;
   }
 
-  // Get related articles (same category, excluding current article)
   const relatedArticles = news
-    .filter(item => item.category === currentArticle.category && item.id !== currentArticle.id)
+    .filter(item => item.category === article.category && item.id !== article.id)
     .slice(0, 3);
 
   const shareUrl = window.location.href;
-  const shareTitle = currentArticle.title;
+  const shareTitle = article.title;
 
   const handleShare = (platform: string) => {
     let url = '';
@@ -82,6 +74,91 @@ Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi we
     }
   };
 
+  const defaultContent = [
+    t('newsDetail.defaultContent1'),
+    t('newsDetail.defaultContent2'),
+    t('newsDetail.defaultContent3'),
+  ];
+
+  const renderBodyContent = () => {
+    if (!article.content) {
+      return (
+        <div className="space-y-6">
+          <p className="text-gray-300 leading-relaxed">
+            {article.excerpt}
+          </p>
+          {defaultContent.map((paragraph, index) => (
+            <p key={index} className="text-gray-300 leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      );
+    }
+
+    const bodyImages = (article as any).bodyImages as Array<{ index: number; src: string; alt: string }> | undefined;
+    const paragraphs = article.content.split('\n\n');
+
+    const renderHTML = (text: string) => {
+      const html = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-forest-light">$1</strong>');
+      return { __html: html };
+    };
+
+    const isHeading = (text: string): 'h2' | 'h3' | null => {
+      if (text.startsWith('## ')) return 'h2';
+      if (text.startsWith('### ')) return 'h3';
+      if (text.startsWith('**') && text.endsWith('**') && text.indexOf('**', 2) === text.length - 2) return 'h2';
+      return null;
+    };
+
+    const stripHeadingMarkers = (text: string): string => {
+      if (text.startsWith('## ')) return text.slice(3);
+      if (text.startsWith('### ')) return text.slice(4);
+      if (isHeading(text) === 'h2') return text.slice(2, -2);
+      return text;
+    };
+
+    const elements: React.ReactNode[] = [];
+
+    paragraphs.forEach((paragraph, idx) => {
+      const headingType = isHeading(paragraph);
+      const displayText = stripHeadingMarkers(paragraph);
+
+      if (headingType === 'h2') {
+        elements.push(
+          <h2 key={`h2-${idx}`} className="text-2xl lg:text-3xl font-bold text-forest-light mt-12 mb-4 first:mt-0" dangerouslySetInnerHTML={renderHTML(displayText)} />
+        );
+      } else if (headingType === 'h3') {
+        elements.push(
+          <h3 key={`h3-${idx}`} className="text-xl font-bold text-forest-light mt-8 mb-3" dangerouslySetInnerHTML={renderHTML(displayText)} />
+        );
+      } else {
+        elements.push(
+          <p key={`p-${idx}`} className="text-gray-300 leading-relaxed mb-6" dangerouslySetInnerHTML={renderHTML(paragraph)} />
+        );
+      }
+
+      if (bodyImages) {
+        bodyImages.forEach((img, imgIdx) => {
+          if (img.index === idx) {
+            elements.push(
+              <div key={`img-${imgIdx}`} className="mb-8 rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            );
+          }
+        });
+      }
+    });
+
+    return <>{elements}</>;
+  };
+
   return (
     <>
       <CarbonParticles />
@@ -91,14 +168,14 @@ Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi we
         <div className="container-custom">
           <nav className="flex items-center space-x-2 text-sm">
             <Link to="/" className="text-white/50 hover:text-forest-light transition-colors">
-              Beranda
+              {t('newsDetail.breadcrumbHome')}
             </Link>
             <span className="text-gray-400">/</span>
             <Link to="/publikasi/berita" className="text-white/50 hover:text-forest-light transition-colors">
-              Berita
+              {t('newsDetail.breadcrumbNews')}
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-forest-light font-medium">{currentArticle.title}</span>
+            <span className="text-forest-light font-medium">{article.title}</span>
           </nav>
         </div>
       </section>
@@ -113,115 +190,86 @@ Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi we
               className="inline-flex items-center text-forest-light hover:text-emerald-300 transition-colors mb-8 group"
             >
               <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-              Kembali ke Berita
+              {t('newsDetail.backToNews')}
             </Link>
 
             {/* Article Header */}
             <header className="mb-8">
               <div className="flex items-center space-x-4 mb-4">
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  currentArticle.category === 'Pendidikan' ? 'bg-blue-100 text-blue-600' :
-                  currentArticle.category === 'Lingkungan' ? 'bg-green-100 text-green-600' :
-                  currentArticle.category === 'Pemberdayaan' ? 'bg-orange-100 text-orange-600' :
-                  currentArticle.category === 'Kemanusiaan' ? 'bg-red-100 text-red-600' :
+                  article.category === 'Kemitraan' ? 'bg-blue-100 text-blue-600' :
+                  article.category === 'Lingkungan' ? 'bg-emerald-100 text-emerald-600' :
+                  article.category === 'Kolaborasi' ? 'bg-green-100 text-green-600' :
+                  article.category === 'Kelembagaan' ? 'bg-orange-100 text-orange-600' :
                   'bg-purple-100 text-purple-600'
                 }`}>
-                  {currentArticle.category}
+                  {getCategoryLabel(article.category)}
                 </span>
-                <div className="flex items-center space-x-4 text-sm text-white/50">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/50">
                   <div className="flex items-center space-x-1">
                     <Calendar className="h-4 w-4" />
-                    <span>{currentArticle.date}</span>
+                    <span>{article.date}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <User className="h-4 w-4" />
-                    <span>{currentArticle.author}</span>
+                    <span>{article.author}</span>
                   </div>
                 </div>
               </div>
               
               <h1 className="text-3xl lg:text-4xl font-bold text-forest-light mb-6 leading-tight">
-                {currentArticle.title}
+                {article.title}
               </h1>
               
               <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                {currentArticle.excerpt}
+                {article.excerpt}
               </p>
             </header>
 
             {/* Featured Image */}
-            <div className="relative mb-8 rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative mb-8 rounded-2xl overflow-hidden shadow-xl bg-white/5">
               <img
-                src={currentArticle.image.src}
-                alt={currentArticle.image.alt}
-                className="w-full h-96 object-cover"
+                src={article.image.src}
+                alt={article.image.alt}
+                className="w-full object-contain"
               />
             </div>
 
             {/* Article Body */}
             <div className="prose prose-lg max-w-none mb-12">
-              {currentArticle.content ? (
-                currentArticle.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-gray-300 leading-relaxed mb-6">
-                    {paragraph}
-                  </p>
-                ))
-              ) : (
-                <div className="space-y-6">
-                  <p className="text-gray-300 leading-relaxed">
-                    {currentArticle.excerpt}
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Program ini merupakan bagian dari komitmen Yayasan AMAL untuk terus berkontribusi 
-                    dalam pembangunan Indonesia yang berkelanjutan. Dengan melibatkan masyarakat lokal 
-                    dan menggunakan pendekatan yang ramah lingkungan, setiap kegiatan dirancang untuk 
-                    memberikan dampak positif jangka panjang.
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Tim lapangan Yayasan AMAL telah melakukan persiapan matang untuk memastikan 
-                    kelancaran program ini. Koordinasi dengan pemerintah daerah dan tokoh masyarakat 
-                    setempat juga telah dilakukan untuk memastikan program berjalan sesuai dengan 
-                    kebutuhan dan kondisi lokal.
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Untuk informasi lebih lanjut tentang program ini atau cara berpartisipasi, 
-                    masyarakat dapat menghubungi kantor Yayasan AMAL atau mengunjungi website resmi 
-                    di www.yayasanamal.org.
-                  </p>
-                </div>
-              )}
+              {renderBodyContent()}
             </div>
 
             {/* Share Section */}
             <div className="border-t border-gray-200 pt-8 mb-12">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-forest-light">Bagikan Artikel</h3>
+                <h3 className="text-lg font-semibold text-forest-light">{t('newsDetail.shareArticle')}</h3>
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => handleShare('facebook')}
                     className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors"
-                    title="Bagikan ke Facebook"
+                    title={t('newsDetail.shareFacebook')}
                   >
                     <Facebook className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => handleShare('twitter')}
                     className="bg-sky-500 hover:bg-sky-600 text-white p-2 rounded-lg transition-colors"
-                    title="Bagikan ke Twitter"
+                    title={t('newsDetail.shareTwitter')}
                   >
                     <Twitter className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => handleShare('email')}
                     className="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-lg transition-colors"
-                    title="Bagikan via Email"
+                    title={t('newsDetail.shareEmail')}
                   >
                     <Mail className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => navigator.clipboard.writeText(shareUrl)}
                     className="bg-emerald-600 hover:bg-emerald-700 text-white p-2 rounded-lg transition-colors"
-                    title="Salin Link"
+                    title={t('newsDetail.copyLink')}
                   >
                     <Share2 className="h-5 w-5" />
                   </button>
@@ -238,7 +286,7 @@ Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi we
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl lg:text-3xl font-bold text-forest-light mb-8">
-                Berita Terkait
+                {t('newsDetail.relatedNews')}
               </h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -256,13 +304,13 @@ Untuk informasi lebih lanjut dan pendaftaran, calon peserta dapat mengunjungi we
                       />
                       <div className="absolute top-4 left-4">
                         <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          relatedArticle.category === 'Pendidikan' ? 'bg-blue-100 text-blue-600' :
-                          relatedArticle.category === 'Lingkungan' ? 'bg-green-100 text-green-600' :
-                          relatedArticle.category === 'Pemberdayaan' ? 'bg-orange-100 text-orange-600' :
-                          relatedArticle.category === 'Kemanusiaan' ? 'bg-red-100 text-red-600' :
+                          relatedArticle.category === 'Kemitraan' ? 'bg-blue-100 text-blue-600' :
+                          relatedArticle.category === 'Lingkungan' ? 'bg-emerald-100 text-emerald-600' :
+                          relatedArticle.category === 'Kolaborasi' ? 'bg-green-100 text-green-600' :
+                          relatedArticle.category === 'Kelembagaan' ? 'bg-orange-100 text-orange-600' :
                           'bg-purple-100 text-purple-600'
                         }`}>
-                          {relatedArticle.category}
+                          {getCategoryLabel(relatedArticle.category)}
                         </span>
                       </div>
                     </div>

@@ -1,23 +1,40 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
-import { news } from '../data/news';
+import { getNews } from '../data/news';
 
 const Berita: React.FC = () => {
-  const featuredNews = {
-    id: 1,
-    title: 'Launching Program Beasiswa AMAL 2025',
-    excerpt: 'Yayasan AMAL dengan bangga mengumumkan pembukaan program beasiswa terbesar dalam sejarah yayasan untuk 200 siswa berprestasi dari keluarga kurang mampu di seluruh Indonesia.',
-    content: 'Program beasiswa ini mencakup bantuan biaya pendidikan penuh, buku, seragam, dan bimbingan akademik selama masa studi. Pendaftaran dibuka mulai 1 Februari hingga 31 Maret 2025.',
-    image: images.newsImage1,
-    date: '15 Januari 2025',
-    author: 'Tim Redaksi AMAL',
-    category: 'Pendidikan'
+  const { t } = useTranslation();
+
+  const news = getNews(t);
+
+  const categoryLabelMap: Record<string, string> = {
+    'Semua': t('berita.categoryAll'),
+    'Kemitraan': t('berita.categoryPartnership'),
+    'Lingkungan': t('berita.categoryEnvironment'),
+    'Kolaborasi': t('berita.categoryCollaboration'),
+    'Kelembagaan': t('berita.categoryInstitutional'),
+    'Internasional': t('berita.categoryInternational'),
   };
 
-  const categories = ['Semua', 'Pendidikan', 'Lingkungan', 'Pemberdayaan', 'Kemanusiaan', 'Budaya'];
+  const getCategoryLabel = (cat: string) => categoryLabelMap[cat] || cat;
+
+  const categoryKeys = ['Semua', 'Kemitraan', 'Lingkungan', 'Kolaborasi', 'Kelembagaan', 'Internasional'];
+
+  const featuredNews = {
+    id: 1,
+    title: t('berita.featuredTitle'),
+    excerpt: t('berita.featuredExcerpt'),
+    content: t('berita.featuredContent'),
+    image: images.pksPenandatangan1,
+    date: t('berita.featuredDate'),
+    author: t('berita.featuredAuthor'),
+    category: 'Kemitraan'
+  };
+
   const [selectedCategory, setSelectedCategory] = React.useState('Semua');
 
   const filteredNews = selectedCategory === 'Semua'
@@ -31,9 +48,9 @@ const Berita: React.FC = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16">
         <div className="container-custom text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Berita & Update</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">{t('berita.heroTitle')}</h1>
           <p className="text-xl text-gray-400 leading-relaxed">
-            Ikuti perkembangan terbaru program dan kegiatan Yayasan AMAL dalam membangun Indonesia yang berkelanjutan.
+            {t('berita.heroDesc')}
           </p>
         </div>
       </section>
@@ -50,12 +67,12 @@ const Berita: React.FC = () => {
               />
               <div className="absolute top-4 left-4">
                 <span className="bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Berita Utama
+                  {t('berita.featuredBadge')}
                 </span>
               </div>
             </div>
             <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <div className="flex items-center space-x-4 text-sm text-white/50 mb-4">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/50 mb-4">
                 <div className="flex items-center space-x-1">
                   <Calendar className="h-4 w-4" />
                   <span>{featuredNews.date}</span>
@@ -65,7 +82,7 @@ const Berita: React.FC = () => {
                   <span>{featuredNews.author}</span>
                 </div>
                 <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">
-                  {featuredNews.category}
+                  {getCategoryLabel(featuredNews.category)}
                 </span>
               </div>
 
@@ -73,19 +90,15 @@ const Berita: React.FC = () => {
                 {featuredNews.title}
               </h2>
 
-              <p className="text-lg text-gray-400 mb-4 leading-relaxed">
+              <p className="text-lg text-gray-400 mb-6 leading-relaxed line-clamp-4">
                 {featuredNews.excerpt}
-              </p>
-
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                {featuredNews.content}
               </p>
 
               <Link 
                 to={`/publikasi/berita/${featuredNews.id}`}
                 className="btn-primary inline-flex items-center w-fit"
               >
-                Baca Selengkapnya
+                {t('berita.readMore')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
@@ -97,7 +110,7 @@ const Berita: React.FC = () => {
       <section className="pb-8">
         <div className="container-custom">
           <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
+            {categoryKeys.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
@@ -107,7 +120,7 @@ const Berita: React.FC = () => {
                     : 'bg-white/10 text-gray-300 hover:bg-emerald-900/50 hover:text-forest-light'
                 }`}
               >
-                {category}
+                {getCategoryLabel(category)}
               </button>
             ))}
           </div>
@@ -128,13 +141,13 @@ const Berita: React.FC = () => {
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      article.category === 'Pendidikan' ? 'bg-blue-100 text-blue-600' :
-                      article.category === 'Lingkungan' ? 'bg-green-100 text-green-600' :
-                      article.category === 'Pemberdayaan' ? 'bg-orange-100 text-orange-600' :
-                      article.category === 'Kemanusiaan' ? 'bg-red-100 text-red-600' :
+                      article.category === 'Kemitraan' ? 'bg-blue-100 text-blue-600' :
+                      article.category === 'Lingkungan' ? 'bg-emerald-100 text-emerald-600' :
+                      article.category === 'Kolaborasi' ? 'bg-green-100 text-green-600' :
+                      article.category === 'Kelembagaan' ? 'bg-orange-100 text-orange-600' :
                       'bg-purple-100 text-purple-600'
                     }`}>
-                      {article.category}
+                      {getCategoryLabel(article.category)}
                     </span>
                   </div>
                 </div>
@@ -163,7 +176,7 @@ const Berita: React.FC = () => {
                     to={`/publikasi/berita/${article.id}`}
                     className="text-forest-light font-medium inline-flex items-center hover:text-emerald-300 transition-colors"
                   >
-                    Baca Selengkapnya
+                    {t('berita.readMore')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
@@ -177,19 +190,19 @@ const Berita: React.FC = () => {
       <section className="py-20 bg-emerald-600 text-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Dapatkan Update Terbaru
+            {t('berita.newsletterTitle')}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Berlangganan newsletter untuk mendapatkan berita dan update program Yayasan AMAL langsung ke email Anda.
+            {t('berita.newsletterDesc')}
           </p>
           <div className="max-w-md mx-auto flex gap-4">
             <input
               type="email"
-              placeholder="Masukkan email Anda"
+              placeholder={t('berita.emailPlaceholder')}
               className="flex-1 px-4 py-3 rounded-lg text-forest-light focus:outline-none focus:ring-2 focus:ring-white"
             />
             <button className="bg-white/10 backdrop-blur-sm border border-white/10 text-white hover:bg-white/20 font-medium px-6 py-3 rounded-lg transition-colors duration-200">
-              Subscribe
+              {t('berita.subscribe')}
             </button>
           </div>
         </div>

@@ -76,6 +76,36 @@ export const images = {
     alt: "Kolaborasi dengan perusahaan untuk CSR berkelanjutan"
   },
   
+  // PKS Article Images
+  pksPenandatangan1: {
+    src: "/galeri/news/artikel1/pks_penandatangan1.jpeg",
+    alt: "Penandatanganan Perjanjian Kerja Sama antara Yayasan AMAL dan LPHD Tampung Penyang di Hotel Best Western Palangka Raya"
+  },
+  pksPenandatangan2: {
+    src: "/galeri/news/artikel1/pks_penandatangan2.jpeg",
+    alt: "Suasana acara penandatanganan PKS yang disaksikan oleh perwakilan Kementerian Kehutanan dan Dinas Kehutanan Provinsi Kalimantan Tengah"
+  },
+
+  // Artikel2 Images
+  artikel2Img1: {
+    src: "/galeri/news/artikel2/artikel21.jpg",
+    alt: "Pemberitaan KTT Taiwan-Indonesia di media cetak — kerja sama solusi alam dan karbon biru"
+  },
+  artikel2Img2: {
+    src: "/galeri/news/artikel2/artikel22.jpeg",
+    alt: "Penandatanganan MOU antara perwakilan Taiwan dan Indonesia dalam KTT Solusi Alam Berintegritas Tinggi"
+  },
+
+  // Artikel3 Images
+  artikel3Img1: {
+    src: "/galeri/news/artikel3/artikel31.jpeg",
+    alt: "Suasana diskusi saat Kepala UPT KPHL Kapuas Kahayan menyampaikan pemaparan kerja sama PKS dengan Yayasan AMAL dalam FGD di Hotel Luwansa"
+  },
+  artikel3Img2: {
+    src: "/galeri/news/artikel3/artikel32.jpeg",
+    alt: "Foto bersama seluruh peserta FGD Yayasan AMAL dengan Pemprov Kalteng dan jajaran UPT Kehutanan se-Kalimantan Tengah"
+  },
+
   // Default placeholder
   placeholder: {
     src: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
