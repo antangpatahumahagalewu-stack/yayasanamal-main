@@ -1,6 +1,7 @@
 // App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -39,6 +40,7 @@ function AppContent() {
     <div className="flex flex-col min-h-screen">
       {/* ScrollToTop component - placed inside Router but outside Routes */}
       <ScrollToTop />
+      <Analytics />
       
       <Navbar />
         

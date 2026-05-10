@@ -22,7 +22,7 @@ interface Particle {
   satelliteOffsets: { dx: number; dy: number }[];
 }
 
-const TOTAL_PARTICLES = 40;
+const TOTAL_PARTICLES = 46;
 const GAS_RATIO = 0.6;
 const TRAIL_MAX = 3;
 const TRAIL_INTERVAL = 8;
@@ -56,7 +56,7 @@ const CarbonParticles: React.FC = () => {
 
     const createParticle = (): Particle => {
       const type = Math.random() < GAS_RATIO ? 'gas' : 'text';
-      const baseSize = type === 'gas' ? 14 + Math.random() * 14 : 11 + Math.random() * 13;
+        const baseSize = type === 'gas' ? 20 + Math.random() * 20 : 16 + Math.random() * 18;
       const startY = height * (0.3 + Math.random() * 0.8);
       const maxTravel = startY - DEATH_Y + Math.random() * 60;
       const p: Particle = {
@@ -75,7 +75,7 @@ const CarbonParticles: React.FC = () => {
         wobbleFreq2: 0.0005 + Math.random() * 0.0007,
         wobblePhase2: Math.random() * Math.PI * 2,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        maxOpacity: 0.06 + Math.random() * 0.08,
+        maxOpacity: 0.12 + Math.random() * 0.15,
         trail: [],
         trailFrame: Math.floor(Math.random() * TRAIL_INTERVAL),
         satelliteOffsets: [],

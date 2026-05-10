@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 const ProgramKarbon: React.FC = () => {
   const { t } = useTranslation();
@@ -544,7 +544,7 @@ const ProgramKarbon: React.FC = () => {
                     {ecoIdx === 1 && (
                       <div className="mt-6 bg-amber-500/10 border border-amber-500/20 rounded-xl p-4">
                         <p className="text-sm text-amber-300 font-body">
-                          {t('karbon.benchmarkKatingan')}
+                          <Trans i18nKey="karbon.benchmarkKatingan" components={{ 0: <span className="font-semibold" /> }} />
                         </p>
                       </div>
                     )}
@@ -1027,7 +1027,7 @@ const ProgramKarbon: React.FC = () => {
                   {t('karbon.kesimpulan')}
                 </h3>
                 <p className="text-sm text-gray-300 font-body mb-6 leading-relaxed">
-                  {t('karbon.kesimpulanIntro')}
+                  <Trans i18nKey="karbon.kesimpulanIntro" components={{ 0: <strong className="font-semibold text-gold" /> }} />
                 </p>
                 <div className="space-y-3">
                   {[
@@ -1071,7 +1071,7 @@ const ProgramKarbon: React.FC = () => {
 
             <div className="bg-gradient-to-br from-emerald-800/50 to-teal-800/50 border border-white/10 rounded-2xl p-8 text-center">
               <p className="text-xs text-gray-400 font-body leading-relaxed max-w-3xl mx-auto">
-                {t('karbon.disclaimer')}
+                <Trans i18nKey="karbon.disclaimer" components={{ 0: <span className="font-semibold" /> }} />
                 <br />
                 <span className="text-gray-500 mt-2 inline-block">
                   {t('karbon.referensiUtama')}
