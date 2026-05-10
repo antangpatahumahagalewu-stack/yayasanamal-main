@@ -1,5 +1,5 @@
 // App.tsx
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
@@ -7,29 +7,34 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import useGoogleAnalytics from './hooks/useGoogleAnalytics';
-import Home from './pages/Home';
-import Program from './pages/Program';
-import Berita from './pages/Berita';
-import Galeri from './pages/Galeri';
-import Publikasi from './pages/Publikasi';
-import Kemitraan from './pages/Kemitraan';
-import Karbon from './pages/Karbon';
-import Hhbk from './pages/Hhbk';
-import ApiEsg from './pages/ApiEsg';
-import Kontak from './pages/Kontak';
-import FAQ from './pages/FAQ';
 
-// Import NewsDetail component
-import NewsDetail from './pages/NewsDetail';
+const Home = lazy(() => import('./pages/Home'));
+const Program = lazy(() => import('./pages/Program'));
+const Berita = lazy(() => import('./pages/Berita'));
+const Galeri = lazy(() => import('./pages/Galeri'));
+const Publikasi = lazy(() => import('./pages/Publikasi'));
+const Kemitraan = lazy(() => import('./pages/Kemitraan'));
+const Karbon = lazy(() => import('./pages/Karbon'));
+const Hhbk = lazy(() => import('./pages/Hhbk'));
+const ApiEsg = lazy(() => import('./pages/ApiEsg'));
+const Kontak = lazy(() => import('./pages/Kontak'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const NewsDetail = lazy(() => import('./pages/NewsDetail'));
+const ProfilYayasan = lazy(() => import('./pages/tentang/ProfilYayasan'));
+const SejarahLatarBelakang = lazy(() => import('./pages/tentang/SejarahLatarBelakang'));
+const VisiMisi = lazy(() => import('./pages/tentang/VisiMisi'));
+const StrukturOrganisasi = lazy(() => import('./pages/tentang/StrukturOrganisasi'));
+const LegalitasPengakuan = lazy(() => import('./pages/tentang/LegalitasPengakuan'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsConditions = lazy(() => import('./pages/TermsConditions'));
 
-// New Tentang submenu pages
-import ProfilYayasan from './pages/tentang/ProfilYayasan';
-import SejarahLatarBelakang from './pages/tentang/SejarahLatarBelakang';
-import VisiMisi from './pages/tentang/VisiMisi';
-import StrukturOrganisasi from './pages/tentang/StrukturOrganisasi';
-import LegalitasPengakuan from './pages/tentang/LegalitasPengakuan';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsConditions from './pages/TermsConditions';
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary" />
+    </div>
+  );
+}
 
 // Inner component that uses Router hooks
 function AppContent() {
@@ -45,6 +50,7 @@ function AppContent() {
       <Navbar />
         
         <main className="flex-grow">
+          <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
             
@@ -81,6 +87,7 @@ function AppContent() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsConditions />} />
           </Routes>
+          </Suspense>
         </main>
         
         {/* Footer ditampilkan di semua halaman */}

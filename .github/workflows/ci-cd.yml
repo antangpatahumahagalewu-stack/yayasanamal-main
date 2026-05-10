@@ -82,7 +82,20 @@ jobs:
         name: frontend-build
         path: dist/
     
+    - name: Check Vercel token
+      id: check-vercel
+      run: |
+        if [ -z "$VERCEL_TOKEN" ]; then
+          echo "::warning::VERCEL_TOKEN is not set. Skipping Vercel deployment."
+          echo "skip=true" >> $GITHUB_OUTPUT
+        else
+          echo "skip=false" >> $GITHUB_OUTPUT
+        fi
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
     - name: Deploy to Vercel
+      if: steps.check-vercel.outputs.skip != 'true'
       uses: amondnet/vercel-action@v20
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
