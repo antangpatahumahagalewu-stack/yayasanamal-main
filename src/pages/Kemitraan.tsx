@@ -269,7 +269,7 @@ const Kemitraan: React.FC = () => {
             </div>
             
             <div className="relative">
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-emerald-600 transform -translate-y-1/2"></div>
+              <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-emerald-600"></div>
               
               <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
                 {steps.map((step, index) => (

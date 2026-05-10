@@ -1,7 +1,25 @@
 import { TFunction } from 'i18next';
 import images from '../assets/images';
 
-export const getNews = (t: TFunction) => [
+interface BodyImage {
+  index: number;
+  src: string;
+  alt: string;
+}
+
+export interface NewsArticle {
+  id: number;
+  title: string;
+  excerpt: string;
+  image: { src: string; alt: string };
+  date: string;
+  author: string;
+  category: string;
+  content: string;
+  bodyImages?: BodyImage[];
+}
+
+export const getNews = (t: TFunction): NewsArticle[] => [
   {
     id: 2,
     title: t('news.article2Title'),

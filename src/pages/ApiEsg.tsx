@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Cloud, Database, Shield, Globe, TrendingUp, Leaf, ArrowRight, Handshake, BarChart3, Lock, RefreshCw, FileCheck, Users, ShoppingBag, Search } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 const ApiEsg: React.FC = () => {
   const { t } = useTranslation();
@@ -173,7 +173,7 @@ const ApiEsg: React.FC = () => {
             </h1>
 
             <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed mb-8 animate-fade-in-up font-body">
-              {t('apiEsg.heroDescription')}
+              <Trans i18nKey="apiEsg.heroDescription" components={{ 1: <strong className="font-semibold text-emerald-200" /> }} />
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-6">
@@ -380,7 +380,7 @@ const ApiEsg: React.FC = () => {
           </div>
 
           <div className="relative">
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-emerald-200 transform -translate-y-1/2" />
+            <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-emerald-200" />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {steps.map((step, idx) => (
                 <div key={idx} className="relative text-center">

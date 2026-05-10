@@ -1,10 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
-import rateLimit from 'rate-limiter-flexible';
+import { RateLimiterMemory } from 'rate-limiter-flexible';
 import { config } from '../config';
 
-const rateLimiter = new rateLimit({
-  storeClient: null,
+const rateLimiter = new RateLimiterMemory({
   keyPrefix: 'api',
   points: 100,
   duration: 60,

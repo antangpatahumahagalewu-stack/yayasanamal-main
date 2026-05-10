@@ -96,7 +96,7 @@ const NewsDetail: React.FC = () => {
       );
     }
 
-    const bodyImages = (article as any).bodyImages as Array<{ index: number; src: string; alt: string }> | undefined;
+    const bodyImages = article?.bodyImages;
     const paragraphs = article.content.split('\n\n');
 
     const renderHTML = (text: string) => {

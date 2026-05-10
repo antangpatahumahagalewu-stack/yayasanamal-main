@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,22 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
+
+  const handleDropdownEnter = useCallback((name: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setOpenDropdown(name);
+  }, []);
+
+  const handleDropdownLeave = useCallback(() => {
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
+  }, []);
 
   const tentangSubmenu = [
     { path: '/tentang/profil', label: t('navSub.tentangProfil') },
@@ -38,6 +53,14 @@ const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => { setIsMenuOpen(false); setOpenDropdown(null); }, [location.pathname]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
+  }, []);
 
   const linkClasses = (path: string) =>
     `px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg ${
@@ -86,8 +109,8 @@ const Navbar: React.FC = () => {
             {/* Tentang Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown('tentang')}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleDropdownEnter('tentang')}
+              onMouseLeave={handleDropdownLeave}
             >
               <button
                 className={`px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg flex items-center space-x-1 ${
@@ -99,6 +122,7 @@ const Navbar: React.FC = () => {
                 <span>{t('nav.about')}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
+              <div className="absolute top-full left-0 w-full h-1" />
               {openDropdown === 'tentang' && (
                 <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fade-in-up">
                   {tentangSubmenu.map((item) => (
@@ -113,8 +137,8 @@ const Navbar: React.FC = () => {
             {/* Program Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown('program')}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleDropdownEnter('program')}
+              onMouseLeave={handleDropdownLeave}
             >
               <button
                 className={`px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg flex items-center space-x-1 ${
@@ -126,6 +150,7 @@ const Navbar: React.FC = () => {
                 <span>{t('nav.programs')}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
+              <div className="absolute top-full left-0 w-full h-1" />
               {openDropdown === 'program' && (
                 <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fade-in-up">
                   {programSubmenu.map((item) => (
@@ -140,8 +165,8 @@ const Navbar: React.FC = () => {
             {/* Publikasi Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown('publikasi')}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleDropdownEnter('publikasi')}
+              onMouseLeave={handleDropdownLeave}
             >
               <button
                 className={`px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg flex items-center space-x-1 ${
@@ -153,6 +178,7 @@ const Navbar: React.FC = () => {
                 <span>{t('nav.publications')}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
+              <div className="absolute top-full left-0 w-full h-1" />
               {openDropdown === 'publikasi' && (
                 <div className="absolute top-full right-0 mt-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fade-in-up">
                   {publikasiSubmenu.map((item) => (
