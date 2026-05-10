@@ -2,105 +2,108 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Cloud, Database, Shield, Globe, TrendingUp, Leaf, ArrowRight, Handshake, BarChart3, Lock, RefreshCw, FileCheck, Users, ShoppingBag, Search } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
+import { useTranslation } from 'react-i18next';
 
 const ApiEsg: React.FC = () => {
+  const { t } = useTranslation();
+
   const programSources = [
     {
       icon: Cloud,
-      title: 'Project Karbon',
-      description: 'Data stok karbon, emisi dihindari, MRV, metodologi Verra VCS, dan VCU dari 183.531 ha hutan mineral & gambut yang dikelola 91 Kelompok PS.',
+      title: t('apiEsg.source1Title'),
+      description: t('apiEsg.source1Desc'),
       link: '/program/karbon',
       color: 'from-emerald-500 to-teal-600',
-      label: 'Data Karbon & MRV'
+      label: t('apiEsg.source1Label')
     },
     {
       icon: ShoppingBag,
-      title: 'HHBK',
-      description: 'Data traceability, volume produksi, asal kawasan, dan sertifikasi produk Hasil Hutan Bukan Kayu — kerajinan purun, rotan, madu kelulut, aren, nipah, dan perikanan gambut.',
+      title: t('apiEsg.source2Title'),
+      description: t('apiEsg.source2Desc'),
       link: '/program/hhbk',
       color: 'from-amber-500 to-orange-600',
-      label: 'Traceability & Produk'
+      label: t('apiEsg.source2Label')
     },
     {
       icon: Search,
-      title: 'Penelitian & Pengembangan',
-      description: 'Data ilmiah dari penelitian spesies unggul, teknologi silvikultur, studi dampak perubahan iklim, dan inovasi pengolahan hasil hutan untuk mendukung keberlanjutan program.',
+      title: t('apiEsg.source3Title'),
+      description: t('apiEsg.source3Desc'),
       link: '/program',
       color: 'from-purple-500 to-indigo-600',
-      label: 'Data Riset & Inovasi'
+      label: t('apiEsg.source3Label')
     }
   ];
 
   const dataCategories = [
     {
       icon: Cloud,
-      title: 'Data Project Karbon',
-      description: 'Data stok karbon, serapan karbon tahunan, baseline, dan proyeksi dari hutan mineral dan hutan gambut yang dikelola 91 Kelompok PS. Mencakup data MRV (Monitoring, Reporting, Verification) sesuai standar Verra VCS, CCB, dan CORSIA.',
-      metrics: ['Stok karbon per hektar', 'Laju serapan CO₂', 'Emisi dihindari (avoided)', 'Data MRV terverifikasi'],
+      title: t('apiEsg.cat1Title'),
+      description: t('apiEsg.cat1Desc'),
+      metrics: [t('apiEsg.cat1Metric1'), t('apiEsg.cat1Metric2'), t('apiEsg.cat1Metric3'), t('apiEsg.cat1Metric4')],
       programLink: '/program/karbon',
-      programLabel: 'Project Karbon'
+      programLabel: t('apiEsg.cat1ProgLabel')
     },
     {
       icon: Leaf,
-      title: 'Data Keanekaragaman Hayati',
-      description: 'Informasi biodiversitas dari kawasan Perhutanan Sosial — spesies flora fauna, status konservasi IUCN, indeks biodiversitas, dan luasan habitat kritis terlindungi. Data hasil monitoring camera trap, line transect, dan point count.',
-      metrics: ['Daftar spesies teridentifikasi', 'Status kelangkaan IUCN', 'Indeks biodiversitas', 'Luas habitat terlindungi'],
+      title: t('apiEsg.cat2Title'),
+      description: t('apiEsg.cat2Desc'),
+      metrics: [t('apiEsg.cat2Metric1'), t('apiEsg.cat2Metric2'), t('apiEsg.cat2Metric3'), t('apiEsg.cat2Metric4')],
       programLink: '/program/karbon',
-      programLabel: 'Project Karbon — Biodiversity'
+      programLabel: t('apiEsg.cat2ProgLabel')
     },
     {
       icon: Users,
-      title: 'Data Sosial & Dampak',
-      description: 'Data dampak sosial-ekonomi dari program Perhutanan Sosial — jumlah keluarga diberdayakan, pendapatan masyarakat, distribusi manfaat karbon (benefit sharing), dan program pemberdayaan masyarakat lokal & adat.',
-      metrics: ['Jumlah penerima manfaat', 'Pendapatan rata-rata PS', 'Jumlah kelompok usaha', 'Distribusi manfaat karbon'],
+      title: t('apiEsg.cat3Title'),
+      description: t('apiEsg.cat3Desc'),
+      metrics: [t('apiEsg.cat3Metric1'), t('apiEsg.cat3Metric2'), t('apiEsg.cat3Metric3'), t('apiEsg.cat3Metric4')],
       programLink: '/program',
-      programLabel: 'Program PS'
+      programLabel: t('apiEsg.cat3ProgLabel')
     },
     {
       icon: TrendingUp,
-      title: 'Data Traceability HHBK',
-      description: 'Ketertelusuran produk Hasil Hutan Bukan Kayu dari hutan ke pasar — memastikan transparansi rantai pasok dari 91 Kelompok PS. Meliputi kerajinan purun, rotan, madu kelulut, aren, nipah, dan produk perikanan gambut.',
-      metrics: ['Asal produk per kawasan PS', 'Jenis komoditas HHBK', 'Volume produksi', 'Sertifikasi produk'],
+      title: t('apiEsg.cat4Title'),
+      description: t('apiEsg.cat4Desc'),
+      metrics: [t('apiEsg.cat4Metric1'), t('apiEsg.cat4Metric2'), t('apiEsg.cat4Metric3'), t('apiEsg.cat4Metric4')],
       programLink: '/program/hhbk',
-      programLabel: 'HHBK'
+      programLabel: t('apiEsg.cat4ProgLabel')
     }
   ];
 
   const useCases = [
     {
       icon: BarChart3,
-      title: 'ESG Reporting',
-      description: 'Perusahaan dapat menggunakan data dari Project Karbon, HHBK, dan Program PS untuk memenuhi kewajiban pelaporan ESG, sustainability report, dan compliance GRI/IFRS.',
+      title: t('apiEsg.useCase1Title'),
+      description: t('apiEsg.useCase1Desc'),
       programs: ['/program/karbon', '/program/hhbk']
     },
     {
       icon: Cloud,
-      title: 'Carbon Accounting',
-      description: 'Data karbon terverifikasi dari Project Karbon — stok karbon, emisi dihindari, dan VCU — untuk perhitungan jejak karbon korporasi dan strategi net-zero emission.',
+      title: t('apiEsg.useCase2Title'),
+      description: t('apiEsg.useCase2Desc'),
       programs: ['/program/karbon']
     },
     {
       icon: Globe,
-      title: 'Supply Chain Transparency',
-      description: 'Ketertelusuran produk HHBK dari Kelompok PS di Kalimantan Tengah ke pasar — memastikan rantai pasok berkelanjutan dan bebas deforestasi.',
+      title: t('apiEsg.useCase3Title'),
+      description: t('apiEsg.useCase3Desc'),
       programs: ['/program/hhbk']
     },
     {
       icon: Shield,
-      title: 'Impact Investment',
-      description: 'Data dampak dari Program PS dan Project Karbon untuk investor yang ingin memvalidasi investasi hijau dan mengukur social return on investment (SROI).',
+      title: t('apiEsg.useCase4Title'),
+      description: t('apiEsg.useCase4Desc'),
       programs: ['/program/karbon', '/program']
     },
     {
       icon: FileCheck,
-      title: 'Due Diligence Karbon',
-      description: 'Informasi lengkap dari Project Karbon untuk due diligence — metodologi Verra VCS, baseline, additionality, permanence, dan buffer pool.',
+      title: t('apiEsg.useCase5Title'),
+      description: t('apiEsg.useCase5Desc'),
       programs: ['/program/karbon']
     },
     {
       icon: RefreshCw,
-      title: 'Real-time Monitoring',
-      description: 'Akses data yang diperbarui berkala dari lapangan — monitoring TMAT, hotspot, tutupan lahan, dan data MRV Project Karbon.',
+      title: t('apiEsg.useCase6Title'),
+      description: t('apiEsg.useCase6Desc'),
       programs: ['/program/karbon']
     }
   ];
@@ -108,46 +111,46 @@ const ApiEsg: React.FC = () => {
   const apiFeatures = [
     {
       icon: Lock,
-      title: 'Keamanan Data',
-      description: 'API diakses melalui autentikasi token yang aman dengan enkripsi end-to-end'
+      title: t('apiEsg.feature1Title'),
+      description: t('apiEsg.feature1Desc')
     },
     {
       icon: Database,
-      title: 'Format Standar',
-      description: 'Data tersedia dalam format JSON/RESTful API yang kompatibel dengan sistem ESG korporasi'
+      title: t('apiEsg.feature2Title'),
+      description: t('apiEsg.feature2Desc')
     },
     {
       icon: RefreshCw,
-      title: 'Pembaruan Berkala',
-      description: 'Data diperbarui secara periodik berdasarkan hasil monitoring lapangan dan verifikasi MRV'
+      title: t('apiEsg.feature3Title'),
+      description: t('apiEsg.feature3Desc')
     },
     {
       icon: Shield,
-      title: 'Data Terverifikasi',
-      description: 'Seluruh data melalui proses verifikasi oleh tim ahli kehutanan dan pihak ketiga (VVB)'
+      title: t('apiEsg.feature4Title'),
+      description: t('apiEsg.feature4Desc')
     }
   ];
 
   const steps = [
     {
       number: '01',
-      title: 'Konsultasi Kebutuhan',
-      description: 'Diskusikan kebutuhan data ESG Anda dengan tim kami — tentukan data mana dari Project Karbon, HHBK, atau Program PS yang relevan'
+      title: t('apiEsg.step1Title'),
+      description: t('apiEsg.step1Desc')
     },
     {
       number: '02',
-      title: 'Penandatanganan Lisensi',
-      description: 'Formalisasi kerjasama melalui Perjanjian Lisensi API dengan ketentuan penggunaan data yang jelas'
+      title: t('apiEsg.step2Title'),
+      description: t('apiEsg.step2Desc')
     },
     {
       number: '03',
-      title: 'Integrasi Teknis',
-      description: 'Tim teknis kami membantu proses integrasi API dengan sistem Anda melalui dokumentasi lengkap'
+      title: t('apiEsg.step3Title'),
+      description: t('apiEsg.step3Desc')
     },
     {
       number: '04',
-      title: 'Akses & Monitoring',
-      description: 'Dapatkan akses langsung ke data ESG real-time dengan dukungan teknis berkelanjutan'
+      title: t('apiEsg.step4Title'),
+      description: t('apiEsg.step4Desc')
     }
   ];
 
@@ -159,29 +162,25 @@ const ApiEsg: React.FC = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              API & ESG
+              {t('apiEsg.badge')}
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
-              API Licence
+              {t('apiEsg.heading1')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-400 to-forest-light mt-2">
-                Akses Data Program untuk Mitra ESG
+                {t('apiEsg.heading2')}
               </span>
             </h1>
 
             <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed mb-8 animate-fade-in-up font-body">
-              YAMAL menyediakan API Licence untuk mengakses data terverifikasi dari{' '}
-              <strong className="text-gold">Project Karbon</strong>,{' '}
-              <strong className="text-gold">HHBK</strong>, dan{' '}
-              <strong className="text-gold">Penelitian & Pengembangan</strong>{' '}
-              — mencakup 91 Kelompok Perhutanan Sosial di 183.531 hektar kawasan Kalimantan Tengah.
+              {t('apiEsg.heroDescription')}
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-6">
               {[
-                { value: '91', label: 'Kelompok PS' },
-                { value: '183.531', label: 'Hektar Area Data' },
-                { value: '4', label: 'Kategori Data API' }
+                { value: '91', label: t('apiEsg.statKelompokPs') },
+                { value: '183.531', label: t('apiEsg.statHektar') },
+                { value: '4', label: t('apiEsg.statKategori') }
               ].map((s, i) => (
                 <div key={i} className="text-center">
                   <div className="text-3xl font-black text-gold">{s.value}</div>
@@ -198,14 +197,14 @@ const ApiEsg: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Sumber Data</span>
+              <span className="section-label-text">{t('apiEsg.sumberData')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Tiga Pilar Program Sumber Data API
+              {t('apiEsg.tigaPilarApi')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Seluruh data API berasal dari tiga program utama YAMAL yang berjalan bersama 91 Kelompok Perhutanan Sosial
+              {t('apiEsg.tigaPilarApiDesc')}
             </p>
           </div>
 
@@ -235,7 +234,7 @@ const ApiEsg: React.FC = () => {
                   </div>
                   <div className="lg:col-span-2 flex items-center justify-end">
                     <div className="flex items-center text-forest-light font-semibold group-hover:text-gold transition-colors">
-                      <span>Lihat Program</span>
+                      <span>{t('apiEsg.lihatProgram')}</span>
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -251,14 +250,14 @@ const ApiEsg: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Kategori Data</span>
+              <span className="section-label-text">{t('apiEsg.kategoriData')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Data Terverifikasi dari Lapangan
+              {t('apiEsg.dataTerverifikasi')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Empat kategori data yang dapat diakses melalui API Licence, bersumber langsung dari program YAMAL
+              {t('apiEsg.dataTerverifikasiDesc')}
             </p>
           </div>
 
@@ -286,7 +285,7 @@ const ApiEsg: React.FC = () => {
                   className="inline-flex items-center gap-1 text-xs text-forest-light hover:text-gold transition-colors group/link"
                 >
                   <ArrowRight className="h-3 w-3 group-hover/link:translate-x-0.5 transition-transform" />
-                  <span>Sumber: {cat.programLabel}</span>
+                  <span>{t('apiEsg.sumber')}: {cat.programLabel}</span>
                 </Link>
               </div>
             ))}
@@ -299,14 +298,14 @@ const ApiEsg: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Fitur API</span>
+              <span className="section-label-text">{t('apiEsg.fiturApi')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Keunggulan API Licence
+              {t('apiEsg.keunggulanApi')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              API Licence dirancang untuk memenuhi standar keamanan, transparansi, dan kompatibilitas korporasi
+              {t('apiEsg.keunggulanApiDesc')}
             </p>
           </div>
 
@@ -329,14 +328,14 @@ const ApiEsg: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Use Cases</span>
+              <span className="section-label-text">{t('apiEsg.useCases')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Siapa yang Membutuhkan API Ini
+              {t('apiEsg.siapaMembutuhkan')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Berbagai skenario penggunaan API Licence untuk memenuhi kebutuhan ESG dan keberlanjutan
+              {t('apiEsg.siapaMembutuhkanDesc')}
             </p>
           </div>
 
@@ -350,7 +349,7 @@ const ApiEsg: React.FC = () => {
                 <p className="text-gray-400 text-sm leading-relaxed font-body">{use.description}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {use.programs.map((link, lidx) => {
-                    const label = link.includes('karbon') ? 'Project Karbon' : link.includes('hhbk') ? 'HHBK' : 'Program';
+                    const label = link.includes('karbon') ? t('apiEsg.useCaseLinkKarbon') : link.includes('hhbk') ? t('apiEsg.useCaseLinkHhbk') : t('apiEsg.useCaseLinkProgram');
                     return (
                       <Link key={lidx} to={link} className="text-xs text-forest-light hover:text-gold transition-colors bg-white/5 rounded-full px-3 py-1">
                         {label} →
@@ -369,14 +368,14 @@ const ApiEsg: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Proses</span>
+              <span className="section-label-text">{t('apiEsg.proses')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Cara Mendapatkan API Licence
+              {t('apiEsg.caraDapatkan')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Empat langkah untuk mengakses data ESG dari program Perhutanan Sosial Kalimantan Tengah
+              {t('apiEsg.caraDapatkanDesc')}
             </p>
           </div>
 
@@ -404,15 +403,14 @@ const ApiEsg: React.FC = () => {
         <div className="container-custom text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-            Dapatkan Akses
+            {t('apiEsg.dapatkanAkses')}
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
-            Siap Integrasikan Data ESG Anda?
+            {t('apiEsg.siapIntegrasikan')}
           </h2>
           <p className="text-xl text-emerald-50/90 mb-12 max-w-2xl mx-auto leading-relaxed font-body">
-            Akses data terverifikasi dari Project Karbon, HHBK, dan Program PS — mendukung ESG reporting,
-            carbon accounting, traceability, dan impact investment.
+            {t('apiEsg.siapIntegrasikanDesc')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -421,14 +419,14 @@ const ApiEsg: React.FC = () => {
               className="bg-gold text-forest-deep font-black py-4 px-12 rounded-2xl transition-all duration-300 shadow-2xl hover:bg-yellow-400 hover:scale-105 inline-flex items-center gap-2"
             >
               <Handshake className="h-5 w-5" />
-              Dapatkan API Licence
+              {t('apiEsg.dapatkanApiLicence')}
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
               to="/kontak"
               className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-emerald-700 font-black py-4 px-12 rounded-2xl transition-all duration-300 hover:scale-105"
             >
-              Konsultasi Kebutuhan
+              {t('apiEsg.konsultasiKebutuhan')}
             </Link>
           </div>
         </div>

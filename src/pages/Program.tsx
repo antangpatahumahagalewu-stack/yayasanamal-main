@@ -3,45 +3,53 @@ import { Link } from 'react-router-dom';
 import { Users, TreePine, Search, Leaf, Cloud, ShoppingBag, ArrowRight, TrendingUp } from 'lucide-react';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
-
+import SEO from '../components/SEO';
+import { useTranslation } from 'react-i18next';
 
 const Program: React.FC = () => {
+  const { t } = useTranslation();
+
   const programSub = [
     {
       icon: Cloud,
-      title: 'Project Karbon',
-      description: 'Memfasilitasi project karbon dari hutan mineral dan hutan gambut yang dikelola Kelompok Perhutanan Sosial — menghasilkan karbon kredit terverifikasi untuk pasar karbon.',
-      items: ['Perencanaan Perhutanan Sosial', 'Penanaman & Pemeliharaan', 'Perlindungan & Pengamanan Hutan', 'Pemanfaatan Jasa Lingkungan'],
+      title: t('program.projectKarbonTitle'),
+      description: t('program.projectKarbonDesc'),
+      items: [t('program.perencanaanPs'), t('program.penanaman'), t('program.perlindungan'), t('program.pemanfaatan')],
       link: '/program/karbon',
       color: 'from-emerald-500 to-teal-600'
     },
     {
       icon: ShoppingBag,
-      title: 'Hasil Hutan Bukan Kayu (HHBK)',
-      description: 'Mendukung pengembangan, produksi, dan pemasaran HHBK — kerajinan purun, rotan, madu kelulut, aren, nipah, serta produk perikanan gambut.',
-      items: ['Kerajinan Purun & Rotan', 'Madu Kelulut & Gula Aren', 'Tanaman Nipah', 'Produk Perikanan Gambut', 'Pemasaran HHBK'],
+      title: t('program.hhbkTitle'),
+      description: t('program.hhbkDesc'),
+      items: [t('program.kerajinanPurun'), t('program.maduAren'), t('program.tanamanNipah'), t('program.perikananGambut'), t('program.pemasaranHhbk')],
       link: '/program/hhbk',
       color: 'from-amber-500 to-orange-600'
     },
     {
       icon: Search,
-      title: 'Penelitian & Pengembangan',
-      description: 'Penelitian ilmiah untuk pengembangan teknologi dan inovasi dalam pengelolaan hutan berkelanjutan, mendukung project karbon dan HHBK.',
-      items: ['Penelitian spesies unggul', 'Teknologi silvikultur', 'Studi dampak perubahan iklim', 'Inovasi pengolahan hasil hutan'],
+      title: t('program.penelitianTitle'),
+      description: t('program.penelitianDesc'),
+      items: [t('program.penelitianSpesies'), t('program.teknologiSilvikultur'), t('program.studiIklim'), t('program.inovasiHasilHutan')],
       link: '/program',
       color: 'from-purple-500 to-indigo-600'
     }
   ];
 
   const statistik = [
-    { value: '91', label: 'Kelompok PS Ber-PKS', icon: Users },
-    { value: '183.531,99', label: 'Hektar Area Kerja', icon: Leaf },
-    { value: '100.000+', label: 'Pohon Ditanam', icon: TreePine },
-    { value: '12', label: 'Program Berjalan', icon: TrendingUp }
+    { value: '91', label: t('program.statKelompokPs'), icon: Users },
+    { value: '183.531,99', label: t('program.statHektar'), icon: Leaf },
+    { value: '100.000+', label: t('program.statPohon'), icon: TreePine },
+    { value: '12', label: t('program.statProgram'), icon: TrendingUp }
   ];
 
   return (
     <>
+      <SEO
+        title="Program Perhutanan Sosial — Karbon, HHBK & API ESG"
+        description="Program unggulan Yayasan AMAL: Project Karbon dari hutan mineral & gambut, pengembangan HHBK, dan API Licence untuk ESG — bersama 91 Kelompok Perhutanan Sosial."
+        url="https://yayasanamal.org/program"
+      />
       <CarbonParticles />
       <div className="pt-20">
       <section className="relative pt-32 pb-16">
@@ -50,19 +58,18 @@ const Program: React.FC = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              Program
+              {t('program.badge')}
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
-              Program Bersama
+              {t('program.heading1')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-400 to-forest-light mt-2">
-                Kelompok Perhutanan Sosial
+                {t('program.heading2')}
               </span>
             </h1>
             
             <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed mb-8 animate-fade-in-up font-body">
-              Yayasan AMAL menjalankan program bersama 91 Kelompok Perhutanan Sosial di 4 kabupaten Kalimantan Tengah — 
-              dari Project Karbon hingga pengembangan dan pemasaran Hasil Hutan Bukan Kayu.
+              {t('program.heroDescription')}
             </p>
 
             <div className="flex items-center justify-center animate-scale-in">
@@ -79,14 +86,14 @@ const Program: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Program Utama</span>
+              <span className="section-label-text">{t('program.sectionLabel')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Tiga Pilar Program
+              {t('program.tigaPilar')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Program yang dijalankan bersama Kelompok Perhutanan Sosial — saling bersinergi untuk dampak berkelanjutan
+              {t('program.tigaPilarDesc')}
             </p>
           </div>
           
@@ -112,7 +119,7 @@ const Program: React.FC = () => {
                   </div>
                   
                   <div className="lg:col-span-3">
-                    <h4 className="font-bold text-gray-300 mb-4 text-sm uppercase tracking-wider">Kegiatan:</h4>
+                    <h4 className="font-bold text-gray-300 mb-4 text-sm uppercase tracking-wider">{t('program.kegiatan')}</h4>
                     <div className="space-y-2">
                       {prog.items.map((item, iidx) => (
                         <div key={iidx} className="flex items-center gap-2">
@@ -125,7 +132,7 @@ const Program: React.FC = () => {
                   
                   <div className="lg:col-span-2 flex items-center justify-end">
                     <div className="flex items-center text-forest-light font-semibold group-hover:text-gold transition-colors">
-                      <span>Selengkapnya</span>
+                      <span>{t('program.selengkapnya')}</span>
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -142,30 +149,24 @@ const Program: React.FC = () => {
             <div>
               <div className="section-label">
                 <div className="section-label-line" />
-                <span className="section-label-text">Pendekatan</span>
+                <span className="section-label-text">{t('program.pendekatan')}</span>
                 <div className="section-label-line" />
               </div>
               
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-8">
-                Program Terintegrasi dengan{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Kelompok PS</span>
+                {t('program.pendekatanHeading1')}{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">{t('program.pendekatanHeading2')}</span>
               </h2>
               
               <div className="space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed font-body">
-                  Setiap program Yayasan AMAL dirancang bersama Kelompok Perhutanan Sosial — 
-                  bukan untuk masyarakat, tetapi bersama masyarakat. Pendekatan partisipatif ini 
-                  memastikan program sesuai dengan kebutuhan lokal dan kearifan tradisional Dayak.
+                  {t('program.pendekatanP1')}
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed font-body">
-                  Dari perencanaan hingga pemasaran, Kelompok PS adalah aktor utama. Yayasan AMAL 
-                  berperan sebagai fasilitator — membuka akses ke pasar karbon, buyer HHBK, pendanaan, 
-                  dan teknologi digital untuk keberlanjutan.
+                  {t('program.pendekatanP2')}
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed font-body">
-                  Program saling terintegrasi: Project Karbon menghasilkan pendapatan yang mendanai 
-                  pengembangan HHBK, hasil HHBK dipasarkan dengan transparansi melalui API data, 
-                  dan penelitian memastikan inovasi berkelanjutan.
+                  {t('program.pendekatanP3')}
                 </p>
               </div>
             </div>
@@ -174,7 +175,7 @@ const Program: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
               <img
                 src={images.teamPhoto.src}
-                alt="Program bersama Kelompok Perhutanan Sosial"
+                alt={t('program.teamPhotoAlt')}
                 className="relative rounded-3xl shadow-2xl w-full object-cover h-96 lg:h-full"
               />
             </div>
@@ -187,11 +188,11 @@ const Program: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Dampak</span>
+              <span className="section-label-text">{t('program.dampak')}</span>
               <div className="section-label-line" />
             </div>
-            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">Angka Dampak Program</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">Statistik program yang dijalankan bersama Kelompok Perhutanan Sosial</p>
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('program.angkaDampak')}</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">{t('program.angkaDampakDesc')}</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -215,20 +216,17 @@ const Program: React.FC = () => {
         <div className="container-custom text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
             <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-            Terlibat
+            {t('program.terlibat')}
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">Dukung Program Kami</h2>
+          <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">{t('program.dukungKami')}</h2>
           <p className="text-xl text-emerald-50/90 mb-12 max-w-2xl mx-auto leading-relaxed font-body">
-            Setiap kontribusi mendukung program Project Karbon, pengembangan HHBK, dan pemberdayaan Kelompok Perhutanan Sosial di Kalimantan Tengah.
+            {t('program.dukungDesc')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/donasi" className="bg-white text-emerald-700 hover:bg-emerald-50 font-black py-4 px-12 rounded-2xl transition-all duration-300 shadow-2xl hover:shadow-emerald-500/25 hover:scale-105">
-              Donasi Sekarang
-            </Link>
-            <Link to="/kemitraan" className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white hover:text-emerald-700 font-black py-4 px-12 rounded-2xl transition-all duration-300 hover:scale-105">
-              Jadi Mitra Program
+          <div className="flex justify-center">
+            <Link to="/kemitraan" className="bg-white text-emerald-700 hover:bg-emerald-50 font-black py-4 px-12 rounded-2xl transition-all duration-300 shadow-2xl hover:shadow-emerald-500/25 hover:scale-105">
+              {t('program.jadiMitraProgram')}
             </Link>
           </div>
         </div>

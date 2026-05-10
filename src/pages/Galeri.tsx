@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { X, ZoomIn } from 'lucide-react';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
@@ -13,96 +14,64 @@ interface GalleryImage {
 }
 
 const Galeri: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
-  const galleryImages = [
+  const categoryLabelMap: Record<string, string> = {
+    'Semua': t('galeri.categoryAll'),
+    'Kemitraan': t('galeri.categoryPartnership'),
+    'Internasional': t('galeri.categoryInternational'),
+    'Kolaborasi': t('galeri.categoryCollaboration'),
+  };
+
+  const getCategoryLabel = (cat: string) => categoryLabelMap[cat] || cat;
+
+  const galleryImages: GalleryImage[] = [
     {
       id: 1,
-      ...images.gallery1,
-      category: 'Pendidikan',
-      title: 'Program Edukasi Lingkungan',
-      description: 'Kegiatan pembelajaran tentang pentingnya menjaga lingkungan untuk anak-anak sekolah dasar'
+      ...images.pksPenandatangan1,
+      category: 'Kemitraan',
+      title: t('galeri.image1Title'),
+      description: t('galeri.image1Desc')
     },
     {
       id: 2,
-      ...images.gallery2,
-      category: 'Teknologi',
-      title: 'Pelatihan Komputer Remaja',
-      description: 'Workshop komputer dan teknologi digital untuk remaja di daerah terpencil'
+      ...images.pksPenandatangan2,
+      category: 'Kemitraan',
+      title: t('galeri.image2Title'),
+      description: t('galeri.image2Desc')
     },
     {
       id: 3,
-      ...images.gallery3,
-      category: 'Pembangunan',
-      title: 'Gotong Royong Pembangunan',
-      description: 'Kegiatan bersama membangun fasilitas umum untuk kepentingan masyarakat'
+      ...images.artikel2Img1,
+      category: 'Internasional',
+      title: t('galeri.image3Title'),
+      description: t('galeri.image3Desc')
     },
     {
       id: 4,
-      ...images.gallery4,
-      category: 'Pendidikan',
-      title: 'Program Beasiswa',
-      description: 'Penyerahan beasiswa kepada siswa berprestasi dari keluarga kurang mampu'
+      ...images.artikel2Img2,
+      category: 'Internasional',
+      title: t('galeri.image4Title'),
+      description: t('galeri.image4Desc')
     },
     {
       id: 5,
-      ...images.gallery5,
-      category: 'Budaya',
-      title: 'Festival Budaya Nusantara',
-      description: 'Perayaan keberagaman budaya Indonesia dengan berbagai pertunjukan tradisional'
+      ...images.artikel3Img1,
+      category: 'Kolaborasi',
+      title: t('galeri.image5Title'),
+      description: t('galeri.image5Desc')
     },
     {
       id: 6,
-      ...images.gallery6,
-      category: 'Pendidikan',
-      title: 'Bantuan Alat Sekolah',
-      description: 'Pemberian bantuan alat tulis dan perlengkapan sekolah untuk siswa'
-    },
-    {
-      id: 7,
-      ...images.educationProgram,
-      category: 'Pendidikan',
-      title: 'Kelas Belajar Desa',
-      description: 'Program pembelajaran tambahan untuk anak-anak di pedesaan'
-    },
-    {
-      id: 8,
-      ...images.environmentProgram,
-      category: 'Lingkungan',
-      title: 'Penanaman Pohon',
-      description: 'Aksi penanaman pohon bersama volunteer dan masyarakat lokal'
-    },
-    {
-      id: 9,
-      ...images.communityProgram,
-      category: 'Ekonomi',
-      title: 'Pemberdayaan UMKM',
-      description: 'Pelatihan dan pendampingan usaha mikro untuk meningkatkan ekonomi keluarga'
-    },
-    {
-      id: 10,
-      ...images.newsImage1,
-      category: 'Kegiatan',
-      title: 'Sosialisasi Program',
-      description: 'Kegiatan sosialisasi program-program Yayasan AMAL kepada masyarakat'
-    },
-    {
-      id: 11,
-      ...images.newsImage2,
-      category: 'Kemanusiaan',
-      title: 'Bakti Sosial',
-      description: 'Kegiatan bakti sosial dan bantuan untuk masyarakat yang membutuhkan'
-    },
-    {
-      id: 12,
-      ...images.teamPhoto,
-      category: 'Tim',
-      title: 'Tim Yayasan AMAL',
-      description: 'Foto bersama tim dan volunteer Yayasan AMAL dalam kegiatan lapangan'
+      ...images.artikel3Img2,
+      category: 'Kolaborasi',
+      title: t('galeri.image6Title'),
+      description: t('galeri.image6Desc')
     }
   ];
 
-  const categories = ['Semua', 'Pendidikan', 'Lingkungan', 'Ekonomi', 'Budaya', 'Kemanusiaan', 'Teknologi', 'Pembangunan', 'Kegiatan', 'Tim'];
+  const categoryKeys = ['Semua', 'Kemitraan', 'Internasional', 'Kolaborasi'];
   const [selectedCategory, setSelectedCategory] = useState('Semua');
 
   const filteredImages = selectedCategory === 'Semua' 
@@ -128,11 +97,10 @@ const Galeri: React.FC = () => {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Galeri Dokumentasi
+              {t('galeri.heroTitle')}
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed">
-              Dokumentasi kegiatan dan program Yayasan AMAL dalam membangun 
-              masa depan berkelanjutan bersama masyarakat Indonesia.
+              {t('galeri.heroDesc')}
             </p>
           </div>
         </div>
@@ -142,7 +110,7 @@ const Galeri: React.FC = () => {
       <section className="py-12 sticky top-16 lg:top-20 z-10 border-b">
         <div className="container-custom">
           <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
+            {categoryKeys.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
@@ -152,7 +120,7 @@ const Galeri: React.FC = () => {
                     : 'bg-white/10 text-gray-300 hover:bg-emerald-900/50 hover:text-forest-light'
                 }`}
               >
-                {category}
+                {getCategoryLabel(category)}
               </button>
             ))}
           </div>
@@ -186,17 +154,11 @@ const Galeri: React.FC = () => {
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      image.category === 'Pendidikan' ? 'bg-blue-100 text-blue-600' :
-                      image.category === 'Lingkungan' ? 'bg-green-100 text-green-600' :
-                      image.category === 'Ekonomi' ? 'bg-orange-100 text-orange-600' :
-                      image.category === 'Budaya' ? 'bg-purple-100 text-purple-600' :
-                      image.category === 'Kemanusiaan' ? 'bg-red-100 text-red-600' :
-                      image.category === 'Teknologi' ? 'bg-cyan-100 text-cyan-600' :
-                      image.category === 'Pembangunan' ? 'bg-yellow-100 text-yellow-600' :
-                      image.category === 'Kegiatan' ? 'bg-pink-100 text-pink-600' :
-                      'bg-white/10 text-gray-300'
+                      image.category === 'Kemitraan' ? 'bg-emerald-100 text-emerald-600' :
+                      image.category === 'Internasional' ? 'bg-blue-100 text-blue-600' :
+                      'bg-purple-100 text-purple-600'
                     }`}>
-                      {image.category}
+                      {getCategoryLabel(image.category)}
                     </span>
                   </div>
                   
@@ -212,7 +174,7 @@ const Galeri: React.FC = () => {
           
           {filteredImages.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-400">Tidak ada gambar dalam kategori ini.</p>
+              <p className="text-xl text-gray-400">{t('galeri.noImages')}</p>
             </div>
           )}
         </div>
@@ -238,17 +200,11 @@ const Galeri: React.FC = () => {
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
               <div className="text-white">
                 <span className={`inline-block px-3 py-1 rounded text-sm font-medium mb-2 ${
-                  selectedImage.category === 'Pendidikan' ? 'bg-blue-600' :
-                  selectedImage.category === 'Lingkungan' ? 'bg-green-600' :
-                  selectedImage.category === 'Ekonomi' ? 'bg-orange-600' :
-                  selectedImage.category === 'Budaya' ? 'bg-purple-600' :
-                  selectedImage.category === 'Kemanusiaan' ? 'bg-red-600' :
-                  selectedImage.category === 'Teknologi' ? 'bg-cyan-600' :
-                  selectedImage.category === 'Pembangunan' ? 'bg-yellow-600' :
-                  selectedImage.category === 'Kegiatan' ? 'bg-pink-600' :
-                  'bg-gray-600'
+                  selectedImage.category === 'Kemitraan' ? 'bg-emerald-600' :
+                  selectedImage.category === 'Internasional' ? 'bg-blue-600' :
+                  'bg-purple-600'
                 }`}>
-                  {selectedImage.category}
+                  {getCategoryLabel(selectedImage.category)}
                 </span>
                 <h3 className="text-2xl font-bold mb-2">{selectedImage.title}</h3>
                 <p className="text-gray-200 leading-relaxed">{selectedImage.description}</p>

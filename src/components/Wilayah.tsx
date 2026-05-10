@@ -1,26 +1,29 @@
 import React from 'react';
 import { MapPin, Users, Globe } from 'lucide-react';
-
-const kabupaten = [
-  { name: 'Gunung Mas', ps: 35, luas: '72.800,99', icon: MapPin },
-  { name: 'Kapuas', ps: 25, luas: '56.771', icon: MapPin },
-  { name: 'Pulang Pisau', ps: 16, luas: '24.721', icon: MapPin },
-  { name: 'Katingan', ps: 15, luas: '29.239', icon: MapPin },
-];
+import { useTranslation } from 'react-i18next';
 
 const Wilayah: React.FC = () => {
+  const { t } = useTranslation();
+
+  const kabupaten = [
+    { name: 'Gunung Mas', ps: 35, luas: '72.800,99', icon: MapPin },
+    { name: 'Kapuas', ps: 25, luas: '56.771', icon: MapPin },
+    { name: 'Pulang Pisau', ps: 16, luas: '24.721', icon: MapPin },
+    { name: 'Katingan', ps: 15, luas: '29.239', icon: MapPin },
+  ];
+
   return (
     <section className="py-20 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-yellow-600 font-semibold tracking-widest uppercase text-sm mb-4 font-body">
-            Wilayah Kerja
+            {t('wilayah.label')}
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 font-display">
-            4 Kabupaten Dampingan
+            {t('wilayah.heading')}
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto font-body">
-            Yayasan AMAL mendampingi masyarakat di 4 kabupaten di Kalimantan Tengah — mencakup hutan mineral dan hutan gambut — melalui program perhutanan sosial, project karbon, dan pemberdayaan ekonomi berkelanjutan.
+            {t('wilayah.subheading')}
           </p>
         </div>
 
@@ -41,14 +44,14 @@ const Wilayah: React.FC = () => {
                 {item.ps}
               </div>
               <div className="text-sm text-white/60 font-body mb-3">
-                Kelompok PS
+                {t('wilayah.groupsLabel')}
               </div>
               <div className="w-8 h-px bg-white/10 mx-auto mb-3" />
               <div className="text-xl font-bold text-white/90 font-display">
                 {item.luas}
               </div>
               <div className="text-sm text-white/50 font-body">
-                Hektar
+                {t('wilayah.hectaresLabel')}
               </div>
             </div>
           ))}
@@ -63,7 +66,7 @@ const Wilayah: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl font-bold text-gold font-display">91</div>
-                <div className="text-xs text-white/50 font-body">Kelompok Perhutanan Sosial</div>
+                <div className="text-xs text-white/50 font-body">{t('wilayah.summaryGroups')}</div>
               </div>
             </div>
             <div className="w-px h-10 bg-white/10 hidden sm:block" />
@@ -73,7 +76,7 @@ const Wilayah: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl font-bold text-gold font-display">183.531,99</div>
-                <div className="text-xs text-white/50 font-body">Hektar Total Kawasan Dampingan</div>
+                <div className="text-xs text-white/50 font-body">{t('wilayah.summaryArea')}</div>
               </div>
             </div>
           </div>

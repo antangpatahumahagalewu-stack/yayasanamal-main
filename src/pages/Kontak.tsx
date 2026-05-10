@@ -1,14 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 import CarbonParticles from '../components/CarbonParticles';
+import SEO from '../components/SEO';
 
 
 const Kontak: React.FC = () => {
+  const { t } = useTranslation();
+
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Alamat Kantor',
+      title: t('kontak.addressTitle'),
       details: [
         'Jl. G. obos No 80',
         'Palangka Raya, 73112',
@@ -17,7 +21,7 @@ const Kontak: React.FC = () => {
     },
     {
       icon: Phone,
-      title: 'Telepon',
+      title: t('kontak.phoneTitle'),
       details: [
         '+62 536 1234 5678',
         '+62 812 3456 7890',
@@ -26,7 +30,7 @@ const Kontak: React.FC = () => {
     },
     {
       icon: Mail,
-      title: 'Email',
+      title: t('kontak.emailTitle'),
       details: [
         'info@antang.org',
         'program@antang.org',
@@ -35,40 +39,40 @@ const Kontak: React.FC = () => {
     },
     {
       icon: Clock,
-      title: 'Jam Operasional',
+      title: t('kontak.hoursTitle'),
       details: [
-        'Senin - Jumat: 08:00 - 17:00',
-        'Sabtu: 08:00 - 12:00',
-        'Minggu: Tutup'
+        t('kontak.hoursWeekday'),
+        t('kontak.hoursSaturday'),
+        t('kontak.hoursSunday')
       ]
     }
   ];
 
   const departments = [
     {
-      name: 'Tim Program',
+      name: t('kontak.deptProgram'),
       email: 'program@antang.org',
-      description: 'Informasi program pendidikan, lingkungan, dan pemberdayaan'
+      description: t('kontak.deptProgramDesc')
     },
     {
-      name: 'Tim Kemitraan',
+      name: t('kontak.deptPartnership'),
       email: 'partnership@antang.org',
-      description: 'Kerjasama strategis dan program CSR'
+      description: t('kontak.deptPartnershipDesc')
     },
     {
-      name: 'Tim Donasi',
-      email: 'donasi@antang.org',
-      description: 'Informasi donasi dan dukungan finansial'
-    },
-    {
-      name: 'Media & Komunikasi',
+      name: t('kontak.deptMedia'),
       email: 'media@antang.org',
-      description: 'Liputan media dan permintaan wawancara'
+      description: t('kontak.deptMediaDesc')
     }
   ];
 
   return (
     <>
+      <SEO
+        title="Hubungi Kami"
+        description="Hubungi Yayasan AMAL — Jl. G. Obos No 80, Palangka Raya, Kalimantan Tengah. Telepon +62 823 5173 2449, email info@antang.org. Bermitra untuk perhutanan sosial dan project karbon."
+        url="https://yayasanamal.org/kontak"
+      />
       <CarbonParticles />
       <div className="pt-20">
       {/* Hero Section - Enhanced */}
@@ -78,15 +82,14 @@ const Kontak: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              Hubungi Kami
+              {t('kontak.heroBadge')}
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
-              Hubungi Kami
+              {t('kontak.heroTitle')}
             </h1>
             <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed animate-fade-in-up font-body">
-              Tim Yayasan AMAL siap membantu menjawab pertanyaan dan mendiskusikan 
-              peluang kerjasama untuk masa depan Indonesia yang lebih baik.
+              {t('kontak.heroDescription')}
             </p>
           </div>
         </div>
@@ -98,11 +101,11 @@ const Kontak: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Informasi Kontak</span>
+              <span className="section-label-text">{t('kontak.contactInfo')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Cara Menghubungi Kami
+              {t('kontak.contactWays')}
             </h2>
           </div>
           
@@ -131,10 +134,10 @@ const Kontak: React.FC = () => {
             <div>
               <div className="mb-12">
                 <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-                  Kirim Pesan
+                  {t('kontak.sendMessage')}
                 </h2>
                 <p className="text-xl text-gray-400 font-body">
-                  Isi formulir di bawah ini dan tim kami akan merespons dalam 24 jam.
+                  {t('kontak.formDescription')}
                 </p>
               </div>
               <ContactForm />
@@ -143,10 +146,10 @@ const Kontak: React.FC = () => {
             <div>
               <div className="mb-12">
                 <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-                  Kontak Departemen
+                  {t('kontak.departmentTitle')}
                 </h2>
                 <p className="text-xl text-gray-400 font-body">
-                  Hubungi departemen yang sesuai untuk mendapatkan respons yang lebih cepat.
+                  {t('kontak.departmentDesc')}
                 </p>
               </div>
               
@@ -180,16 +183,15 @@ const Kontak: React.FC = () => {
                       <Calendar className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-black mb-2">Kunjungi Kantor Kami</h3>
+                      <h3 className="text-lg font-black mb-2">{t('kontak.visitTitle')}</h3>
                       <p className="text-emerald-50 text-sm mb-4 font-body">
-                        Kami menyambut kunjungan Anda ke kantor untuk diskusi lebih mendalam. 
-                        Silakan buat janji temu terlebih dahulu.
+                        {t('kontak.visitDesc')}
                       </p>
                       <a
                         href="mailto:info@antang.org?subject=Janji Temu Kunjungan"
                         className="inline-flex items-center bg-white text-emerald-300 px-6 py-3 rounded-xl font-bold text-sm hover:bg-emerald-900/40 transition-colors"
                       >
-                        Buat Janji Temu
+                        {t('kontak.makeAppointment')}
                       </a>
                     </div>
                   </div>
@@ -210,15 +212,14 @@ const Kontak: React.FC = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              Lokasi Kami
+              {t('kontak.locationBadge')}
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-black mb-6">
-              Lokasi Kantor
+              {t('kontak.locationTitle')}
             </h2>
             <p className="text-xl text-emerald-50/90 max-w-2xl mx-auto leading-relaxed font-body">
-              Kantor pusat Yayasan AMAL berlokasi strategis di Palangka Raya, 
-              Kalimantan Tengah.
+              {t('kontak.locationDesc')}
             </p>
           </div>
           
@@ -226,9 +227,9 @@ const Kontak: React.FC = () => {
             <div className="h-96 bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center backdrop-blur-sm border border-white/10">
               <div className="text-center">
                 <MapPin className="h-20 w-20 text-emerald-200 mx-auto mb-6 animate-pulse" />
-                <h3 className="text-2xl font-black text-white mb-3">Peta Interaktif</h3>
+                <h3 className="text-2xl font-black text-white mb-3">{t('kontak.mapTitle')}</h3>
                 <p className="text-emerald-100 text-lg font-body">
-                  Peta akan dimuat di sini menggunakan Google Maps
+                  {t('kontak.mapPlaceholder')}
                 </p>
               </div>
             </div>

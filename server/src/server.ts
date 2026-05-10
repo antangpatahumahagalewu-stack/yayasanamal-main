@@ -4,7 +4,6 @@ import { db } from './config/database';
 import { securityMiddleware, rateLimitMiddleware, corsMiddleware } from './middleware/security';
 import { errorHandler, notFound } from './middleware/errorHandler';
 import contactRoutes from './routes/contactRoutes';
-import donationRoutes from './routes/donationRoutes';
 import contentRoutes from './routes/contentRoutes';
 
 const app = express();
@@ -21,7 +20,6 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/contact', contactRoutes);
-app.use('/api/donation', donationRoutes);
 app.use('/api/content', contentRoutes);
 
 app.use(notFound);

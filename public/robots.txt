@@ -3,15 +3,9 @@ Allow: /
 
 Sitemap: https://yayasanamal.org/sitemap.xml
 
-# Disallow admin pages
+# Disallow private admin & API routes
 Disallow: /admin/
 Disallow: /api/
 
-# Allow all other pages
-Allow: /
-Allow: /tentang/
-Allow: /program
-Allow: /publikasi/
-Allow: /kemitraan
-Allow: /donasi
-Allow: /kontak
+# Crawl budget courtesy
+Crawl-delay: 10

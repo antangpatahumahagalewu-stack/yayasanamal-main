@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { contactAPI } from '../services/api';
 
 interface FormData {
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 const ContactForm: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -44,7 +46,7 @@ const ContactForm: React.FC = () => {
         message: '',
       });
     } catch {
-      setError('Gagal mengirim pesan. Silakan coba lagi.');
+      setError(t('contactForm.errorMessage'));
     } finally {
       setIsSubmitting(false);
     }
@@ -56,15 +58,15 @@ const ContactForm: React.FC = () => {
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle className="h-10 w-10 text-green-600" />
         </div>
-        <h3 className="text-2xl font-bold text-forest-deep mb-4">Pesan Terkirim!</h3>
+        <h3 className="text-2xl font-bold text-forest-deep mb-4">{t('contactForm.successTitle')}</h3>
         <p className="text-gray-600 mb-6">
-          Terima kasih atas pesan Anda. Kami akan segera menghubungi Anda.
+          {t('contactForm.successMessage')}
         </p>
         <button
           onClick={() => setIsSuccess(false)}
           className="text-forest-green font-semibold hover:text-forest-mid transition-colors"
         >
-          Kirim pesan lain
+          {t('contactForm.sendAnother')}
         </button>
       </div>
     );
@@ -81,7 +83,7 @@ const ContactForm: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-gray-700">
-            Nama Lengkap *
+            {t('contactForm.nameLabel')}
           </label>
           <input
             type="text"
@@ -91,13 +93,13 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             required
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all"
-            placeholder="Masukkan nama lengkap"
+            placeholder={t('contactForm.namePlaceholder')}
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Email *
+            {t('contactForm.emailLabel')}
           </label>
           <input
             type="email"
@@ -107,14 +109,14 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             required
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all"
-            placeholder="Masukkan email"
+            placeholder={t('contactForm.emailPlaceholder')}
           />
         </div>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="phone" className="text-sm font-medium text-gray-700">
-          No. Telepon
+          {t('contactForm.phoneLabel')}
         </label>
         <input
           type="tel"
@@ -123,13 +125,13 @@ const ContactForm: React.FC = () => {
           value={formData.phone}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all"
-          placeholder="Opsional: Masukkan nomor telepon"
+          placeholder={t('contactForm.phonePlaceholder')}
         />
       </div>
 
       <div className="space-y-2">
         <label htmlFor="subject" className="text-sm font-medium text-gray-700">
-          Subjek *
+          {t('contactForm.subjectLabel')}
         </label>
         <input
           type="text"
@@ -139,13 +141,13 @@ const ContactForm: React.FC = () => {
           onChange={handleChange}
           required
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all"
-          placeholder="Masukkan subjek pesan"
+          placeholder={t('contactForm.subjectPlaceholder')}
         />
       </div>
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm font-medium text-gray-700">
-          Pesan *
+          {t('contactForm.messageLabel')}
         </label>
         <textarea
           id="message"
@@ -155,7 +157,7 @@ const ContactForm: React.FC = () => {
           required
           rows={5}
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-forest-green focus:border-transparent transition-all resize-none"
-          placeholder="Tulis pesan Anda di sini..."
+          placeholder={t('contactForm.messagePlaceholder')}
         />
       </div>
 
@@ -165,11 +167,11 @@ const ContactForm: React.FC = () => {
         className="w-full bg-forest-green text-white px-8 py-4 rounded-lg font-semibold hover:bg-forest-mid transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isSubmitting ? (
-          <span className="animate-pulse">Mengirim...</span>
+          <span className="animate-pulse">{t('contactForm.sending')}</span>
         ) : (
           <>
             <Send className="h-5 w-5" />
-            <span>Kirim Pesan</span>
+            <span>{t('contactForm.submitButton')}</span>
           </>
         )}
       </button>

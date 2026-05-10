@@ -1,30 +1,33 @@
 import React from 'react';
 import { Globe, Users, Handshake, Cloud } from 'lucide-react';
-
-const missionValues = [
-  {
-    icon: Cloud,
-    title: 'Project Karbon',
-    description: 'Mitigasi perubahan iklim melalui karbon kredit dari hutan mineral & gambut yang dikelola masyarakat PS.',
-  },
-  {
-    icon: Users,
-    title: 'Pemberdayaan Ekonomi',
-    description: 'Mendukung pengembangan dan pemasaran hasil hutan bukan kayu untuk kesejahteraan masyarakat.',
-  },
-  {
-    icon: Globe,
-    title: 'Pelestarian Hutan',
-    description: 'Konservasi hutan mineral dan hutan gambut Kalimantan Tengah melalui pendekatan perhutanan sosial.',
-  },
-  {
-    icon: Handshake,
-    title: 'Kemitraan Strategis',
-    description: 'Menjembatani masyarakat PS dengan pasar karbon, buyer HHBK, dan mitra ESG untuk dampak berkelanjutan.',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const Mission: React.FC = () => {
+  const { t } = useTranslation();
+
+  const missionValues = [
+    {
+      icon: Cloud,
+      title: t('mission.card1Title'),
+      description: t('mission.card1Desc'),
+    },
+    {
+      icon: Users,
+      title: t('mission.card2Title'),
+      description: t('mission.card2Desc'),
+    },
+    {
+      icon: Globe,
+      title: t('mission.card3Title'),
+      description: t('mission.card3Desc'),
+    },
+    {
+      icon: Handshake,
+      title: t('mission.card4Title'),
+      description: t('mission.card4Desc'),
+    },
+  ];
+
   return (
     <section className="py-20 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,21 +35,21 @@ const Mission: React.FC = () => {
           {/* Left - Mission Statement */}
           <div>
             <p className="text-forest-light font-semibold tracking-widest uppercase text-sm mb-4 font-body">
-              Misi Kami
+              {t('mission.label')}
             </p>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 font-display">
-              Membangun Masa Depan{' '}
-              <span className="text-gold">Berkelanjutan</span>
+              {t('mission.heading1')}{' '}
+              <span className="text-gold">{t('mission.heading2')}</span>
             </h2>
             <div className="space-y-6 text-gray-300 leading-relaxed font-body">
               <p className="text-lg">
-                AntangPatahu Mahaga Lewu (AMAL) adalah yayasan yang berperan sebagai mitra strategis Perhutanan Sosial di Kalimantan Tengah. Kami memfasilitasi Project Karbon dari hutan mineral dan gambut, mendukung pengembangan usaha Hasil Hutan Bukan Kayu (HHBK), serta menyediakan API Licence untuk kebutuhan ESG mitra strategis.
+                {t('mission.paragraph1')}
               </p>
               <p>
-                Dengan fokus pada project karbon, pemanfaatan hasil hutan bukan kayu, dan kemitraan strategis, kami mendampingi masyarakat di 4 kabupaten Kalimantan Tengah dengan komitmen tinggi terhadap kelestarian alam dan kesejahteraan masyarakat.
+                {t('mission.paragraph2')}
               </p>
               <p>
-                Kami percaya bahwa kesejahteraan masyarakat dan kelestarian hutan adalah dua sisi mata uang yang tidak terpisahkan — keduanya harus berjalan seiring untuk mencapai pembangunan yang benar-benar berkelanjutan.
+                {t('mission.paragraph3')}
               </p>
             </div>
           </div>

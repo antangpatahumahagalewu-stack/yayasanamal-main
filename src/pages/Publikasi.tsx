@@ -1,14 +1,17 @@
 import React from 'react';
 import { Download, Calendar, FileText, BarChart3, BookOpen } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
+import { useTranslation } from 'react-i18next';
 
 const Publikasi: React.FC = () => {
+  const { t } = useTranslation();
+
   const publications = [
     {
       id: 1,
-      type: 'Laporan Tahunan',
-      title: 'Laporan Tahunan 2024',
-      description: 'Ringkasan komprehensif kegiatan, program, dan pencapaian Yayasan AMAL selama tahun 2024.',
+      type: t('publikasi.typeLaporanTahunan'),
+      title: t('publikasi.pub1Title'),
+      description: t('publikasi.pub1Desc'),
       date: '31 Desember 2024',
       size: '2.5 MB',
       pages: 48,
@@ -17,9 +20,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 2,
-      type: 'Laporan Keuangan',
-      title: 'Laporan Keuangan Auditan 2024',
-      description: 'Laporan keuangan yang telah diaudit oleh KAP independen untuk transparansi penggunaan dana.',
+      type: t('publikasi.typeLaporanKeuangan'),
+      title: t('publikasi.pub2Title'),
+      description: t('publikasi.pub2Desc'),
       date: '15 Januari 2025',
       size: '1.8 MB',
       pages: 32,
@@ -28,9 +31,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 3,
-      type: 'Panduan',
-      title: 'Panduan Pendaftaran Beasiswa 2025',
-      description: 'Petunjuk lengkap cara mendaftar program beasiswa Yayasan AMAL untuk tahun akademik 2025/2026.',
+      type: t('publikasi.typePanduan'),
+      title: t('publikasi.pub3Title'),
+      description: t('publikasi.pub3Desc'),
       date: '10 Januari 2025',
       size: '856 KB',
       pages: 16,
@@ -39,9 +42,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 4,
-      type: 'Studi Kasus',
-      title: 'Dampak Program Pendidikan di Papua',
-      description: 'Analisis mendalam tentang dampak pembangunan sekolah terhadap tingkat literasi anak di Papua.',
+      type: t('publikasi.typeStudiKasus'),
+      title: t('publikasi.pub4Title'),
+      description: t('publikasi.pub4Desc'),
       date: '5 Januari 2025',
       size: '3.2 MB',
       pages: 64,
@@ -50,9 +53,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 5,
-      type: 'Panduan',
-      title: 'Manual Penanaman Pohon Berkelanjutan',
-      description: 'Panduan teknis penanaman dan perawatan pohon untuk program konservasi lingkungan.',
+      type: t('publikasi.typePanduan'),
+      title: t('publikasi.pub5Title'),
+      description: t('publikasi.pub5Desc'),
       date: '20 Desember 2024',
       size: '1.2 MB',
       pages: 24,
@@ -61,9 +64,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 6,
-      type: 'Laporan Program',
-      title: 'Evaluasi Program Pemberdayaan UMKM 2024',
-      description: 'Hasil evaluasi program pemberdayaan ekonomi dan tingkat keberhasilan peserta UMKM.',
+      type: t('publikasi.typeLaporanProgram'),
+      title: t('publikasi.pub6Title'),
+      description: t('publikasi.pub6Desc'),
       date: '15 Desember 2024',
       size: '2.1 MB',
       pages: 40,
@@ -72,9 +75,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 7,
-      type: 'Newsletter',
-      title: 'Buletin AMAL Edisi November 2024',
-      description: 'Update bulanan kegiatan yayasan, profil penerima manfaat, dan artikel inspiratif.',
+      type: t('publikasi.typeNewsletter'),
+      title: t('publikasi.pub7Title'),
+      description: t('publikasi.pub7Desc'),
       date: '30 November 2024',
       size: '1.5 MB',
       pages: 12,
@@ -83,9 +86,9 @@ const Publikasi: React.FC = () => {
     },
     {
       id: 8,
-      type: 'Penelitian',
-      title: 'Riset Dampak Sosial Program AMAL',
-      description: 'Penelitian kolaborasi dengan universitas tentang dampak jangka panjang program yayasan.',
+      type: t('publikasi.typePenelitian'),
+      title: t('publikasi.pub8Title'),
+      description: t('publikasi.pub8Desc'),
       date: '25 November 2024',
       size: '4.1 MB',
       pages: 88,
@@ -94,26 +97,26 @@ const Publikasi: React.FC = () => {
     }
   ];
 
-  const categories = ['Semua', 'Laporan Tahunan', 'Laporan Keuangan', 'Laporan Program', 'Panduan', 'Newsletter', 'Studi Kasus', 'Penelitian'];
-  const [selectedCategory, setSelectedCategory] = React.useState('Semua');
+  const categories = [t('publikasi.filterSemua'), t('publikasi.typeLaporanTahunan'), t('publikasi.typeLaporanKeuangan'), t('publikasi.typeLaporanProgram'), t('publikasi.typePanduan'), t('publikasi.typeNewsletter'), t('publikasi.typeStudiKasus'), t('publikasi.typePenelitian')];
+  const [selectedCategory, setSelectedCategory] = React.useState(t('publikasi.filterSemua'));
 
-  const filteredPublications = selectedCategory === 'Semua' 
+  const filteredPublications = selectedCategory === t('publikasi.filterSemua') 
     ? publications 
     : publications.filter(pub => pub.type === selectedCategory);
 
   const featuredPublications = publications.filter(pub => pub.featured);
 
   const getTypeColor = (type: string) => {
-    const colors = {
-      'Laporan Tahunan': 'bg-emerald-900/50 text-forest-light',
-      'Laporan Keuangan': 'bg-blue-100 text-blue-600',
-      'Laporan Program': 'bg-purple-100 text-purple-600',
-      'Panduan': 'bg-orange-100 text-orange-600',
-      'Newsletter': 'bg-pink-100 text-pink-600',
-      'Studi Kasus': 'bg-cyan-100 text-cyan-600',
-      'Penelitian': 'bg-indigo-100 text-indigo-600'
+    const colors: Record<string, string> = {
+      [t('publikasi.typeLaporanTahunan')]: 'bg-emerald-900/50 text-forest-light',
+      [t('publikasi.typeLaporanKeuangan')]: 'bg-blue-100 text-blue-600',
+      [t('publikasi.typeLaporanProgram')]: 'bg-purple-100 text-purple-600',
+      [t('publikasi.typePanduan')]: 'bg-orange-100 text-orange-600',
+      [t('publikasi.typeNewsletter')]: 'bg-pink-100 text-pink-600',
+      [t('publikasi.typeStudiKasus')]: 'bg-cyan-100 text-cyan-600',
+      [t('publikasi.typePenelitian')]: 'bg-indigo-100 text-indigo-600'
     };
-    return colors[type as keyof typeof colors] || 'bg-white/10 text-gray-300';
+    return colors[type] || 'bg-white/10 text-gray-300';
   };
 
   return (
@@ -125,11 +128,10 @@ const Publikasi: React.FC = () => {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Publikasi & Dokumen
+              {t('publikasi.heading')}
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed">
-              Akses laporan, panduan, dan dokumen penting Yayasan AMAL untuk 
-              transparansi dan berbagi pengetahuan dengan publik.
+              {t('publikasi.heroDescription')}
             </p>
           </div>
         </div>
@@ -140,10 +142,10 @@ const Publikasi: React.FC = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-4">
-              Publikasi Unggulan
+              {t('publikasi.featuredHeading')}
             </h2>
             <p className="text-xl text-gray-400">
-              Dokumen penting dan laporan terbaru dari Yayasan AMAL
+              {t('publikasi.featuredDesc')}
             </p>
           </div>
           
@@ -175,13 +177,13 @@ const Publikasi: React.FC = () => {
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4 text-sm text-white/50">
-                        <span>{publication.pages} halaman</span>
+                        <span>{publication.pages} {t('publikasi.halaman')}</span>
                         <span>{publication.size}</span>
                       </div>
                       
                       <button className="btn-primary inline-flex items-center text-sm">
                         <Download className="h-4 w-4 mr-2" />
-                        Download
+                        {t('publikasi.download')}
                       </button>
                     </div>
                   </div>
@@ -218,10 +220,10 @@ const Publikasi: React.FC = () => {
         <div className="container-custom">
           <div className="mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Semua Publikasi
+              {t('publikasi.semuaPublikasi')}
             </h2>
             <p className="text-xl text-gray-400">
-              Koleksi lengkap dokumen dan laporan Yayasan AMAL
+              {t('publikasi.semuaPublikasiDesc')}
             </p>
           </div>
           
@@ -259,7 +261,7 @@ const Publikasi: React.FC = () => {
                   
                   <button className="w-full btn-secondary text-sm inline-flex items-center justify-center group-hover:btn-primary">
                     <Download className="h-4 w-4 mr-2" />
-                    Download PDF
+                    {t('publikasi.downloadPdf')}
                   </button>
                 </div>
               </div>
@@ -268,7 +270,7 @@ const Publikasi: React.FC = () => {
           
           {filteredPublications.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-400">Tidak ada publikasi dalam kategori ini.</p>
+              <p className="text-xl text-gray-400">{t('publikasi.tidakAdaPublikasi')}</p>
             </div>
           )}
         </div>
@@ -278,20 +280,19 @@ const Publikasi: React.FC = () => {
       <section className="py-20 bg-emerald-600 text-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Berlangganan Publikasi Terbaru
+            {t('publikasi.berlangganan')}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Dapatkan notifikasi setiap kali kami menerbitkan laporan, panduan, 
-            atau dokumen baru dari Yayasan AMAL.
+            {t('publikasi.berlanggananDesc')}
           </p>
           <div className="max-w-md mx-auto flex gap-4">
             <input
               type="email"
-              placeholder="Masukkan email Anda"
+              placeholder={t('publikasi.emailPlaceholder')}
               className="flex-1 px-4 py-3 rounded-lg text-forest-light focus:outline-none focus:ring-2 focus:ring-white"
             />
             <button className="bg-white/10 backdrop-blur-sm border border-white/10 text-white hover:bg-white/20 font-medium px-6 py-3 rounded-lg transition-colors duration-200">
-              Subscribe
+              {t('publikasi.subscribe')}
             </button>
           </div>
         </div>

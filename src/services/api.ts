@@ -26,14 +26,6 @@ export interface ContactFormData {
   message: string;
 }
 
-export interface DonationFormData {
-  name: string;
-  email: string;
-  phone?: string;
-  amount: number;
-  message?: string;
-  isAnonymous?: boolean;
-}
 
 export const contactAPI = {
   submit: async (data: ContactFormData) => {
@@ -47,29 +39,6 @@ export const contactAPI = {
   },
 };
 
-export const donationAPI = {
-  create: async (data: DonationFormData) => {
-    const response = await api.post('/donation/create', data);
-    return response.data;
-  },
-  
-  getList: async (limit = 10, offset = 0) => {
-    const response = await api.get('/donation/list', {
-      params: { limit, offset },
-    });
-    return response.data;
-  },
-  
-  getStats: async () => {
-    const response = await api.get('/donation/stats');
-    return response.data;
-  },
-  
-  updateStatus: async (transactionId: string, status: string) => {
-    const response = await api.put(`/donation/${transactionId}/status`, { status });
-    return response.data;
-  },
-};
 
 export const contentAPI = {
   getPrograms: async () => {

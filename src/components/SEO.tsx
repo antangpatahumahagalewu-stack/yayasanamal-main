@@ -12,10 +12,10 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({
   title,
   description,
-  image = '/logo6.png',
+  image = 'https://yayasanamal.org/logo6.png',
   url = 'https://yayasanamal.org',
   type = 'website',
-  keywords = 'yayasan, AMAL, pendidikan, lingkungan, pemberdayaan masyarakat'
+  keywords = 'yayasan, AMAL, perhutanan sosial, karbon, HHBK, ESG, Kalimantan Tengah, pemberdayaan masyarakat, Dayak'
 }) => {
   React.useEffect(() => {
     document.title = `${title} | Yayasan AMAL`;

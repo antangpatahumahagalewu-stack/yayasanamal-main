@@ -55,6 +55,8 @@ docker-compose.yml
 tmp/
 temp/
 *.tmp
+~$*.xlsx
+public/document/~$*.xlsx
 
 # Database
 *.sqlite

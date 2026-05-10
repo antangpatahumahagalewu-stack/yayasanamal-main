@@ -1,81 +1,84 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Heart, Users, TreePine, Leaf, Shield } from 'lucide-react';
 import images from '../../assets/images';
 import CarbonParticles from '../../components/CarbonParticles';
 
 
 const ProfilYayasan: React.FC = () => {
+  const { t } = useTranslation();
+
   const highlights = [
     {
       icon: TreePine,
       title: '183.531,99+',
-      subtitle: 'Hektar Perhutanan Sosial',
-      description: 'Kawasan hutan mineral dan gambut yang dikelola bersama Kelompok Perhutanan Sosial'
+      subtitle: t('about.profil.highlightPerhutananSosial.subtitle'),
+      description: t('about.profil.highlightPerhutananSosial.description')
     },
     {
       icon: Users,
       title: '1,500+',
-      subtitle: 'Keluarga Diberdayakan',
-      description: 'Masyarakat Dayak yang terlibat aktif dalam program pemberdayaan ekonomi berkelanjutan'
+      subtitle: t('about.profil.highlightKeluargaDiberdayakan.subtitle'),
+      description: t('about.profil.highlightKeluargaDiberdayakan.description')
     },
     {
       icon: Leaf,
       title: '12',
-      subtitle: 'Program Unggulan',
-      description: 'Luas kebun gaharu yang dikembangkan sebagai hasil hutan bukan kayu unggulan'
+      subtitle: t('about.profil.highlightProgramUnggulan.subtitle'),
+      description: t('about.profil.highlightProgramUnggulan.description')
     },
     {
       icon: Shield,
       title: '183.531,99+',
-      subtitle: 'Hektar Area Kerja',
-      description: 'Total kawasan Perhutanan Sosial yang dikelola di 4 kabupaten Kalimantan Tengah'
+      subtitle: t('about.profil.highlightAreaKerja.subtitle'),
+      description: t('about.profil.highlightAreaKerja.description')
     }
   ];
 
   const mainGoals = [
     {
       icon: TreePine,
-      title: 'Melestarikan Hutan dan Alam',
-      description: 'Menggalang partisipasi aktif masyarakat dalam menjaga hutan adat dan ekosistem sekitarnya melalui program perhutanan sosial yang berkelanjutan.',
+      title: t('about.profil.goalLestarikan.title'),
+      description: t('about.profil.goalLestarikan.description'),
       color: 'bg-emerald-900/50 text-forest-light'
     },
     {
       icon: Users,
-      title: 'Pemberdayaan Ekonomi Masyarakat',
-      description: 'Mendorong pengembangan potensi lokal berbasis hasil hutan bukan kayu, agroforestri, serta kewirausahaan berbasis lingkungan guna meningkatkan pendapatan dan kesejahteraan masyarakat.',
+      title: t('about.profil.goalPemberdayaan.title'),
+      description: t('about.profil.goalPemberdayaan.description'),
       color: 'bg-blue-100 text-blue-600'
     },
     {
       icon: Heart,
-      title: 'Pelestarian Kearifan Lokal',
-      description: 'Memperkuat nilai-nilai budaya dan tradisi masyarakat Dayak sebagai bagian tak terpisahkan dari upaya pelestarian lingkungan.',
+      title: t('about.profil.goalKearifan.title'),
+      description: t('about.profil.goalKearifan.description'),
       color: 'bg-orange-100 text-orange-600'
     }
   ];
 
   const keyFacts = [
     {
-      category: 'Perhutanan Sosial',
+      category: t('about.profil.factsPerhutananSosial.category'),
       facts: [
-        'Mengelola 167.437,99+ hektar Perhutanan Sosial bersama masyarakat Dayak di Kalimantan Tengah',
-        'Mengembangkan 500+ hektar kebun aren berkelanjutan',
-        'Melindungi 10+ spesies flora fauna endemik Kalimantan'
+        t('about.profil.factsPerhutananSosial.item1'),
+        t('about.profil.factsPerhutananSosial.item2'),
+        t('about.profil.factsPerhutananSosial.item3')
       ]
     },
     {
-      category: 'Pemberdayaan Ekonomi',
+      category: t('about.profil.factsPemberdayaanEkonomi.category'),
       facts: [
-        '12.467+ keluarga terlibat dalam program ekonomi hijau',
-        '50+ kelompok usaha berbasis hasil hutan bukan kayu',
-        '85% tingkat keberhasilan program pemberdayaan ekonomi'
+        t('about.profil.factsPemberdayaanEkonomi.item1'),
+        t('about.profil.factsPemberdayaanEkonomi.item2'),
+        t('about.profil.factsPemberdayaanEkonomi.item3')
       ]
     },
     {
-      category: 'Kearifan Lokal',
+      category: t('about.profil.factsKearifanLokal.category'),
       facts: [
-        'Dokumentasi 100+ tradisi dan kearifan lokal Dayak',
-        'Pelatihan 200+ pemuda dalam pelestarian budaya',
-        'Revitalisasi 25+ ritual adat terkait pelestarian hutan'
+        t('about.profil.factsKearifanLokal.item1'),
+        t('about.profil.factsKearifanLokal.item2'),
+        t('about.profil.factsKearifanLokal.item3')
       ]
     }
   ];
@@ -92,22 +95,20 @@ const ProfilYayasan: React.FC = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              Yayasan AMAL
+              {t('about.profil.badge')}
             </div>
             
             {/* Title */}
             <h1 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-tight animate-fade-in-up">
-              Profil Yayasan
+              {t('about.profil.title')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-200 to-emerald-300 mt-2">
-                AMAL
+                {t('about.profil.titleHighlight')}
               </span>
             </h1>
             
             {/* Description */}
             <p className="text-xl lg:text-2xl text-emerald-50/90 leading-relaxed mb-8 animate-fade-in-up font-body">
-              Yayasan AntangPatahu Mahaga Lewu (AMAL) merupakan organisasi yang berkomitmen 
-              sebagai mitra strategis Perhutanan Sosial — memfasilitasi Project Karbon dari hutan mineral dan gambut, 
-              mendukung pengembangan usaha HHBK, serta menyediakan inovasi digital untuk ESG di Kalimantan Tengah.
+              {t('about.profil.heroDescription')}
             </p>
             
             {/* Icon */}
@@ -126,14 +127,14 @@ const ProfilYayasan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Pencapaian Utama</span>
+              <span className="section-label-text">{t('about.profil.sectionPencapaianUtama')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Angka-Angka Dampak
+              {t('about.profil.headingAngkaDampak')}
             </h2>
             <p className="text-white/50 max-w-xl mx-auto">
-              Statistik konkret yang menunjukkan komitmen dan dampak program Yayasan AMAL
+              {t('about.profil.subheadingAngkaDampak')}
             </p>
           </div>
           
@@ -159,29 +160,26 @@ const ProfilYayasan: React.FC = () => {
             <div className="order-2 lg:order-1">
               <div className="section-label">
                 <div className="section-label-line" />
-                <span className="section-label-text">Tentang Kami</span>
+                <span className="section-label-text">{t('about.profil.sectionTentangKami')}</span>
                 <div className="section-label-line" />
               </div>
               
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-8">
-                Yayasan AMAL:<br />
-                <span className="gradient-text">Menjaga & Memberdayakan</span>
+                {t('about.profil.aboutHeading')}<br />
+                <span className="gradient-text">{t('about.profil.aboutHeadingHighlight')}</span>
               </h2>
               
               <div className="space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed font-body">
-                  Melalui pendekatan perhutanan sosial, Yayasan AMAL berperan sebagai mitra strategis yang menjembatani masyarakat dengan peluang ekonomi hijau. Program-program yang dijalankan difokuskan pada Project Karbon dari hutan mineral dan gambut, pengembangan usaha HHBK, serta inovasi digital API Licence untuk ESG — guna menciptakan ekosistem yang seimbang dan ekonomi masyarakat yang mandiri.
+                  {t('about.profil.aboutText1')}
                 </p>
                 
                 <p className="text-lg text-gray-300 leading-relaxed font-body">
-                  Nama "AntangPatahu Mahaga Lewu" berasal dari bahasa Dayak Ngaju Kalimantan Tengah yang bermakna "Burung Elang Keramat dan perkasa yang menjaga tanah Dayak Kalimantan Tengah", mencerminkan filosofi "Mengatang Utus Mahaga Panatau Lewu" yang bermakna mengangkat harkat dan martabat dengan menjaga kekayan sumber daya alam Tanah Dayak bahwa Yayasan ini berupaya untuk menjaga dan mensejahterakan mitra kerja yaitu masyakarat Dayak di kalimantan Tengah.
+                  {t('about.profil.aboutText2')}
                 </p>
                 
                 <p className="text-lg text-gray-300 leading-relaxed font-body">
-                  Sebagai organisasi yang berakar pada kearifan lokal Dayak, kami memahami bahwa 
-                  pelestarian hutan tidak dapat dipisahkan dari pemberdayaan masyarakat yang telah 
-                  menjadi penjaga hutan selama berabad-abad. Project Karbon yang kami fasilitasi 
-                  menjadi sumber pendapatan berkelanjutan bagi masyarakat Perhutanan Sosial.
+                  {t('about.profil.aboutText3')}
                 </p>
               </div>
             </div>
@@ -190,12 +188,12 @@ const ProfilYayasan: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
               <img
                 src={images.teamPhoto.src}
-                alt="Tim Yayasan AMAL bersama masyarakat Dayak"
+                alt={t('about.profil.altTimPhoto')}
                 className="relative rounded-3xl shadow-2xl w-full object-cover h-96 lg:h-full"
               />
               <div className="absolute -bottom-8 -right-8 bg-gradient-to-br from-emerald-600 to-teal-600 text-white p-8 rounded-2xl shadow-2xl">
                 <p className="text-3xl font-black">2025</p>
-                <p className="text-sm font-body">Tahun Berdiri</p>
+                <p className="text-sm font-body">{t('about.profil.tahunBerdiri')}</p>
               </div>
             </div>
           </div>
@@ -208,14 +206,14 @@ const ProfilYayasan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Fokus Utama</span>
+              <span className="section-label-text">{t('about.profil.sectionFokusUtama')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Tiga Pilar Utama
+              {t('about.profil.headingTigaPilar')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Tiga pilar utama yang menjadi fokus Yayasan AMAL dalam mewujudkan visi perhutanan sosial berkelanjutan
+              {t('about.profil.subheadingTigaPilar')}
             </p>
           </div>
           
@@ -242,14 +240,14 @@ const ProfilYayasan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
-              <span className="section-label-text">Data & Fakta</span>
+              <span className="section-label-text">{t('about.profil.sectionDataFakta')}</span>
               <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-              Fakta & Pencapaian
+              {t('about.profil.headingFaktaPencapaian')}
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
-              Angka-angka yang menunjukkan dampak nyata dari program perhutanan sosial Yayasan AMAL
+              {t('about.profil.subheadingFaktaPencapaian')}
             </p>
           </div>
           
@@ -284,24 +282,23 @@ const ProfilYayasan: React.FC = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-              Metodologi Kami
+              {t('about.profil.approachBadge')}
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-black mb-6">
-              Pendekatan Perhutanan Sosial
+              {t('about.profil.approachHeading')}
             </h2>
             <p className="text-xl text-emerald-50/90 max-w-3xl mx-auto leading-relaxed font-body">
-              Metodologi yang kami gunakan untuk memastikan setiap program memberikan 
-              dampak maksimal bagi kelestarian hutan dan kesejahteraan masyarakat Dayak
+              {t('about.profil.approachDescription')}
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { number: '1', title: 'Pemetaan Partisipatif', desc: 'Identifikasi potensi hutan bersama masyarakat adat' },
-              { number: '2', title: 'Kearifan Lokal', desc: 'Mengintegrasikan tradisi Dayak dalam pengelolaan hutan' },
-              { number: '3', title: 'Ekonomi Hijau', desc: 'Pengembangan HHBK dan jasa lingkungan berkelanjutan' },
-              { number: '4', title: 'Monitoring Bersama', desc: 'Evaluasi dampak dengan partisipasi masyarakat' }
+              { number: '1', title: t('about.profil.stepPemetaan.title'), desc: t('about.profil.stepPemetaan.desc') },
+              { number: '2', title: t('about.profil.stepKearifan.title'), desc: t('about.profil.stepKearifan.desc') },
+              { number: '3', title: t('about.profil.stepEkonomi.title'), desc: t('about.profil.stepEkonomi.desc') },
+              { number: '4', title: t('about.profil.stepMonitoring.title'), desc: t('about.profil.stepMonitoring.desc') }
             ].map((step, idx) => (
               <div key={idx} className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-300 group-hover:text-emerald-100 transition-all duration-300 shadow-lg">

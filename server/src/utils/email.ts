@@ -42,21 +42,3 @@ export const sendContactFormEmail = async (
 
   return sendEmail(config.email.user, `Pesan Kontak: ${subject}`, html);
 };
-
-export const sendDonationConfirmation = async (
-  email: string,
-  donorName: string,
-  amount: number,
-  transactionId: string
-) => {
-  const html = `
-    <h2>Terima Kasih atas Donasi Anda</h2>
-    <p>Halo ${donorName},</p>
-    <p>Kami dengan tulus mengucapkan terima kasih atas donasi Anda sebesar <strong>Rp ${amount.toLocaleString('id-ID')}</strong>.</p>
-    <p><strong>ID Transaksi:</strong> ${transactionId}</p>
-    <p>Donasi Anda akan membantu kami dalam melanjutkan program-program pengelolaan hutan berkelanjutan dan pemberdayaan masyarakat.</p>
-    <p>Salam hormat,<br>Tim Yayasan AMAL</p>
-  `;
-
-  return sendEmail(email, 'Konfirmasi Donasi - Yayasan AMAL', html);
-};
