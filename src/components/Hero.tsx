@@ -75,13 +75,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 animate-bounce">
-        <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-gold/70 rounded-full mt-2 animate-pulse" />
-        </div>
-        <span className="text-white/40 text-xs font-body">{t('common.scroll')}</span>
-      </div>
+
     </section>
   );
 };

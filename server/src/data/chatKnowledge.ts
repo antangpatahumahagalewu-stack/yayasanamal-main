@@ -4,7 +4,16 @@ export const WEBSITE_KNOWLEDGE = `
 ### Tentang Yayasan
 Yayasan AMAL (AntangPatahu Mahaga Lewu) adalah yayasan sosial nirlaba yang bergerak di bidang **perhutanan sosial**, **kredit karbon**, **HHBK (Hasil Hutan Bukan Kayu)**, dan **pemberdayaan masyarakat adat Dayak** di Kalimantan Tengah, Indonesia.
 
-Kantor pusat berlokasi di **Palangka Raya, Kalimantan Tengah, Indonesia**.
+**Kantor Pusat**:
+Jl. G. Obos No 80, Palangka Raya, 73112, Kalimantan Tengah, Indonesia.
+
+**Kantor Perwakilan Jakarta**:
+Jl. Kwitang Raya No. 13 Gd. Graha Ketut Mas Agung Lt.4, Jakarta Pusat, 10340, Indonesia.
+
+**Jam Operasional**:
+- Senin - Jumat: 08:00 - 17:00 WIB
+- Sabtu: 08:00 - 12:00 WIB
+- Minggu & Hari Libur: Tutup
 
 ### Visi & Misi
 - **Visi**: Mewujudkan masyarakat adat yang berdaulat dan sejahtera melalui pengelolaan hutan lestari.
@@ -15,15 +24,36 @@ Kantor pusat berlokasi di **Palangka Raya, Kalimantan Tengah, Indonesia**.
   4. Melestarikan kearifan lokal dan budaya Dayak.
   5. Membangun riset dan inovasi kehutanan.
 
+### Nilai-Nilai Organisasi
+- **Integritas**: Komitmen pada transparansi dan akuntabilitas.
+- **Kolaborasi**: Membangun kemitraan strategis.
+- **Inovasi**: Pendekatan kreatif dan solusi berkelanjutan.
+- **Keunggulan**: Memberikan layanan terbaik.
+
 ### Sejarah & Latar Belakang
 Yayasan AMAL didirikan untuk merespon kebutuhan masyarakat adat Dayak dalam mengelola hutan secara lestari sambil mendapatkan manfaat ekonomi. Nama "AntangPatahu Mahaga Lewu" berasal dari bahasa Dayak yang berarti "Menjaga Hutan, Menjaga Kehidupan".
 
 ### Struktur Organisasi
-Yayasan AMAL memiliki struktur organisasi yang terdiri dari:
-- **Pembina**: Pengawas tertinggi yayasan.
-- **Pengurus**: Ketua, Sekretaris, Bendahara yang menjalankan operasional harian.
-- **Pengawas**: Mengawasi kinerja pengurus.
-- **Tim Operasional**: Program manager, field officer, community facilitator, researcher.
+**Pembina**:
+- Ketua: Miko Duwiter, S.Hut, M.Si
+- Anggota: Joko Listianto, S.Hut
+- Anggota: Herodes Djaya Prawira Atmaja, S.Hut
+
+**Pengurus**:
+- Ketua Yayasan: Ir. Apep Yusup (pengalaman 30+ tahun)
+- Sekretaris: Bambang Ralianto, S.Hut (pengalaman 30+ tahun)
+- Bendahara: Riyan Kurniawan (pengalaman 10+ tahun)
+
+**Pengawas**:
+- Dewan Penasihat: Prof. Dr. Ani Soetjipto, Dr. Ir. Hadi Susilo, Drs. Rudi Hartono M.A, Dr. Fitri Amalia
+
+**Tim Operasional**:
+- Kepala Kantor: Miko Duwiter, S.Hut, M.Si (pengalaman 20+ tahun)
+- Kepala Perencana: Boby H. Mihing (pengalaman 15+ tahun)
+- Kepala Departemen Katingan: OcaY (5 staf)
+- Kepala Departemen Gunung Mas: Ambrin, AMD (6 staf)
+- Kepala Departemen Kapuas: Axel (6 staf)
+- Kepala Departemen Pulang Pisau: Arjuni, ST (6 staf)
 
 ### Legalitas & Pengakuan
 - Terdaftar sebagai yayasan resmi di Indonesia.
@@ -36,15 +66,13 @@ Yayasan AMAL memiliki struktur organisasi yang terdiri dari:
 ## Program Utama
 
 ### 1. Program Karbon (Carbon Credit)
-Proyek kredit karbon dari **hutan mineral dan hutan gambut** seluas **183.531,99+ hektar** di Kalimantan Tengah.
+Proyek kredit karbon dari **hutan mineral dan hutan gambut** seluas **183.531,99+ hektar** di Kalimantan Tengah — mencakup **4 kabupaten**: Kapuas, Gunung Mas, Katingan, dan Pulang Pisau dengan **91+ Kelompok Perhutanan Sosial**.
 
 **Jenis proyek karbon**:
 - **REDD+** (Reducing Emissions from Deforestation and Forest Degradation): Mencegah deforestasi dan degradasi hutan.
-- **ARR** (Afforestation, Reforestation, Revegetation): Penanaman kembali hutan yang terdegradasi.
+- **ARR** (Afforestation, Reforestation, Revegetation): Penanaman kembali hutan yang terdegradasi — **100.000+ pohon telah ditanam**.
 - **PAM** (Peatland Assessment and Management): Pengelolaan dan restorasi lahan gambut untuk mengurangi emisi karbon.
 - **Blue Carbon**: Karbon dari ekosistem pesisir dan mangrove (dalam pengembangan).
-
-**Area proyek** mencakup beberapa kawasan hutan adat dan hutan desa di Kalimantan Tengah dengan total area mencapai **183.531,99 hektar**.
 
 **Standar sertifikasi**:
 - Verra VCS (Verified Carbon Standard)
@@ -54,6 +82,7 @@ Proyek kredit karbon dari **hutan mineral dan hutan gambut** seluas **183.531,99
 **Dampak**:
 - 1.500+ keluarga penerima manfaat
 - 91+ kelompok masyarakat terlibat
+- 12 program unggulan
 - Ribuan ton CO2 berhasil diserap/tidak diemisikan
 
 ### 2. Program HHBK (Hasil Hutan Bukan Kayu)
@@ -70,16 +99,39 @@ Program pemberdayaan ekonomi masyarakat melalui hasil hutan non-kayu:
 - Studi perubahan iklim dan keanekaragaman hayati.
 - Pengembangan metodologi karbon.
 
-### 4. API ESG
-Yayasan AMAL menyediakan **API** untuk perusahaan yang membutuhkan data karbon dan ESG (Environmental, Social, Governance).
+### 4. API ESG & Pipeline Data SISINFOPS
+Yayasan AMAL menyediakan **API Licence** untuk perusahaan yang membutuhkan data karbon dan ESG (Environmental, Social, Governance).
 - Lisensi API tersedia untuk integrasi data karbon.
 - Mendukung compliance ESG perusahaan.
 - Informasi lebih lanjut di halaman /api-esg.
 
+**Pipeline Data SISINFOPS**: Seluruh data lapangan dikumpulkan melalui sistem **SISINFOPS** dalam 3 tahap:
+1. **SISINFOPS Mobile**: Petugas lapangan mengumpulkan data primer — pengukuran PSP (Permanent Sample Plot), koordinat GPS, foto monitoring, inventarisasi lapangan, dan pemantauan TMAT gambut.
+2. **Internal SISINFOPS**: Data dari lapangan disinkronkan ke database pusat YAMAL, melewati validasi dan standardisasi format sesuai protokol MRV.
+3. **Data Tersedia**: Data siap dikonsumsi untuk verifikasi oleh VVB (Validation and Verification Body) dan audit kepatuhan standar Verra VCS/CCB, memastikan setiap VCU yang diterbitkan memiliki integritas data yang terukur.
+
+Kedua aplikasi (Internal SISINFOPS dan SISINFOPS Mobile) mengikuti standar pelaporan **Verra** (VCS/CCB) untuk memastikan konsistensi data MRV.
+
 ---
 
 ## Kemitraan
-Yayasan AMAL membuka kemitraan dengan:
+
+### Tiga Jalur Kemitraan
+1. **Project Karbon**: Kemitraan kredit karbon dari hutan mineral dan gambut — menghasilkan VCU terverifikasi untuk buyer, broker, dan investor.
+2. **Usaha HHBK**: Pemasaran dan distribusi produk HHBK — purun, madu, nipah, perikanan gambut.
+3. **API & ESG**: Lisensi data untuk perusahaan yang membutuhkan data karbon dan ESG terverifikasi.
+
+### Wilayah Kerjasama
+Kapuas, Gunung Mas, Katingan, dan Pulang Pisau — 91 Kelompok Perhutanan Sosial.
+
+### Proses Kemitraan (5 Langkah)
+1. **Identifikasi Kebutuhan**: Assessment lapangan dan diskusi kebutuhan.
+2. **Perencanaan**: Penyusunan rencana kerjasama dan target.
+3. **Penandatanganan**: Formalisasi Perjanjian Kerjasama (PKS).
+4. **Implementasi**: Eksekusi program di lapangan.
+5. **Monitoring & Evaluasi**: Evaluasi dampak berkala.
+
+### Mitra Potensial
 - **Investor karbon** (carbon buyers) — perusahaan yang ingin membeli kredit karbon Voluntary Carbon Market.
 - **Perusahaan ESG** — yang membutuhkan data dan sertifikasi lingkungan.
 - **LSM/NGO** — kolaborasi program pemberdayaan masyarakat.
@@ -97,10 +149,26 @@ Yayasan AMAL membuka kemitraan dengan:
 ---
 
 ## Kontak
-- **Website**: https://yayasanamal.org (atau domain utama)
-- **Email resmi**: info@antang.org (untuk pertanyaan umum, kemitraan, dan media)
-- **Alamat**: Palangka Raya, Kalimantan Tengah, Indonesia
-- Halaman kontak: /kontak — tersedia form kontak yang bisa diisi pengunjung.
+
+**Kantor Pusat**:
+Jl. G. Obos No 80, Palangka Raya, 73112, Kalimantan Tengah, Indonesia
+
+**Kantor Perwakilan**:
+Jl. Kwitang Raya No. 13 Gd. Graha Ketut Mas Agung Lt.4, Jakarta Pusat, 10340, Indonesia
+
+**Telepon**: +62 823 5173 2449
+
+**Email**:
+- info@antang.org — Pertanyaan umum & media
+- program@antang.org — Tim program
+- partnership@antang.org — Kemitraan & investasi
+- media@antang.org — Komunikasi & media
+
+**Website**: https://yayasanamal.org
+
+**Jam Operasional**: Senin-Jumat 08:00-17:00, Sabtu 08:00-12:00, Minggu/Tutup
+
+**Halaman Kontak**: /kontak — tersedia form kontak, alamat lengkap, dan peta Google Maps.
 
 ---
 
@@ -110,16 +178,22 @@ Yayasan AMAL membuka kemitraan dengan:
 Yayasan AMAL adalah yayasan sosial nirlaba yang fokus pada perhutanan sosial, kredit karbon, HHBK, dan pemberdayaan masyarakat adat Dayak di Kalimantan Tengah.
 
 **Bagaimana cara membeli kredit karbon?**
-Kunjungi halaman /program/karbon atau hubungi kami melalui email info@antang.org untuk informasi lebih lanjut.
+Kunjungi halaman /program/karbon atau hubungi partnership@antang.org untuk informasi lebih lanjut.
 
 **Apakah Yayasan AMAL membuka donasi?**
-Saat ini Yayasan AMAL lebih fokus pada kemitraan dan investasi karbon. Untuk informasi donasi, silakan hubungi melalui kontak yang tersedia.
+Saat ini Yayasan AMAL lebih fokus pada kemitraan dan investasi karbon. Untuk informasi donasi, silakan hubungi info@antang.org.
 
-**Di mana lokasi Yayasan AMAL?**
-Kantor pusat berada di Palangka Raya, Kalimantan Tengah, Indonesia.
+**Di mana lokasi kantor Yayasan AMAL?**
+Kantor pusat: **Jl. G. Obos No 80, Palangka Raya, 73112, Kalimantan Tengah, Indonesia**. Kantor perwakilan: **Jl. Kwitang Raya No. 13 Gd. Graha Ketut Mas Agung Lt.4, Jakarta Pusat, 10340, Indonesia**. Lihat peta di halaman /kontak.
 
 **Apa itu HHBK?**
 HHBK adalah Hasil Hutan Bukan Kayu — produk hutan non-kayu seperti purun, madu, nipah, dan perikanan gambut yang dikelola masyarakat adat.
+
+**Apa itu SISINFOPS?**
+SISINFOPS adalah sistem informasi internal YAMAL untuk pengelolaan data lapangan. Terdiri dari **SISINFOPS Mobile** (aplikasi petugas lapangan) dan **Internal SISINFOPS** (database pusat). Seluruh data mengikuti standar pelaporan Verra VCS/CCB untuk MRV.
+
+**Apa saja program unggulan Yayasan AMAL?**
+12 program unggulan mencakup: konservasi hutan mineral dan gambut, REDD+, ARR (100.000+ pohon), PAM gambut, blue carbon, HHBK (purun, madu, nipah, perikanan), riset & inovasi, dan API ESG.
 `;
 
 export const SYSTEM_PROMPT_BASE = `
@@ -129,13 +203,14 @@ Kamu adalah asisten virtual resmi **Yayasan AMAL (AntangPatahu Mahaga Lewu)**, s
 
 ### 1. Cakupan Pengetahuan
 Kamu HANYA menjawab pertanyaan yang berkaitan dengan Yayasan AMAL. Gunakan informasi dari basis pengetahuan yang sudah disediakan di atas. Topik yang kamu kuasai:
-- Profil, visi, misi, sejarah, struktur organisasi Yayasan AMAL
-- Program karbon (REDD+, ARR, PAM, luas area 183.531,99 ha)
+- Profil, visi, misi, nilai-nilai, sejarah, struktur organisasi (dengan nama-nama pengurus)
+- Program karbon (REDD+, ARR, PAM, luas area 183.531,99 ha, 4 kabupaten, 91+ PS)
 - HHBK: purun, madu hutan, nipah, perikanan gambut
-- API ESG dan lisensi data karbon
-- Kemitraan dengan investor, perusahaan, LSM, pemerintah, akademisi
+- API ESG, lisensi data karbon, dan Pipeline Data SISINFOPS
+- SISINFOPS Mobile & Internal SISINFOPS — sistem pengumpulan data lapangan untuk MRV Verra VCS/CCB
+- Kemitraan (3 jalur, 5 langkah proses, wilayah kerjasama)
 - Berita, publikasi, galeri Yayasan AMAL
-- FAQ dan kontak
+- FAQ, kontak lengkap (alamat, telepon, email, jam operasional)
 
 ### 2. Gaya Bahasa — SANGAT PENTING!
 Gaya bahasamu harus **natural, santai, hangat, dan manusiawi** — seperti ngobrol dengan teman, BUKAN seperti robot atau customer service kaku.
