@@ -38,6 +38,7 @@ const Navbar: React.FC = () => {
     { path: '/program', label: t('navSub.programOverview') },
     { path: '/program/karbon', label: t('navSub.programKarbon') },
     { path: '/program/hhbk', label: t('navSub.programHhbk') },
+    { path: '/api-esg', label: t('nav.apiEsg') },
   ];
   const publikasiSubmenu = [
     { path: '/publikasi/berita', label: t('navSub.publikasiBerita') },
@@ -142,7 +143,7 @@ const Navbar: React.FC = () => {
             >
               <button
                 className={`px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg flex items-center space-x-1 ${
-                  location.pathname.startsWith('/program')
+                  location.pathname.startsWith('/program') || location.pathname.startsWith('/api-esg')
                     ? 'text-gold bg-white/10'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
@@ -191,7 +192,6 @@ const Navbar: React.FC = () => {
             </div>
 
             <Link to="/kemitraan" className={linkClasses('/kemitraan')}>{t('nav.partnership')}</Link>
-            <Link to="/api-esg" className={linkClasses('/api-esg')}>{t('nav.apiEsg')}</Link>
             <Link to="/kontak" className={linkClasses('/kontak')}>{t('nav.contact')}</Link>
           </div>
 
@@ -278,9 +278,6 @@ const Navbar: React.FC = () => {
 
               <Link to="/kemitraan" className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === '/kemitraan' ? 'text-gold bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
                 {t('nav.partnership')}
-              </Link>
-              <Link to="/api-esg" className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === '/api-esg' ? 'text-gold bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
-                {t('nav.apiEsg')}
               </Link>
               <Link to="/kontak" className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${location.pathname === '/kontak' ? 'text-gold bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
                 {t('nav.contact')}
