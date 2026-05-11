@@ -259,6 +259,9 @@ const ApiEsg: React.FC = () => {
             <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">
               {t('apiEsg.dataTerverifikasiDesc')}
             </p>
+            <p className="text-sm text-gray-400 italic leading-relaxed font-body mt-4 max-w-2xl mx-auto">
+              {t('apiEsg.sisinfopsNote')}
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">

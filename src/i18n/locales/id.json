@@ -573,7 +573,8 @@
     "tertarikKarbon": "Tertarik dengan Project Karbon Kami?",
     "tertarikKarbonDesc": "YAMAL membuka kemitraan dengan buyer karbon kredit, broker, investor, dan perusahaan yang berkomitmen pada net-zero emission.",
     "bermitraKarbon": "Bermitra Project Karbon",
-    "hubungiKami": "Hubungi Kami"
+    "hubungiKami": "Hubungi Kami",
+    "sisinfopsNote": "Seluruh data yang diperoleh dari lapangan dikumpulkan menggunakan aplikasi **Internal SISINFOPS** dan **SISINFOPS Mobile** yang digunakan oleh petugas lapangan. Kedua aplikasi ini mengikuti standar pelaporan **Verra** (VCS/CCB) untuk memastikan konsistensi data MRV."
   },
   "hhbk": {
     "badge": "HHBK — Hasil Hutan Bukan Kayu",
@@ -657,6 +658,7 @@
     "hargaCatatan8": "Pangan lokal",
     "metodologiTitle": "Catatan Metodologi",
     "metodologiText": "Data yang ditampilkan di halaman ini bersumber dari rekapitulasi internal YAMAL per Januari 2026, mencakup 91 unit Perhutanan Sosial di 4 kabupaten Kalimantan Tengah. Angka luas dan sebaran komoditas mengacu pada data lapang YAMAL dan studi produktivitas KPHP Kalimantan (Dirjen PHPL 2019). Verifikasi lapang per unit PS diperlukan untuk data yang lebih presisi.",
+    "sisinfopsNote": "Seluruh data yang diperoleh dari lapangan dikumpulkan menggunakan aplikasi **Internal SISINFOPS** dan **SISINFOPS Mobile** yang digunakan oleh petugas lapangan. Kedua aplikasi ini mengikuti standar pelaporan **Verra** (VCS/CCB) untuk memastikan konsistensi data MRV.",
     "ekosistemTitle": "Ekosistem Produksi",
     "ekosistemDesc": "Dua ekosistem berbeda — dua cerita panen yang berbeda",
     "mineralTitle": "Hutan Mineral — Gunung Mas & Kapuas Hulu (~84.000 ha)",
@@ -794,7 +796,8 @@
     "siapIntegrasikan": "Siap Integrasikan Data ESG Anda?",
     "siapIntegrasikanDesc": "Akses data terverifikasi dari Project Karbon, HHBK, dan Program PS — mendukung ESG reporting, carbon accounting, traceability, dan impact investment.",
     "dapatkanApiLicence": "Dapatkan API Licence",
-    "konsultasiKebutuhan": "Konsultasi Kebutuhan"
+    "konsultasiKebutuhan": "Konsultasi Kebutuhan",
+    "sisinfopsNote": "Seluruh data yang diperoleh dari lapangan dikumpulkan menggunakan aplikasi **Internal SISINFOPS** dan **SISINFOPS Mobile** yang digunakan oleh petugas lapangan. Kedua aplikasi ini mengikuti standar pelaporan **Verra** (VCS/CCB) untuk memastikan konsistensi data MRV."
   },
   "kemitraan": {
     "heading": "Kemitraan Strategis",

@@ -573,7 +573,8 @@
     "tertarikKarbon": "Interested in Our Carbon Project?",
     "tertarikKarbonDesc": "YAMAL opens partnerships with carbon credit buyers, brokers, investors, and companies committed to net-zero emission.",
     "bermitraKarbon": "Partner on Carbon Project",
-    "hubungiKami": "Contact Us"
+    "hubungiKami": "Contact Us",
+    "sisinfopsNote": "All data obtained from the field is collected using the **Internal SISINFOPS** and **SISINFOPS Mobile** applications used by field officers. Both applications follow **Verra** (VCS/CCB) reporting standards to ensure MRV data consistency."
   },
   "hhbk": {
     "badge": "NTFP — Non-Timber Forest Products",
@@ -657,6 +658,7 @@
     "hargaCatatan8": "Local food",
     "metodologiTitle": "Methodology Notes",
     "metodologiText": "The data displayed on this page is sourced from YAMAL's internal recapitulation as of January 2026, covering 91 Social Forestry units across 4 districts of Central Kalimantan. Area figures and commodity distribution refer to YAMAL field data and KPHP Kalimantan productivity studies (DG PHPL 2019). Field verification per SF unit is needed for more precise data.",
+    "sisinfopsNote": "All data obtained from the field is collected using the **Internal SISINFOPS** and **SISINFOPS Mobile** applications used by field officers. Both applications follow **Verra** (VCS/CCB) reporting standards to ensure MRV data consistency.",
     "ekosistemTitle": "Production Ecosystems",
     "ekosistemDesc": "Two different ecosystems — two different harvest stories",
     "mineralTitle": "Mineral Forest — Gunung Mas & Upper Kapuas (~84,000 ha)",
@@ -794,7 +796,8 @@
     "siapIntegrasikan": "Ready to Integrate Your ESG Data?",
     "siapIntegrasikanDesc": "Access verified data from the Carbon Project, NTFP, and SF Program — supporting ESG reporting, carbon accounting, traceability, and impact investment.",
     "dapatkanApiLicence": "Get API Licence",
-    "konsultasiKebutuhan": "Consult on Needs"
+    "konsultasiKebutuhan": "Consult on Needs",
+    "sisinfopsNote": "All data obtained from the field is collected using the **Internal SISINFOPS** and **SISINFOPS Mobile** applications used by field officers. Both applications follow **Verra** (VCS/CCB) reporting standards to ensure MRV data consistency."
   },
   "kemitraan": {
     "heading": "Strategic Partnerships",

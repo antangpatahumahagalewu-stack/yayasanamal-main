@@ -573,7 +573,8 @@
     "tertarikKarbon": "カーボンプロジェクトに関心をお持ちですか？",
     "tertarikKarbonDesc": "YAMALは、ネットゼロ排出にコミットする炭素クレジットバイヤー、ブローカー、投資家、企業とのパートナーシップを募集しています。",
     "bermitraKarbon": "カーボンプロジェクトパートナーになる",
-    "hubungiKami": "お問い合わせ"
+    "hubungiKami": "お問い合わせ",
+    "sisinfopsNote": "現場から得られるすべてのデータは、現場職員が使用する **Internal SISINFOPS** および **SISINFOPS Mobile** アプリケーションを使用して収集されます。両アプリケーションは**Verra**（VCS/CCB）報告基準に従い、MRVデータの一貫性を確保しています。"
   },
   "hhbk": {
     "badge": "HHBK — 非木材林産物",
@@ -657,6 +658,7 @@
     "hargaCatatan8": "地元食品",
     "metodologiTitle": "方法論ノート",
     "metodologiText": "本ページに表示されるデータは、2026年1月時点のYAMAL内部集計に基づき、中央カリマンタン4県91社会林業ユニットを対象としています。面積と産品分布の数値はYAMALの現地データとKPHPカリマンタン生産性研究（林業総局PHPL 2019）を参照しています。より正確なデータにはPSユニットごとの現地検証が必要です。",
+    "sisinfopsNote": "現場から得られるすべてのデータは、現場職員が使用する **Internal SISINFOPS** および **SISINFOPS Mobile** アプリケーションを使用して収集されます。両アプリケーションは**Verra**（VCS/CCB）報告基準に従い、MRVデータの一貫性を確保しています。",
     "ekosistemTitle": "生産生態系",
     "ekosistemDesc": "二つの異なる生態系 — 二つの異なる収穫物語",
     "mineralTitle": "鉱物林 — グヌン・マス & 上流カプアス（~84,000 ha）",
@@ -794,7 +796,8 @@
     "siapIntegrasikan": "ESGデータを統合する準備はできていますか？",
     "siapIntegrasikanDesc": "カーボンプロジェクト、HHBK、SFプログラムからの検証済みデータにアクセス — ESG報告、炭素会計、トレーサビリティ、インパクト投資をサポート。",
     "dapatkanApiLicence": "APIライセンスを取得",
-    "konsultasiKebutuhan": "ニーズ相談"
+    "konsultasiKebutuhan": "ニーズ相談",
+    "sisinfopsNote": "現場から得られるすべてのデータは、現場職員が使用する **Internal SISINFOPS** および **SISINFOPS Mobile** アプリケーションを使用して収集されます。両アプリケーションは**Verra**（VCS/CCB）報告基準に従い、MRVデータの一貫性を確保しています。"
   },
   "kemitraan": {
     "heading": "戦略的パートナーシップ",

@@ -293,6 +293,7 @@ const Hhbk: React.FC = () => {
                 {t('hhbk.metodologiTitle')}
               </h3>
               <p className="text-sm text-gray-400 italic leading-relaxed font-body">{t('hhbk.metodologiText')}</p>
+              <p className="text-sm text-gray-400 italic leading-relaxed font-body mt-4">{t('hhbk.sisinfopsNote')}</p>
             </div>
           </div>
         </section>

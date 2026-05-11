@@ -565,6 +565,7 @@ const ProgramKarbon: React.FC = () => {
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('karbon.metodologiTitle')}</h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">{t('karbon.metodologiDesc')}</p>
+              <p className="text-sm text-gray-400 italic leading-relaxed font-body mt-4 max-w-2xl mx-auto">{t('karbon.sisinfopsNote')}</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -520,7 +520,8 @@
     "tertarikKarbon": "对我们的碳项目感兴趣？",
     "tertarikKarbonDesc": "YAMAL向致力于净零排放的碳信用买家、经纪商、投资者和企业开放合作伙伴关系。",
     "bermitraKarbon": "成为碳项目合作伙伴",
-    "hubungiKami": "联系我们"
+    "hubungiKami": "联系我们",
+    "sisinfopsNote": "所有从现场获得的数据均使用现场工作人员使用的 **Internal SISINFOPS** 和 **SISINFOPS Mobile** 应用程序收集。这两个应用程序遵循 **Verra**（VCS/CCB）报告标准，以确保MRV数据的一致性。"
   },
   "program": {
     "badge": "项目",
@@ -657,6 +658,7 @@
     "hargaCatatan8": "本地食品",
     "metodologiTitle": "方法论说明",
     "metodologiText": "本页面所显示数据来源于YAMAL 2026年1月内部汇总，涵盖中加里曼丹4个县91个社会林业单位。面积数据和商品分布参照YAMAL实地数据和KPHP加里曼丹生产力研究（林业总局PHPL 2019）。更精确的数据需要对各SF单位进行实地验证。",
+    "sisinfopsNote": "所有从现场获得的数据均使用现场工作人员使用的 **Internal SISINFOPS** 和 **SISINFOPS Mobile** 应用程序收集。这两个应用程序遵循 **Verra**（VCS/CCB）报告标准，以确保MRV数据的一致性。",
     "ekosistemTitle": "生产生态系统",
     "ekosistemDesc": "两种不同的生态系统 — 两种不同的收获故事",
     "mineralTitle": "矿物林 — 古农马斯与上卡普阿斯（~84,000公顷）",
@@ -794,7 +796,8 @@
     "siapIntegrasikan": "准备好整合您的ESG数据了吗？",
     "siapIntegrasikanDesc": "访问来自碳项目、HHBK和SF项目的经核查数据 — 支持ESG报告、碳核算、可追溯性和影响力投资。",
     "dapatkanApiLicence": "获取API许可证",
-    "konsultasiKebutuhan": "咨询需求"
+    "konsultasiKebutuhan": "咨询需求",
+    "sisinfopsNote": "所有从现场获得的数据均使用现场工作人员使用的 **Internal SISINFOPS** 和 **SISINFOPS Mobile** 应用程序收集。这两个应用程序遵循 **Verra**（VCS/CCB）报告标准，以确保MRV数据的一致性。"
   },
   "kemitraan": {
     "heading": "战略合作伙伴关系",
