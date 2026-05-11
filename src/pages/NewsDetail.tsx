@@ -50,11 +50,11 @@ const NewsDetail: React.FC = () => {
   }
 
   const relatedArticles = news
-    .filter(item => item.category === article.category && item.id !== article.id)
+    .filter(item => item.category === currentArticle.category && item.id !== currentArticle.id)
     .slice(0, 3);
 
   const shareUrl = window.location.href;
-  const shareTitle = article.title;
+  const shareTitle = currentArticle.title;
 
   const handleShare = (platform: string) => {
     let url = '';
@@ -81,11 +81,11 @@ const NewsDetail: React.FC = () => {
   ];
 
   const renderBodyContent = () => {
-    if (!article.content) {
+    if (!currentArticle.content) {
       return (
         <div className="space-y-6">
           <p className="text-gray-300 leading-relaxed">
-            {article.excerpt}
+            {currentArticle.excerpt}
           </p>
           {defaultContent.map((paragraph, index) => (
             <p key={index} className="text-gray-300 leading-relaxed">
@@ -96,8 +96,8 @@ const NewsDetail: React.FC = () => {
       );
     }
 
-    const bodyImages = article?.bodyImages;
-    const paragraphs = article.content.split('\n\n');
+    const bodyImages = currentArticle?.bodyImages;
+    const paragraphs = currentArticle.content.split('\n\n');
 
     const renderHTML = (text: string) => {
       const html = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-forest-light">$1</strong>');
@@ -175,7 +175,7 @@ const NewsDetail: React.FC = () => {
               {t('newsDetail.breadcrumbNews')}
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-forest-light font-medium">{article.title}</span>
+            <span className="text-forest-light font-medium">{currentArticle.title}</span>
           </nav>
         </div>
       </section>
@@ -197,40 +197,40 @@ const NewsDetail: React.FC = () => {
             <header className="mb-8">
               <div className="flex items-center space-x-4 mb-4">
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  article.category === 'Kemitraan' ? 'bg-blue-100 text-blue-600' :
-                  article.category === 'Lingkungan' ? 'bg-emerald-100 text-emerald-600' :
-                  article.category === 'Kolaborasi' ? 'bg-green-100 text-green-600' :
-                  article.category === 'Kelembagaan' ? 'bg-orange-100 text-orange-600' :
+                  currentArticle.category === 'Kemitraan' ? 'bg-blue-100 text-blue-600' :
+                  currentArticle.category === 'Lingkungan' ? 'bg-emerald-100 text-emerald-600' :
+                  currentArticle.category === 'Kolaborasi' ? 'bg-green-100 text-green-600' :
+                  currentArticle.category === 'Kelembagaan' ? 'bg-orange-100 text-orange-600' :
                   'bg-purple-100 text-purple-600'
                 }`}>
-                  {getCategoryLabel(article.category)}
+                  {getCategoryLabel(currentArticle.category)}
                 </span>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/50">
                   <div className="flex items-center space-x-1">
                     <Calendar className="h-4 w-4" />
-                    <span>{article.date}</span>
+                    <span>{currentArticle.date}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <User className="h-4 w-4" />
-                    <span>{article.author}</span>
+                    <span>{currentArticle.author}</span>
                   </div>
                 </div>
               </div>
               
               <h1 className="text-3xl lg:text-4xl font-bold text-forest-light mb-6 leading-tight">
-                {article.title}
+                {currentArticle.title}
               </h1>
               
               <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                {article.excerpt}
+                {currentArticle.excerpt}
               </p>
             </header>
 
             {/* Featured Image */}
             <div className="relative mb-8 rounded-2xl overflow-hidden shadow-xl bg-white/5">
               <img
-                src={article.image.src}
-                alt={article.image.alt}
+                src={currentArticle.image.src}
+                alt={currentArticle.image.alt}
                 className="w-full object-contain"
               />
             </div>
