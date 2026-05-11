@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
-import ContactForm from '../components/ContactForm';
+
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
 
@@ -127,76 +127,58 @@ const Kontak: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Form & Departments - Enhanced */}
+      {/* Departments - Enhanced */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <div className="mb-12">
-                <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-                  {t('kontak.sendMessage')}
-                </h2>
-                <p className="text-xl text-gray-400 font-body">
-                  {t('kontak.formDescription')}
-                </p>
-              </div>
-              <ContactForm />
+          <div className="text-center mb-16">
+            <div className="section-label">
+              <div className="section-label-line" />
+              <span className="section-label-text">{t('kontak.departmentTitle')}</span>
+              <div className="section-label-line" />
             </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
+              {t('kontak.departmentTitle')}
+            </h2>
+            <p className="text-xl text-gray-400 font-body max-w-2xl mx-auto">
+              {t('kontak.departmentDesc')}
+            </p>
+          </div>
 
-            <div>
-              <div className="mb-12">
-                <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-                  {t('kontak.departmentTitle')}
-                </h2>
-                <p className="text-xl text-gray-400 font-body">
-                  {t('kontak.departmentDesc')}
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                {departments.map((dept, index) => (
-                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-3 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <Mail className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-black text-white mb-2">{dept.name}</h3>
-                        <p className="text-gray-400 text-sm mb-3 font-body">{dept.description}</p>
-                        <a
-                          href={`mailto:${dept.email}`}
-                          className="text-forest-light hover:text-emerald-300 font-bold text-sm transition-colors"
-                        >
-                          {dept.email}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-600 p-8 rounded-3xl mt-8 text-white relative overflow-hidden">
-                <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/5 animate-pulse" />
-                <div className="relative z-10">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-white/20 p-3 rounded-2xl">
-                      <Calendar className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-black mb-2">{t('kontak.visitTitle')}</h3>
-                      <p className="text-emerald-50 text-sm mb-4 font-body">
-                        {t('kontak.visitDesc')}
-                      </p>
-                      <a
-                        href="mailto:info@antang.org?subject=Janji Temu Kunjungan"
-                        className="inline-flex items-center bg-white text-emerald-300 px-6 py-3 rounded-xl font-bold text-sm hover:bg-emerald-900/40 transition-colors"
-                      >
-                        {t('kontak.makeAppointment')}
-                      </a>
-                    </div>
-                  </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {departments.map((dept, index) => (
+              <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="h-8 w-8 text-white" />
                 </div>
+                <h3 className="text-xl font-black text-white mb-3">{dept.name}</h3>
+                <p className="text-gray-400 text-sm mb-5 font-body leading-relaxed">{dept.description}</p>
+                <a
+                  href={`mailto:${dept.email}`}
+                  className="inline-flex items-center gap-2 text-forest-light hover:text-emerald-300 font-bold text-sm transition-colors"
+                >
+                  {dept.email}
+                </a>
               </div>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-600 p-10 rounded-3xl text-white relative overflow-hidden max-w-2xl mx-auto">
+            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/5 animate-pulse" />
+            <div className="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-teal-300/10" />
+            <div className="relative z-10 text-center">
+              <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <Calendar className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black mb-3">{t('kontak.visitTitle')}</h3>
+              <p className="text-emerald-50 text-base mb-6 font-body max-w-lg mx-auto">
+                {t('kontak.visitDesc')}
+              </p>
+              <a
+                href="mailto:info@antang.org?subject=Janji Temu Kunjungan"
+                className="inline-flex items-center bg-white text-emerald-700 px-8 py-4 rounded-xl font-bold hover:bg-emerald-50 transition-colors shadow-lg"
+              >
+                {t('kontak.makeAppointment')}
+              </a>
             </div>
           </div>
         </div>
@@ -223,16 +205,16 @@ const Kontak: React.FC = () => {
             </p>
           </div>
           
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <div className="h-96 bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center backdrop-blur-sm border border-white/10">
-              <div className="text-center">
-                <MapPin className="h-20 w-20 text-emerald-200 mx-auto mb-6 animate-pulse" />
-                <h3 className="text-2xl font-black text-white mb-3">{t('kontak.mapTitle')}</h3>
-                <p className="text-emerald-100 text-lg font-body">
-                  {t('kontak.mapPlaceholder')}
-                </p>
-              </div>
-            </div>
+          <div className="rounded-3xl overflow-hidden shadow-2xl h-96">
+            <iframe
+              src="https://maps.google.com/maps?q=Yayasan+Antangpatahu+Mahaga+Lewu,Palangka+Raya&z=17&output=embed"
+              className="w-full h-full"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={t('kontak.mapTitle')}
+            />
           </div>
         </div>
        </section>
