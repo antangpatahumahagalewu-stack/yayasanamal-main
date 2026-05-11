@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
+import SisinfopsFlowchart from '../components/SisinfopsFlowchart';
 import { useTranslation, Trans } from 'react-i18next';
 
 const ProgramKarbon: React.FC = () => {
@@ -581,6 +582,8 @@ const ProgramKarbon: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <SisinfopsFlowchart />
 
         <section className="py-24 bg-white/[0.02]">
           <div className="container-custom">

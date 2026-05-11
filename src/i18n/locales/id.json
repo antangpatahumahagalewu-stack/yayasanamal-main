@@ -799,6 +799,15 @@
     "konsultasiKebutuhan": "Konsultasi Kebutuhan",
     "sisinfopsNote": "Seluruh data yang diperoleh dari lapangan dikumpulkan menggunakan aplikasi **Internal SISINFOPS** dan **SISINFOPS Mobile** yang digunakan oleh petugas lapangan. Kedua aplikasi ini mengikuti standar pelaporan **Verra** (VCS/CCB) untuk memastikan konsistensi data MRV."
   },
+  "pipeline": {
+    "sectionLabel": "Pipeline Data SISINFOPS",
+    "step1Title": "SISINFOPS Mobile",
+    "step1Desc": "Petugas lapangan menggunakan SISINFOPS Mobile untuk mengumpulkan data primer: pengukuran PSP, koordinat GPS, foto monitoring, inventarisasi lapangan, dan pemantauan TMAT gambut.",
+    "step2Title": "Internal SISINFOPS",
+    "step2Desc": "Data dari lapangan disinkronkan ke Internal SISINFOPS — database pusat YAMAL. Seluruh data melewati validasi dan standardisasi format sesuai protokol MRV.",
+    "step3Title": "Data Tersedia",
+    "step3Desc": "Data siap dikonsumsi untuk verifikasi oleh VVB (Validation and Verification Body) dan audit kepatuhan standar Verra VCS/CCB, memastikan setiap VCU yang diterbitkan memiliki integritas data yang terukur."
+  },
   "kemitraan": {
     "heading": "Kemitraan Strategis",
     "heroDescription": "Yayasan AMAL membuka tiga jalur kemitraan — Project Karbon, Usaha HHBK, dan API Licence untuk ESG. Wilayah kerjasama meliputi Kabupaten Kapuas, Gunung Mas, Katingan, dan Pulang Pisau dengan 91 Kelompok Perhutanan Sosial.",

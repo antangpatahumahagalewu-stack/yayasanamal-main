@@ -799,6 +799,15 @@
     "konsultasiKebutuhan": "咨询需求",
     "sisinfopsNote": "所有从现场获得的数据均使用现场工作人员使用的 **Internal SISINFOPS** 和 **SISINFOPS Mobile** 应用程序收集。这两个应用程序遵循 **Verra**（VCS/CCB）报告标准，以确保MRV数据的一致性。"
   },
+  "pipeline": {
+    "sectionLabel": "SISINFOPS数据管道",
+    "step1Title": "SISINFOPS Mobile",
+    "step1Desc": "现场工作人员使用SISINFOPS Mobile收集原始数据：PSP测量、GPS坐标、监测照片、实地清查和泥炭地TMAT监测。",
+    "step2Title": "Internal SISINFOPS",
+    "step2Desc": "现场数据同步到Internal SISINFOPS — YAMAL的中央数据库。所有数据按照MRV协议进行验证和格式标准化。",
+    "step3Title": "数据就绪",
+    "step3Desc": "数据已准备好供VVB（验证与核查机构）验证和Verra VCS/CCB合规审计使用，确保每份签发的VCU都具有可衡量的数据完整性。"
+  },
   "kemitraan": {
     "heading": "战略合作伙伴关系",
     "heroDescription": "Yayasan AMAL 开辟三条合作路径 — 碳项目、NTFP业务和ESG API许可证。合作区域涵盖卡普阿斯县、古农马斯县、卡廷甘县和普朗比绍县，涉及91个社会林业小组。",

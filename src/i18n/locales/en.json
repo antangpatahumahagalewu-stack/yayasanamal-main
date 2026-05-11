@@ -799,6 +799,15 @@
     "konsultasiKebutuhan": "Consult on Needs",
     "sisinfopsNote": "All data obtained from the field is collected using the **Internal SISINFOPS** and **SISINFOPS Mobile** applications used by field officers. Both applications follow **Verra** (VCS/CCB) reporting standards to ensure MRV data consistency."
   },
+  "pipeline": {
+    "sectionLabel": "SISINFOPS Data Pipeline",
+    "step1Title": "SISINFOPS Mobile",
+    "step1Desc": "Field officers use SISINFOPS Mobile to collect primary data: PSP measurements, GPS coordinates, monitoring photos, field inventories, and peatland TMAT monitoring.",
+    "step2Title": "Internal SISINFOPS",
+    "step2Desc": "Field data is synchronized to Internal SISINFOPS — YAMAL's central database. All data undergoes validation and format standardization according to MRV protocols.",
+    "step3Title": "Data Ready",
+    "step3Desc": "Data is ready for consumption by VVB (Validation and Verification Body) verification and Verra VCS/CCB compliance audits, ensuring every VCU issued has measurable data integrity."
+  },
   "kemitraan": {
     "heading": "Strategic Partnerships",
     "heroDescription": "Yayasan AMAL opens three partnership pathways — Carbon Project, NTFP Enterprise, and API Licence for ESG. The cooperation area covers Kapuas, Gunung Mas, Katingan, and Pulang Pisau districts with 91 Social Forestry Groups.",

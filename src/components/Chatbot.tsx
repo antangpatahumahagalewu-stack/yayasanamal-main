@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, Trash2, MinusCircle } from 'lucide-react';
+import { MessageCircle, X, Send, Trash2, Power, RotateCcw } from 'lucide-react';
 import ChatMessage from './ChatMessage';
+import { useChatContext } from '../context/ChatContext';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -21,6 +22,43 @@ const WELCOME_MESSAGES: Record<string, string> = {
   es: "¡Hola! Soy el asistente virtual de AMAL. ¿Tienes preguntas sobre nuestros programas de carbono, HHBK, alianzas o cualquier cosa sobre Yayasan AMAL? ¡Pregunta con confianza, estoy aquí para ayudar!",
 };
 
+const ENDED_MESSAGES: Record<string, string[]> = {
+  id: [
+    "Obrolan sudah berakhir. Terima kasih ya sudah ngobrol! Kalau ada pertanyaan lagi, aku di sini kok 👋",
+    "Chat selesai! Senang bisa bantu. Sampai jumpa lagi ya! 😊",
+    "Wah, seru ngobrolnya! Kalau butuh info lagi, langsung aja buka chat. Sampai nanti! ✨",
+  ],
+  en: [
+    "Chat ended. Thanks for chatting! I'm always here if you need anything 👋",
+    "This chat has ended. It was great talking with you! Come back anytime 😊",
+    "Chat complete! Feel free to reach out whenever you need info. See you! ✨",
+  ],
+  ja: [
+    "チャットが終了しました。お話しできて嬉しかったです！また質問があればいつでもどうぞ 👋",
+    "チャット終了です。またお会いしましょう！😊",
+  ],
+  zh: [
+    "聊天已结束。感谢你的交流！如果还有问题，随时找我哦 👋",
+    "对话结束啦。很高兴能帮到你！下次见 😊",
+  ],
+  fr: [
+    "La conversation est terminée. Merci d'avoir échangé avec moi ! Si tu as d'autres questions, je suis là 👋",
+    "Chat terminé ! C'était un plaisir de t'aider. À bientôt ! 😊",
+  ],
+  de: [
+    "Der Chat ist beendet. Danke fürs Gespräch! Bei weiteren Fragen bin ich jederzeit für dich da 👋",
+    "Chat beendet! Hat mich gefreut, dir zu helfen. Bis bald! 😊",
+  ],
+  it: [
+    "La chat è terminata. Grazie per aver chiacchierato con me! Se hai altre domande, sono qui 👋",
+    "Chat conclusa! È stato un piacere aiutarti. A presto! 😊",
+  ],
+  es: [
+    "El chat ha terminado. ¡Gracias por conversar conmigo! Si tienes más preguntas, aquí estoy 👋",
+    "Chat finalizado. ¡Me encantó ayudarte! Hasta pronto 😊",
+  ],
+};
+
 function detectLanguage(text: string): string {
   const patterns: [string, RegExp][] = [
     ['ja', /[\u3040-\u309f\u30a0-\u30ff]/],
@@ -29,17 +67,13 @@ function detectLanguage(text: string): string {
     ['de', /\b(hallo|danke|bitte|ja|nein|ich|du|wir|ihr|sie|er|es|bin|bist|ist|sind|seid|mit|für|auf|von)\b/i],
     ['it', /\b(ciao|grazie|prego|sì|no|io|tu|lui|lei|noi|voi|loro|sono|sei|è|siamo|siete|con|per|su|di)\b/i],
     ['es', /\b(hola|gracias|por favor|sí|no|yo|tú|usted|nosotros|ellos|ellas|soy|eres|es|somos|son|estoy|estás|está|estamos|están|con|para|en|de)\b/i],
-    ['id', /\b(halo|hai|saya|aku|kamu|gua|lo|gue|lu|lu\b|dia|kita|kami|mereka|ini|itu|yang|dan|atau|tidak|iya|nggak|gak|aja|dong|sih|deh|kok|lho|nih|tuh|kan|ya|dong|banget|sekali|gimana|kenapa|kapan|dimana|darimana)\b/i],
+    ['id', /\b(halo|hai|saya|aku|kamu|gua|lo|gue|lu|dia|kita|kami|mereka|ini|itu|yang|dan|atau|tidak|iya|nggak|gak|aja|dong|sih|deh|kok|lho|nih|tuh|kan|ya|banget|sekali|gimana|kenapa|kapan|dimana|darimana)\b/i],
   ];
 
   const lower = text.toLowerCase();
-
   for (const [lang, pattern] of patterns) {
-    if (pattern.test(text) || pattern.test(lower)) {
-      return lang;
-    }
+    if (pattern.test(text) || pattern.test(lower)) return lang;
   }
-
   return 'en';
 }
 
@@ -48,9 +82,7 @@ function loadHistory(): Message[] {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) {
-        return parsed.slice(-MAX_HISTORY);
-      }
+      if (Array.isArray(parsed)) return parsed.slice(-MAX_HISTORY);
     }
   } catch { /* ignore */ }
   return [];
@@ -62,12 +94,31 @@ function saveHistory(messages: Message[]) {
   } catch { /* ignore */ }
 }
 
+function detectWelcomeLanguage(): string {
+  const stored = localStorage.getItem('i18nextLng');
+  if (stored) {
+    const lang = stored.replace(/"/g, '').split('-')[0];
+    if (WELCOME_MESSAGES[lang]) return lang;
+  }
+  const navLang = navigator.language?.split('-')[0] || 'en';
+  if (WELCOME_MESSAGES[navLang]) return navLang;
+  return 'en';
+}
+
+function getEndedMessage(lang: string): string {
+  const msgs = ENDED_MESSAGES[lang] || ENDED_MESSAGES.en;
+  return msgs[Math.floor(Math.random() * msgs.length)];
+}
+
 export default function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useChatContext();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [chatEnded, setChatEnded] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
+  const [panelVisible, setPanelVisible] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [hasOpened, setHasOpened] = useState(false);
@@ -81,43 +132,44 @@ export default function Chatbot() {
   }, [messages, isLoading, scrollToBottom]);
 
   useEffect(() => {
+    if (isOpen) {
+      setShowPanel(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setPanelVisible(true));
+      });
+    } else {
+      setPanelVisible(false);
+      const timer = setTimeout(() => {
+        setShowPanel(false);
+        setShowConfirm(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
     if (isOpen && !hasOpened) {
       setHasOpened(true);
       const history = loadHistory();
       if (history.length > 0) {
         setMessages(history);
       } else {
+        setChatEnded(false);
         const lang = detectWelcomeLanguage();
-        const welcomeMsg: Message = {
-          role: 'assistant',
-          content: WELCOME_MESSAGES[lang] || WELCOME_MESSAGES.en,
-        };
-        setMessages([welcomeMsg]);
+        setMessages([{ role: 'assistant', content: WELCOME_MESSAGES[lang] || WELCOME_MESSAGES.en }]);
       }
     }
   }, [isOpen, hasOpened]);
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
+    if (isOpen && !chatEnded && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isOpen, isMinimized]);
-
-  function detectWelcomeLanguage(): string {
-    if (typeof window === 'undefined') return 'en';
-    const stored = localStorage.getItem('i18nextLng');
-    if (stored) {
-      const lang = stored.replace(/"/g, '').split('-')[0];
-      if (WELCOME_MESSAGES[lang]) return lang;
-    }
-    const navLang = navigator.language?.split('-')[0] || 'en';
-    if (WELCOME_MESSAGES[navLang]) return navLang;
-    return 'en';
-  }
+  }, [isOpen, chatEnded]);
 
   async function sendMessage() {
     const trimmed = input.trim();
-    if (!trimmed || isLoading) return;
+    if (!trimmed || isLoading || chatEnded) return;
 
     const userMsg: Message = { role: 'user', content: trimmed };
     const newMessages = [...messages, userMsg];
@@ -178,117 +230,187 @@ export default function Chatbot() {
   function clearHistory() {
     setMessages([]);
     localStorage.removeItem(STORAGE_KEY);
+    setChatEnded(false);
     const lang = detectWelcomeLanguage();
     setMessages([{ role: 'assistant', content: WELCOME_MESSAGES[lang] || WELCOME_MESSAGES.en }]);
   }
 
-  if (!isOpen) {
-    return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse-glow"
-        aria-label="Buka chat"
-      >
-        <MessageCircle className="w-6 h-6" />
-      </button>
-    );
+  function handleEndChat() {
+    setShowConfirm(false);
+    setChatEnded(true);
+    localStorage.removeItem(STORAGE_KEY);
   }
 
-  if (isMinimized) {
-    return (
-      <div className="fixed bottom-6 right-6 z-50">
-        <button
-          onClick={() => setIsMinimized(false)}
-          className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-        >
-          <MessageCircle className="w-6 h-6" />
-          {messages.filter(m => m.role === 'user').length > 0 && (
-            <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
-              {messages.filter(m => m.role === 'user').length}
-            </span>
-          )}
-        </button>
-      </div>
-    );
+  function handleStartNewChat() {
+    setChatEnded(false);
+    const lang = detectWelcomeLanguage();
+    setMessages([{ role: 'assistant', content: WELCOME_MESSAGES[lang] || WELCOME_MESSAGES.en }]);
+    setTimeout(() => inputRef.current?.focus(), 100);
   }
 
   const userMsgCount = messages.filter(m => m.role === 'user').length;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-6rem)] glass-card flex flex-col overflow-hidden shadow-2xl shadow-black/40">
-      {/* Header */}
-      <div className="flex-shrink-0 bg-emerald-600/20 border-b border-white/10 px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center">
-            <MessageCircle className="w-5 h-5 text-white" />
+    <>
+      {/* Toggle button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`fixed bottom-6 right-6 z-[45] w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse-glow ${
+          isOpen ? 'md:right-[444px]' : ''
+        }`}
+        aria-label="Buka chat"
+      >
+        <MessageCircle className="w-6 h-6" />
+      </button>
+
+      {/* Side Panel */}
+      {showPanel && (
+        <div
+          className={`fixed top-0 right-0 z-[55] w-full md:w-[420px] h-full bg-forest-deep/95 backdrop-blur-xl border-l border-white/10 shadow-2xl shadow-black/50 flex flex-col transition-transform duration-300 ${
+            panelVisible ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          {/* Header */}
+          <div className="flex-shrink-0 bg-emerald-600/20 border-b border-white/10 px-5 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center">
+                <MessageCircle className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-white">
+                  {chatEnded ? 'Chat Berakhir' : 'Tanya AMAL'}
+                </h3>
+                <p className="text-[10px] text-forest-light/60">
+                  {chatEnded ? 'Obrolan telah selesai' : 'AI Assistant • Online'}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1">
+              {!chatEnded && userMsgCount > 0 && (
+                <>
+                  <button
+                    onClick={clearHistory}
+                    className="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-forest-light/50 hover:text-red-400"
+                    title="Hapus chat"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={() => setShowConfirm(true)}
+                    className="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-forest-light/50 hover:text-amber-400"
+                    title="Akhiri chat"
+                  >
+                    <Power className="w-3.5 h-3.5" />
+                  </button>
+                </>
+              )}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-forest-light/50 hover:text-white"
+                title="Tutup"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-semibold text-white">Tanya AMAL</h3>
-            <p className="text-[10px] text-forest-light/60">AI Assistant • Online</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-1">
-          {userMsgCount > 0 && (
-            <button
-              onClick={clearHistory}
-              className="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-forest-light/60 hover:text-red-400"
-              title="Hapus chat"
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-            </button>
+
+          {/* Content: Messages or Ended screen */}
+          {chatEnded ? (
+            <div className="flex-1 flex flex-col items-center justify-center px-8 text-center">
+              <div className="w-16 h-16 rounded-full bg-emerald-600/20 flex items-center justify-center mb-6">
+                <MessageCircle className="w-8 h-8 text-emerald-400" />
+              </div>
+              <p className="text-white/90 text-base leading-relaxed mb-2">
+                {getEndedMessage(detectWelcomeLanguage())}
+              </p>
+              <p className="text-forest-light/40 text-xs mb-8">
+                Yayasan AMAL • info@antang.org
+              </p>
+              <button
+                onClick={handleStartNewChat}
+                className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-emerald-600/20"
+              >
+                <RotateCcw className="w-4 h-4" />
+                Mulai Chat Baru
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto px-5 py-4 space-y-1">
+                {messages.map((msg, i) => (
+                  <ChatMessage key={i} role={msg.role} content={msg.content} />
+                ))}
+                {isLoading && <ChatMessage role="assistant" content="" isLoading />}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input */}
+              <div className="flex-shrink-0 border-t border-white/10 p-4">
+                <div className="flex items-center gap-2 bg-white/5 rounded-xl px-4 py-3 border border-white/10 focus-within:border-emerald-500/50 transition-colors">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Ketik pesan..."
+                    maxLength={1000}
+                    disabled={isLoading}
+                    className="flex-1 bg-transparent text-white text-sm placeholder:text-forest-light/30 outline-none border-none"
+                    autoComplete="off"
+                  />
+                  <button
+                    onClick={sendMessage}
+                    disabled={isLoading || !input.trim()}
+                    className="flex-shrink-0 w-9 h-9 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-600/30 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </div>
+                <p className="text-[10px] text-forest-light/30 text-center mt-2">
+                  Yayasan AMAL • info@antang.org
+                </p>
+              </div>
+            </>
           )}
-          <button
-            onClick={() => setIsMinimized(true)}
-            className="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-forest-light/60 hover:text-white"
-            title="Minimize"
-          >
-            <MinusCircle className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-forest-light/60 hover:text-white"
-            title="Tutup"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
-        {messages.map((msg, i) => (
-          <ChatMessage key={i} role={msg.role} content={msg.content} />
-        ))}
-        {isLoading && <ChatMessage role="assistant" content="" isLoading />}
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input */}
-      <div className="flex-shrink-0 border-t border-white/10 p-3">
-        <div className="flex items-center gap-2 bg-white/5 rounded-xl px-3 py-2 border border-white/10 focus-within:border-emerald-500/50 transition-colors">
-          <input
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Ketik pesan..."
-            maxLength={1000}
-            disabled={isLoading}
-            className="flex-1 bg-transparent text-white text-sm placeholder:text-forest-light/30 outline-none border-none"
-          />
-          <button
-            onClick={sendMessage}
-            disabled={isLoading || !input.trim()}
-            className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-600/30 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
-          >
-            <Send className="w-3.5 h-3.5" />
-          </button>
+          {/* End Chat Confirmation Modal */}
+          {showConfirm && (
+            <div
+              className="absolute inset-0 z-10 bg-black/70 backdrop-blur-sm flex items-center justify-center px-6"
+              onClick={() => setShowConfirm(false)}
+            >
+              <div
+                className="glass-card p-6 text-center max-w-[280px]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mx-auto mb-4">
+                  <Power className="w-6 h-6 text-amber-400" />
+                </div>
+                <p className="text-white text-sm mb-1 font-medium">Yakin ingin mengakhiri chat?</p>
+                <p className="text-forest-light/50 text-xs mb-5">
+                  Riwayat chat akan dihapus dan obrolan akan berakhir.
+                </p>
+                <div className="flex gap-3 justify-center">
+                  <button
+                    onClick={() => setShowConfirm(false)}
+                    className="bg-white/10 hover:bg-white/20 text-white/80 text-sm px-5 py-2 rounded-lg transition-colors"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    onClick={handleEndChat}
+                    className="bg-amber-600 hover:bg-amber-500 text-white text-sm px-5 py-2 rounded-lg transition-colors"
+                  >
+                    Ya, Akhiri
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <p className="text-[10px] text-forest-light/30 text-center mt-1.5">
-          Yayasan AMAL • info@antang.org
-        </p>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

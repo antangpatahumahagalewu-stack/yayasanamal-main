@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Trees, ShoppingBag, Droplets, Scissors, Fish, Factory, Gem, Flame, ArrowRight, CheckCircle2, MapPin, BarChart3, TrendingUp, Heart, Leaf, Building2 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
+import SisinfopsFlowchart from '../components/SisinfopsFlowchart';
 import { useTranslation } from 'react-i18next';
 
 const Hhbk: React.FC = () => {
@@ -297,6 +298,8 @@ const Hhbk: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <SisinfopsFlowchart />
 
         {/* ======== 7. EKOSISTEM PRODUKSI ======== */}
         <section className="py-20 lg:py-24 bg-white/[0.02]">

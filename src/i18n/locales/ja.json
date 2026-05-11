@@ -799,6 +799,15 @@
     "konsultasiKebutuhan": "ニーズ相談",
     "sisinfopsNote": "現場から得られるすべてのデータは、現場職員が使用する **Internal SISINFOPS** および **SISINFOPS Mobile** アプリケーションを使用して収集されます。両アプリケーションは**Verra**（VCS/CCB）報告基準に従い、MRVデータの一貫性を確保しています。"
   },
+  "pipeline": {
+    "sectionLabel": "SISINFOPSデータパイプライン",
+    "step1Title": "SISINFOPS Mobile",
+    "step1Desc": "現場職員がSISINFOPS Mobileを使用して一次データを収集：PSP測定、GPS座標、モニタリング写真、現地目録、泥炭地TMATモニタリング。",
+    "step2Title": "Internal SISINFOPS",
+    "step2Desc": "現場データはInternal SISINFOPS（YAMALの中央データベース）に同期されます。すべてのデータはMRVプロトコルに従った検証とフォーマット標準化を経ます。",
+    "step3Title": "データ利用可能",
+    "step3Desc": "データはVVB（検証・妥当性確認機関）による検証およびVerra VCS/CCBコンプライアンス監査に利用可能な状態になり、発行されるすべてのVCUが測定可能なデータ整合性を持つことを保証します。"
+  },
   "kemitraan": {
     "heading": "戦略的パートナーシップ",
     "heroDescription": "Yayasan AMALは3つのパートナーシップ経路を提供 — カーボンプロジェクト、NTFP事業、ESG向けAPIライセンス。協力地域はカプアス県、グヌン・マス県、カティンガン県、プラン・ピサウ県を含み、91の社会林業グループと連携。",

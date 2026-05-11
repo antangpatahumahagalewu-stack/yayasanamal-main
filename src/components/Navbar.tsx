@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useChatContext } from '../context/ChatContext';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
+  const { isOpen: isChatOpen } = useChatContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -80,7 +82,9 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 z-50 transition-all duration-300 ${
+        isChatOpen ? 'md:w-[calc(100%-420px)]' : 'w-full'
+      } ${
         isScrolled
           ? 'bg-forest-deep/95 backdrop-blur-md shadow-lg'
           : 'bg-forest-deep/80 backdrop-blur-sm'

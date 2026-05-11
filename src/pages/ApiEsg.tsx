@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Cloud, Database, Shield, Globe, TrendingUp, Leaf, ArrowRight, Handshake, BarChart3, Lock, RefreshCw, FileCheck, Users, ShoppingBag, Search } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
+import SisinfopsFlowchart from '../components/SisinfopsFlowchart';
 import { useTranslation, Trans } from 'react-i18next';
 
 const ApiEsg: React.FC = () => {
@@ -295,6 +296,8 @@ const ApiEsg: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <SisinfopsFlowchart />
 
       <section className="py-24">
         <div className="container-custom">

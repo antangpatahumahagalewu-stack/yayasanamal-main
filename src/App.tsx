@@ -1,5 +1,5 @@
 // App.tsx
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
@@ -8,6 +8,7 @@ import Chatbot from './components/Chatbot';
 import ScrollToTop from './components/ScrollToTop';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import useGoogleAnalytics from './hooks/useGoogleAnalytics';
+import { ChatContext } from './context/ChatContext';
 
 const Home = lazy(() => import('./pages/Home'));
 const Program = lazy(() => import('./pages/Program'));
@@ -42,9 +43,11 @@ function PageLoader() {
 function AppContent() {
   useSmoothScroll();
   useGoogleAnalytics();
+  const [isChatOpen, setIsChatOpen] = useState(false);
   
   return (
-    <div className="flex flex-col min-h-screen">
+    <ChatContext.Provider value={{ isOpen: isChatOpen, setIsOpen: setIsChatOpen }}>
+    <div className={`flex flex-col min-h-screen transition-[margin] duration-300 ${isChatOpen ? 'md:mr-[420px]' : ''}`}>
       {/* ScrollToTop component - placed inside Router but outside Routes */}
       <ScrollToTop />
       <Analytics />
@@ -95,10 +98,11 @@ function AppContent() {
         
         {/* Footer ditampilkan di semua halaman */}
         <Footer />
+    </div>
         
         {/* AI Chatbot - tampil di semua halaman */}
         <Chatbot />
-    </div>
+    </ChatContext.Provider>
   );
 }
 
