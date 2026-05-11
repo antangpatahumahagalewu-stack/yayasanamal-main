@@ -85,4 +85,31 @@ export const contentAPI = {
   },
 };
 
+export interface ChatRequest {
+  message: string;
+  history?: Array<{ role: 'user' | 'assistant'; content: string }>;
+}
+
+export interface ChatResponse {
+  success: boolean;
+  reply?: string;
+  message?: string;
+}
+
+export const chatAPI = {
+  send: async (data: ChatRequest): Promise<ChatResponse> => {
+    const API_BASE = import.meta.env.VITE_API_URL || '';
+    const url = API_BASE ? `${API_BASE}/chat` : '/api/chat';
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new Error('Chat request failed');
+    }
+    return response.json();
+  },
+};
+
 export default api;

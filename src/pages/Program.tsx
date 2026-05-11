@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, TreePine, Search, Leaf, Cloud, ShoppingBag, ArrowRight, TrendingUp } from 'lucide-react';
+import { Users, TreePine, Search, Leaf, Cloud, ShoppingBag, ArrowRight, TrendingUp, Handshake } from 'lucide-react';
 import images from '../assets/images';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
@@ -33,6 +33,14 @@ const Program: React.FC = () => {
       items: [t('program.penelitianSpesies'), t('program.teknologiSilvikultur'), t('program.studiIklim'), t('program.inovasiHasilHutan')],
       link: '/program',
       color: 'from-purple-500 to-indigo-600'
+    },
+    {
+      icon: Handshake,
+      title: t('program.csrTitle'),
+      description: t('program.csrDesc'),
+      items: [t('program.csrItem1'), t('program.csrItem2'), t('program.csrItem3')],
+      link: '/program/csr',
+      color: 'from-blue-500 to-indigo-600'
     }
   ];
 

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 import ScrollToTop from './components/ScrollToTop';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import useGoogleAnalytics from './hooks/useGoogleAnalytics';
@@ -16,6 +17,7 @@ const Publikasi = lazy(() => import('./pages/Publikasi'));
 const Kemitraan = lazy(() => import('./pages/Kemitraan'));
 const Karbon = lazy(() => import('./pages/Karbon'));
 const Hhbk = lazy(() => import('./pages/Hhbk'));
+const Csr = lazy(() => import('./pages/Csr'));
 const ApiEsg = lazy(() => import('./pages/ApiEsg'));
 const Kontak = lazy(() => import('./pages/Kontak'));
 const FAQ = lazy(() => import('./pages/FAQ'));
@@ -67,6 +69,7 @@ function AppContent() {
             <Route path="/program" element={<Program />} />
             <Route path="/program/karbon" element={<Karbon />} />
             <Route path="/program/hhbk" element={<Hhbk />} />
+            <Route path="/program/csr" element={<Csr />} />
             
             {/* Publikasi submenu routes */}
             <Route path="/publikasi/berita" element={<Berita />} />
@@ -92,6 +95,9 @@ function AppContent() {
         
         {/* Footer ditampilkan di semua halaman */}
         <Footer />
+        
+        {/* AI Chatbot - tampil di semua halaman */}
+        <Chatbot />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { securityMiddleware, rateLimitMiddleware, corsMiddleware } from './middl
 import { errorHandler, notFound } from './middleware/errorHandler';
 import contactRoutes from './routes/contactRoutes';
 import contentRoutes from './routes/contentRoutes';
+import chatRoutes from './routes/chatRoutes';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.get('/health', (req, res) => {
 
 app.use('/api/contact', contactRoutes);
 app.use('/api/content', contentRoutes);
+app.use('/api/chat', chatRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
@@ -31,15 +33,15 @@ const startServer = async () => {
   try {
     await db.query('SELECT NOW()');
     console.log('✓ Database connected');
-
-    app.listen(PORT, () => {
-      console.log(`✓ Server running on http://localhost:${PORT}`);
-      console.log(`✓ Environment: ${config.nodeEnv}`);
-    });
   } catch (error) {
-    console.error('✗ Failed to start server:', error);
-    process.exit(1);
+    console.warn('⚠ Database not available, server starting without DB');
   }
+
+  app.listen(PORT, () => {
+    console.log(`✓ Server running on http://localhost:${PORT}`);
+    console.log(`✓ Environment: ${config.nodeEnv}`);
+    console.log(`✓ DeepSeek API: ${config.deepseek.apiKey ? 'configured' : 'NOT CONFIGURED'}`);
+  });
 };
 
 startServer();

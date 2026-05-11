@@ -9,6 +9,12 @@ const rateLimiter = new RateLimiterMemory({
   duration: 60,
 });
 
+const chatRateLimiter = new RateLimiterMemory({
+  keyPrefix: 'chat',
+  points: 10,
+  duration: 60,
+});
+
 export const securityMiddleware = (req: Request, res: Response, next: NextFunction) => {
   helmet()(req, res, next);
 };
@@ -22,6 +28,19 @@ export const rateLimitMiddleware = (req: Request, res: Response, next: NextFunct
       res.status(429).json({
         success: false,
         message: 'Too many requests, please try again later',
+      });
+    });
+};
+
+export const chatRateLimitMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  chatRateLimiter.consume(req.ip || '')
+    .then(() => {
+      next();
+    })
+    .catch(() => {
+      res.status(429).json({
+        success: false,
+        message: 'Terlalu banyak pesan. Silakan tunggu sebentar ya.',
       });
     });
 };

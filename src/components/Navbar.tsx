@@ -38,6 +38,7 @@ const Navbar: React.FC = () => {
     { path: '/program', label: t('navSub.programOverview') },
     { path: '/program/karbon', label: t('navSub.programKarbon') },
     { path: '/program/hhbk', label: t('navSub.programHhbk') },
+    { path: '/program/csr', label: t('navSub.programCsr') },
     { path: '/api-esg', label: t('nav.apiEsg') },
   ];
   const publikasiSubmenu = [
