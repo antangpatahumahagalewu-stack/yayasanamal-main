@@ -59,24 +59,6 @@ const ENDED_MESSAGES: Record<string, string[]> = {
   ],
 };
 
-function detectLanguage(text: string): string {
-  const patterns: [string, RegExp][] = [
-    ['ja', /[\u3040-\u309f\u30a0-\u30ff]/],
-    ['zh', /[\u4e00-\u9fff]/],
-    ['fr', /\b(bonjour|salut|merci|oui|non|je|tu|vous|nous|elle|elles?|ils?|suis|es|est|sommes|êtes|sont|avec|pour|dans|sur)\b/i],
-    ['de', /\b(hallo|danke|bitte|ja|nein|ich|du|wir|ihr|sie|er|es|bin|bist|ist|sind|seid|mit|für|auf|von)\b/i],
-    ['it', /\b(ciao|grazie|prego|sì|no|io|tu|lui|lei|noi|voi|loro|sono|sei|è|siamo|siete|con|per|su|di)\b/i],
-    ['es', /\b(hola|gracias|por favor|sí|no|yo|tú|usted|nosotros|ellos|ellas|soy|eres|es|somos|son|estoy|estás|está|estamos|están|con|para|en|de)\b/i],
-    ['id', /\b(halo|hai|saya|aku|kamu|gua|lo|gue|lu|dia|kita|kami|mereka|ini|itu|yang|dan|atau|tidak|iya|nggak|gak|aja|dong|sih|deh|kok|lho|nih|tuh|kan|ya|banget|sekali|gimana|kenapa|kapan|dimana|darimana)\b/i],
-  ];
-
-  const lower = text.toLowerCase();
-  for (const [lang, pattern] of patterns) {
-    if (pattern.test(text) || pattern.test(lower)) return lang;
-  }
-  return 'en';
-}
-
 function loadHistory(): Message[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);

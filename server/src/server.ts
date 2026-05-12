@@ -33,7 +33,7 @@ const startServer = async () => {
   try {
     await db.query('SELECT NOW()');
     console.log('✓ Database connected');
-  } catch (error) {
+  } catch {
     console.warn('⚠ Database not available, server starting without DB');
   }
 

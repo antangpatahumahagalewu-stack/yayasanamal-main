@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Handshake, Heart, TrendingUp, Users, Globe, ArrowRight, Target, Building2 } from 'lucide-react';
+import { Handshake, Heart, TrendingUp, Users, Globe, Target, Building2 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
 import LocalNav from '../components/LocalNav';

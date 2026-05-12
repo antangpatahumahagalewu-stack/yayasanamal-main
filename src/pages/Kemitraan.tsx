@@ -214,7 +214,7 @@ const Kemitraan: React.FC = () => {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-              {currentPartners.map((partner: any, index) => (
+              {currentPartners.map((partner, index) => (
                 <div key={index} className="card text-center group overflow-hidden relative">
                   <div className="relative h-48 bg-white/5 flex items-center justify-center p-8">
                     <img
