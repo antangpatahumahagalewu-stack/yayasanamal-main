@@ -75,6 +75,23 @@ const Kemitraan: React.FC = () => {
       name: 'Kabupaten Pulang Pisau',
       description: t('kemitraan.partnerPulangPisauDesc'),
       image: '/logos/pulang_pisau.webp'
+    },
+    {
+      kabupaten: 'Gunung Mas',
+      type: 'Gunung Mas',
+      groupCount: 'Koperasi',
+      name: 'Koperasi Kapakat Manggatang Panatau',
+      description: t('kemitraan.partnerKamapaDesc'),
+      image: '/logos/kamapa.png',
+      url: 'https://kamapa.online'
+    },
+    {
+      kabupaten: 'Kapuas',
+      type: 'Kapuas',
+      groupCount: 'Koperasi',
+      name: 'Koperasi Bulau Ngandung',
+      description: t('kemitraan.partnerBulauNgandungDesc'),
+      image: '/logos/bulau_ngandung.png'
     }
   ];
 
@@ -228,13 +245,13 @@ const Kemitraan: React.FC = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {currentPartners.map((partner, index) => (
-                <div key={index} className="card text-center group overflow-hidden">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {currentPartners.map((partner: any, index) => (
+                <div key={index} className="card text-center group overflow-hidden relative">
                   <div className="relative h-48 bg-white/5 flex items-center justify-center p-8">
                     <img
                       src={partner.image}
-                      alt={`Logo Kabupaten ${partner.type}`}
+                      alt={`Logo ${partner.name}`}
                       className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
@@ -245,11 +262,22 @@ const Kemitraan: React.FC = () => {
                       partner.type === 'Katingan' ? 'bg-purple-100/10 text-purple-400' :
                       'bg-orange-100/10 text-orange-400'
                     }`}>
-                      Kab. {partner.type}
+                      {partner.groupCount === 'Koperasi' ? 'Koperasi' : `Kab. ${partner.type}`}
                     </span>
                     <h3 className="text-lg font-bold text-forest-light mb-2">{partner.name}</h3>
-                    <p className="text-forest-light font-semibold text-xl mb-2">{partner.groupCount} Kelompok PS</p>
+                    <p className="text-forest-light font-semibold text-xl mb-2">{partner.groupCount} {partner.groupCount === 'Koperasi' ? '' : 'Kelompok PS'}</p>
                     <p className="text-gray-400 text-sm leading-relaxed">{partner.description}</p>
+                    {partner.url && (
+                      <a
+                        href={partner.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300 mt-3 gap-1 transition-colors"
+                      >
+                        {partner.url.replace('https://', '')}
+                        <ArrowRight className="h-3 w-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
