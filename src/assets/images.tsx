@@ -86,16 +86,6 @@ export const images = {
     alt: "Suasana acara penandatanganan PKS yang disaksikan oleh perwakilan Kementerian Kehutanan dan Dinas Kehutanan Provinsi Kalimantan Tengah"
   },
 
-  // Artikel2 Images
-  artikel2Img1: {
-    src: "/galeri/news/artikel2/artikel21.jpg",
-    alt: "Pemberitaan KTT Taiwan-Indonesia di media cetak — kerja sama solusi alam dan karbon biru"
-  },
-  artikel2Img2: {
-    src: "/galeri/news/artikel2/artikel22.jpeg",
-    alt: "Penandatanganan MOU antara perwakilan Taiwan dan Indonesia dalam KTT Solusi Alam Berintegritas Tinggi"
-  },
-
   // Artikel3 Images
   artikel3Img1: {
     src: "/galeri/news/artikel3/artikel31.jpeg",

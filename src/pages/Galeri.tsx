@@ -42,20 +42,6 @@ const Galeri: React.FC = () => {
       description: t('galeri.image2Desc')
     },
     {
-      id: 3,
-      ...images.artikel2Img1,
-      category: 'Internasional',
-      title: t('galeri.image3Title'),
-      description: t('galeri.image3Desc')
-    },
-    {
-      id: 4,
-      ...images.artikel2Img2,
-      category: 'Internasional',
-      title: t('galeri.image4Title'),
-      description: t('galeri.image4Desc')
-    },
-    {
       id: 5,
       ...images.artikel3Img1,
       category: 'Kolaborasi',
