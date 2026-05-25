@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Handshake, Heart, TrendingUp, Users, Globe, ArrowRight, Target, Building2 } from 'lucide-react';
+import { Handshake, Heart, TrendingUp, Users, Globe, Target, Building2 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
+import LocalNav from '../components/LocalNav';
 import { useTranslation } from 'react-i18next';
+
+const csrNavItems = [
+  { label: 'Ikhtisar', anchorId: 'csr-overview' },
+  { label: 'Skema', anchorId: 'csr-skema' },
+  { label: 'Mekanisme', anchorId: 'csr-mekanisme' },
+];
 
 const Csr: React.FC = () => {
   const { t } = useTranslation();
@@ -16,8 +23,9 @@ const Csr: React.FC = () => {
         url="https://yayasanamal.org/program/csr"
       />
       <CarbonParticles />
+      <LocalNav items={csrNavItems} />
       <div className="pt-20">
-        <section className="relative pt-32 pb-16">
+        <section id="csr-overview" className="relative pt-32 pb-16">
           <div className="container-custom relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
@@ -73,13 +81,12 @@ const Csr: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-24 bg-white/[0.02]">
+        <section id="csr-skema" className="py-24 bg-white/[0.02]">
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="section-label">
                 <div className="section-label-line" />
                 <span className="section-label-text">{t('csr.skemaTitle')}</span>
-                <div className="section-label-line" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('csr.skemaHeading')}</h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">{t('csr.skemaDesc')}</p>
@@ -101,13 +108,12 @@ const Csr: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-24">
+        <section id="csr-mekanisme" className="py-24">
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="section-label">
                 <div className="section-label-line" />
                 <span className="section-label-text">{t('csr.mekanismeTitle')}</span>
-                <div className="section-label-line" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('csr.mekanismeHeading')}</h2>
             </div>

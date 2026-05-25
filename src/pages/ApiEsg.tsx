@@ -2,8 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Cloud, Database, Shield, Globe, TrendingUp, Leaf, ArrowRight, Handshake, BarChart3, Lock, RefreshCw, FileCheck, Users, ShoppingBag, Search } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
+import LocalNav from '../components/LocalNav';
 import SisinfopsFlowchart from '../components/SisinfopsFlowchart';
 import { useTranslation, Trans } from 'react-i18next';
+
+const apiEsgNavItems = [
+  { label: 'Ikhtisar', anchorId: 'apiesg-overview' },
+  { label: 'Sumber Data', anchorId: 'apiesg-sumber' },
+  { label: 'Kategori', anchorId: 'apiesg-kategori' },
+  { label: 'Fitur API', anchorId: 'apiesg-fitur' },
+];
 
 const ApiEsg: React.FC = () => {
   const { t } = useTranslation();
@@ -158,7 +166,8 @@ const ApiEsg: React.FC = () => {
   return (
     <div className="pt-20">
       <CarbonParticles />
-      <section className="relative pt-32 pb-16">
+      <LocalNav items={apiEsgNavItems} />
+      <section id="apiesg-overview" className="relative pt-32 pb-16">
         <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
@@ -193,13 +202,12 @@ const ApiEsg: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24">
+      <section id="apiesg-sumber" className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
               <span className="section-label-text">{t('apiEsg.sumberData')}</span>
-              <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
               {t('apiEsg.tigaPilarApi')}
@@ -246,13 +254,12 @@ const ApiEsg: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24">
+      <section id="apiesg-kategori" className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
               <span className="section-label-text">{t('apiEsg.kategoriData')}</span>
-              <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
               {t('apiEsg.dataTerverifikasi')}
@@ -299,13 +306,12 @@ const ApiEsg: React.FC = () => {
 
       <SisinfopsFlowchart />
 
-      <section className="py-24">
+      <section id="apiesg-fitur" className="py-24">
         <div className="container-custom">
           <div className="text-center mb-16">
             <div className="section-label">
               <div className="section-label-line" />
               <span className="section-label-text">{t('apiEsg.fiturApi')}</span>
-              <div className="section-label-line" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
               {t('apiEsg.keunggulanApi')}

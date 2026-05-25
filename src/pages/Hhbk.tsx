@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import { Trees, ShoppingBag, Droplets, Scissors, Fish, Factory, Gem, Flame, ArrowRight, CheckCircle2, MapPin, BarChart3, TrendingUp, Heart, Leaf, Building2 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
+import LocalNav from '../components/LocalNav';
 import SisinfopsFlowchart from '../components/SisinfopsFlowchart';
 import { useTranslation } from 'react-i18next';
+
+const hhbkNavItems = [
+  { label: 'Ikhtisar', anchorId: 'hhbk-overview' },
+  { label: 'Tabel HHBK', anchorId: 'hhbk-tabel' },
+  { label: 'Komoditas', anchorId: 'hhbk-komoditas' },
+];
 
 const Hhbk: React.FC = () => {
   const { t } = useTranslation();
@@ -63,9 +70,10 @@ const Hhbk: React.FC = () => {
         url="https://yayasanamal.org/program/hhbk"
       />
       <CarbonParticles />
+      <LocalNav items={hhbkNavItems} />
       <div className="pt-20">
         {/* ======== 1. HERO SECTION ======== */}
-        <section className="relative pt-28 pb-20">
+        <section id="hhbk-overview" className="relative pt-28 pb-20">
           <div className="container-custom relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
@@ -137,8 +145,7 @@ const Hhbk: React.FC = () => {
           </div>
         </section>
 
-        {/* ======== 3. TABEL REKAPITULASI PER KABUPATEN ======== */}
-        <section className="py-20 lg:py-24 bg-white/[0.02]">
+        <section id="hhbk-tabel" className="py-20 lg:py-24 bg-white/[0.02]">
           <div className="container-custom">
             <div className="text-center mb-12">
               <div className="section-label">
@@ -181,8 +188,7 @@ const Hhbk: React.FC = () => {
           </div>
         </section>
 
-        {/* ======== 4. 8 KARTU KOMODITAS ======== */}
-        <section className="py-20 lg:py-24">
+        <section id="hhbk-komoditas" className="py-20 lg:py-24">
           <div className="container-custom">
             <div className="text-center mb-12">
               <div className="section-label">

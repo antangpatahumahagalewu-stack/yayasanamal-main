@@ -1,39 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Leaf, TreePine, Cloud, MapPin, Users, ArrowRight, TrendingUp, Shield, Droplets,
+  Leaf, TreePine, Cloud, Users, ArrowRight, TrendingUp, Shield, Droplets,
   Handshake, Globe, Activity, FileCheck, Scale, AlertTriangle,
   Target, Clock, DollarSign, Bird, Flame, Waves, Building2, BookOpen,
   Camera, LineChart, Ruler, Satellite, Zap, Heart, Landmark, BarChart3
 } from 'lucide-react';
 import CarbonParticles from '../components/CarbonParticles';
 import SEO from '../components/SEO';
+import LocalNav from '../components/LocalNav';
 import SisinfopsFlowchart from '../components/SisinfopsFlowchart';
 import { useTranslation, Trans } from 'react-i18next';
+
+const karbonNavItems = [
+  { label: 'Ikhtisar', anchorId: 'karbon-overview' },
+  { label: 'Wilayah', anchorId: 'karbon-wilayah' },
+  { label: 'Ekosistem', anchorId: 'karbon-ekosistem' },
+  { label: 'Metodologi', anchorId: 'karbon-metodologi' },
+];
 
 const ProgramKarbon: React.FC = () => {
   const { t } = useTranslation();
 
   const wilayahKabupaten = [
     {
-      name: 'Kapuas',
-      ekosistem: t('karbon.wilayahKapuasEkosistem'),
-      karakteristik: t('karbon.wilayahKapuasKarakteristik')
+      name: 'Kabupaten Kapuas',
+      type: 'Kapuas',
+      ps: 25,
+      desc: t('karbon.wilayahKapuasDesc'),
+      image: '/logos/kapuas.png'
     },
     {
-      name: 'Katingan',
-      ekosistem: t('karbon.wilayahKatinganEkosistem'),
-      karakteristik: t('karbon.wilayahKatinganKarakteristik')
+      name: 'Kabupaten Gunung Mas',
+      type: 'Gunung Mas',
+      ps: 35,
+      desc: t('karbon.wilayahGunungMasDesc'),
+      image: '/logos/gunungmas.png'
     },
     {
-      name: 'Pulang Pisau',
-      ekosistem: t('karbon.wilayahPulangPisauEkosistem'),
-      karakteristik: t('karbon.wilayahPulangPisauKarakteristik')
+      name: 'Kabupaten Katingan',
+      type: 'Katingan',
+      ps: 15,
+      desc: t('karbon.wilayahKatinganDesc'),
+      image: '/logos/katingan.png'
     },
     {
-      name: 'Gunung Mas',
-      ekosistem: t('karbon.wilayahGunungMasEkosistem'),
-      karakteristik: t('karbon.wilayahGunungMasKarakteristik')
+      name: 'Kabupaten Pulang Pisau',
+      type: 'Pulang Pisau',
+      ps: 16,
+      desc: t('karbon.wilayahPulangPisauDesc'),
+      image: '/logos/pulang_pisau.webp'
     }
   ];
 
@@ -393,8 +409,9 @@ const ProgramKarbon: React.FC = () => {
         url="https://yayasanamal.org/program/karbon"
       />
       <CarbonParticles />
+      <LocalNav items={karbonNavItems} />
       <div className="pt-20">
-        <section className="relative pt-32 pb-16">
+        <section id="karbon-overview" className="relative pt-32 pb-16">
           <div className="container-custom relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full mb-8 animate-fade-in">
@@ -432,13 +449,12 @@ const ProgramKarbon: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-24">
+        <section id="karbon-wilayah" className="py-24">
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="section-label">
                 <div className="section-label-line" />
                 <span className="section-label-text">{t('karbon.cakupanWilayah')}</span>
-                <div className="section-label-line" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('karbon.kabupatenTitle')}</h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">{t('karbon.kabupatenDesc')}</p>
@@ -446,15 +462,27 @@ const ProgramKarbon: React.FC = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {wilayahKabupaten.map((item, idx) => (
-                <div key={idx} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                    <MapPin className="h-7 w-7 text-white" />
+                <div key={idx} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                  <div className="relative h-40 bg-white/5 flex items-center justify-center p-6">
+                    <img
+                      src={item.image}
+                      alt={`Logo ${item.name}`}
+                      className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-2">{item.name}</h3>
-                  <div className="inline-block bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                    {item.ekosistem}
+                  <div className="p-6">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
+                      item.type === 'Kapuas' ? 'bg-blue-100/10 text-blue-400' :
+                      item.type === 'Gunung Mas' ? 'bg-green-100/10 text-green-400' :
+                      item.type === 'Katingan' ? 'bg-purple-100/10 text-purple-400' :
+                      'bg-orange-100/10 text-orange-400'
+                    }`}>
+                      Kab. {item.type}
+                    </span>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.name}</h3>
+                    <p className="text-gold font-semibold text-xl mb-2">{item.ps}+ {t('karbon.statKelompokPs')}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                   </div>
-                  <p className="text-sm text-gray-400 font-body leading-relaxed">{item.karakteristik}</p>
                 </div>
               ))}
             </div>
@@ -476,13 +504,12 @@ const ProgramKarbon: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-24 bg-white/[0.02]">
+        <section id="karbon-ekosistem" className="py-24 bg-white/[0.02]">
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="section-label">
                 <div className="section-label-line" />
                 <span className="section-label-text">{t('karbon.ekosistem')}</span>
-                <div className="section-label-line" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('karbon.duaEkosistem')}</h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">{t('karbon.duaEkosistemDesc')}</p>
@@ -556,13 +583,12 @@ const ProgramKarbon: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-24">
+        <section id="karbon-metodologi" className="py-24">
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="section-label">
                 <div className="section-label-line" />
                 <span className="section-label-text">{t('karbon.metodologi')}</span>
-                <div className="section-label-line" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">{t('karbon.metodologiTitle')}</h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto font-body">{t('karbon.metodologiDesc')}</p>

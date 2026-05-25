@@ -45,42 +45,10 @@ const Kemitraan: React.FC = () => {
 
   const currentPartners = [
     {
-      kabupaten: 'Kapuas',
-      type: 'Kapuas',
-      groupCount: '22+',
-      name: 'Kabupaten Kapuas',
-      description: t('kemitraan.partnerKapuasDesc'),
-      image: '/logos/kapuas.png'
-    },
-    {
-      kabupaten: 'Gunung Mas',
-      type: 'Gunung Mas',
-      groupCount: '18+',
-      name: 'Kabupaten Gunung Mas',
-      description: t('kemitraan.partnerGunungMasDesc'),
-      image: '/logos/gunungmas.png'
-    },
-    {
-      kabupaten: 'Katingan',
-      type: 'Katingan',
-      groupCount: '25+',
-      name: 'Kabupaten Katingan',
-      description: t('kemitraan.partnerKatinganDesc'),
-      image: '/logos/katingan.png'
-    },
-    {
-      kabupaten: 'Pulang Pisau',
-      type: 'Pulang Pisau',
-      groupCount: '26+',
-      name: 'Kabupaten Pulang Pisau',
-      description: t('kemitraan.partnerPulangPisauDesc'),
-      image: '/logos/pulang_pisau.webp'
-    },
-    {
       kabupaten: 'Gunung Mas',
       type: 'Gunung Mas',
       groupCount: 'Koperasi',
-      name: 'Koperasi Kapakat Manggatang Panatau',
+      name: 'Kapakat Manggatang Panatau',
       description: t('kemitraan.partnerKamapaDesc'),
       image: '/logos/kamapa.png',
       url: 'https://kamapa.online'
@@ -89,9 +57,9 @@ const Kemitraan: React.FC = () => {
       kabupaten: 'Kapuas',
       type: 'Kapuas',
       groupCount: 'Koperasi',
-      name: 'Koperasi Bulau Ngandung',
+      name: 'Bulau Ngandung',
       description: t('kemitraan.partnerBulauNgandungDesc'),
-      image: '/logos/bulau_ngandung.png'
+      image: '/galeri/bulau_ngandung.png'
     }
   ];
 
@@ -238,15 +206,15 @@ const Kemitraan: React.FC = () => {
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-forest-light mb-4">
-                {t('kemitraan.kelompokPsMitra')}
+                {t('kemitraan.koperasiMitra')}
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                {t('kemitraan.kelompokPsMitraDesc')}
+                {t('kemitraan.koperasiMitraDesc')}
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {currentPartners.map((partner: any, index) => (
+            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              {currentPartners.map((partner, index) => (
                 <div key={index} className="card text-center group overflow-hidden relative">
                   <div className="relative h-48 bg-white/5 flex items-center justify-center p-8">
                     <img

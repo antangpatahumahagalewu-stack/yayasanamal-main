@@ -1,18 +1,22 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, Info, Leaf, BookOpen, Handshake, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useChatContext } from '../context/ChatContext';
+
+type ScrollState = 'top' | 'scrolling' | 'scrolled';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const { isOpen: isChatOpen } = useChatContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollState, setScrollState] = useState<ScrollState>('top');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
+
+  const isDropdownOpen = openDropdown !== null;
 
   const handleDropdownEnter = useCallback((name: string) => {
     if (closeTimerRef.current) {
@@ -50,8 +54,16 @@ const Navbar: React.FC = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (window.scrollY < 50) {
+        setScrollState('top');
+      } else if (window.scrollY < 150) {
+        setScrollState('scrolling');
+      } else {
+        setScrollState('scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -67,7 +79,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const linkClasses = (path: string) =>
-    `px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg ${
+    `inline-flex items-center space-x-1 px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg ${
       location.pathname === path
         ? 'text-gold bg-white/10'
         : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -80,15 +92,19 @@ const Navbar: React.FC = () => {
         : 'text-gray-700 hover:text-forest-mid hover:bg-cream'
     }`;
 
+  const headerBgClass = isDropdownOpen
+    ? 'bg-forest-deep'
+    : scrollState === 'top'
+      ? 'bg-transparent'
+      : scrollState === 'scrolling'
+        ? 'bg-forest-deep/50 backdrop-blur-sm'
+        : 'bg-forest-deep/85 backdrop-blur-xl saturate-180 shadow-lg';
+
   return (
     <header
-      className={`fixed top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 z-50 transition-all duration-500 ${
         isChatOpen ? 'md:w-[calc(100%-420px)]' : 'w-full'
-      } ${
-        isScrolled
-          ? 'bg-forest-deep/95 backdrop-blur-md shadow-lg'
-          : 'bg-forest-deep/80 backdrop-blur-sm'
-      }`}
+      } ${headerBgClass}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -110,7 +126,10 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            <Link to="/" className={linkClasses('/')}>{t('nav.home')}</Link>
+            <Link to="/" className={linkClasses('/')}>
+              <Home className="h-3.5 w-3.5" />
+              <span>{t('nav.home')}</span>
+            </Link>
 
             {/* Tentang Dropdown */}
             <div
@@ -125,6 +144,7 @@ const Navbar: React.FC = () => {
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
+                <Info className="h-3.5 w-3.5" />
                 <span>{t('nav.about')}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
@@ -153,6 +173,7 @@ const Navbar: React.FC = () => {
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
+                <Leaf className="h-3.5 w-3.5" />
                 <span>{t('nav.programs')}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
@@ -181,6 +202,7 @@ const Navbar: React.FC = () => {
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
+                <BookOpen className="h-3.5 w-3.5" />
                 <span>{t('nav.publications')}</span>
                 <ChevronDown className="h-4 w-4" />
               </button>
@@ -196,8 +218,14 @@ const Navbar: React.FC = () => {
               )}
             </div>
 
-            <Link to="/kemitraan" className={linkClasses('/kemitraan')}>{t('nav.partnership')}</Link>
-            <Link to="/kontak" className={linkClasses('/kontak')}>{t('nav.contact')}</Link>
+            <Link to="/kemitraan" className={linkClasses('/kemitraan')}>
+              <Handshake className="h-3.5 w-3.5" />
+              <span>{t('nav.partnership')}</span>
+            </Link>
+            <Link to="/kontak" className={linkClasses('/kontak')}>
+              <Mail className="h-3.5 w-3.5" />
+              <span>{t('nav.contact')}</span>
+            </Link>
           </div>
 
           {/* Language Switcher */}
