@@ -21,23 +21,6 @@ export interface NewsArticle {
 
 export const getNews = (t: TFunction): NewsArticle[] => [
   {
-    id: 2,
-    title: t('news.article2Title'),
-    excerpt: t('news.article2Excerpt'),
-    image: images.artikel2Img2,
-    date: t('news.article2Date'),
-    author: t('news.article2Author'),
-    category: 'Internasional',
-    content: t('news.article2Content'),
-    bodyImages: [
-      {
-        index: 8,
-        src: images.artikel2Img1.src,
-        alt: images.artikel2Img1.alt
-      }
-    ]
-  },
-  {
     id: 3,
     title: t('news.article3Title'),
     excerpt: t('news.article3Excerpt'),
