@@ -70,12 +70,6 @@ Program pemberdayaan ekonomi masyarakat melalui hasil hutan non-kayu:
 - Studi perubahan iklim dan keanekaragaman hayati.
 - Pengembangan metodologi karbon.
 
-### 4. API ESG
-Yayasan AMAL menyediakan **API** untuk perusahaan yang membutuhkan data karbon dan ESG (Environmental, Social, Governance).
-- Lisensi API tersedia untuk integrasi data karbon.
-- Mendukung compliance ESG perusahaan.
-- Informasi lebih lanjut di halaman /api-esg.
-
 ---
 
 ## Kemitraan

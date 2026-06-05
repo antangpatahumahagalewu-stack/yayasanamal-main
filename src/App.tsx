@@ -19,7 +19,6 @@ const Kemitraan = lazy(() => import('./pages/Kemitraan'));
 const Karbon = lazy(() => import('./pages/Karbon'));
 const Hhbk = lazy(() => import('./pages/Hhbk'));
 const Csr = lazy(() => import('./pages/Csr'));
-const ApiEsg = lazy(() => import('./pages/ApiEsg'));
 const Kontak = lazy(() => import('./pages/Kontak'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const NewsDetail = lazy(() => import('./pages/NewsDetail'));
@@ -88,7 +87,6 @@ function AppContent() {
             <Route path="/faq" element={<FAQ />} />
             
             <Route path="/kemitraan" element={<Kemitraan />} />
-            <Route path="/api-esg" element={<ApiEsg />} />
             <Route path="/kontak" element={<Kontak />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsConditions />} />

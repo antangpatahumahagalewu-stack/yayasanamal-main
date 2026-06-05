@@ -99,11 +99,7 @@ Program pemberdayaan ekonomi masyarakat melalui hasil hutan non-kayu:
 - Studi perubahan iklim dan keanekaragaman hayati.
 - Pengembangan metodologi karbon.
 
-### 4. API ESG & Pipeline Data SISINFOPS
-Yayasan AMAL menyediakan **API Licence** untuk perusahaan yang membutuhkan data karbon dan ESG (Environmental, Social, Governance).
-- Lisensi API tersedia untuk integrasi data karbon.
-- Mendukung compliance ESG perusahaan.
-- Informasi lebih lanjut di halaman /api-esg.
+### 4. Pipeline Data SISINFOPS
 
 **Pipeline Data SISINFOPS**: Seluruh data lapangan dikumpulkan melalui sistem **SISINFOPS** dalam 3 tahap:
 1. **SISINFOPS Mobile**: Petugas lapangan mengumpulkan data primer — pengukuran PSP (Permanent Sample Plot), koordinat GPS, foto monitoring, inventarisasi lapangan, dan pemantauan TMAT gambut.

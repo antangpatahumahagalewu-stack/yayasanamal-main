@@ -59,13 +59,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://yayasanamal.org/api-esg</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <!-- Publikasi -->
   <url>
     <loc>https://yayasanamal.org/publikasi/dokumen</loc>

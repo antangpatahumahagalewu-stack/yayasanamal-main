@@ -45,7 +45,6 @@ const Navbar: React.FC = () => {
     { path: '/program/karbon', label: t('navSub.programKarbon') },
     { path: '/program/hhbk', label: t('navSub.programHhbk') },
     { path: '/program/csr', label: t('navSub.programCsr') },
-    { path: '/api-esg', label: t('nav.apiEsg') },
   ];
   const publikasiSubmenu = [
     { path: '/publikasi/berita', label: t('navSub.publikasiBerita') },
@@ -168,7 +167,7 @@ const Navbar: React.FC = () => {
             >
               <button
                 className={`px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-200 rounded-lg flex items-center space-x-1 ${
-                  location.pathname.startsWith('/program') || location.pathname.startsWith('/api-esg')
+                  location.pathname.startsWith('/program')
                     ? 'text-gold bg-white/10'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}

@@ -39,7 +39,6 @@ const Footer: React.FC = () => {
               <li><Link to="/program" className="text-sm hover:text-gold transition-colors font-body">{t('footer.programPs')}</Link></li>
               <li><Link to="/program/karbon" className="text-sm hover:text-gold transition-colors font-body">{t('footer.projectCarbon')}</Link></li>
               <li><Link to="/program/hhbk" className="text-sm hover:text-gold transition-colors font-body">{t('footer.hhbk')}</Link></li>
-              <li><Link to="/api-esg" className="text-sm hover:text-gold transition-colors font-body">{t('footer.apiEsgFooter')}</Link></li>
               <li><Link to="/berita" className="text-sm hover:text-gold transition-colors font-body">{t('footer.newsFooter')}</Link></li>
               <li><Link to="/galeri" className="text-sm hover:text-gold transition-colors font-body">{t('footer.galleryFooter')}</Link></li>
             </ul>
